@@ -893,34 +893,19 @@ section {
   .nav-icon{
     display: block;
   }
-  .navlist {
-    width: 80%;
-    margin-top: 3rem;
-  }
-  .links {
-    margin: 0 auto;
-  }
-  .nav-links {
-    display: flex;
-    margin-right: 5px;
-  }
-  .nav-links a {
-    font-size: 0.5rem;
-    font-style: bold;
-    
-  }
+  
+  .nav-links,
   .nav-icon {
-    gap: 5px;
-    display: flex;
+    display: none;
   }
-  .nav-icon a {
-    font-size: 2rem;
-    background: transparent;
-    color: #fff;
+  .menu-container,
+  .menu-box {
+    display: block;
   }
+
   .menu-container, 
   .menu-box {
-    display: none;
+    display: block;
   }
   .container {
     flex-direction: row;
