@@ -25,13 +25,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
+  
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://profileravi.netlify.app/",
+      "@id": "https://profileravi.vercel.app/#ravi",
       "name": "Ravi Kumar Vishwakarma",
       "jobTitle": "B.Tech CSE (AI & Data Science) Student",
       "url": "https://profileravi.vercel.app/",
@@ -71,7 +72,7 @@
       },
         {
         "@type": "ItemList",
-        "@id": "https://ravikumar-3481.github.io/profileravi/#projects",
+        "@id": "https://profileravi.vercel.app/#projects",
         "name": "Featured Data Analytics Projects by Ravi Vishwakarma",
         "url": "https://profileravi.vercel.app/projects",
         "itemListElement": [
@@ -162,7 +163,7 @@
                         Data Scientist & AI Engineer bridging the gap between raw data and 92% predictive accuracy. I don't just build models; I engineer scalable data ecosystems that drive a 40% acceleration in business intelligence
                     </p>
                     <div class="btn-container" >
-                      <button  onclick="window.open('https://forms.gle/wyR1g39bA79EYu8X8', '_blank')" class="btn1 reveal">Hire me</button>
+                      <button onclick="window.open('https://forms.gle/wyR1g39bA79EYu8X8', '_blank')"  class="btn1 reveal">Hire me</button>
                       <button  href="#" class="btn1 reveal" onclick="showResumePopup()">View Resume</button>
                     </div>
                 </div>
@@ -170,7 +171,7 @@
             </div>
             <div class="right">
                 <div class="img">
-                    <img  src="public/img.webp" alt="Ravi Kumar Vishwakarma | Profile Image" />
+                    <img  src="public/img.webp" loading="lazy"  alt="Profile Image" />
                 </div>
 
             </div>
@@ -304,15 +305,33 @@
     </div>
 </section>
 
+    <section id="testimonials">
+        <!-- Header -->
+        <div class="section-tittle reveal">
+            <h1>Testimonials</h1>
+            <div class="tittle-under reveal"></div>
+            <p class="section-description">Feedback from collaborators and clients regarding my work in AI, Data Science, and Development.</p>
+        </div>
+
+        <!-- Grid -->
+        <div id="testimonial-grid" class="test-grid">
+            <!-- Dynamic Content via JS -->
+        </div>
+
+        <!-- Professional Action Button -->
+        <div class="test-btn">
+          <a href="https://forms.gle/wyR1g39bA79EYu8X8" class="btn1">Endorse My Work</a>
+        </div>
+    </section>
 
  </main>
 <div class="resume-popup" id="resumePopup">
     <div class="resume-popup-content">
       <i class="fas fa-times close-popup" onclick="closeResumePopup()"></i>
       <div class="resume-container">
-        <img src="assets/img/resume.jpg" alt="Ravi Kumar Vishwakarma | Resume" class="resume-image" id="resumeImage" />
+        <img src="assets/img/resume.jpg" alt="Ravi's Resume" class="resume-image" id="resumeImage" />
       </div>
-      <a href="https://drive.google.com/uc?export=download&id=1eybQxR0-2ea8bbbZi7g2SXOJooGwYjQV" target="_blank" class="download-icon" download aria-label="Download Resume"><i class="fas fa-download"></i></a>
+      <a href="assets/document/Ravi Vishwakarma _ Data Scientist Intern _ Resume .pdf" target="_blank" class="download-icon" download aria-label="Download Resume"><i class="fas fa-download"></i></a>
     </div>
   </div>
 
@@ -322,3 +341,4 @@
     <script src="assets/js/transition.js"></script>
 </body>
 </html>
+
