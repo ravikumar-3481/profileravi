@@ -310,18 +310,18 @@ section {
   font-weight: 700;
   cursor: pointer;
   outline: none;
-  transition: all 0.3s ease;
+  
   -webkit-tap-highlight-color: transparent;
 }
 .btn1:hover {
   background: #9124ff;
   color: #ffff;
-  transform: translateY(-3px) scale(1.03);
+  transform: translateY(-3px) ;
   box-shadow: 0 8px 25px rgb(102,9,181);
   filter: brightness(1.1);
 }
 .btn1:active {
-  transform: translateY(-3px) scale(1.03);
+  transform: translateY(-3px);
   box-shadow: 0 2px 10px rgb(102,9,181);
 }
 
