@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "category": "ai",
+        "title": "Predictive Sales Engine",
+        "thumbnail": "project1.gif",
+        "problem": "E-commerce brands were losing 30% revenue due to stock-outs and overstocking issues.",
+        "solution": "Developed an XGBoost regression model with automated feature engineering for demand forecasting.",
+        "technologies": ["Python", "Scikit-Learn", "AWS"],
+        "result": "92% Accuracy",
+        "liveLink": "#",
+        "codeLink": "#"
+    },
+    {
+        "id": 2,
+        "category": "web",
+        "title": "AI SaaS Dashboard",
+        "thumbnail": "project2.jpg",
+        "problem": "Raw data was inaccessible to non-technical stakeholders for real-time decision making.",
+        "solution": "Built a full-stack platform with interactive D3.js charts and automated reporting.",
+        "technologies": ["React", "Node.js", "MongoDB"],
+        "result": "40% Faster BI",
+        "liveLink": "#",
+        "codeLink": "#"
+    },
+    {
+        "id": 3,
+        "category": "data",
+        "title": "Customer Churn Analysis",
+        "thumbnail": "project3.jpg",
+        "problem": "High attrition rates in subscription services without identifiable behavioral patterns.",
+        "solution": "Performed EDA on 50k+ records and implemented a Random Forest classifier for risk detection.",
+        "technologies": ["Pandas", "Matplotlib", "SQL"],
+        "result": "85% Recall",
+        "liveLink": "#",
+        "codeLink": "#"
+    },
+    {
+        "id": 4,
+        "category": "ai",
+        "title": "NLP Sentiment Bot",
+        "thumbnail": "project4.jpg",
+        "problem": "Customer support teams were overwhelmed by high volumes of unclassified feedback.",
+        "solution": "Engineered a BERT-based transformer model to categorize sentiments in real-time.",
+        "technologies": ["PyTorch", "HuggingFace", "FastAPI"],
+        "result": "90% F1-Score",
+        "liveLink": "#",
+        "codeLink": "#"
+    },
+    {
+        "id": 5,
+        "category": "web",
+        "title": "FinTech Portfolio App",
+        "thumbnail": "project5.jpg",
+        "problem": "Users lacked a unified interface to track crypto and stock assets with live updates.",
+        "solution": "Developed a secure dashboard using WebSocket for real-time price streaming and tracking.",
+        "technologies": ["React", "Firebase", "WebSockets"],
+        "result": "1k+ Active Users",
+        "liveLink": "#",
+        "codeLink": "#"
+    },
+    {
+        "id": 6,
+        "category": "data",
+        "title": "Supply Chain Optimizer",
+        "thumbnail": "project6.jpg",
+        "problem": "Logistics bottlenecks causing delayed deliveries across multiple regions.",
+        "solution": "Applied Linear Programming and Route Optimization algorithms to reduce transit time.",
+        "technologies": ["Python", "Google OR-Tools", "Plotly"],
+        "result": "15% Cost Reduction",
+        "liveLink": "#",
+        "codeLink": "#"
+    }
+]

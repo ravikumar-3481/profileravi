@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "institute": "University of Technology",
+        "logo": "assets/img/aks.webp",
+        "degree": "B.Tech in Computer Science",
+        "cgpa": "8.5/10",
+        "duration": "2020 - 2024",
+        "courses": ["Data Structures", "AI & ML", "Web Security"],
+        "skills": ["Python", "React", "AWS"],
+        "description": "Focused on advanced algorithms and cloud architecture while maintaining a consistent top-tier academic record."
+    },
+    {
+        "id": 2,
+        "institute": "Global High School",
+        "logo": "assets/img/pm.webp",
+        "degree": "Higher Secondary Education",
+        "cgpa": "9.2/10",
+        "duration": "2018 - 2020",
+        "courses": ["Mathematics", "Physics", "Computer Science"],
+        "skills": ["C++", "Critical Thinking"],
+        "description": "Graduated with honors, specializing in technical sciences and leading the robotics club."
+    }
+]
