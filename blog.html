@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dev.to Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modern CSS - Variable Based and Human Readable */
+        :root {
+            --primary-glow: #9124ff;
+            --secondary-glow: #7000ff;
+            --bg-body: #0a0118;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(145, 36, 255, 0.15);
+            --text-main: #ffffff;
+            --text-muted: #a78bfa;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', 'Poppins', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* Container & Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 325px));
+            gap: 30px;
+            padding: 20px 0;
+            justify-content: center;
+        }
+
+        /* Modern Blog Card Styling */
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Card Hover Effect */
+        .blog-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 20px 40px rgba(145, 36, 255, 0.2);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        /* Image Wrapper */
+        .img-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.1);
+        }
+
+        /* Date Badge on Image */
+        .date-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(10, 1, 24, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+        }
+
+        /* Content Area */
+        .blog-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+            color: #fff;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Tags Styling */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-item {
+            background: linear-gradient(135deg, rgba(145, 36, 255, 0.1), rgba(112, 0, 255, 0.2));
+            color: #d1a3ff;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-weight: 500;
+            border: 1px solid rgba(145, 36, 255, 0.2);
+        }
+
+        .blog-desc {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-top: 5px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Modern Button Styling */
+        .read-link {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-glow);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .read-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-link:hover {
+            color: #fff;
+        }
+
+        .read-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Skeleton Loader Styling */
+        .skeleton-card {
+            height: 400px;
+            background: #150a26;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skeleton-card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(145, 36, 255, 0.05), transparent);
+            animation: slide 1.5s infinite;
+        }
+
+        @keyframes slide { 
+            0% { transform: translateX(-100%); } 
+            100% { transform: translateX(100%); } 
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <h1 style="font-size: 3rem; margin-bottom: 10px; background: linear-gradient(to right, #fff, #9124ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Technical Blogs</h1>
+        <p style="color: #888;">Sharing knowledge and experiences from my Dev.to journey</p>
+    </div>
+
+    <div class="blog-grid" id="blog-container">
+        <!-- 3 Skeleton cards loading default -->
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+    </div>
+</div>
+
+<script>
+    const BLOG_CONFIG = {
+        USERNAME: "ravi_kumar3481",
+        CACHE_EXPIRY: 600000 // 10 minutes in ms
+    };
+
+    async function getBlogs() {
+        const container = document.getElementById('blog-container');
+        const cacheKey = `dev_blogs_${BLOG_CONFIG.USERNAME}`;
+        
+        // 1. Efficiency: Check Cache
+        const cache = localStorage.getItem(cacheKey);
+        if (cache) {
+            const parsed = JSON.parse(cache);
+            if (Date.now() - parsed.time < BLOG_CONFIG.CACHE_EXPIRY) {
+                render(parsed.data);
+                return;
+            }
+        }
+
+        try {
+            // 2. Performance: Fetch directly from Public API
+            const response = await fetch(`https://dev.to/api/articles?username=${BLOG_CONFIG.USERNAME}`);
+            if (!response.ok) throw new Error("API Connection Error");
+            
+            const data = await response.json();
+            
+            // 3. Cache Management
+            localStorage.setItem(cacheKey, JSON.stringify({
+                time: Date.now(),
+                data: data
+            }));
+
+            render(data);
+
+        } catch (err) {
+            container.innerHTML = `<div style="grid-column: 1/-1; text-align:center;">
+                <p style="color:#ff4d4d">Oops! Could not sync with Dev.to</p>
+                <button onclick="location.reload()" style="background:var(--primary-glow); color:#fff; border:none; padding:10px 20px; border-radius:10px; cursor:pointer;">Retry</button>
+            </div>`;
+        }
+    }
+
+    function render(articles) {
+        const container = document.getElementById('blog-container');
+        
+        if (!articles.length) {
+            container.innerHTML = "<p style='grid-column:1/-1; text-align:center'>No published articles found.</p>";
+            return;
+        }
+
+        container.innerHTML = articles.map(post => {
+            const formattedDate = new Date(post.published_at).toLocaleDateString('en-US', {
+                month: 'short', day: 'numeric', year: 'numeric'
+            });
+
+            return `
+                <article class="blog-card">
+                    <div class="img-wrapper">
+                        <img src="${post.cover_image || 'https://via.placeholder.com/600x350/110123/9124ff?text=Tech+Insights'}" 
+                             alt="article cover" class="blog-img">
+                        <div class="date-badge">${formattedDate}</div>
+                    </div>
+                    
+                    <div class="blog-content">
+                        <div class="tag-container">
+                            ${post.tag_list.map(t => `<span class="tag-item">#${t}</span>`).join('')}
+                        </div>
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-desc">${post.description || 'Dive into the technical details of this project and explore the implementation steps.'}</p>
+                        
+                        <a href="${post.url}" target="_blank" class="read-link">
+                            Read Full Story <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    // Launch
+    getBlogs();
+</script>
+
+</body>
+</html>
+
