@@ -401,3 +401,161 @@
         grid-template-columns: repeat(auto-fit, minmax(350px, 380px));
     }
 }
+
+
+
+
+#testimonials {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+.section-description {
+  margin-top: 25px;
+  color: #a0aec0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+}
+
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            justify-content: center;
+        }
+
+        /* Card Styling */
+        .t-card {
+            background: rgba(94, 0, 173, 0.05);
+            border: 1px solid rgba(141, 4, 244, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .t-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .t-card:hover {
+            border-color: #8d04f4;
+            box-shadow: 0 10px 30px rgba(141, 4, 244, 0.15);
+            background: rgba(94, 0, 173, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .quote-mark {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: #8d04f4;
+            opacity: 0.15;
+        }
+
+        .rating-stars {
+            color: #ffb800;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .feedback-text {
+            color: #cbd5e1;
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .meta-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .meta-info .meta-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .meta-info .meta-role {
+            font-size: 0.85rem;
+            color: #a78bfa;
+        }
+
+        .meta-role b {
+            color: #fff;
+            margin-left: 5px;
+        }
+
+        /* Button Container & Style */
+        .test-btn {
+             min-height: 3.6rem;
+             height: auto;
+             min-width: 220px;
+             width: auto ;
+             max-width: 15rem;
+             margin: 0 auto;
+             padding-inline: 5px;
+             margin-top: 4rem;
+        }
+
+
+
+        /* Responsiveness (Pure CSS Media Queries) */
+        @media (max-width: 1200px) {
+            .test-grid {
+                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+   
+        @media (min-width: 1201px) {
+          .btn1 {
+            max-width: 220px;
+          }
+        }
+        @media (max-width: 768px) {
+            .test-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .t-card {
+                padding: 30px;
+            }
+            .section-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title h1 {
+                font-size: 2rem;
+            }
+            .t-card {
+                padding: 25px;
+            }
+            .btn1 {
+                padding: 12px 25px;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+        }
