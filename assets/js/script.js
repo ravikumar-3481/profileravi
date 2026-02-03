@@ -294,3 +294,62 @@ async function fetchToolboxData() {
 
 // Call function to execute
 fetchToolboxData();
+
+
+
+        const sheetId = '1Y3ZMgMpme1xolYpka_2EwayrpUkpr7Qic2AzfspGwTA';
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+
+        async function fetchTestimonials() {
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                // Extracting JSON from the Google Sheets Response
+                const jsonData = JSON.parse(text.substring(47).slice(0, -2));
+                const rows = jsonData.table.rows;
+
+                // Getting the 4 latest testimonials
+                const latestData = rows.reverse().slice(0, 4);
+                const grid = document.getElementById('testimonial-grid');
+
+                latestData.forEach((row, index) => {
+                    const name = row.c[1] ? row.c[1].v : 'Collaborator';
+                    const role = row.c[2] ? row.c[2].v : 'Professional';
+                    const institute = row.c[3] ? row.c[3].v : '';
+                    const rating = row.c[4] ? parseInt(row.c[4].v) : 5;
+                    const feedback = row.c[5] ? row.c[5].v : 'Great contribution to the project.';
+
+                    const starHtml = Array(5).fill(0).map((_, i) => 
+                        `<i class="${i < rating ? 'fas' : 'far'} fa-star"></i>`
+                    ).join('');
+
+                    const card = document.createElement('div');
+                    card.className = 't-card';
+                    card.innerHTML = `
+                        <i class="fas fa-quote-right quote-mark"></i>
+                        <div class="content-top">
+                            <div class="rating-stars">${starHtml}</div>
+                            <p class="feedback-text">"${feedback}"</p>
+                        </div>
+                        <div class="meta-container">
+                            <div class="meta-info">
+                                <div class="meta-name">${name}</div>
+                                <div class="meta-role">${role} ${institute ? `at <b> ${institute} </b>` : ''}</div>
+                            </div>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+
+                    // Reveal animation
+                    setTimeout(() => {
+                        card.classList.add('reveal');
+                    }, index * 200);
+                });
+
+            } catch (err) {
+                console.error("Error loading sheet data:", err);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', fetchTestimonials);
