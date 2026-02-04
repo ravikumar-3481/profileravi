@@ -1,14 +1,23 @@
 function toggleMenu() {
-
     const menuBox = document.getElementById("menuBox");
     const overlay = document.getElementById("overlay");
     const menuContainer = document.querySelector(".menu-container");
 
     menuBox.classList.toggle("active");
     overlay.classList.toggle("active");
-
     menuContainer.classList.toggle("change");
 }
+
+// Event listeners ko function ke bahar rakhein taaki wo sirf ek baar load hon
+document.querySelectorAll('.menu-box a').forEach(link => {
+    link.addEventListener('click', () => {
+        const menuBox = document.getElementById("menuBox");
+        if (menuBox.classList.contains("active")) {
+            toggleMenu();
+        }
+    });
+});
+
 const counters = document.querySelectorAll('.counter');
 const speed = 100;
 
@@ -353,3 +362,152 @@ fetchToolboxData();
         }
 
         window.addEventListener('DOMContentLoaded', fetchTestimonials);
+
+
+
+async function loadExperience() {
+    const container = document.getElementById('experience-container');
+
+    try {
+        const response = await fetch('assets/data/experience.json');
+        
+        if (!response.ok) throw new Error("Experience data not found");
+
+        const expData = await response.json();
+
+        container.innerHTML = expData.map(item => `
+            <div class="exp-card">
+                <span class="exp-type">${item.type}</span>
+                
+                <div class="exp-header">
+                    <div class="exp-logo-box">
+                        <img src="${item.logo}" alt="${item.company}" class="exp-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <span style="display:none">${item.company.charAt(0)}</span>
+                    </div>
+                    <div class="exp-title">
+                        <h3>${item.role}</h3>
+                        <span>${item.company}</span>
+                    </div>
+                </div>
+
+                <div class="exp-meta">
+                    <span><i class="fas fa-map-marker-alt"></i> ${item.location}</span>
+                    <span><i class="fas fa-calendar-alt"></i> ${item.duration}</span>
+                </div>
+
+                <p class="exp-desc">${item.description}</p>
+
+                <ul class="exp-tasks">
+                    ${item.tasks.map(task => `<li>${task}</li>`).join('')}
+                </ul>
+
+                <div class="exp-skills">
+                    ${item.skills.map(skill => `<span class="exp-skill-tag">${skill}</span>`).join('')}
+                </div>
+            </div>
+        `).join('');
+
+    } catch (error) {
+        console.error("Error loading experience:", error);
+        container.innerHTML = `<p style="color: red; text-align: center;">Failed to load experience.</p>`;
+    }
+}
+
+// Call the function
+loadExperience();
+
+
+async function fetchCertificates() {
+    const container = document.getElementById('cert-container');
+    
+    // 1. Loading State (User experience ke liye)
+    container.innerHTML = '<div class="loading">Loading certificates...</div>';
+    
+    try {
+        const response = await fetch('assets/data/certificates.json');
+        
+        // 2. Check if the response is actually OK
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // 3. Check if data is empty
+        if (!data || data.length === 0) {
+            container.innerHTML = "<p>No certificates found.</p>";
+            return;
+        }
+
+        // 4. Fragment optimization (Performance ke liye)
+        const certCards = data.map(cert => `
+            <div class="cert-card">
+                <div class="cert-img-box">
+                    <img src="${cert.image}" 
+                         alt="${cert.title}" 
+                         loading="lazy" 
+                         onerror="this.src='https://via.placeholder.com/400x200?text=Certificate'">
+                </div>
+                <div class="cert-info">
+                    <div class="cert-issuer-row">
+                        <span class="cert-issuer"><i class="fas fa-certificate"></i> ${cert.issuer}</span>
+                        <span class="cert-date">${cert.date}</span>
+                    </div>
+                    <h3>${cert.title}</h3>
+                    <p class="cert-text">${cert.description}</p>
+                    
+                    <div class="cert-tags">
+                        ${cert.skills.map(skill => `<span class="cert-tag">${skill}</span>`).join('')}
+                    </div>
+
+                    <a href="${cert.link}" target="_blank" class="cert-link" rel="noopener noreferrer">
+                        Verify Credential <i class="fas fa-external-link-alt" style="margin-left: 5px; font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+        `).join('');
+
+        container.innerHTML = certCards;
+
+    } catch (error) {
+        console.error("Error loading certificates:", error);
+        container.innerHTML = `
+            <div class="error-msg">
+                <p>⚠️ Failed to load certifications. Please try again later.</p>
+            </div>`;
+    }
+}
+
+window.addEventListener('DOMContentLoaded', fetchCertificates);
+
+
+
+async function loadActivities() {
+    const container = document.getElementById('activities-container');
+    
+    try {
+        const response = await fetch('assets/data/activities.json');
+        if (!response.ok) throw new Error("Activities data not found");
+        
+        const data = await response.json();
+
+        container.innerHTML = data.map(item => `
+            <div class="activity-card">
+                <div class="activity-icon"><i class="${item.icon}"></i></div>
+                <span class="activity-inst">${item.institute}</span>
+                <h3>${item.title}</h3>
+                <p class="activity-desc">${item.description}</p>
+                <div class="activity-duration">
+                    <i class="far fa-clock"></i> ${item.duration}
+                </div>
+            </div>
+        `).join('');
+
+    } catch (error) {
+        console.error("Error loading activities:", error);
+        container.innerHTML = `<p style="color: rgba(255,255,255,0.5);">Information temporarily unavailable.</p>`;
+    }
+}
+
+// Initialize the function
+document.addEventListener('DOMContentLoaded', loadActivities);
