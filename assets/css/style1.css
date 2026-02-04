@@ -2,7 +2,6 @@
 .projects {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    padding-inline: 2rem;
     margin-top: 4rem;
 }
 
@@ -417,6 +416,7 @@
   margin-left: auto;
   margin-right: auto;
   font-size: 1rem;
+  text-align: center;
 }
 
 
@@ -559,3 +559,402 @@
                 letter-spacing: 1px;
             }
         }
+
+
+
+
+
+/* Experience Section Styling */
+.experience-section {
+    padding-block: 5rem;
+    padding-inline: 2rem;
+    margin-top: 4rem;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 355px));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-inline: auto;
+    justify-content: center;
+}
+
+/* Card Style - Matches Project Card */
+.exp-card {
+    background: transparent;
+    border: 1px solid rgba(145, 36, 255, 0.2);
+    border-radius: 25px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.exp-card:hover {
+    transform: translateY(-10px);
+    border-color: #9124ff;
+    box-shadow: 0 15px 35px rgba(108, 23, 195, 0.25);
+}
+
+/* Header: Logo & Title */
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exp-logo-box {
+    width: 55px;
+    height: 55px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    flex-shrink: 0;
+}
+
+.exp-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.exp-title h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.exp-title span {
+    color: #9124ff; /* Your accent color */
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Job Type Badge (Top Right) */
+.exp-type {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.75rem;
+    background: rgba(145, 36, 255, 0.15);
+    color: #d1a3ff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(145, 36, 255, 0.3);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    max-width: 8rem;
+}
+
+/* Meta Data (Location/Date) */
+.exp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.exp-meta i {
+    color: #9124ff;
+    margin-right: 5px;
+}
+
+/* Description & Tasks */
+.exp-desc {
+    color: #ddd;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.exp-tasks {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.exp-tasks li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.exp-tasks li::before {
+    content: "\f00c"; /* FontAwesome Check Icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #9124ff;
+    font-size: 0.8rem;
+}
+
+/* Tech Stack (Bottom) */
+.exp-skills {
+    margin-top: auto; /* Pushes to bottom */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exp-skill-tag {
+    background: rgba(145, 36, 255, 0.1);
+    color: #9124ff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid rgba(145, 36, 255, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    .experience-section {
+        padding-inline: 1rem;
+    }
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    .exp-type {
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+}
+
+
+
+/* --- Certificates Section --- */
+.cert-section {
+    padding-block: 5rem;
+    padding-inline: 1.5rem;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 320px));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    justify-content: center;
+}
+
+/* Card Design */
+.cert-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(145, 36, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-card:hover {
+    transform: translateY(-10px);
+    border-color: #9124ff;
+    box-shadow: 0 10px 40px rgba(145, 36, 255, 0.15);
+}
+
+/* Image styling */
+.cert-img-box {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(145, 36, 255, 0.1);
+}
+
+.cert-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.cert-card:hover .cert-img-box img {
+    transform: scale(1.08);
+}
+
+/* Content Area */
+.cert-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-issuer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.cert-issuer {
+    color: #9124ff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.cert-date {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+.cert-info h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.cert-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+/* Skill Tags */
+.cert-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.cert-tag {
+    background: rgba(145, 36, 255, 0.1);
+    color: #d1a3ff;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(145, 36, 255, 0.2);
+}
+
+/* Verify Link */
+.cert-link {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    background: rgba(145, 36, 255, 0.1);
+    border: 1px solid #9124ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.cert-link:hover {
+    background: #9124ff;
+    box-shadow: 0 0 20px rgba(145, 36, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .cert-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+  }
+}
+
+
+
+/* Extra-Curricular Section */
+.activities-section {
+    padding-block: 5rem;
+    padding-inline: 2rem;
+    margin-top: 4rem;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    justify-content: center;
+}
+
+.activity-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(145, 36, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 28rem;
+}
+
+.activity-card:hover {
+    transform: translateY(-12px);
+    border-color: #9124ff;
+    background: rgba(145, 36, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(145, 36, 255, 0.2);
+}
+
+.activity-icon {
+    font-size: 2rem;
+    color: #9124ff;
+    margin-bottom: 0.5rem;
+}
+
+.activity-card h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.activity-inst {
+    color: #9124ff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.activity-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.activity-duration {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
