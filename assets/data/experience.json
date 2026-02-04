@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "company": "Google",
+    "logo": "assets/img/google.png", 
+    "role": "Senior Web Developer",
+    "type": "Full-time",
+    "location": "Mountain View, CA",
+    "duration": "Jan 2022 - Present",
+    "description": "Leading frontend architecture for internal recruitment tools and streamlining the hiring process for engineering roles.",
+    "tasks": [
+      "Architecting scalable React-based dashboards.",
+      "Optimizing load times of internal tools by 40%.",
+      "Mentoring L3/L4 software engineers."
+    ],
+    "skills": ["React", "TypeScript", "Node.js", "System Design"]
+  },
+  {
+    "id": 2,
+    "company": "Creative Solutions",
+    "logo": "assets/img/creative.png",
+    "role": "Lead UI/UX Engineer",
+    "type": "Contract",
+    "location": "Remote (London)",
+    "duration": "Mar 2020 - Dec 2021",
+    "description": "Spearheaded the redesign of the agency's core client portfolio, focusing on accessibility and micro-interactions.",
+    "tasks": [
+      "Designed high-fidelity mockups in Figma.",
+      "Established a reusable component library.",
+      "Improved accessibility scores to WCAG AA standards."
+    ],
+    "skills": ["Vue.js", "Figma", "Tailwind", "Animation"]
+  },
+  {
+    "id": 3,
+    "company": "TechStream Start-up",
+    "logo": "assets/img/techstream.png",
+    "role": "Junior Frontend Dev",
+    "type": "Internship",
+    "location": "Bangalore, India",
+    "duration": "Jun 2019 - Feb 2020",
+    "description": "Collaborated with the product team to build the MVP of a video streaming platform using modern web technologies.",
+    "tasks": [
+      "Implemented responsive layouts using HTML5/SCSS.",
+      "Integrated RESTful APIs for user auth.",
+      "Fixed cross-browser compatibility issues."
+    ],
+    "skills": ["JavaScript", "SASS", "Git", "REST APIs"]
+  }
+]

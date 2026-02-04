@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Open Source Contributor",
+    "description": "Actively contributing to AI-based web tools and improving algorithm efficiency for community projects on GitHub.",
+    "duration": "2023 - Present",
+    "institute": "GitHub Community",
+    "icon": "fas fa-code-branch"
+  },
+  {
+    "title": "Technical Workshop Lead",
+    "description": "Organized and led workshops on Data Science fundamentals and Python automation, reaching over 200+ students.",
+    "duration": "6 Months",
+    "institute": "AKS University",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "title": "AI Research Assistant",
+    "description": "Collaborated on developing predictive models for local data trends, focusing on data cleaning and feature engineering.",
+    "duration": "1 Year",
+    "institute": "Tech Innovation Lab",
+    "icon": "fas fa-microscope"
+  },
+  {
+    "title": "Hackathon Finalist",
+    "description": "Developed a 'Smart Traffic Management' prototype using machine learning during a 48-hour national coding challenge.",
+    "duration": "Feb 2024",
+    "institute": "Smart India Hackathon",
+    "icon": "fas fa-trophy"
+  },
+  {
+    "title": "Data Science Mentor",
+    "description": "Provided peer-to-peer mentoring on SQL and Tableau, helping junior students build their first analytics portfolios.",
+    "duration": "2023 - 2024",
+    "institute": "Coding Club",
+    "icon": "fas fa-users"
+  },
+  {
+    "title": "Tech Content Creator",
+    "description": "Writing technical blogs and documentation on Medium about simplifying complex AI concepts for beginners.",
+    "duration": "Present",
+    "institute": "Self-Employed / Medium",
+    "icon": "fas fa-pen-nib"
+  }
+]

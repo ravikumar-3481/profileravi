@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Google Data Analytics Professional",
+    "issuer": "Google",
+    "date": "Aug 2023",
+    "image": "assets/img/cert-google.jpg",
+    "link": "https://coursera.org/verify/example",
+    "skills": ["Data Analysis", "SQL", "R Programming"],
+    "description": "Comprehensive program covering data cleaning, visualization, and analysis using professional tools."
+  },
+  {
+    "id": 2,
+    "title": "Meta Front-End Developer",
+    "issuer": "Meta",
+    "date": "Jan 2024",
+    "image": "assets/img/project1.webp",
+    "link": "#",
+    "skills": ["React", "UI/UX", "JavaScript"],
+    "description": "Advanced training in building responsive web applications and user interfaces with React."
+  },
+  {
+    "id": 3,
+    "title": "Meta Front-End Developer",
+    "issuer": "Meta",
+    "date": "Jan 2024",
+    "image": "assets/img/project1.webp",
+    "link": "#",
+    "skills": ["React", "UI/UX", "JavaScript"],
+    "description": "Advanced training in building responsive web applications and user interfaces with React."
+  }
+]
