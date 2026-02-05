@@ -443,7 +443,7 @@ async function fetchCertificates() {
         const certCards = data.map(cert => `
             <div class="cert-card">
                 <div class="cert-img-box">
-                    <img src="${cert.image}" 
+                    <img src="assets/img/${cert.image}" 
                          alt="${cert.title}" 
                          loading="lazy" 
                          onerror="this.src='https://via.placeholder.com/400x200?text=Certificate'">
