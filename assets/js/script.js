@@ -157,7 +157,7 @@ async function loadProjects() {
                         <h3>${p.title}</h3>
                         <p><strong>Problem:</strong> ${p.problem}</p>
                         <p><strong>Solution:</strong> ${p.solution}</p>
-                        <p><strong>Result:</strong> ${p.solution}</p>
+                        <p><strong>Result:</strong> ${p.result1}</p>
                         <div class="project-tech">
                             ${p.technologies.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
                         </div>
