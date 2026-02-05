@@ -760,7 +760,7 @@
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(320px, 320px));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
     gap: 2.5rem;
     max-width: 1200px;
     margin: 3rem auto 0;
