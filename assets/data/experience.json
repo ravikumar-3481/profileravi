@@ -1,50 +1,34 @@
 [
-  {
+{
     "id": 1,
-    "company": "Google",
-    "logo": "assets/img/google.png", 
-    "role": "Senior Web Developer",
-    "type": "Full-time",
-    "location": "Mountain View, CA",
-    "duration": "Jan 2022 - Present",
-    "description": "Leading frontend architecture for internal recruitment tools and streamlining the hiring process for engineering roles.",
-    "tasks": [
-      "Architecting scalable React-based dashboards.",
-      "Optimizing load times of internal tools by 40%.",
-      "Mentoring L3/L4 software engineers."
-    ],
-    "skills": ["React", "TypeScript", "Node.js", "System Design"]
-  },
-  {
-    "id": 2,
-    "company": "Creative Solutions",
-    "logo": "assets/img/creative.png",
-    "role": "Lead UI/UX Engineer",
-    "type": "Contract",
-    "location": "Remote (London)",
-    "duration": "Mar 2020 - Dec 2021",
-    "description": "Spearheaded the redesign of the agency's core client portfolio, focusing on accessibility and micro-interactions.",
-    "tasks": [
-      "Designed high-fidelity mockups in Figma.",
-      "Established a reusable component library.",
-      "Improved accessibility scores to WCAG AA standards."
-    ],
-    "skills": ["Vue.js", "Figma", "Tailwind", "Animation"]
-  },
-  {
-    "id": 3,
-    "company": "TechStream Start-up",
-    "logo": "assets/img/techstream.png",
-    "role": "Junior Frontend Dev",
+    "company": "Future Interns",
+    "logo": "assets/img/future_interns_logo.png", 
+    "role": "Data Analyst Intern",
     "type": "Internship",
-    "location": "Bangalore, India",
-    "duration": "Jun 2019 - Feb 2020",
-    "description": "Collaborated with the product team to build the MVP of a video streaming platform using modern web technologies.",
+    "location": "Remote",
+    "duration": "1 Month",
+    "description": "Leveraging data analytics to uncover actionable insights and behavioral patterns, helping to drive informed decision-making through clear and intuitive data storytelling.",
     "tasks": [
-      "Implemented responsive layouts using HTML5/SCSS.",
-      "Integrated RESTful APIs for user auth.",
-      "Fixed cross-browser compatibility issues."
+      "Developed interactive Power BI dashboards to visualize complex datasets and key performance metrics.",
+      "Performed data modeling and cleaning to ensure high accuracy and reliability of analytical reports.",
+      "Communicated data-driven findings to stakeholders to support strategic planning and process optimization."
     ],
-    "skills": ["JavaScript", "SASS", "Git", "REST APIs"]
+    "skills": ["Power BI", "Data Visualization", "Data Modeling", "Statistical Analysis", "SQL"]
+  },
+{
+    "id": 2,
+    "company": "Cognifyz Technologies",
+    "logo": "assets/img/cognifyz.png",
+    "role": "Data Analyst Intern",
+    "type": "Internship",
+    "location": "Remote",
+    "duration": "Nov 2025 - Jan 2026",
+    "description": "Utilized advanced analytical techniques to transform complex datasets into meaningful business insights, focusing on data integrity and predictive trends.",
+    "tasks": [
+      "Analyzed large-scale datasets to identify key operational trends and performance bottlenecks.",
+      "Developed automated reporting scripts to streamline data collection and validation processes.",
+      "Applied statistical modeling to predict user behavior and support data-driven strategy development."
+    ],
+    "skills": ["Python", "SQL", "Data Cleaning", "Statistical Analysis", "Predictive Modeling"]
   }
 ]
