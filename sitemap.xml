@@ -2,17 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://profileravi.netlify.app/</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://profileravi.netlify.app/APNA_LINK_YAHAN_DAALEIN</loc>
-    <lastmod>2026-02-03</lastmod>
+    <loc>https://profileravi.netlify.app/blog/blog</loc>
+    <lastmod>2026-02-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://profileravi.netlify.app/assets/img/resume.jpg</loc>
+    <lastmod>2026-02-05</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://profileravi.netlify.app/og/img.webp</loc>
+    <lastmod>2026-02-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <loc>https://profileravi.netlify.app/og/og.webp</loc>
+    <lastmod>2026-02-05</lastmod>
+    <priority>0.7</priority>
+  </url>
     <loc>https://profileravi.netlify.app/assets/document/Ravi%20Vishwakarma%20_%20Data%20Scientist%20Intern%20_%20Resume%20.pdf</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>
