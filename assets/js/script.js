@@ -511,3 +511,98 @@ async function loadActivities() {
 
 // Initialize the function
 document.addEventListener('DOMContentLoaded', loadActivities);
+
+
+
+async function fetchLeetCodeStats() {
+    const container = document.getElementById('leetcode-stats-container');
+    if(!container) return;
+
+    const username = "ravivish3481"; 
+    
+    try {
+        const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
+        const data = await response.json();
+
+        if (data.status === "success") {
+            container.innerHTML = `
+                <div class="lc-stats-wrapper">
+                    <div class="lc-stats-row"><span>Total Solved</span><span class="lc-val">${data.totalSolved}</span></div>
+                    <div class="lc-stats-row"><span>Acceptance Rate</span><span class="lc-val">${data.acceptanceRate}%</span></div>
+                    <div class="lc-stats-row"><span>Easy</span><span class="lc-val" style="color:#00b8a3">${data.easySolved}</span></div>
+                    <div class="lc-stats-row"><span>Medium</span><span class="lc-val" style="color:#ffc01e">${data.mediumSolved}</span></div>
+                    <div class="lc-stats-row"><span>Hard</span><span class="lc-val" style="color:#ef4743">${data.hardSolved}</span></div>
+                    <div class="lc-stats-row"><span>Global Ranking</span><span class="lc-val">${data.ranking}</span></div>
+                </div>
+            `;
+        } else {
+            throw new Error("User not found");
+        }
+    } catch (err) {
+        container.innerHTML = `<p style="color:rgba(255,255,255,0.4)">LeetCode data is currently private or restricted.</p>`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchLeetCodeStats);
+
+
+
+
+
+
+const form = document.getElementById('contact-form');
+const successOverlay = document.getElementById('successMsg');
+
+function closeSuccess() {
+    successOverlay.classList.remove('active');
+}
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    let isValid = true;
+    
+    // Reset errors
+    document.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
+
+    const fields = ['name', 'email', 'subject', 'message'];
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (id === 'email' && !emailRegex.test(el.value)) {
+            el.parentElement.classList.add('error');
+            isValid = false;
+        } else if (!el.value || el.value.trim() === '') {
+            el.parentElement.classList.add('error');
+            isValid = false;
+        }
+    });
+
+    if (!isValid) return;
+
+    // Show loading on button
+    const btn = form.querySelector('.submit-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span>Sending...</span>';
+    btn.style.opacity = '0.7';
+
+    try {
+        const response = await fetch('https://formspree.io/f/xvgqzalg', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            successOverlay.classList.add('active');
+            form.reset();
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
+    } catch (error) {
+        alert("Network error. Please check your connection.");
+    } finally {
+        btn.innerHTML = originalText;
+        btn.style.opacity = '1';
+    }
+});
