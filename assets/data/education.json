@@ -1,24 +1,24 @@
 [
     {
         "id": 1,
-        "institute": "University of Technology",
+        "institute": "AKS University",
         "logo": "assets/img/aks.webp",
-        "degree": "B.Tech in Computer Science",
-        "cgpa": "8.5/10",
-        "duration": "2020 - 2024",
-        "courses": ["Data Structures", "AI & ML", "Web Security"],
-        "skills": ["Python", "React", "AWS"],
-        "description": "Focused on advanced algorithms and cloud architecture while maintaining a consistent top-tier academic record."
+        "degree": "B.Tech in Computer Science & Engineering",
+        "cgpa": "not available yet",
+        "duration": "2025 - 2029",
+        "courses": ["AI & Data Science", "AI & Machine Learning"],
+        "skills": ["Python", "React", "Java"],
+        "description": "Bridging the gap between data science and human behavior. I leverage AI and Mathematics to build ethical, intuitive systems that prioritize user needs alongside technical performance."
     },
     {
         "id": 2,
-        "institute": "Global High School",
+        "institute": "PMS GHSS Karhi",
         "logo": "assets/img/pm.webp",
         "degree": "Higher Secondary Education",
-        "cgpa": "9.2/10",
-        "duration": "2018 - 2020",
+        "cgpa": "7.9/10",
+        "duration": "2023 - 2025",
         "courses": ["Mathematics", "Physics", "Computer Science"],
-        "skills": ["C++", "Critical Thinking"],
-        "description": "Graduated with honors, specializing in technical sciences and leading the robotics club."
+        "skills": ["AI", "Critical Thinking", "Problem Solving"],
+        "description": "I completed my higher secondary education at PMS GHSS Karhi, where I focused on Mathematics. Throughout these two years, I maintained a high academic standard while solidifying my interest in the field of Artificial Intelligence."
     }
 ]
