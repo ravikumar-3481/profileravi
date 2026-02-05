@@ -83,6 +83,34 @@ html {
     color: #fff;
 }
 
+.nav-links li a {
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    font-size: 1.5rem;   
+    transition: font-size 0.2s ease; 
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;     
+  width: 0;         
+  height: 4px;         
+  background-color: #9124ff;
+  transition: width 0.2s ease-in-out; 
+}
+
+.nav-links li a:hover {
+  font-size: 1.8rem;     
+}
+
+.nav-links li a:hover::after {
+  width: 100%;        
+}
+
 .menu-container {
   display: inline-block; 
   cursor: pointer; 
