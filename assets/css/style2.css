@@ -20,13 +20,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Update these styles in style2.css */
+
 .navlist {
     display: flex;
-    height: 3rem; /* Slightly taller for better touch targets */
-    width: 95%; /* More width for modern look */
+    height: 3rem; 
+    width: 95%; 
     align-items: center;
-    border-radius: 50px; /* Fully rounded edges */
+    border-radius: 50px; 
     margin-top: 1rem;
     justify-self: center;
     padding-inline: 2rem;
@@ -34,10 +34,8 @@ html {
     position: fixed;
     top: 0;
     left: 50%;
-    transform: translateX(-50%); /* Centering logic */
+    transform: translateX(-50%); 
     z-index: 1000;
-    
-    /* Glassmorphism Effect */
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
