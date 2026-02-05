@@ -1031,14 +1031,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (min-width: 768px) {
-  .header-btn,
-  .contact-dropdown ,
-  .social-grid {
-    display: block;
-    margin-right: 3rem;
-  }
-}
+
 
 /* Minimalist Footer Styling */
 .footer {
