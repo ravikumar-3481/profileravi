@@ -1,32 +1,42 @@
 [
   {
     "id": 1,
-    "title": "Google Data Analytics Professional",
-    "issuer": "Google",
-    "date": "Aug 2023",
-    "image": "assets/img/cert-google.jpg",
-    "link": "https://coursera.org/verify/example",
-    "skills": ["Data Analysis", "SQL", "R Programming"],
-    "description": "Comprehensive program covering data cleaning, visualization, and analysis using professional tools."
+    "title": "Gemini Certified Student",
+    "issuer": "Google Gemini",
+    "date": "jan 2026",
+    "image": "cert.webp",
+    "link": "https://edu.google.accredible.com/0a6a78fe-1da8-485b-810c-f7eadd7c5340#acc.qH5AvJxC",
+    "skills": ["Google Gemini", "AI"],
+    "description": "Demonstrated core competencies in using Google AI to enhance productivity and foster innovation."
   },
   {
     "id": 2,
-    "title": "Meta Front-End Developer",
-    "issuer": "Meta",
-    "date": "Jan 2024",
-    "image": "assets/img/project1.webp",
-    "link": "#",
-    "skills": ["React", "UI/UX", "JavaScript"],
-    "description": "Advanced training in building responsive web applications and user interfaces with React."
+    "title": "Introduction of Data Analytics",
+    "issuer": "Simplilearn",
+    "date": "oct 25",
+    "image": "cert1.webp",
+    "link": "https://simpli.app.link/pA2QoHwgbXb",
+    "skills": ["Data Analytics", "Data visualization"],
+    "description": "Mastered foundational concepts in data processing and visualization to extract actionable insights from complex datasets."
   },
   {
     "id": 3,
-    "title": "Meta Front-End Developer",
-    "issuer": "Meta",
-    "date": "Jan 2024",
-    "image": "assets/img/project1.webp",
-    "link": "#",
-    "skills": ["React", "UI/UX", "JavaScript"],
-    "description": "Advanced training in building responsive web applications and user interfaces with React."
+    "title": "Project Management",
+    "issuer": "Simplilearn",
+    "date": "July 2025",
+    "image": "cert2.webp",
+    "link": "https://simpli-web.app.link/e/Jye7vUWz2Ub",
+    "skills": ["Prompt Engineering", "Chat Gpt", "Gemini"],
+    "description": "Acquired foundational knowledge in planning, executing, and managing projects effectively"
+  },
+  {
+    "id": 4,
+    "title": "Introduction of Prompt Engineering",
+    "issuer": "Simplilearn",
+    "date": "June 2025",
+    "image": "cert3.webp",
+    "link": "https://simpli-web.app.link/e/yVwEyzzqAUb",
+    "skills": ["Prompt Engineering", "Chat Gpt", "Gemini"],
+    "description": "Specialized in crafting high-impact prompts to maximize the efficiency and accuracy of Generative AI models."
   }
 ]
