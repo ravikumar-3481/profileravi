@@ -14,7 +14,7 @@
   <meta property="twitter:url" content="https://profileravi.netlify.app/">
   <meta property="twitter:title" content="Ravi Kumar Vishwakarma | AI Engineer | Data Scientist">
   <meta property="twitter:description" content="Professional Web Developer & Data Analyst bridging the gap between clean code and organic growth. Boost your digital presence with data-backed solutions. Check my availability!">
-  <meta property="twitter:image" content="https://profileravi.netlify.app/og/og.webp">
+  <meta property="twitter:image" content="https://profileravi.netlify.app/assets/public/og.webp">
   <link rel="icon" type="image/png" href="https://profileravi.netlify.app/og/img.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +107,7 @@
     <header>
         <div class="navlist">
             <nav class="navbar" id="nav">
-                <div href="#" class="logo"><b>{</b>Ravi<b>}</b></div>
+                <div class="logo"><b>{</b>Ravi<b>}</b></div>
 
                 <div class="links">
                     <ul class="nav-links">
@@ -115,14 +115,44 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#experience">Experience</a></li>
-                        <li><a href="https://profileravi.netlify.app/blog/blog">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="/blog/blog">Blog</a></li>
                     </ul>
                 </div>
 
-                 <div class="header-btn" >
-                      <button href="#" onclick="showResumePopup()"class="btn0">Contact me</button>
-                 </div>
+<div class="header-btn" id="contactDropdownContainer">
+    <button onclick="toggleContactDropdown(event)" class="btn0">Contact me</button>
+    
+    <div id="contactDropdown" class="contact-dropdown">
+        <div class="social-grid">
+            <a href="https://github.com/ravikumar-3481" class="grid-item">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+            </a>
+           <a href="https://www.linkedin.com/in/ravi-vishwakarma67" target="_blank" class="grid-item">
+             <i class="fa-brands fa-linkedin" style="color: #0077B5; font-size: 1.5rem;"></i><span>LinkedIn</span></a>
+            <a href="YOUR_LEETCODE_URL" class="grid-item">
+             <iconify-icon icon="simple-icons:leetcode" style="color: #FFA116; font-size: 1.5rem;"></iconify-icon><span>LeetCode</span></a>
+            <a href="YOUR_KAGGLE_URL" class="grid-item">
+            <iconify-icon icon="simple-icons:kaggle" style="color: #20BEFF; font-size: 1.5rem;"></iconify-icon><span>Kaggle</span></a>
+            <a href="mailto:ravivish968@gmail.com" class="grid-item"><iconify-icon icon="logos:google-gmail" style="font-size: 1rem;"></iconify-icon><span>Gmail</span></a>
+            <a href="YOUR_DISCORD_LINK" class="grid-item">
+               <iconify-icon icon="skill-icons:discord" style="font-size: 1.5rem;"></iconify-icon><span>Discord</span></a>
+
+            <a href="https://topmate.io/ravi_vishwakarma0" class="grid-item"><iconify-icon icon="simple-icons:topmate" style="color: #000000; font-size: 1.5rem; background: white; border-radius: 4px; padding: 1px;"></iconify-icon><span>Topmate</span></a>
+            <a href="https://x.com/I_am_ravi09" class="grid-item">
+                <iconify-icon icon="simple-icons:x" style="color: #ffffff; font-size: 1rem;"></iconify-icon>
+                  <span>X</span></a>
+            <a href="https://www.instagram.com/i_am_ravi.07?igsh=MWp0MnQ5b29xZmVmcg==" class="grid-item">
+              <iconify-icon icon="skill-icons:instagram" style="font-size: 1.5rem;"></iconify-icon><span>Instagram</span></a>
+        </div>
+        <div class="dropdown-actions">
+            <button onclick="window.open('https://forms.gle/wyR1g39bA79EYu8X8', '_blank')" class="btn1 hire">Hire Me</button>
+            <button  onclick="window.open('#contact')"class="btn1">Contact Me</button>
+        </div>
+    </div>
+</div>
+
                 <div class="menu-icon" onclick="toggleMenu()">
                    <div class="menu-container">
                        <div class="bar1"></div>
@@ -138,12 +168,12 @@
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
                     <a href="#experience">Experience</a>
-                    <a href="https://profileravi.netlify.app/blog/blog">Blog</a>
+                    <a href="#contact">Contact Me</a>
                     <div class="social-icons">
                       <a href="https://github.com/ravikumar-3481"><i class="fa-brands fa-github"></i></a>
                       <a href="https://www.linkedin.com/in/ravi-vishwakarma67"><i class="fa-brands fa-linkedin"></i></a>
-                      <a href="APNA_LINK_YAHAN_DAALEIN"><i class="fa-solid fa-code"></i></a>
-                      <a href="APNA_LINK_YAHAN_DAALEIN"><i class="fa-brands fa-discord"></i></a>
+                      <a href="https://www.instagram.com/i_am_ravi.07?igsh=MWp0MnQ5b29xZmVmcg=="><i class="fa-brands fa-instagram"></i></a>
+                      <a href="https://x.com/I_am_ravi09"><i class="fa-brands fa-x-twitter""></i></a>
                       </div>
                 </div>
             </nav>
@@ -167,8 +197,8 @@
                       <div class="hero-icons reveal">
                       <a href="https://github.com/ravikumar-3481"><i class="fa-brands fa-github"></i></a>
                       <a href="https://www.linkedin.com/in/ravi-vishwakarma67"><i class="fa-brands fa-linkedin"></i></a>
-                      <a href="APNA_LINK_YAHAN_DAALEIN"><i class="fa-solid fa-code"></i></a>
-                      <a href="APNA_LINK_YAHAN_DAALEIN"><i class="fa-brands fa-discord"></i></a>
+                      <a href="https://www.instagram.com/i_am_ravi.07?igsh=MWp0MnQ5b29xZmVmcg=="><i class="fa-brands fa-instagram"></i></a>
+                      <a href="https://x.com/I_am_ravi09"><i class="fa-brands fa-x-twitter""></i></a>
                       </div>
                 </div>
                 
@@ -307,6 +337,26 @@
     </div>
 </section>
 
+<section id="stats" class="stats-section">
+    <div class="section-tittle reveal">
+        <h1>Code Metrics</h1>
+        <div class="tittle-under reveal"></div>
+        <p class="section-description">Real-time stats tracking my progress, streaks, and language proficiency.</p>
+    </div>
+
+    <div class="stats-grid reveal">
+        <div class="stats-card leetcode-card">
+            <div class="card-header">
+                <iconify-icon icon="simple-icons:leetcode"></iconify-icon>
+                <h3>LeetCode Mastery</h3>
+            </div>
+            <div id="leetcode-stats-container" class="api-content">
+                <div class="loading-shimmer">Accessing LeetCode Data...</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 <section class="education-section reveal" id="education">
@@ -363,6 +413,68 @@
         </div>
     </section>
 
+<section id="contact" class="contact-section">
+    <div class="section-tittle reveal">
+        <h1>Get In Touch</h1>
+        <div class="tittle-under reveal"></div>
+        <p class="section-description">Have a project in mind or just want to say hi? Feel free to reach out!</p>
+    </div>
+
+    <div class="contact-container reveal">
+        <div class="contact-card">
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <label for="name">Your Name</label>
+                    <span class="error-message">Please enter your name</span>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email Address</label>
+                    <span class="error-message">Please enter a valid email</span>
+                </div>
+
+                <div class="form-group">
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected></option>
+                        <option value="general Inquiry">General Inquiry</option>
+                        <option value="work with us">Work With Us</option>
+                        <option value="for hire me">For Hire me</option>
+                        <option value="support">Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label for="subject">Subject</label>
+                    <span class="error-message">Please select a subject</span>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder=" " required></textarea>
+                    <label for="message">Your Message</label>
+                    <span class="error-message">Please enter your message</span>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+
+            <div class="success-message" id="successMsg">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <h2>Message Sent!</h2>
+                    <p>I've received your message and will get back to you soon.</p>
+                    <button class="btn1" onclick="closeSuccess()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
  </main>
 <div class="resume-popup" id="resumePopup">
     <div class="resume-popup-content">
@@ -373,6 +485,14 @@
       <a href="assets/document/Ravi Vishwakarma _ Data Scientist Intern _ Resume .pdf" target="_blank" class="download-icon" download aria-label="Download Resume"><i class="fas fa-download"></i></a>
     </div>
   </div>
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>&copy; 2025 Ravi Kumar Vishwakarma. All rights reserved.</p>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+</footer>
 
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
