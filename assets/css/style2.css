@@ -934,6 +934,13 @@ section {
   }
 }
 
+@media (min-width: 768px) {
+  .header-btn{
+    display: block;
+    margin-right: 3rem;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 991px)  {
   .nav-links{
     display: none;
