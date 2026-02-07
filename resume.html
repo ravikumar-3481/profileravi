@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Kumar Vishwakarma | Resume</title>
+    
+    <!-- Fonts & Icons (Same as your main site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. GLOBAL STYLES (From your style2.css) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #020005 20%, #110123 70%, #2a034d 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        /* --- 2. HEADER STYLES (Simplified for Resume Page) --- */
+        .nav-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: "Orbitron", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        .logo b { color: #9124ff; }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-item {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: #9124ff;
+        }
+
+        /* Social Icons in Header */
+        .social-group {
+            display: flex;
+            gap: 15px;
+            padding-left: 20px;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            color: #9124ff;
+            transform: translateY(-3px);
+        }
+
+        /* --- 3. BODY / RESUME IMAGE SECTION --- */
+        .resume-section {
+            padding-top: 140px; /* Space for fixed header */
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .resume-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 800px; /* A4 Width approx */
+            border-radius: 15px;
+            /* Animation Initial State */
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* The Image Itself */
+        .resume-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(145, 36, 255, 0.3); /* Purple Glow */
+            border: 1px solid rgba(145, 36, 255, 0.3);
+            display: block;
+        }
+
+        /* Download Button Overlay */
+        .download-btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: #9124ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(145, 36, 255, 0.4);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+            /* Animation delay */
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards 0.8s; 
+        }
+
+        .download-btn:hover {
+            background: #fff;
+            color: #9124ff;
+            transform: translateY(-5px);
+        }
+
+        /* --- 4. ANIMATION KEYFRAMES --- */
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* --- 5. MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 10px 20px;
+                width: 95%;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .social-group {
+                border-left: none;
+                padding-left: 0;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .resume-section {
+                padding-top: 160px; /* More space for stacked header */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="nav-container">
+        <!-- Logo -->
+        <a href="index" class="logo"><b>{</b>Ravi<b>}</b></a>
+
+        <!-- Links -->
+        <nav class="nav-links">
+            <a href="index" class="nav-item">Portfolio</a>
+            <a href="index#contact" class="nav-item">Contact Me</a>
+            
+
+            <div class="social-group">
+                <a href="https://github.com/ravikumar-3481" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ravi-vishwakarma67" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ravivish968@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="resume-section">
+        
+        <div class="resume-wrapper">
+            <img src="assets/img/resume.jpg" alt="Ravi Vishwakarma Resume" class="resume-img">
+        </div>
+
+
+        <a href="assets/document/Ravi Vishwakarma _ Data Scientist Intern _ Resume .pdf" download class="download-btn">
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+
+    </main>
+
+    <script>
+
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
+
