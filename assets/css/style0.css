@@ -59,6 +59,10 @@ html {
     font-family: "Orbitron", Sans-Serif;
 }
 
+.logo b {
+    color: #9124ff;
+}
+
 .links {
     width: 70%;
     justify-items: center;
