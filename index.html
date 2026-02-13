@@ -110,6 +110,64 @@
   </script>
   </head>
 <body>
+<div id="loader-screen" class="jarvis-ultra">
+    <div class="background-layers">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="hacker-grid-svg"></div>
+    </div>
+
+    <div class="hud-panel top-left-scan">
+        <div class="scan-circle-container">
+            <div class="scanner-ring"></div>
+            <div class="scanner-pulse"></div>
+            <div class="radar-hand"></div>
+        </div>
+        <div class="hud-label">ENV_SCANNER_v2.1</div>
+    </div>
+
+    <div class="hud-panel ai-thinking-box">
+        <div class="ai-header">NEURAL_PROCESSOR</div>
+        <div class="thinking-waves">
+            <div class="wave"></div><div class="wave"></div><div class="wave"></div>
+        </div>
+        <div class="ai-status">THINKING... <span id="logic-percent">0%</span></div>
+    </div>
+
+    <div class="hud-panel kernel-terminal">
+        <div class="panel-tag">KERNEL_RUNTIME_LOGS</div>
+        <div id="kernel-output" class="log-stream"></div>
+    </div>
+
+    <div class="hud-panel hacking-console">
+        <div class="panel-tag">SECURE_SHELL_v4</div>
+        <div id="terminal-output" class="log-stream"></div>
+    </div>
+
+    <div class="center-interface">
+        <div class="jarvis-rings">
+            <div class="ring-svg-container">
+                <svg viewBox="0 0 100 100">
+                    <circle class="ring r-outer" cx="50" cy="50" r="48" />
+                    <circle class="ring r-middle" cx="50" cy="50" r="40" stroke-dasharray="20, 10" />
+                    <circle class="ring r-inner" cx="50" cy="50" r="32" stroke-dasharray="5, 5" />
+                </svg>
+            </div>
+            
+            <div class="center-content">
+                <div id="live-date" class="meta-data">--/--/--</div>
+                <h1 class="glitch-name" data-text="RAVI">RAVI</h1>
+                <div id="live-time" class="meta-data">00:00:00</div>
+            </div>
+        </div>
+
+        <div class="welcome-terminal-box">
+            <span class="cmd-prompt">root@ravi:~$</span>
+            <span id="welcome-text"></span>
+            <span class="blink-cursor">_</span>
+        </div>
+    </div>
+</div>
+
 
   <main>
     <header>
@@ -145,7 +203,7 @@
             <iconify-icon icon="simple-icons:kaggle" style="color: #20BEFF; font-size: 1.5rem;"></iconify-icon><span>Kaggle</span></a>
             <a href="mailto:ravivish968@gmail.com" class="grid-item"><iconify-icon icon="logos:google-gmail" style="font-size: 1rem;"></iconify-icon><span>Gmail</span></a>
             <a href="YOUR_DISCORD_LINK" class="grid-item">
-               <iconify-icon icon="skill-icons:discord" style="font-size: 1.5rem;"></iconify-icon><span>Discord</span></a>
+               <iconify-icon icon="skill-icons:discord" style="font-size: 1.5rem; "></iconify-icon><span>Discord</span></a>
 
             <a href="https://topmate.io/ravi_vishwakarma0" class="grid-item"><iconify-icon icon="simple-icons:topmate" style="color: #000000; font-size: 1.5rem; background: white; border-radius: 4px; padding: 1px;"></iconify-icon><span>Topmate</span></a>
             <a href="https://x.com/I_am_ravi09" class="grid-item">
@@ -209,17 +267,17 @@
             </rect>
         </svg>
           </div>
-        <div class="container">
+        <div class="container reveal">
             <div class="left">
-                <div class="hero-content">
-                    <h1 class="name">Hi, I am <span><b class="bra">{</b>Ravi<b class="bra">}</b></span></h1>
+                <div class="hero-content reveal">
+                    <h1 class="name reveal">Hi, I am <span><b class="bra">{</b><span class="typing-text"  >Ravi</span><b class="bra">}</b></span></h1>
                     <div>
-                        <h1 class="role">Currently I am a <b>Student</b></h1>
+                        <h1 class="role reveal">Currently I am a <b>Student</b></h1>
                     </div>
-                    <p class="intro">
+                    <p class="intro reveal">
                         Data Scientist & AI Engineer bridging the gap between raw data and 92% predictive accuracy. I don't just build models; I engineer scalable data ecosystems that drive a 40% acceleration in business intelligence
                     </p>
-                    <div class="btn-container" >
+                    <div class="btn-container reveal" >
                       <button onclick="window.open('mailto:ravivish517+portfolio@gmail.com?subject=Hiring Inquiry: [Position Name] - [Your Name]&body=Hello Ravi,%0D%0A%0D%0AI came across your portfolio and was impressed by your work in AI and Web Development. I would like to discuss a potential opportunity with you.%0D%0A%0D%0APlease let me know your availability for a brief introductory call.%0D%0A%0D%0ABest regards,%0D%0A[Your Name/Company Name]')"  class="btn1 reveal">Hire me</button>
                       <button  href="#" class="btn1 reveal" onclick="showResumePopup()">View Resume</button>
                     </div>
@@ -233,7 +291,7 @@
                 
             </div>
             <div class="right">
-                <div class="img">
+                <div class="img reveal">
                     <img  src="og/img.webp"  alt="Ravi kumar Vishwakarma | profile Image" />
                 </div>
 
@@ -437,8 +495,9 @@
         </div>
 
         <!-- Professional Action Button -->
+      
         <div class="test-btn reveal">
-          <a href="https://forms.gle/wyR1g39bA79EYu8X8" class="btn1">Endorse My Work</a>
+          <button onclick= "window.open('https://forms.gle/wyR1g39bA79EYu8X8', '_blank')" class="btn1" >Endorse</button>
         </div>
     </section>
 
