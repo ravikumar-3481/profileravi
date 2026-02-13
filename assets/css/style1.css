@@ -231,7 +231,7 @@ section {
 
 
 .hero {
-    position: relative; /* Container ke liye */
+    position: relative; 
     overflow: hidden;
 }
 
@@ -241,9 +241,8 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Content ke piche rakhne ke liye */
+    z-index: -1; 
     pointer-events: none;
-    /* Subtle perspective effect */
     transform: perspective(500px) rotateX(5deg);
     transform-origin: top;
     opacity: 0.6;
@@ -255,7 +254,6 @@ section {
     50% { opacity: 0.7; }
 }
 
-/* Background gradient ke saath blend karne ke liye */
 .grid-pattern-container::after {
     content: '';
     position: absolute;
@@ -263,7 +261,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, #020005); /* Body color se match */
+    background: linear-gradient(to bottom, transparent, #020005); 
     }
 
 
@@ -388,7 +386,7 @@ section {
 .btn1 {
   height: 45px;
   min-width: 180px;
-  max-width: 220px;
+  width: auto;
   margin: 0 auto;
   border-radius: 16px;
   border: 3px solid #9124ff;
@@ -412,6 +410,7 @@ section {
             background: #8d04f4;
             box-shadow: 0 0 25px #8d04f4;
             transform: translateY(-5px);
+            
         }
 
         .btn1:active {
@@ -737,7 +736,7 @@ section {
       max-width: 100%;
       max-height: 80vh;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 234, 255, 0.5);
+      box-shadow: 0 0 29px rgba(0, 234, 255, 1);
       transition: transform 0.3s ease, opacity 0.3s ease;
       opacity: 0;
       transform: scale(0.9);
@@ -775,9 +774,9 @@ section {
     .download-icon {
       margin-top: 1rem;
       font-size: 1.8rem;
-      color: #9124ff;
-      background: rgba(26, 26, 46, 0.8);
-      border: 2px solid #8d04f4;
+      color: #fff;
+      background: transparent;
+      border: 2px solid #fff;
       border-radius: 50%;
       padding: 0.6rem;
       transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
@@ -874,7 +873,8 @@ section {
   }
   .btn1 {
     height: auto;
-    width: 10rem;
+    min-width: 10rem;
+    width: auto;
     font-size: 1rem;
     padding: 10px;
   }
@@ -1063,7 +1063,8 @@ section {
   }
   .btn1 {
     height: auto;
-    width: 10rem;
+    min-width: 10rem;
+    width: auto;
     font-size: 1rem;
     padding: 10px;
   }
@@ -1104,3 +1105,76 @@ section {
   }
 }
 
+
+
+
+
+
+#loader-screen.jarvis-ultra {
+    position: fixed; inset: 0; background: #00080f;
+    z-index: 1000000; color: #00f2ff; font-family: 'Orbitron', sans-serif;
+    overflow: hidden; display: flex; justify-content: center; align-items: center;
+    transition: transform 1.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.loader-up { transform: translateY(-100%); }
+
+/* Backgrounds */
+#matrix-canvas { position: absolute; inset: 0; opacity: 1; z-index: 1; }
+.hacker-grid-svg {
+    position: absolute; inset: 0; z-index: 2;
+    background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Panel Design */
+.hud-panel {
+    position: absolute; padding: 12px; background: rgba(0, 242, 255, 0.02);
+    border: 1px solid rgba(0, 242, 255, 0.2); z-index: 100;
+}
+.panel-tag { font-size: 0.6rem; color: #fff; background: rgba(0, 242, 255, 0.2); padding: 2px 6px; margin-bottom: 8px; }
+
+/* Top Panels */
+.top-left-scan { top: 25px; left: 25px; border: none; }
+.scan-circle-container { width: 70px; height: 70px; border: 2px solid rgba(0, 242, 255, 0.3); border-radius: 50%; position: relative; }
+.radar-hand { position: absolute; width: 50%; height: 2px; background: #00f2ff; top: 50%; left: 50%; transform-origin: left; animation: rotate 2s linear infinite; }
+
+.ai-thinking-box { top: 25px; right: 25px; width: 160px; text-align: center; }
+.thinking-waves { display: flex; justify-content: center; gap: 4px; margin: 10px 0; }
+.wave { width: 3px; height: 15px; background: #00f2ff; animation: wave-anim 1s infinite ease-in-out; }
+
+/* Bottom Panels */
+.kernel-terminal { bottom: 25px; left: 25px; width: 260px; height: 130px; }
+.hacking-console { bottom: 25px; right: 25px; width: 280px; height: 130px; }
+.log-stream { font-size: 0.65rem; font-family: 'Courier New', monospace; color: #00ffaa; overflow: hidden; line-height: 1.4; }
+
+/* Center HUD */
+.center-interface { position: relative; z-index: 200; display: flex; flex-direction: column; align-items: center; }
+.jarvis-rings { position: relative; width: clamp(300px, 80vw, 450px); height: clamp(300px, 80vw, 450px); display: flex; justify-content: center; align-items: center; }
+.ring-svg-container { position: absolute; width: 100%; height: 100%; }
+.ring { fill: none; stroke: #00f2ff; stroke-width: 0.5; transform-origin: center; }
+.r-outer { animation: rotate 15s linear infinite; stroke-width: 1; opacity: 0.6; }
+.r-middle { animation: rotate 10s linear reverse infinite; stroke: #00ffaa; }
+
+/* Glitch Name & Visible Data */
+.center-content { text-align: center; z-index: 10; }
+.meta-data { font-size: 1rem; letter-spacing: 4px; color: #00f2ff; font-weight: bold; text-shadow: 0 0 10px rgba(0, 242, 255, 0.5); }
+.glitch-name {
+    font-size: clamp(3rem, 10vw, 5rem); letter-spacing: 12px; color: #fff; margin: 10px 0;
+    position: relative; animation: glitch-skew 1s infinite;
+}
+.glitch-name::before { content: attr(data-text); position: absolute; top: 0; left: -2px; text-shadow: 2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 2s infinite linear alternate-reverse; }
+
+/* Welcome Terminal */
+.welcome-terminal-box {
+    margin-top: 30px; width: 100%; max-width: 400px;
+    background: rgba(0, 0, 0, 0.7); border-bottom: 2px solid #00ffaa; padding: 12px; font-size: 0.85rem;
+}
+
+/* Animations */
+@keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes wave-anim { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
+@keyframes glitch-anim { 0% { clip: rect(10px, 9999px, 40px, 0); } 100% { clip: rect(80px, 9999px, 90px, 0); } }
+.blink-cursor { animation: blink 0.8s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
