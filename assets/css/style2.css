@@ -506,14 +506,15 @@
 
         /* Button Container & Style */
         .test-btn {
-             min-height: 3.6rem;
+             min-height: 45px;
              height: auto;
              min-width: 220px;
              width: auto ;
-             max-width: 15rem;
+             max-width: 30rem;
              margin: 0 auto;
              padding-inline: 5px;
              margin-top: 4rem;
+             justify-self: center;
         }
 
 
@@ -554,7 +555,7 @@
                 padding: 25px;
             }
             .btn1 {
-                padding: 12px 25px;
+               
                 font-size: 0.8rem;
                 letter-spacing: 1px;
             }
@@ -760,8 +761,8 @@
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
+    gap: 2rem;
     max-width: 1200px;
     margin: 3rem auto 0;
     justify-content: center;
@@ -883,7 +884,7 @@
 
 @media (max-width: 768px) {
   .cert-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 335px));
   }
 }
 
@@ -898,7 +899,7 @@
 
 .activities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 355px));
     gap: 2rem;
     max-width: 1200px;
     margin: 3rem auto 0;
