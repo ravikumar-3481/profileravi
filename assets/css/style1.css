@@ -10,7 +10,7 @@ body {
     padding: 0;
     min-height: 100vh;
     user-select: none;
-    background: linear-gradient(135deg, #020005 20%, #110123 70%, #2a034d 100%);
+    background: #000000;
     background-attachment: fixed;
     color: #ffffff;
     padding-inline: 1.5rem;
