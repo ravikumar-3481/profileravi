@@ -4,7 +4,7 @@
         "institute": "AKS University",
         "logo": "assets/img/aks.webp",
         "degree": "B.Tech in Computer Science & Engineering",
-        "cgpa": "not available yet",
+        "cgpa": "6.7",
         "duration": "2025 - 2029",
         "courses": ["AI & Data Science", "AI & Machine Learning"],
         "skills": ["Python", "React", "Java"],
