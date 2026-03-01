@@ -159,7 +159,7 @@ async function loadProjects() {
                         <p><strong>Solution:</strong> ${p.solution}</p>
                         <p><strong>Result:</strong> ${p.result1}</p>
                         <div class="project-tech">
-                            ${p.technologies.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
+                            ${p.technologies.map(tech => `<span class="tech-badge">#${tech}</span>`).join('')}
                         </div>
                         <div class="project-btns">
                             <a href="${p.liveLink}" class="p-btn"><i class="fas fa-external-link-alt"></i> Live</a>
@@ -457,7 +457,7 @@ async function fetchCertificates() {
                     <p class="cert-text">${cert.description}</p>
                     
                     <div class="cert-tags">
-                        ${cert.skills.map(skill => `<span class="cert-tag">${skill}</span>`).join('')}
+                        ${cert.skills.map(skill => `<span class="cert-tag">#${skill}</span>`).join('')}
                     </div>
 
                     <a href="${cert.link}" target="_blank" class="cert-link" rel="noopener noreferrer">
