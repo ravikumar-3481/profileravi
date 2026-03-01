@@ -231,7 +231,7 @@ async function loadEducation() {
                     <p>${edu.description}</p>
                 </div>
                 <div class="edu-skills">
-                    ${edu.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    ${edu.skills.map(skill => `<span class="skill-tag">#${skill}</span>`).join('')}
                 </div>
                 <div class="edu-meta">
                     <span class="edu-duration"><i class="far fa-calendar-alt"></i> ${edu.duration}</span>
@@ -402,7 +402,7 @@ async function loadExperience() {
                 </ul>
 
                 <div class="exp-skills">
-                    ${item.skills.map(skill => `<span class="exp-skill-tag">${skill}</span>`).join('')}
+                    ${item.skills.map(skill => `<span class="exp-skill-tag">#${skill}</span>`).join('')}
                 </div>
             </div>
         `).join('');
