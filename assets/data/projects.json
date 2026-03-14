@@ -1,6 +1,6 @@
 [
     {
-        "id": 2,
+        "id": 1,
         "category": "web",
         "title": "Alumni Data Management System",
         "thumbnail": "project1.jpg",
@@ -13,7 +13,7 @@
         "codeLink": "https://github.com/ravikumar-3481/CampusCircle"
     },
     {
-        "id": 1,
+        "id": 2,
         "category": "data",
         "title": "E-Commerce Sales Analitics Dashboard",
         "thumbnail": "project2.jpg",
