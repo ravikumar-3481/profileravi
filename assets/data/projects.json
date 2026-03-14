@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "category": "ai",
+        "category": "ai","data",
         "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
         "thumbnail": "project4.jpg",
         "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
