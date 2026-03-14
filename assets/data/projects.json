@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "category": "ai , data",
+        "category": "ai",
         "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
-        "thumbnail": "project4.webp",
+        "thumbnail": "project4.jpg",
         "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
         "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
         "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
