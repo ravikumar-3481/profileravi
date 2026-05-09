@@ -59,14 +59,7 @@ if(counterContainer) {
     observer.observe(counterContainer);
 }
 
-// Marquee Auto-Loop Logic
-const marqueeContent = document.getElementById('marqueeContent');
-
-if (marqueeContent) {
-
-    const clone = marqueeContent.innerHTML;
-    marqueeContent.innerHTML += clone; 
-}
+// Marquee Auto-Loop Logic is handled in loadTools()
 async function loadSkills() {
     const container = document.getElementById('skills-container');
 
@@ -142,6 +135,9 @@ async function loadProjects() {
         const response = await fetch('assets/data/projects.json');
         const projects = await response.json();
 
+        // Store projects globally to access them in modal
+        window.allProjectsData = projects;
+
         function displayProjects(filter) {
             const filtered = filter === 'all' 
                 ? projects 
@@ -155,15 +151,17 @@ async function loadProjects() {
                     </div>
                     <div class="project-info">
                         <h3>${p.title}</h3>
-                        <p><strong>Problem:</strong> ${p.problem}</p>
-                        <p><strong>Solution:</strong> ${p.solution}</p>
-                        <p><strong>Result:</strong> ${p.result1}</p>
                         <div class="project-tech">
-                            ${p.technologies.map(tech => `<span class="tech-badge">#${tech}</span>`).join('')}
+                            ${p.technologies.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
                         </div>
-                        <div class="project-btns">
-                            <a href="${p.liveLink}" class="p-btn"><i class="fas fa-external-link-alt"></i> Live</a>
-                            <a href="${p.codeLink}" class="p-btn outline"><i class="fab fa-github"></i> Code</a>
+                        <div class="project-btns-group">
+                            <div class="project-links">
+                                <a href="${p.liveLink}" target="_blank" class="p-btn"><i class="fas fa-external-link-alt"></i> Live View</a>
+                                <a href="${p.codeLink}" target="_blank" class="p-btn outline"><i class="fab fa-github"></i> Source</a>
+                            </div>
+                            <button onclick="openProjectModal(${p.id})" class="view-more-modern">
+                                Explore Details <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -205,6 +203,48 @@ function closeResumePopup() {
 document.getElementById('resumeImage').addEventListener('click', function() {
   this.classList.toggle('zoomed');
 });
+
+// Project Modal Logic
+function openProjectModal(id) {
+    if (!window.allProjectsData) return;
+    const p = window.allProjectsData.find(proj => proj.id === id);
+    if (!p) return;
+    
+    const modalBody = document.getElementById('projectModalBody');
+    if (!modalBody) return;
+    
+    modalBody.innerHTML = `
+        <div class="modal-project-img">
+            <img src="assets/img/${p.thumbnail}" alt="${p.title}">
+            <div class="project-tag">${p.result}</div>
+        </div>
+        <div class="modal-project-info">
+            <h2>${p.title}</h2>
+            <div class="project-tech" style="margin-bottom: 20px;">
+                ${p.technologies.map(tech => `<span class="tech-badge">#${tech}</span>`).join('')}
+            </div>
+            <p><strong>Problem:</strong> ${p.problem}</p>
+            <p><strong>Solution:</strong> ${p.solution}</p>
+            <p><strong>Result:</strong> ${p.result1}</p>
+            <div class="project-btns" style="margin-top: 20px;">
+                <a href="${p.liveLink}" target="_blank" class="p-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+                <a href="${p.codeLink}" target="_blank" class="p-btn outline"><i class="fab fa-github"></i> Code</a>
+            </div>
+        </div>
+    `;
+    
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
 
 
 
@@ -338,7 +378,8 @@ fetchToolboxData();
                         <i class="fas fa-quote-right quote-mark"></i>
                         <div class="content-top">
                             <div class="rating-stars">${starHtml}</div>
-                            <p class="feedback-text">"${feedback}"</p>
+                            <p class="feedback-text" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0;">"${feedback}"</p>
+                            ${feedback.length > 120 ? `<span class="read-more-btn" style="color:#9124ff; cursor:pointer; font-size:0.85rem; font-weight:600; display:inline-block; margin-top:8px;" onclick="toggleTestimonial(this)">Read More <i class="fas fa-chevron-down"></i></span>` : ''}
                         </div>
                         <div class="meta-container">
                             <div class="meta-info">
@@ -363,6 +404,19 @@ fetchToolboxData();
 
         window.addEventListener('DOMContentLoaded', fetchTestimonials);
 
+        function toggleTestimonial(btn) {
+            const container = btn.parentElement;
+            const textEl = container.querySelector('.feedback-text');
+            
+            if (textEl.style.webkitLineClamp === '3') {
+                textEl.style.webkitLineClamp = 'unset';
+                btn.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
+            } else {
+                textEl.style.webkitLineClamp = '3';
+                btn.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+            }
+        }
+
 
 
 async function loadExperience() {
@@ -374,35 +428,36 @@ async function loadExperience() {
         if (!response.ok) throw new Error("Experience data not found");
 
         const expData = await response.json();
+        window.allExperienceData = expData;
 
         container.innerHTML = expData.map(item => `
-            <div class="exp-card">
-                <span class="exp-type">${item.type}</span>
-                
-                <div class="exp-header">
-                    <div class="exp-logo-box">
-                        <img src="${item.logo}" alt="${item.company}" class="exp-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                        <span style="display:none">${item.company.charAt(0)}</span>
+            <div class="exp-card project-card" style="padding: 1.5rem;">
+                <div class="project-info" style="padding: 0; display:flex; flex-direction:column; height:100%; gap:15px;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div class="exp-logo-box" style="width: 55px; height: 55px; background:#fff; border-radius:12px; padding:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+                            <img src="${item.logo}" alt="${item.company}" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                            <span style="display:none; color:#000; font-weight:bold; font-size:1.5rem;">${item.company.charAt(0)}</span>
+                        </div>
+                        <span class="tech-badge" style="background:rgba(145,36,255,0.15); border-color:rgba(145,36,255,0.3); color:#d1a3ff; text-transform:uppercase; font-size:0.7rem;">${item.type}</span>
                     </div>
-                    <div class="exp-title">
-                        <h3>${item.role}</h3>
-                        <span>${item.company}</span>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 5px; color:#fff; font-size:1.25rem; font-weight:600;">${item.role}</h3>
+                        <p style="color:#a78bfa; margin-bottom:12px; font-weight:500; font-size:0.95rem;">${item.company}</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:12px; font-size:0.85rem; color:rgba(255,255,255,0.6); margin-bottom:5px;">
+                            <span><i class="far fa-calendar-alt" style="color:#9124ff;"></i> ${item.duration}</span>
+                            <span><i class="fas fa-map-marker-alt" style="color:#9124ff;"></i> ${item.location}</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="exp-meta">
-                    <span><i class="fas fa-map-marker-alt"></i> ${item.location}</span>
-                    <span><i class="fas fa-calendar-alt"></i> ${item.duration}</span>
-                </div>
+                    <div class="project-tech" style="margin-bottom:5px;">
+                        ${item.skills.slice(0, 3).map(skill => `<span class="tech-badge">#${skill}</span>`).join('')}
+                        ${item.skills.length > 3 ? `<span class="tech-badge">+${item.skills.length - 3}</span>` : ''}
+                    </div>
 
-                <p class="exp-desc">${item.description}</p>
-
-                <ul class="exp-tasks">
-                    ${item.tasks.map(task => `<li>${task}</li>`).join('')}
-                </ul>
-
-                <div class="exp-skills">
-                    ${item.skills.map(skill => `<span class="exp-skill-tag">#${skill}</span>`).join('')}
+                    <div class="project-btns-group" style="margin-top:auto; padding-top:10px;">
+                        <button onclick="openExpModal(${item.id})" class="view-more-modern">View Details <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
             </div>
         `).join('');
@@ -411,6 +466,46 @@ async function loadExperience() {
         console.error("Error loading experience:", error);
         container.innerHTML = `<p style="color: red; text-align: center;">Failed to load experience.</p>`;
     }
+}
+
+function openExpModal(id) {
+    if (!window.allExperienceData) return;
+    const p = window.allExperienceData.find(exp => exp.id === id);
+    if (!p) return;
+    
+    const modalBody = document.getElementById('projectModalBody'); // reuse project modal body
+    if (!modalBody) return;
+    
+    modalBody.innerHTML = `
+        <div class="modal-project-img" style="background:#fff; display:flex; align-items:center; justify-content:center; padding: 20px; height: 180px;">
+            <img src="${p.logo}" alt="${p.company}" style="max-height:100%; width:auto; object-fit:contain;" onerror="this.style.display='none'">
+            <div class="project-tag">${p.type}</div>
+        </div>
+        <div class="modal-project-info">
+            <h2>${p.role}</h2>
+            <h4 style="color:#a78bfa; margin-bottom:15px; font-weight:500;">@ ${p.company}</h4>
+            <div style="display:flex; gap:15px; font-size:0.9rem; color:#ccc; margin-bottom:20px;">
+                <span><i class="fas fa-map-marker-alt"></i> ${p.location}</span>
+                <span><i class="fas fa-calendar-alt"></i> ${p.duration}</span>
+            </div>
+            <div class="project-tech" style="margin-bottom: 20px;">
+                ${p.skills.map(skill => `<span class="tech-badge">#${skill}</span>`).join('')}
+            </div>
+            <div style="margin-bottom: 20px;">
+                <p style="color:#ddd; line-height:1.6;">${p.description}</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.03); padding:15px; border-radius:15px; border:1px solid rgba(145,36,255,0.2);">
+                <p style="color:#fff; font-weight:600; margin-bottom:10px;">Key Responsibilities:</p>
+                <ul style="padding-left: 20px; color:#aaa; line-height:1.7; font-size:0.95rem;">
+                    ${p.tasks.map(task => `<li style="margin-bottom:8px;">${task}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+    `;
+    
+    const modal = document.getElementById('projectModal'); // Reuse project modal completely
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 // Call the function
@@ -606,3 +701,46 @@ form.addEventListener('submit', async function (e) {
         btn.style.opacity = '1';
     }
 });
+
+// Typing Effect for Hero Subtitle
+const typingTextArray = ["AI Engineer", "Data Scientist", "Machine Learning Engineer", "Data Analyst"];
+let typingTextIndex = 0;
+let typingCharIndex = 0;
+const typeSpeed = 90;
+const eraseSpeed = 50;
+const delayBetweenTexts = 2000;
+
+function typeHeroText() {
+    const el = document.getElementById("typing-text");
+    if (!el) return;
+    
+    if (typingCharIndex < typingTextArray[typingTextIndex].length) {
+        el.textContent += typingTextArray[typingTextIndex].charAt(typingCharIndex);
+        typingCharIndex++;
+        setTimeout(typeHeroText, typeSpeed);
+    } else {
+        setTimeout(eraseHeroText, delayBetweenTexts);
+    }
+}
+
+function eraseHeroText() {
+    const el = document.getElementById("typing-text");
+    if (!el) return;
+    
+    if (typingCharIndex > 0) {
+        el.textContent = typingTextArray[typingTextIndex].substring(0, typingCharIndex - 1);
+        typingCharIndex--;
+        setTimeout(eraseHeroText, eraseSpeed);
+    } else {
+        typingTextIndex++;
+        if (typingTextIndex >= typingTextArray.length) typingTextIndex = 0;
+        setTimeout(typeHeroText, typeSpeed + 500);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (document.getElementById("typing-text")) {
+        setTimeout(typeHeroText, 1000); // Start after 1s
+    }
+});
+

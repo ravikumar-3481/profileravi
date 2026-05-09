@@ -188,36 +188,7 @@
                 </div>
 
 <div class="header-btn" id="contactDropdownContainer">
-    <button onclick="toggleContactDropdown(event)" class="btn0">Contact me</button>
-    
-    <div id="contactDropdown" class="contact-dropdown">
-        <div class="social-grid">
-            <a href="https://github.com/ravikumar-3481" class="grid-item">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-            </a>
-           <a href="https://www.linkedin.com/in/ravi-vishwakarma67" target="_blank" class="grid-item">
-             <i class="fa-brands fa-linkedin" style="color: #0077B5; font-size: 1.5rem;"></i><span>LinkedIn</span></a>
-            <a href="https://leetcode.com/u/ravivish3481/" class="grid-item">
-             <iconify-icon icon="simple-icons:leetcode" style="color: #FFA116; font-size: 1.5rem;"></iconify-icon><span>LeetCode</span></a>
-            <a href="https://www.kaggle.com/ravivishwakarma0909" class="grid-item">
-            <iconify-icon icon="simple-icons:kaggle" style="color: #20BEFF; font-size: 1.5rem;"></iconify-icon><span>Kaggle</span></a>
-            <a href="mailto:ravivish968@gmail.com" class="grid-item"><iconify-icon icon="logos:google-gmail" style="font-size: 1rem;"></iconify-icon><span>Gmail</span></a>
-            <a href="YOUR_DISCORD_LINK" class="grid-item">
-               <iconify-icon icon="skill-icons:discord" style="font-size: 1.5rem; "></iconify-icon><span>Discord</span></a>
-
-            <a href="https://topmate.io/ravi_vishwakarma0" class="grid-item"><iconify-icon icon="simple-icons:topmate" style="color: #000000; font-size: 1.5rem; background: white; border-radius: 4px; padding: 1px;"></iconify-icon><span>Topmate</span></a>
-            <a href="https://x.com/I_am_ravi09" class="grid-item">
-                <iconify-icon icon="simple-icons:x" style="color: #ffffff; font-size: 1rem;"></iconify-icon>
-                  <span>X</span></a>
-            <a href="https://www.instagram.com/i_am_ravi.07?igsh=MWp0MnQ5b29xZmVmcg==" class="grid-item">
-              <iconify-icon icon="skill-icons:instagram" style="font-size: 1.5rem;"></iconify-icon><span>Instagram</span></a>
-        </div>
-        <div class="dropdown-actions">
-            <button onclick="window.open('mailto:ravivish517+portfolio@gmail.com?subject=Hiring Inquiry: [Position Name] - [Your Name]&body=Hello Ravi,%0D%0A%0D%0AI came across your portfolio and was impressed by your work in AI and Web Development. I would like to discuss a potential opportunity with you.%0D%0A%0D%0APlease let me know your availability for a brief introductory call.%0D%0A%0D%0ABest regards,%0D%0A[Your Name/Company Name]')" class="btn1 hire">Hire Me</button>
-            <a href="#contact" class="btn1" style="font-size: 0.9rem; text-align: center;">Contact Me</a>
-        </div>
-    </div>
+    <a href="#contact" class="btn1" style="text-decoration:none;">Contact me</a>
 </div>
 
                 <div class="menu-icon" onclick="toggleMenu()">
@@ -241,127 +212,148 @@
                       <a href="https://github.com/ravikumar-3481"><i class="fa-brands fa-github"></i></a>
                       <a href="https://www.linkedin.com/in/ravi-vishwakarma67"><i class="fa-brands fa-linkedin"></i></a>
                       <a href="https://www.instagram.com/i_am_ravi.07?igsh=MWp0MnQ5b29xZmVmcg=="><i class="fa-brands fa-instagram"></i></a>
-                      <a href="https://x.com/I_am_ravi09"><i class="fa-brands fa-x-twitter""></i></a>
+                      <a href="https://x.com/I_am_ravi09"><i class="fa-brands fa-x-twitter"></i></a>
                       </div>
                 </div>
             </nav>
         </div>
     </header>
-    <section class="hero">
-          <div class="grid-pattern-container">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(145, 36, 255, 1)" stroke-width="0.5"/>
-                </pattern>
-                
-                <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <rect width="100" height="100" fill="url(#smallGrid)"/>
-                    <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(145, 36, 255, 1)" stroke-width="1"/>
-                </pattern>
-            </defs>
+    <section class="hero" id="home">
+        <div class="grid-pattern-container">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="smallGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(145, 36, 255, 0.15)" stroke-width="0.5"/>
+                    </pattern>
+                    <pattern id="grid" width="160" height="160" patternUnits="userSpaceOnUse">
+                        <rect width="160" height="160" fill="url(#smallGrid)"/>
+                        <path d="M 160 0 L 0 0 0 160" fill="none" stroke="rgba(145, 36, 255, 0.3)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+                <rect width="100%" height="100%" fill="transparent">
+                    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="6s" repeatCount="indefinite" />
+                </rect>
+            </svg>
+        </div>
+        
+        <div class="hero-glow-bg"></div>
 
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            
-            <rect width="100%" height="100%" fill="transparent">
-                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="5s" repeatCount="indefinite" />
-            </rect>
-        </svg>
-          </div>
-        <div class="container reveal">
-            <div class="left">
-                <div class="hero-content reveal">
-                    <h1 class="name reveal">Hi, I am <span><b class="bra">{</b><span class="typing-text"  >Ravi</span><b class="bra">}</b></span></h1>
-                    <div>
-                        <h1 class="role reveal">Currently I am a <b>Student</b></h1>
-                    </div>
-                    <p class="intro reveal">
-                        Data Scientist & AI Engineer bridging the gap between raw data and 92% predictive accuracy. I don't just build models; I engineer scalable data ecosystems that drive a 40% acceleration in business intelligence
-                    </p>
-                    <div class="btn-container reveal" >
-                      <button onclick="window.open('mailto:ravivish517+portfolio@gmail.com?subject=Hiring Inquiry: [Position Name] - [Your Name]&body=Hello Ravi,%0D%0A%0D%0AI came across your portfolio and was impressed by your work in AI and Web Development. I would like to discuss a potential opportunity with you.%0D%0A%0D%0APlease let me know your availability for a brief introductory call.%0D%0A%0D%0ABest regards,%0D%0A[Your Name/Company Name]')"  class="btn1 reveal">Hire me</button>
-                      <button  href="#" class="btn1 reveal" onclick="showResumePopup()">View Resume</button>
-                    </div>
-                      <div class="hero-icons reveal">
-                      <a href="https://github.com/ravikumar-3481"><i class="fa-brands fa-github"></i></a>
-                      <a href="https://www.linkedin.com/in/ravi-vishwakarma67"><i class="fa-brands fa-linkedin"></i></a>
-                      <a href="https://www.instagram.com/i_am_ravi.07?igsh=MWp0MnQ5b29xZmVmcg=="><i class="fa-brands fa-instagram"></i></a>
-                      <a href="https://x.com/I_am_ravi09"><i class="fa-brands fa-x-twitter""></i></a>
-                      </div>
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Available for New Opportunities</span>
                 </div>
                 
-            </div>
-            <div class="right">
-                <div class="img reveal">
-                    <img  src="og/img.webp"  alt="Ravi kumar Vishwakarma | profile Image" />
+                <h1 class="hero-title">
+                    Hi, I'm <br class="mobile-break">
+                    <span class="gradient-text">Ravi</span> <br class="desktop-break">
+                    <span class="lastname">Vishwakarma</span>
+                </h1>
+                
+                <h2 class="hero-subtitle">
+                    <span id="typing-text" class="highlight"></span><span class="typing-cursor">|</span>
+                </h2>
+                
+                <p class="hero-description">
+                    Bridging the gap between raw data and 92% predictive accuracy. I engineer scalable data ecosystems that drive a 40% acceleration in business intelligence.
+                </p>
+                
+                <div class="hero-cta-group">
+                    <button class="cta-primary" onclick="window.open('mailto:ravivish517+portfolio@gmail.com')">
+                        Let's Connect <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <button class="cta-secondary" onclick="showResumePopup()">
+                        View Resume <i class="fas fa-file-alt"></i>
+                    </button>
                 </div>
-
+                
+                <div class="hero-socials">
+                    <a href="https://github.com/ravikumar-3481" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ravi-vishwakarma67" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/i_am_ravi.07" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/I_am_ravi09" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
             </div>
-           
+
+            <div class="hero-visual reveal">
+                <div class="image-wrapper">
+                    <div class="img-glow"></div>
+                    <img src="og/img.webp" alt="Ravi kumar Vishwakarma | Profile" class="profile-img" />
+                    
+                    <div class="floating-icon icon-1"><i class="devicon-python-plain"></i></div>
+                    <div class="floating-icon icon-2"><i class="devicon-tensorflow-original"></i></div>
+                    <div class="floating-icon icon-3"><i class="devicon-react-original"></i></div>
+                    <div class="floating-icon icon-4"><i class="devicon-java-plain"></i></div>
+                    <div class="floating-icon icon-5"><i class="devicon-cplusplus-plain"></i></div>
+                    <div class="floating-icon icon-6"><i class="devicon-numpy-plain"></i></div>
+                    <div class="floating-icon icon-7"><i class="devicon-pandas-plain"></i></div>
+                    <div class="floating-icon icon-8"><i class="devicon-scikitlearn-plain"></i></div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="about reveal" id="about" >
       <div class="section-tittle reveal" >
-        <h1>About</h1>
+        <h1>About Me</h1>
         <div class="tittle-under reveal"></div>
       </div>
-      <div class="about-container reveal">
-        <div class="left1 reveal">
-         <div class="about-content reveal">
-           <h1>Who I Am ?</h1>
-           <p>I am Ravi Kumar Vishwakarma, a B.Tech Computer Science & Engineering specialist with a minor in Mathematics. My expertise lies at the intersection of Data Analytics, Machine Learning, and Full-Stack Development.  
-​With a proven track record of engineering data pipelines for over 50,000+ records and achieving 99% data integrity, I don't just process data—I extract stories that drive business growth. During my tenure at Cognizant and Future Intern, I developed predictive dashboards that improved decision-making speed by 40% and identified at-risk trends with 85% accuracy.  
-​I thrive on solving complex algorithmic challenges (50+ LeetCode problems solved) and building scalable AI solutions. Whether it’s forecasting e-commerce sales with 92% accuracy or architecting full-stack platforms for 1,000+ users, I bridge the gap between technical complexity and user-centric design."
-         </div>
+      
+      <div class="bento-container reveal">
+        <!-- Card 1: Intro -->
+        <div class="bento-card intro-card reveal">
+          <div class="intro-header">
+            <i class="fas fa-user-astronaut"></i>
+            <h2>Who I Am</h2>
+          </div>
+          <p class="intro-text">
+            I am <strong>Ravi Kumar Vishwakarma</strong>, a B.Tech Computer Science & Engineering specialist with a minor in Mathematics. My expertise lies at the intersection of Data Analytics, Machine Learning, and Full-Stack Development.<br><br>
+            With a proven track record of engineering data pipelines for over 50,000+ records and achieving 99% data integrity, I don't just process data—I extract stories that drive business growth. During my tenure at Cognizant and Future Intern, I developed predictive dashboards that improved decision-making speed by 40% and identified at-risk trends with 85% accuracy.<br><br>
+            I thrive on solving complex algorithmic challenges (50+ LeetCode problems solved) and building scalable AI solutions. Whether it’s forecasting e-commerce sales with 92% accuracy or architecting full-stack platforms for 1,000+ users, I bridge the gap between technical complexity and user-centric design.
+          </p>
         </div>
-<div class="right1 reveal">
-   <div class="skills-wrapper reveal">
-    <h3 class="skills-subtitle reveal">Core Technologies</h3>
-    <div id="skills-container" class="skills-icons reveal">
+
+        <!-- Card 2: Metrics/Counters -->
+        <div class="bento-card metrics-card reveal minimal-counter-container">
+          <div class="counter-item reveal">
+              <div class="counter-text reveal">
+                  <h2 class="counter reveal" data-target="1.5">0</h2>
+                  <span>Years Experience</span>
+              </div>
+          </div>
+          <div class="counter-divider reveal"></div>
+          <div class="counter-item reveal">
+              <div class="counter-text reveal">
+                  <h2 class="counter reveal" data-target="124">0</h2>
+                  <span>LeetCode Solved</span>
+              </div>
+          </div>
+          <div class="counter-divider reveal"></div>
+          <div class="counter-item reveal">
+              <div class="counter-text reveal">
+                  <h2 class="counter reveal" data-target="63">0</h2>
+                  <span>Projects Done</span>
+              </div>
+          </div>
         </div>
-</div>
 
-<div class="marquee-section reveal">
-    <h3 class="marquee-title reveal">Professional Workflow Tools</h3>
-    <div class="marquee reveal">
-        <div class="marquee-content reveal" id="marqueeContent"></div>
-    </div>
-</div>
-
-
-   <div class="minimal-counter-container reveal">
-    <div class="counter-item reveal">
-        <div class="counter-icon records"><i class="fas fa-calendar-alt"></i></div>
-        <div class="counter-text reveal">
-            <h2 class="counter reveal" data-target="1.5">0</h2>
-            <span>Years Experience</span>
+        <!-- Card 3: Skills -->
+        <div class="bento-card skills-card reveal">
+          <h3 class="bento-title"><i class="fas fa-code"></i> Core Technologies</h3>
+          <div id="skills-container" class="skills-icons reveal"></div>
         </div>
-    </div>
-    
-    <div class="counter-divider reveal"></div>
 
-    <div class="counter-item reveal">
-        <div class="counter-icon reveal"><i class="fas fa-terminal"></i></div>
-        <div class="counter-text reveal">
-            <h2 class="counter reveal" data-target="124">0</h2>
-            <span>LeetCode Solved</span>
+        <!-- Card 4: Tools -->
+        <div class="bento-card tools-card reveal marquee-section">
+          <h3 class="bento-title"><i class="fas fa-tools"></i> Workflow Tools</h3>
+          <div class="marquee reveal">
+              <div class="marquee-content reveal" id="marqueeContent"></div>
+          </div>
         </div>
-    </div>
 
-    <div class="counter-divider reveal"></div>
-
-    <div class="counter-item reveal">
-        <div class="counter-icon reveal"><i class="fas fa-layer-group"></i></div>
-        <div class="counter-text reveal">
-            <h2 class="counter reveal" data-target="63">0</h2>
-            <span>Projects Done</span>
-        </div>
-    </div>
-</div>
-
-
-</div>
-</section>
+      </div>
+    </section>
     <section class="projects reveal" id="projects">
     <div class="section-tittle reveal">
         <h1>Projects</h1>
@@ -369,7 +361,7 @@
     </div>
 
     <div class="filter-container reveal">
-        <button class="filter-btn " data-filter="all">All</button>
+        <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="ai">AI/ML</button>
         <button class="filter-btn" data-filter="web">Web Dev</button>
         <button class="filter-btn" data-filter="data">Data Analysis</button>
@@ -510,6 +502,22 @@
     </div>
 
     <div class="contact-container reveal">
+        <div class="contact-info">
+            <h3 style="color:#fff; font-size:1.8rem; margin-bottom:10px;">Let's Connect</h3>
+            <p style="color:#aaa; margin-bottom:30px; font-size:1rem; line-height:1.6;">Feel free to reach out to me via email or connect with me on these platforms!</p>
+            <div class="social-links-grid">
+                <a href="https://github.com/ravikumar-3481" target="_blank" class="social-link-item"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+                <a href="https://www.linkedin.com/in/ravi-vishwakarma67" target="_blank" class="social-link-item"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+                <a href="https://leetcode.com/u/ravivish3481/" target="_blank" class="social-link-item"><iconify-icon icon="simple-icons:leetcode"></iconify-icon><span>LeetCode</span></a>
+                <a href="https://www.kaggle.com/ravivishwakarma0909" target="_blank" class="social-link-item"><iconify-icon icon="simple-icons:kaggle"></iconify-icon><span>Kaggle</span></a>
+                <a href="mailto:ravivish968@gmail.com" class="social-link-item"><iconify-icon icon="simple-icons:gmail"></iconify-icon><span>Email</span></a>
+                <a href="YOUR_DISCORD_LINK" target="_blank" class="social-link-item"><iconify-icon icon="simple-icons:discord"></iconify-icon><span>Discord</span></a>
+                <a href="https://topmate.io/ravi_vishwakarma0" target="_blank" class="social-link-item"><iconify-icon icon="simple-icons:topmate"></iconify-icon><span>Topmate</span></a>
+                <a href="https://x.com/I_am_ravi09" target="_blank" class="social-link-item"><iconify-icon icon="simple-icons:x"></iconify-icon><span>X</span></a>
+                <a href="https://www.instagram.com/i_am_ravi.07" target="_blank" class="social-link-item"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+            </div>
+        </div>
+        
         <div class="contact-card">
             <form id="contact-form">
                 <div class="form-group">
@@ -572,6 +580,15 @@
         <img src="assets/img/resume.jpg" alt="Ravi's Resume" class="resume-image" id="resumeImage" />
       </div>
       <a href="https://drive.google.com/uc?export=download&id=1nYjnLfC79FwOmjDHmhM7n-ptuaWbhGVG" target="_blank" class="download-icon" download aria-label="Download Resume"><i class="fas fa-download"></i></a>
+    </div>
+  </div>
+
+  <div class="project-modal" id="projectModal">
+    <div class="project-modal-content">
+      <i class="fas fa-times close-modal" onclick="closeProjectModal()"></i>
+      <div id="projectModalBody">
+        <!-- Content injected via JS -->
+      </div>
     </div>
   </div>
 <footer class="footer">
