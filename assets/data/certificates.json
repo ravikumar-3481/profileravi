@@ -9,8 +9,18 @@
     "skills": ["Google Gemini", "AI"],
     "description": "Demonstrated core competencies in using Google AI to enhance productivity and foster innovation."
   },
-  {
+   {
     "id": 2,
+    "title": "Gemini Certified Student",
+    "issuer": "Google Gemini",
+    "date": "jan 2026",
+    "image": "cert.webp",
+    "link": "https://edu.google.accredible.com/0a6a78fe-1da8-485b-810c-f7eadd7c5340#acc.qH5AvJxC",
+    "skills": ["Google Gemini", "AI"],
+    "description": "Demonstrated core competencies in using Google AI to enhance productivity and foster innovation."
+  },
+  {
+    "id": 3,
     "title": "Introduction of Data Analytics",
     "issuer": "Simplilearn",
     "date": "oct 25",
@@ -20,7 +30,7 @@
     "description": "Mastered foundational concepts in data processing and visualization to extract actionable insights from complex datasets."
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Project Management",
     "issuer": "Simplilearn",
     "date": "July 2025",
@@ -30,7 +40,7 @@
     "description": "Acquired foundational knowledge in planning, executing, and managing projects effectively"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Introduction of Prompt Engineering",
     "issuer": "Simplilearn",
     "date": "June 2025",
