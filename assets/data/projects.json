@@ -10,7 +10,11 @@
         "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
         "result": "100% Automated NLP Pipeline",
         "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-"
+        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
+        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
+        "images": ["project4.jpg", "project1.jpg", "project1.jpg"],
+        "reportLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-/blob/main/README.md",
+        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
     },
     {
         "id": 2,
@@ -23,7 +27,11 @@
         "result1": "Successfully streamlined data retrieval for 500+ records with a significant reduction in administrative manual entry time.",
         "result": "95% Efficiency",
         "liveLink": "https://cum-ruddy.vercel.app/",
-        "codeLink": "https://github.com/ravikumar-3481/CampusCircle"
+        "codeLink": "https://github.com/ravikumar-3481/CampusCircle",
+        "caseStudy": "Building the Alumni Data Management System required a focus on secure data handling and easy accessibility for administrators. We developed a centralized SQL database with a Flask REST API to handle CRUD operations seamlessly. The frontend interface was built to be intuitive, allowing quick searching and filtering of alumni records, thus resolving the previous data fragmentation issues.",
+        "images": ["project1.jpg", "project2.jpg"],
+        "reportLink": "https://github.com/ravikumar-3481/CampusCircle/blob/main/README.md",
+        "challenges": ["Designing a scalable relational database schema.", "Accommodating growing user data securely.", "Ensuring fast retrieval times for over 500 records."]
     },
     {
         "id": 3,
@@ -36,7 +44,11 @@
         "result1": "Reduced reporting time by 80% and identified high-loss product categories, enabling the management to optimize marketing spend and improve overall profit margins",
         "result": "Reduced 80% time",
         "liveLink": "#",
-        "codeLink": "https://github.com/ravikumar-3481/FUTURE_DS_01"
+        "codeLink": "https://github.com/ravikumar-3481/FUTURE_DS_01",
+        "caseStudy": "The e-commerce business lacked visibility into its daily operations and profitability metrics. By structuring the data using a Star Schema, the Power BI dashboard was able to provide high-performance querying and interactive visualizations. Key DAX measures were implemented to track YoY growth and profitability, fundamentally changing how the management team approached inventory and marketing decisions.",
+        "images": ["project2.jpg", "project3.jpg"],
+        "reportLink": "https://github.com/ravikumar-3481/FUTURE_DS_01/blob/main/README.md",
+        "challenges": ["Managing large datasets and complex relationships in Power BI.", "Writing advanced DAX to handle dynamic date filtering.", "Ensuring fast dashboard load times by optimizing the Star Schema."]
     },
     {
         "id": 4,
@@ -49,7 +61,11 @@
         "result1": "Improved Ad Spend efficiency by 25% through better targeting insights and automated the reporting process, saving the team over 10 hours of manual data entry per week.",
         "result": "Improved 25% Efficiency ",
         "liveLink": "#",
-        "codeLink": "https://github.com/ravikumar-3481/FUTURE_DS_02"
+        "codeLink": "https://github.com/ravikumar-3481/FUTURE_DS_02",
+        "caseStudy": "Tracking ad performance across dozens of campaigns manually was error-prone. This Power BI solution consolidated Facebook Ads data, applying complex DAX formulas to calculate ROAS and CPA dynamically. The trend analysis capabilities allowed marketers to quickly pause underperforming ads and reallocate budget to high-converting segments, boosting overall efficiency.",
+        "images": ["project3.jpg", "project4.jpg"],
+        "reportLink": "https://github.com/ravikumar-3481/FUTURE_DS_02/blob/main/README.md",
+        "challenges": ["Integrating cross-platform ad metrics securely.", "Attributing conversions accurately across complex funnel stages.", "Handling discrepancies and missing values in API data exports."]
     },
      {
         "id": 5,
@@ -62,7 +78,11 @@
         "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
         "result": "100% Automated NLP Pipeline",
         "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-"
+        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
+        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
+        "images": ["project4.jpg"],
+        "reportLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-/blob/main/README.md",
+        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
     },
      {
         "id": 6,
@@ -75,6 +95,10 @@
         "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
         "result": "100% Automated NLP Pipeline",
         "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-"
+        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
+        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
+        "images": ["project4.jpg"],
+        "reportLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-/blob/main/README.md",
+        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
     }
 ]

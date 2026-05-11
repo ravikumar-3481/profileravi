@@ -159,9 +159,9 @@ async function loadProjects() {
                                 <a href="${p.liveLink}" target="_blank" class="p-btn"><i class="fas fa-external-link-alt"></i> Live View</a>
                                 <a href="${p.codeLink}" target="_blank" class="p-btn outline"><i class="fab fa-github"></i> Source</a>
                             </div>
-                            <button onclick="openProjectModal(${p.id})" class="view-more-modern">
+                            <a href="project.html?id=${p.id}" class="view-more-modern" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
                                 Explore Details <i class="fas fa-arrow-right"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -204,42 +204,8 @@ document.getElementById('resumeImage').addEventListener('click', function() {
   this.classList.toggle('zoomed');
 });
 
-// Project Modal Logic
-function openProjectModal(id) {
-    if (!window.allProjectsData) return;
-    const p = window.allProjectsData.find(proj => proj.id === id);
-    if (!p) return;
-    
-    const modalBody = document.getElementById('projectModalBody');
-    if (!modalBody) return;
-    
-    modalBody.innerHTML = `
-        <div class="modal-project-img">
-            <img src="assets/img/${p.thumbnail}" alt="${p.title}">
-            <div class="project-tag">${p.result}</div>
-        </div>
-        <div class="modal-project-info">
-            <h2>${p.title}</h2>
-            <div class="project-tech" style="margin-bottom: 20px;">
-                ${p.technologies.map(tech => `<span class="tech-badge">#${tech}</span>`).join('')}
-            </div>
-            <p><strong>Problem:</strong> ${p.problem}</p>
-            <p><strong>Solution:</strong> ${p.solution}</p>
-            <p><strong>Result:</strong> ${p.result1}</p>
-            <div class="project-btns" style="margin-top: 20px;">
-                <a href="${p.liveLink}" target="_blank" class="p-btn"><i class="fas fa-external-link-alt"></i> Live</a>
-                <a href="${p.codeLink}" target="_blank" class="p-btn outline"><i class="fab fa-github"></i> Code</a>
-            </div>
-        </div>
-    `;
-    
-    const modal = document.getElementById('projectModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeProjectModal() {
-    const modal = document.getElementById('projectModal');
+function closeExpModal() {
+    const modal = document.getElementById('expModal');
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -473,7 +439,7 @@ function openExpModal(id) {
     const p = window.allExperienceData.find(exp => exp.id === id);
     if (!p) return;
     
-    const modalBody = document.getElementById('projectModalBody'); // reuse project modal body
+    const modalBody = document.getElementById('expModalBody');
     if (!modalBody) return;
     
     modalBody.innerHTML = `
@@ -503,7 +469,7 @@ function openExpModal(id) {
         </div>
     `;
     
-    const modal = document.getElementById('projectModal'); // Reuse project modal completely
+    const modal = document.getElementById('expModal');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
