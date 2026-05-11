@@ -21,90 +21,201 @@ html {
 }
 
 .github-premium-section {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .github-bento-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 1.5rem;
-        margin-top: 3rem;
-    }
-    .gh-card {
-        background: rgba(20, 10, 40, 0.4);
-        border: 1px solid rgba(145, 36, 255, 0.2);
-        border-radius: 24px;
-        padding: 2rem;
-        backdrop-filter: blur(12px);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-    }
-    .gh-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(145, 36, 255, 0.6);
-        box-shadow: 0 15px 30px rgba(108, 23, 195, 0.15);
-    }
-    .gh-card-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        width: 100%;
-        margin-bottom: 1.5rem;
-        color: #fff;
-    }
-    .gh-icon {
-        color: #9124ff;
-        background: rgba(145, 36, 255, 0.1);
-        padding: 8px;
-        border-radius: 10px;
-        width: 40px;
-        height: 40px;
-    }
-    .gh-card-header h3 {
-        font-size: 1.2rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        margin: 0;
-    }
-    .gh-chart-card {
-        grid-column: span 12;
-    }
-    .gh-stats-card {
-        grid-column: span 12;
-    }
-    .gh-streak-card {
-        grid-column: span 12;
-    }
-    @media (min-width: 992px) {
-        .gh-stats-card { grid-column: span 6; }
-        .gh-streak-card { grid-column: span 6; }
-    }
-    .gh-chart-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 10px;
-        display: flex;
-        justify-content: center;
-    }
-    .gh-card img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    .gh-chart-wrapper::-webkit-scrollbar {
-        height: 6px;
-    }
-    .gh-chart-wrapper::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-    }
-    .gh-chart-wrapper::-webkit-scrollbar-thumb {
-        background: rgba(145, 36, 255, 0.5);
-        border-radius: 10px;
-    }
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem 1.5rem 6rem;
+}
+
+.gh-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(145, 36, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+.github-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.8rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.gh-card {
+    background: linear-gradient(145deg, rgba(20, 10, 40, 0.6) 0%, rgba(10, 5, 20, 0.8) 100%);
+    border: 1px solid rgba(145, 36, 255, 0.15);
+    border-radius: 24px;
+    padding: 2.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.gh-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, -20%), rgba(255, 255, 255, 0.06), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+    transition: background 0.3s ease;
+}
+
+.gh-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(145, 36, 255, 0.5);
+    box-shadow: 0 20px 40px -10px rgba(145, 36, 255, 0.15), inset 0 0 20px rgba(145, 36, 255, 0.05);
+}
+
+.gh-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 2rem;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.gh-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(145, 36, 255, 0.2) 0%, rgba(145, 36, 255, 0.05) 100%);
+    border: 1px solid rgba(145, 36, 255, 0.3);
+    border-radius: 12px;
+    color: #d1a3ff;
+    box-shadow: 0 4px 15px rgba(145, 36, 255, 0.15);
+}
+
+.gh-icon {
+    filter: drop-shadow(0 0 8px rgba(145, 36, 255, 0.5));
+}
+
+.gh-card-header h3 {
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.gh-chart-card { grid-column: span 12; }
+.gh-stats-card { grid-column: span 12; }
+.gh-streak-card { grid-column: span 12; }
+
+@media (min-width: 992px) {
+    .gh-stats-card { grid-column: span 6; }
+    .gh-streak-card { grid-column: span 6; }
+}
+
+.gh-chart-wrapper, .gh-img-container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gh-chart-wrapper {
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(145, 36, 255, 0.5) rgba(255, 255, 255, 0.05);
+}
+
+.gh-heatmap-img {
+    filter: drop-shadow(0 0 10px rgba(145, 36, 255, 0.1));
+}
+
+.gh-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gh-card:hover img {
+    transform: scale(1.02);
+}
+
+.gh-chart-wrapper::-webkit-scrollbar { height: 6px; }
+.gh-chart-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.gh-chart-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #9124ff, #d1a3ff);
+    border-radius: 10px;
+}
+
+/* GitHub Action Button */
+.github-action-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.github-view-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: rgba(20, 10, 40, 0.8);
+    border: 1px solid rgba(145, 36, 255, 0.4);
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
+
+.github-view-btn .btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(145, 36, 255, 0), rgba(145, 36, 255, 0.2), rgba(145, 36, 255, 0));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.github-view-btn:hover {
+    transform: translateY(-3px);
+    border-color: #d1a3ff;
+    box-shadow: 0 10px 25px rgba(145, 36, 255, 0.3), inset 0 0 15px rgba(145, 36, 255, 0.1);
+    color: #d1a3ff;
+}
+
+.github-view-btn:hover .btn-glow {
+    transform: translateX(100%);
+}
 
     .premium-preloader {
         position: fixed;
