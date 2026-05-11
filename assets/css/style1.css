@@ -20,6 +20,230 @@ html {
   scroll-behavior: smooth;
 }
 
+.github-premium-section {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .github-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+    .gh-card {
+        background: rgba(20, 10, 40, 0.4);
+        border: 1px solid rgba(145, 36, 255, 0.2);
+        border-radius: 24px;
+        padding: 2rem;
+        backdrop-filter: blur(12px);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    .gh-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(145, 36, 255, 0.6);
+        box-shadow: 0 15px 30px rgba(108, 23, 195, 0.15);
+    }
+    .gh-card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        color: #fff;
+    }
+    .gh-icon {
+        color: #9124ff;
+        background: rgba(145, 36, 255, 0.1);
+        padding: 8px;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .gh-card-header h3 {
+        font-size: 1.2rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin: 0;
+    }
+    .gh-chart-card {
+        grid-column: span 12;
+    }
+    .gh-stats-card {
+        grid-column: span 12;
+    }
+    .gh-streak-card {
+        grid-column: span 12;
+    }
+    @media (min-width: 992px) {
+        .gh-stats-card { grid-column: span 6; }
+        .gh-streak-card { grid-column: span 6; }
+    }
+    .gh-chart-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .gh-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .gh-chart-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+    .gh-chart-wrapper::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+    }
+    .gh-chart-wrapper::-webkit-scrollbar-thumb {
+        background: rgba(145, 36, 255, 0.5);
+        border-radius: 10px;
+    }
+
+    .premium-preloader {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000000;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+        overflow: hidden;
+    }
+    .preloader-bg-grid {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 50px 50px;
+        background-image: linear-gradient(to right, rgba(145, 36, 255, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(145, 36, 255, 0.05) 1px, transparent 1px);
+        z-index: 0;
+        transform: perspective(500px) rotateX(45deg) translateY(-50px) scale(2);
+        animation: gridMove 10s linear infinite;
+    }
+    @keyframes gridMove {
+        0% { transform: perspective(500px) rotateX(45deg) translateY(-50px) scale(2); }
+        100% { transform: perspective(500px) rotateX(45deg) translateY(0px) scale(2); }
+    }
+    .premium-preloader-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        z-index: 1;
+        width: 90%;
+        max-width: 400px;
+    }
+    .pl-svg {
+        width: 120px;
+        height: 120px;
+        animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .inner-logo text {
+        opacity: 0;
+        animation: fadeText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+    .pl-greeting-box {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+    }
+    .pl-greeting {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    }
+    .pl-highlight {
+        background: linear-gradient(135deg, #fff 0%, #d1a3ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #9124ff;
+    }
+    .pl-progress-container {
+        width: 100%;
+        height: 4px;
+        background: rgba(145, 36, 255, 0.1);
+        border-radius: 4px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        opacity: 0;
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    }
+    .pl-progress-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #9124ff, #d1a3ff);
+        box-shadow: 0 0 10px rgba(145, 36, 255, 0.5);
+        border-radius: 4px;
+    }
+    .pl-status-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        opacity: 0;
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    }
+    .pl-sub {
+        font-size: clamp(0.7rem, 2vw, 0.8rem);
+        color: rgba(255, 255, 255, 0.5);
+        margin: 0;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .pl-percentage {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: #d1a3ff;
+        font-weight: 600;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .pl-footer {
+        position: absolute;
+        bottom: 30px;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+        opacity: 0;
+        animation: fadeText 1s ease 1s forwards;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 2px;
+    }
+    .pl-version { color: #9124ff; opacity: 0.8; }
+    @media (max-width: 600px) {
+        .pl-footer { flex-direction: column; gap: 10px; }
+    }
+    @keyframes scaleIn {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeText {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    @keyframes slideUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
 
 .navlist {
     display: flex;

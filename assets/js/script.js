@@ -609,36 +609,7 @@ document.addEventListener('DOMContentLoaded', loadActivities);
 
 
 
-async function fetchLeetCodeStats() {
-    const container = document.getElementById('leetcode-stats-container');
-    if(!container) return;
 
-    const username = "ravivish3481"; 
-    
-    try {
-        const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
-        const data = await response.json();
-
-        if (data.status === "success") {
-            container.innerHTML = `
-                <div class="lc-stats-wrapper">
-                    <div class="lc-stats-row"><span>Total Solved</span><span class="lc-val">${data.totalSolved}</span></div>
-                    <div class="lc-stats-row"><span>Acceptance Rate</span><span class="lc-val">${data.acceptanceRate}%</span></div>
-                    <div class="lc-stats-row"><span>Easy</span><span class="lc-val" style="color:#00b8a3">${data.easySolved}</span></div>
-                    <div class="lc-stats-row"><span>Medium</span><span class="lc-val" style="color:#ffc01e">${data.mediumSolved}</span></div>
-                    <div class="lc-stats-row"><span>Hard</span><span class="lc-val" style="color:#ef4743">${data.hardSolved}</span></div>
-                    <div class="lc-stats-row"><span>Global Ranking</span><span class="lc-val">${data.ranking}</span></div>
-                </div>
-            `;
-        } else {
-            throw new Error("User not found");
-        }
-    } catch (err) {
-        container.innerHTML = `<p style="color:rgba(255,255,255,0.4)">LeetCode data is currently private or restricted.</p>`;
-    }
-}
-
-document.addEventListener('DOMContentLoaded', fetchLeetCodeStats);
 
 
 
