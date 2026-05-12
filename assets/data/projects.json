@@ -66,39 +66,5 @@
         "images": ["project3.jpg", "project4.jpg"],
         "reportLink": "https://github.com/ravikumar-3481/FUTURE_DS_02/blob/main/README.md",
         "challenges": ["Integrating cross-platform ad metrics securely.", "Attributing conversions accurately across complex funnel stages.", "Handling discrepancies and missing values in API data exports."]
-    },
-     {
-        "id": 5,
-        "category": "ai",
-        "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
-        "thumbnail": "project4.jpg",
-        "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
-        "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
-        "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
-        "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
-        "result": "100% Automated NLP Pipeline",
-        "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
-        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
-        "images": ["project4.jpg"],
-        "reportLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-/blob/main/README.md",
-        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
-    },
-     {
-        "id": 6,
-        "category": "ai",
-        "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
-        "thumbnail": "project4.jpg",
-        "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
-        "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
-        "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
-        "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
-        "result": "100% Automated NLP Pipeline",
-        "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
-        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
-        "images": ["project4.jpg"],
-        "reportLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-/blob/main/README.md",
-        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
     }
 ]
