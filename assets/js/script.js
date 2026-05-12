@@ -159,8 +159,8 @@ async function loadProjects() {
                                 <a href="${p.liveLink}" target="_blank" class="p-btn"><i class="fas fa-external-link-alt"></i> Live View</a>
                                 <a href="${p.codeLink}" target="_blank" class="p-btn outline"><i class="fab fa-github"></i> Source</a>
                             </div>
-                            <a href="project.html?id=${p.id}" class="view-more-modern" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
-                                Explore Details <i class="fas fa-arrow-right"></i>
+                            <a href="assets/template/project.html?id=${p.id}" class="view-more-modern" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
+                                Explore Case Study<i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>

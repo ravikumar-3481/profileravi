@@ -25,9 +25,13 @@
             if (decoded.startsWith('proj_')) {
                 const id = decoded.split('_')[1];
                 // If we are NOT currently on project.html, seamlessly redirect to it
-                if (!path.includes('project.html')) {
-                    let basePath = path.endsWith('/') ? path : path.substring(0, path.lastIndexOf('/') + 1);
-                    window.location.replace(`${basePath}project.html?id=${id}${hash}`);
+                if (!path.includes('assets/template/project.html')) {
+                    // Compute root base path
+                    let rootPath = path.endsWith('/') ? path : path.substring(0, path.lastIndexOf('/') + 1);
+                    if (rootPath.includes('assets/template/')) {
+                        rootPath = rootPath.replace('assets/template/', '');
+                    }
+                    window.location.replace(`${rootPath}assets/template/project.html?id=${id}${hash}`);
                     return; // Stop execution
                 }
             }
@@ -45,12 +49,17 @@
             basePath = path.substring(0, path.lastIndexOf('/') + 1);
         }
         
+        let rootPath = basePath;
+        if (rootPath.includes('assets/template/')) {
+            rootPath = rootPath.replace('assets/template/', '');
+        }
+        
         // Handle Project pages
         if (urlParams.has('id')) {
             const id = urlParams.get('id');
             const encodedId = btoa(`proj_${id}`);
             // Replace the URL instantly without reloading the page
-            window.history.replaceState(null, '', `${basePath}?ref=${encodedId}${hash}`);
+            window.history.replaceState(null, '', `${rootPath}?ref=${encodedId}${hash}`);
         } 
         // Handle Index/Home page
         else if (path.includes('index.html')) {
