@@ -1,0 +1,11 @@
+# User-agent: * applies to all search engines (Google, Bing, etc.)
+User-agent: *
+
+# Allow all public content to be indexed
+Allow: /
+
+# Host site (Netlify specific best practice)
+Host: https://profileravi.netlify.app/
+
+# Direct link to your sitemap for faster crawling
+Sitemap: https://profileravi.netlify.app/sitemap.xml

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Open Source Contributor",
+    "description": "Actively contributing to AI-based web tools and improving algorithm efficiency for community projects on GitHub.",
+    "duration": "2025 - Present",
+    "institute": "GitHub Community",
+    "icon": "fas fa-code-branch"
+  },
+  {
+    "title": "Participant in Smart India Hackathon",
+    "description": "Collaborated in a high-pressure environment to develop an innovative solution for real-world challenges, focusing on the intersection of AI and user-centric design.",
+    "duration": "sep 2025",
+    "institute": "AKS University",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "title": "Tech Content Creator",
+    "description": "Writing technical blogs and documentation on Medium about simplifying complex AI concepts for beginners.",
+    "duration": "Present",
+    "institute": "dev / topmate.io",
+    "icon": "fas fa-pen-nib"
+  }
+]

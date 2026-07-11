@@ -1,0 +1,371 @@
+/* Timeseries Section */
+.timeseries-section {
+    padding: 8rem 2rem;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    z-index: 1;
+}
+
+.timeseries-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+    background: radial-gradient(circle, rgba(145, 36, 255, 0.03) 0%, rgba(99, 102, 241, 0.01) 50%, rgba(0, 0, 0, 0) 80%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(80px);
+}
+
+.timeseries-header {
+    text-align: left;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.timeseries-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    font-family: 'Cabinet Grotesk', 'Outfit', 'Satoshi', sans-serif;
+}
+
+.timeseries-header p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    max-width: 62ch;
+}
+
+/* Timeseries Layout */
+.timeseries-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7fr 1px 3fr; /* Asymmetric design (Variance: 8) */
+    gap: 4rem;
+    z-index: 2;
+}
+
+/* Left Column: Cards list */
+.timeseries-cards-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-right: 2.5rem;
+}
+
+/* Middle Column: Vertical Track */
+.timeseries-line-track {
+    position: relative;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    height: 100%;
+}
+
+.timeseries-line-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #9124ff, #6366f1);
+    transform-origin: top;
+    box-shadow: 0 0 10px rgba(145, 36, 255, 0.4);
+}
+
+/* Right Column: Floating Year Indicator (Variance: 8 Asymmetry) */
+.timeseries-indicator-col {
+    position: sticky;
+    top: 15rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 2.5rem;
+}
+
+.timeseries-year-active {
+    font-size: 4.5rem;
+    font-weight: 800;
+    font-family: 'Cabinet Grotesk', 'Satoshi', sans-serif;
+    color: #ffffff;
+    opacity: 0.12;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+    letter-spacing: -3px;
+    line-height: 0.9;
+}
+
+.timeseries-year-active.highlighted {
+    opacity: 0.8;
+    color: #9124ff;
+    text-shadow: 0 0 25px rgba(145, 36, 255, 0.15);
+}
+
+/* Cards (Strictly Black background, Liquid Glass Refraction) */
+.timeseries-card {
+    background: #000000 !important; /* Pure black card background */
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2.2rem;
+    position: relative;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    cursor: pointer;
+}
+
+.timeseries-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(145, 36, 255, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 
+                0 20px 45px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(145, 36, 255, 0.1);
+}
+
+.timeseries-card:hover .timeseries-title-area span {
+    color: #a78bfa;
+}
+
+/* Node Connector line */
+.timeseries-node-connector {
+    position: absolute;
+    right: -4rem; /* Aligns with the middle track */
+    top: 2.8rem;
+    width: 4rem;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: background 0.3s ease;
+}
+
+.timeseries-card:hover .timeseries-node-connector {
+    background: rgba(145, 36, 255, 0.5);
+}
+
+.timeseries-node-dot {
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.timeseries-card:hover .timeseries-node-dot {
+    background: #9124ff;
+    transform: translateY(-50%) scale(1.4);
+    box-shadow: 0 0 6px #9124ff;
+}
+
+/* Filters */
+.timeseries-filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.timeseries-filter-btn {
+    padding: 8px 18px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeseries-filter-btn:hover {
+    color: #ffffff;
+    border-color: rgba(145, 36, 255, 0.3);
+}
+
+.timeseries-filter-btn.active {
+    color: #ffffff;
+    background: #9124ff;
+    border-color: #9124ff;
+    box-shadow: 0 0 12px rgba(145, 36, 255, 0.25);
+}
+
+/* Card Elements */
+.timeseries-badge {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    background: rgba(145, 36, 255, 0.06);
+    border: 1px solid rgba(145, 36, 255, 0.2);
+    color: #a78bfa;
+}
+
+.timeseries-badge.edu {
+    background: rgba(167, 139, 250, 0.06);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    color: #d1a3ff;
+}
+
+.timeseries-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.timeseries-logo-wrapper {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    flex-shrink: 0;
+}
+
+.timeseries-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.timeseries-title-area h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.timeseries-title-area span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.timeseries-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.84rem;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.timeseries-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.timeseries-meta i {
+    color: #9124ff;
+    font-size: 0.78rem;
+}
+
+.timeseries-desc {
+    font-size: 0.94rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.timeseries-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.timeseries-skill-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.timeseries-card:hover .timeseries-skill-tag {
+    color: #a78bfa;
+    border-color: rgba(145, 36, 255, 0.2);
+    background: rgba(145, 36, 255, 0.01);
+}
+
+/* Loader Styles */
+.timeseries-loader-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.timeseries-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(145, 36, 255, 0.1);
+    border-top: 3px solid #9124ff;
+    border-radius: 50%;
+    animation: timeseries-spin 1s linear infinite;
+}
+
+@keyframes timeseries-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile Collapse overrides */
+@media (max-width: 768px) {
+    .timeseries-section {
+        padding: 5rem 1.25rem;
+    }
+
+    .timeseries-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .timeseries-indicator-col {
+        display: none; /* Hide floating track on mobile */
+    }
+
+    .timeseries-line-track {
+        display: none;
+    }
+
+    .timeseries-cards-col {
+        padding-right: 0;
+        gap: 2rem;
+    }
+
+    .timeseries-node-connector {
+        display: none;
+    }
+
+    .timeseries-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .timeseries-card {
+        padding: 1.5rem;
+    }
+}

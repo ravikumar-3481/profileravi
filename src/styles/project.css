@@ -1,0 +1,776 @@
+.project-detail-page-wrapper {
+    position: relative;
+    background: #000;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background decorations */
+.pd-bg-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.pd-glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.12;
+    mix-blend-mode: screen;
+}
+
+.pd-glow-orb-1 {
+    top: 5%;
+    left: 10%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #9124ff, transparent 75%);
+}
+
+.pd-glow-orb-2 {
+    top: 35%;
+    right: 5%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #00f0ff, transparent 75%);
+}
+
+.pd-glow-orb-3 {
+    bottom: 5%;
+    left: 15%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ff007a, transparent 75%);
+}
+
+.pd-grid-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at 50% 20%, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at 50% 20%, black 50%, transparent 100%);
+}
+
+/* Main Container - Editorial Layout */
+.project-detail-page {
+    position: relative;
+    z-index: 10;
+    padding: 100px 24px 60px;
+    max-width: 860px; /* Editorial narrow width */
+    margin: 0 auto;
+}
+
+/* Override global section padding from style1.css inside the showcase page */
+.project-detail-page section {
+    padding: 1.7rem !important;
+    margin: 0 0 1.8rem 0 !important;
+    width: 100% !important;
+}
+
+/* Back Button */
+.pd-nav-back {
+    margin-bottom: 1.2rem;
+    display: inline-block;
+}
+
+.pd-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a8a8a8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pd-back-link:hover {
+    color: #fff;
+    background: rgba(145, 36, 255, 0.1);
+    border-color: rgba(145, 36, 255, 0.3);
+    transform: translateX(-4px);
+}
+
+/* Hero Section */
+.pd-hero {
+    text-align: left; /* Editorial alignment */
+    margin-bottom: 1.5rem;
+}
+
+.pd-category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(145, 36, 255, 0.1);
+    color: #d1a3ff;
+    border: 1px solid rgba(145, 36, 255, 0.25);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.pd-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 40%, #e2c5ff 80%, #a854ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Action controls */
+.pd-hero-actions {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.pd-btn-glow {
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.pd-btn-glow.primary {
+    background: linear-gradient(135deg, #9124ff, #6200d1);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(145, 36, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-btn-glow.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(145, 36, 255, 0.5);
+}
+
+.pd-btn-glow.secondary {
+    background: rgba(255, 255, 255, 0.02);
+    color: #e2c5ff;
+    border: 1px solid rgba(145, 36, 255, 0.2);
+}
+
+.pd-btn-glow.secondary:hover {
+    background: rgba(145, 36, 255, 0.08);
+    color: #fff;
+    border-color: rgba(145, 36, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Minimal Editorial Meta Bar */
+.pd-meta-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    background: rgba(12, 12, 12, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 0;
+    margin-bottom: 1.8rem;
+}
+
+.pd-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pd-meta-item-label {
+    font-size: 0.7rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.pd-meta-item-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #eee;
+}
+
+.pd-meta-item-value.highlight {
+    color: #d1a3ff;
+    font-weight: 600;
+}
+
+/* Blog Content Sections */
+.pd-blog-section {
+    margin-bottom: 1.8rem;
+    height: auto;
+    width: 100%;
+}
+
+.pd-blog-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #fff;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pd-blog-section-title i {
+    font-size: 1.25rem;
+    height: auto;
+}
+
+.pd-blog-text {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #ccc;
+    text-align: justify;
+}
+
+/* Specific Accent Borders for Problem & Solution statements (No Boxes) */
+.pd-problem-statement {
+    border-left: 3px solid #ff4a4a;
+    padding-left: 20px;
+    margin: 0.6rem 0;
+}
+
+.pd-solution-statement {
+    border-left: 3px solid #00f0ff;
+    padding-left: 20px;
+    margin: 0.6rem 0;
+}
+
+/* Slideshow Component Styles */
+.pd-slideshow-section {
+    margin-bottom: 1.8rem;
+    width: 100%;
+}
+
+.pd-slideshow-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9.5;
+    height: auto;
+    max-height: 520px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #080808;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+}
+
+.pd-slideshow-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.pd-slide-bg-blur {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(25px);
+    opacity: 0.22;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pd-slide-foreground-img {
+    position: relative;
+    z-index: 2;
+    max-width: 92%;
+    max-height: 88%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pd-slideshow-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(145, 36, 255, 0.2);
+    border: 1px solid rgba(145, 36, 255, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.pd-slideshow-arrow:hover {
+    background: rgba(145, 36, 255, 0.6);
+    border-color: rgba(145, 36, 255, 0.8);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 0 15px rgba(145, 36, 255, 0.4);
+}
+
+.pd-slideshow-arrow.prev {
+    left: 20px;
+}
+
+.pd-slideshow-arrow.next {
+    right: 20px;
+}
+
+.pd-slideshow-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.pd-slideshow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pd-slideshow-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.pd-slideshow-dot.active {
+    width: 20px;
+    border-radius: 4px;
+    background: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.pd-slideshow-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    padding: 30px 20px 10px;
+    z-index: 5;
+    text-align: center;
+    pointer-events: none;
+}
+
+.pd-slideshow-caption span {
+    font-size: 0.85rem;
+    color: #bbb;
+    letter-spacing: 0.5px;
+}
+
+/* Lightbox Modal */
+.pd-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.94);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.pd-lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pd-lightbox-close:hover {
+    background: rgba(145, 36, 255, 0.2);
+    border-color: rgba(145, 36, 255, 0.5);
+    transform: scale(1.1) rotate(90deg);
+}
+
+.pd-lightbox-img-wrapper {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+}
+
+.pd-lightbox-img-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+/* Staggered Tech Badges (Inline Blog Style) */
+.pd-tech-tags-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.pd-tech-tag-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #eee;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pd-tech-tag-badge:hover {
+    background: rgba(145, 36, 255, 0.08);
+    border-color: rgba(145, 36, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.pd-tech-tag-badge i {
+    font-size: 1.05rem;
+    color: #d1a3ff;
+}
+
+/* Editorial Timeline (Challenges list) */
+.pd-editorial-timeline {
+    position: relative;
+    margin-top: 1.5rem;
+    padding-left: 24px;
+}
+
+.pd-editorial-timeline::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 4px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pd-timeline-step {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.pd-timeline-step:last-child {
+    margin-bottom: 0;
+}
+
+.pd-timeline-step-dot {
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #9124ff;
+    box-shadow: 0 0 8px #9124ff;
+    border: 1px solid #000;
+}
+
+.pd-timeline-step:nth-child(even) .pd-timeline-step-dot {
+    background: #00f0ff;
+    box-shadow: 0 0 8px #00f0ff;
+}
+
+.pd-timeline-step-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.pd-timeline-step-content p {
+    color: #a8a8a8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Final outcome blog box */
+.pd-impact-editorial {
+    background: linear-gradient(135deg, rgba(145, 36, 255, 0.08) 0%, rgba(0, 240, 255, 0.04) 100%);
+    border: 1px solid rgba(145, 36, 255, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 1.2rem;
+    text-align: center;
+}
+
+.pd-impact-editorial-metric {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #00f0ff;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.pd-impact-editorial h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.pd-impact-editorial p {
+    color: #bbb;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+}
+
+/* Footer Link back */
+.pd-footer-back {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Loader */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(145, 36, 255, 0.1);
+    border-top: 3px solid #9124ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+    .project-detail-page {
+        padding: 90px 16px 40px;
+    }
+    .pd-hero h1 {
+        font-size: 1.8rem;
+    }
+    .pd-slideshow-arrow {
+        width: 38px;
+        height: 38px;
+    }
+    .pd-slideshow-arrow.prev {
+        left: 10px;
+    }
+    .pd-slideshow-arrow.next {
+        right: 10px;
+    }
+}
+
+/* Table of Contents */
+.pd-toc-section {
+    height: fit-content;
+    background: transparent;
+    border-radius: 16px;
+    padding: 20px !important;
+    margin-bottom: 2rem !important;
+}
+
+.pd-toc-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 8px;
+}
+
+.pd-toc-title i {
+    color: #9124ff;
+}
+
+.pd-toc-list {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(220px, 1fr));
+    gap: 10px 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.pd-toc-item {
+    display: flex;
+    align-items: center;
+}
+
+.pd-toc-link {
+    color: #8a8a8a;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pd-toc-link:hover {
+    color: #00f0ff;
+    transform: translateX(4px);
+}
+
+.pd-toc-link::before {
+    content: '→';
+    color: #9124ff;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.pd-toc-link:hover::before {
+    transform: scale(1.2);
+    color: #00f0ff;
+}
+
+/* Diagram SVG Animations & Classes */
+.pd-diagram-svg-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.pd-diagram-svg {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+}
+
+@keyframes dashflow {
+    to {
+        stroke-dashoffset: -20;
+    }
+}
+
+.pd-flow-line {
+    stroke-dasharray: 6, 4;
+    animation: dashflow 1.2s linear infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px rgba(145, 36, 255, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(145, 36, 255, 0.7));
+    }
+}
+
+@keyframes pulse-glow-cyan {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px rgba(0, 240, 255, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.7));
+    }
+}
+
+.pd-svg-node-purple {
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.pd-svg-node-cyan {
+    animation: pulse-glow-cyan 3s ease-in-out infinite;
+}
+
+.pd-svg-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    fill: #ffffff;
+    font-size: 11px;
+    text-anchor: middle;
+}
+
+.pd-svg-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    fill: #d1a3ff;
+    font-size: 13px;
+    text-anchor: middle;
+}
