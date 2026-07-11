@@ -1,0 +1,18 @@
+[
+    { "name": "Git", "icon": "devicon-git-plain colored", "type": "devicon" },
+    { "name": "VS Code", "icon": "devicon-vscode-plain colored", "type": "devicon" },
+    { "name": "Jupyter", "icon": "devicon-jupyter-plain colored", "type": "devicon" },
+    { "name": "Anaconda", "icon": "devicon-anaconda-original colored", "type": "devicon" },
+    { "name": "Postman", "icon": "devicon-postman-plain colored", "type": "devicon" },
+    { "name": "GitHub", "icon": "devicon-github-original", "type": "devicon" },
+    { "name": "Docker", "icon": "devicon-docker-plain colored", "type": "devicon" },
+    { "name": "ChatGPT", "icon": "simple-icons:openai", "type": "iconify", "style": "color: #ffffff;" },
+    { "name": "Gemini", "icon": "logos:google-gemini", "type": "iconify" },
+    { "name": "Vercel", "icon": "devicon-vercel-original", "type": "devicon" },
+    { "name": "Netlify", "icon": "devicon-netlify-plain colored", "type": "devicon" },
+    { "name": "Google Cloud", "icon": "devicon-googlecloud-plain colored", "type": "devicon" },
+    { "name": "Firebase", "icon": "devicon-firebase-plain colored", "type": "devicon" },
+    { "name": "Lovable", "icon": "simple-icons:lovable", "type": "iconify", "style": "color: #ff4b91;" },
+    { "name": "Android Studio", "icon": "material-symbols:AppSettingsAlt", "type": "iconify", "style": "color: #4285F4;" },
+    { "name": "Excel", "icon": "fas fa-file-excel", "type": "fontawesome", "style": "color: #1D6F42;" }
+]

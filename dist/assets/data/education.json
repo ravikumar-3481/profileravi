@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "institute": "AKS University",
+        "logo": "assets/img/aks.webp",
+        "degree": "B.Tech in Computer Science & Engineering",
+        "cgpa": "6.7",
+        "duration": "2025 - 2029",
+        "courses": ["AI & Data Science", "AI & Machine Learning"],
+        "skills": ["Python", "React", "Java"],
+        "description": "Bridging the gap between data science and human behavior. I leverage AI and Mathematics to build ethical, intuitive systems that prioritize user needs alongside technical performance."
+    },
+    {
+        "id": 2,
+        "institute": "PMS GHSS Karhi",
+        "logo": "assets/img/pm.webp",
+        "degree": "Higher Secondary Education",
+        "cgpa": "7.9/10",
+        "duration": "2023 - 2025",
+        "courses": ["Mathematics", "Physics", "Computer Science"],
+        "skills": ["AI", "Critical Thinking", "Problem Solving"],
+        "description": "I completed my higher secondary education at PMS GHSS Karhi, where I focused on Mathematics. Throughout these two years, I maintained a high academic standard while solidifying my interest in the field of Artificial Intelligence."
+    }
+]
