@@ -23,5 +23,4 @@ dist-ssr
 .vscode
 .agents/
 node_modules/
-node_modules/
 dist/
