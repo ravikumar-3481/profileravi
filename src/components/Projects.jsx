@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { slugify } from '../utils/urlHelper';
 
 export default function Projects() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,16 @@ export default function Projects() {
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(p => p.category === filter);
+
+  const openCaseStudy = (event, project) => {
+    const path = `/project/${project.id}-${slugify(project.title)}`;
+    if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    event.preventDefault();
+    document.startViewTransition(() => navigate(path));
+  };
 
   return (
     <section className="projects" id="projects">
@@ -79,7 +90,12 @@ export default function Projects() {
                 }}
               >
                 <div className="project-img">
-                  <img src={`/assets/img/${p.thumbnail}`} loading="lazy" alt={p.title} />
+                  <img
+                    src={`/assets/img/${p.thumbnail}`}
+                    loading="lazy"
+                    alt={p.title}
+                    style={{ viewTransitionName: `project-artifact-${p.id}` }}
+                  />
                   <div className="project-tag">{p.result}</div>
                 </div>
                 <div className="project-info">
@@ -98,7 +114,12 @@ export default function Projects() {
                         <i className="fab fa-github"></i> Source
                       </a>
                     </div>
-                    <Link to={`/project/${p.id}-${slugify(p.title)}`} className="view-more-modern" style={{ textDecoration: 'none' }}>
+                    <Link
+                      to={`/project/${p.id}-${slugify(p.title)}`}
+                      className="view-more-modern"
+                      onClick={(event) => openCaseStudy(event, p)}
+                      style={{ textDecoration: 'none' }}
+                    >
                       Explore Case Study <i className="fas fa-arrow-right"></i>
                     </Link>
                   </div>

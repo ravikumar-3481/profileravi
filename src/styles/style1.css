@@ -554,7 +554,7 @@ section {
 }
 
 section:not(.hero) {
-    background-color: #000000 !important;
+    background-color: #000000 ;
 }
 
 @media (min-width: 768px) {
