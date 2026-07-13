@@ -21,5 +21,7 @@ dist-ssr
 *.sln
 *.sw?
 .vscode
-.agent
-skills
+.agents/
+node_modules/
+node_modules/
+dist/
