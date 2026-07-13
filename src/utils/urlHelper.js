@@ -20,7 +20,7 @@ export const slugify = (title) => {
 export const updateProjectUrl = (id, title) => {
   if (!id || !title) return;
   const slug = slugify(title);
-  const targetPath = `/project/${id}-${slug}`;
+  const targetPath = `/${slug}`;
 
   // Only update if the pathname is different to avoid redundant history states
   if (window.location.pathname !== targetPath) {
