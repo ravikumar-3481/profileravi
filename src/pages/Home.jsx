@@ -8,7 +8,6 @@ import Projects from '../components/Projects';
 import Timeseries from '../components/Timeseries';
 import Toolbox from '../components/Toolbox';
 import GitHubStats from '../components/GitHubStats';
-import Activities from '../components/Activities';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -56,7 +55,6 @@ export default function Home() {
         <Timeseries />
         <Toolbox />
         <GitHubStats />
-        <Activities />
         <Testimonials />
         <Contact />
       </main>

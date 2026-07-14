@@ -108,7 +108,7 @@ export default function Timeseries() {
 
     // Set first year as default if none is active or active is invalid
     if ((!activeYear || !distinctYears.includes(activeYear)) && distinctYears.length > 0) {
-      setActiveYear(distinctYears[0]);
+      setActiveYear(distinctYears[0]); // eslint-disable-line react-hooks/set-state-in-effect
     }
 
     return () => observer.disconnect();
@@ -116,7 +116,7 @@ export default function Timeseries() {
 
   // Reset active year when filter changes
   useEffect(() => {
-    setActiveYear('');
+    setActiveYear(''); // eslint-disable-line react-hooks/set-state-in-effect
   }, [activeFilter]);
 
   return (

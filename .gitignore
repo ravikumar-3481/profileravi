@@ -24,3 +24,4 @@ dist-ssr
 .agents/
 node_modules/
 dist/
+output/playwright/

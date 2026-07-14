@@ -1,8 +1,8 @@
 .github-premium-section {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     position: relative;
-    padding: 2rem 1.5rem 6rem;
+    padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(4rem, 8vw, 6rem);
 }
 
 .gh-bg-glow {
@@ -11,20 +11,55 @@
     left: 50%;
     width: 60%;
     height: 60%;
-    background: radial-gradient(circle, rgba(145, 36, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(145, 36, 255, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
     transform: translate(-50%, -50%);
     z-index: 0;
     pointer-events: none;
-    filter: blur(40px);
+    filter: blur(50px);
 }
 
-.github-bento-grid {
+/* ── Two-column split ───────────────────────────── */
+.gh-split-layout {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1.8rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
     position: relative;
     z-index: 1;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .gh-split-layout {
+        grid-template-columns: 1fr;
+        gap: clamp(2rem, 5vw, 3rem);
+    }
+}
+
+/* Left column */
+.gh-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 0;
+}
+
+/* Right column */
+.gh-right-col {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding-top: 0.5rem;
+}
+
+/* GitHub card grid — inside left column only */
+.github-bento-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 
 .gh-card {
@@ -98,13 +133,158 @@
     letter-spacing: 0.5px;
 }
 
-.gh-chart-card { grid-column: span 12; }
-.gh-stats-card { grid-column: span 12; }
-.gh-streak-card { grid-column: span 12; }
+.gh-chart-card,
+.gh-stats-card,
+.gh-streak-card {
+    width: 100%;
+}
 
-@media (min-width: 992px) {
-    .gh-stats-card { grid-column: span 6; }
-    .gh-streak-card { grid-column: span 6; }
+/* ── Activities Timeline (Right column) ──────────── */
+.act-panel-header {
+    margin-bottom: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.act-panel-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9124ff;
+    margin-bottom: 0.6rem;
+}
+
+.act-panel-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.act-panel-sub {
+    font-size: clamp(0.8rem, 1.4vw, 0.92rem);
+    color: rgba(255, 255, 255, 0.42);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Timeline wrapper — provides positioning context for spine */
+.act-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: clamp(1.6rem, 3vw, 2rem);
+}
+
+/* Vertical spine */
+.act-spine {
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(145, 36, 255, 0.4) 8%,
+        rgba(145, 36, 255, 0.4) 92%,
+        transparent 100%
+    );
+}
+
+/* Individual timeline node */
+.act-node {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.8rem, 2vw, 1.2rem);
+    padding: clamp(1rem, 2vw, 1.4rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: default;
+}
+
+.act-node:last-child {
+    border-bottom: none;
+}
+
+/* Dot on the spine */
+.act-dot {
+    position: absolute;
+    left: calc(-1 * clamp(1.6rem, 3vw, 2rem));
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(10px, 1.8vw, 14px);
+    height: clamp(10px, 1.8vw, 14px);
+    border-radius: 50%;
+    border: 1px solid rgba(145, 36, 255, 0.5);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.act-node:hover .act-dot {
+    border-color: #9124ff;
+    box-shadow: 0 0 10px rgba(145, 36, 255, 0.5);
+}
+
+.act-dot-inner {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #9124ff;
+}
+
+/* Content area */
+.act-content {
+    flex: 1;
+    min-width: 0;
+    padding-top: 0.1rem;
+}
+
+/* Index counter */
+.act-index {
+    display: block;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: clamp(0.6rem, 1vw, 0.68rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(145, 36, 255, 0.7);
+    margin-bottom: 0.35rem;
+    line-height: 1;
+}
+
+/* Main title */
+.act-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.88rem, 1.6vw, 1.05rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 0.6rem 0;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+}
+
+.act-node:hover .act-title {
+    color: #fff;
+}
+
+/* Self-drawing accent underline */
+.act-accent-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(145, 36, 255, 0.5) 0%, transparent 100%);
+    transform-origin: left center;
+    border-radius: 1px;
 }
 
 .gh-chart-wrapper, .gh-img-container {
@@ -349,9 +529,9 @@
     left: 50%;
     transform: translateX(-50%); 
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.3);
 }
@@ -359,7 +539,7 @@
 .navlist:hover {
     border-color: rgba(145, 36, 255, 0.5);
     box-shadow: 0 10px 40px 0 rgba(145, 36, 255, 0.2), inset 0 0 10px rgba(145, 36, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05) !important;
 }
 
 
@@ -419,8 +599,8 @@
 }
 
 .nav-links li a:hover {
-  color: #e2c2ff;
-  text-shadow: 0 0 10px rgba(145, 36, 255, 0.8);
+  color: #c588ff;
+  text-shadow: 0 0 10px rgba(145, 36, 255, 0.8) !important;
   transform: translateY(-2px);
 }
 
