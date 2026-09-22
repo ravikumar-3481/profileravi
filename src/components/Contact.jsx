@@ -135,7 +135,7 @@ export default function Contact() {
             <a href="https://topmate.io/ravi_vishwakarma0" target="_blank" rel="noreferrer" className="social-link-item">
               <iconify-icon icon="simple-icons:topmate"></iconify-icon><span>Topmate</span>
             </a>
-            <a href="https://x.com/I_am_ravi09" target="_blank" rel="noreferrer" className="social-link-item">
+            <a href="https://x.com/ravikumar3481" target="_blank" rel="noreferrer" className="social-link-item">
               <iconify-icon icon="simple-icons:x"></iconify-icon><span>X</span>
             </a>
             <a href="https://www.instagram.com/i_am_ravi.07" target="_blank" rel="noreferrer" className="social-link-item">
