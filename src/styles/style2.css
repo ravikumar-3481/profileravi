@@ -27,7 +27,7 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     justify-content: center;  
     gap: 25px;
     margin: 3rem auto 0;
@@ -50,7 +50,7 @@
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(145, 36, 255, 0.15);
-    border-color: rgba(145, 36, 255, 0.4);
+    
 }
 
 .project-img {
