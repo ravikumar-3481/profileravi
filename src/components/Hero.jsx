@@ -111,7 +111,7 @@ export default function Hero({ onResumeClick }) {
           </p>
           
           <div className="hero-cta-group">
-            <button className="cta-primary" onClick={() => window.open('mailto:ravivish517+portfolio@gmail.com')}>
+            <button className="cta-primary" onClick={() => window.open('mailto:ravivish968@gmail.com')}>
               Let's Connect <i className="fas fa-paper-plane"></i>
             </button>
             <button className="cta-secondary" onClick={onResumeClick}>

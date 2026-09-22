@@ -231,11 +231,11 @@ export default function Contact() {
                 required
               >
                 <option value="" disabled></option>
-                <option value="general Inquiry">General Inquiry</option>
-                <option value="work with us">Work With Us</option>
-                <option value="for hire me">For Hire me</option>
-                <option value="support">Support</option>
-                <option value="other">Other</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Work With Us">Work With Us</option>
+                <option value="Hire Me">Hire Me</option>
+                <option value="Support">Support</option>
+                <option value="Other">Other</option>
               </select>
               <label htmlFor="subject">Subject</label>
               <svg className="input-svg-line" viewBox="0 0 100 2" preserveAspectRatio="none">

@@ -30,16 +30,29 @@ export default function ResumePopup({ onClose }) {
             style={{ cursor: 'zoom-in' }}
           />
         </div>
-        <a 
-          href="https://drive.google.com/uc?export=download&id=1nYjnLfC79FwOmjDHmhM7n-ptuaWbhGVG" 
-          target="_blank" 
-          rel="noreferrer"
-          className="download-icon" 
-          download 
-          aria-label="Download Resume"
-        >
-          <i className="fas fa-download"></i>
-        </a>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
+          <a 
+            href="https://drive.google.com/uc?export=download&id=1nYjnLfC79FwOmjDHmhM7n-ptuaWbhGVG" 
+            target="_blank" 
+            rel="noreferrer"
+            className="download-icon" 
+            download 
+            aria-label="Download Resume"
+            title="Download PDF Resume"
+          >
+            <i className="fas fa-download"></i>
+          </a>
+          <a
+            href="/assets/img/resume.jpg"
+            target="_blank"
+            rel="noreferrer"
+            className="download-icon"
+            aria-label="Open High-Res Resume"
+            title="Open Full Resolution"
+          >
+            <i className="fas fa-expand"></i>
+          </a>
+        </div>
       </motion.div>
     </motion.div>
   );
