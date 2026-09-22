@@ -4,16 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
-  const [showBlogToast, setShowBlogToast] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleBlogClick = () => {
     setMenuActive(false);
-    setShowBlogToast(true);
-    setTimeout(() => {
-      setShowBlogToast(false);
-    }, 3000);
+    navigate('/blog');
   };
 
   const toggleMenu = () => {
@@ -138,43 +134,6 @@ export default function Navbar() {
           </AnimatePresence>
         </nav>
       </div>
-
-      {/* Blog Toast Notification */}
-      <AnimatePresence>
-        {showBlogToast && (
-          <motion.div
-            className="nav-toast"
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.25 }}
-            style={{
-              position: 'fixed',
-              top: '5rem',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              background: 'rgba(15, 10, 30, 0.95)',
-              border: '1px solid rgba(145, 36, 255, 0.6)',
-              color: '#fff',
-              padding: '10px 22px',
-              borderRadius: '30px',
-              boxShadow: '0 10px 30px rgba(145, 36, 255, 0.35), 0 0 15px rgba(0, 242, 255, 0.2)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              zIndex: 3000,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              fontSize: '0.92rem',
-              fontWeight: '500',
-              pointerEvents: 'none'
-            }}
-          >
-            <i className="fas fa-sparkles" style={{ color: '#00f2ff' }}></i>
-            <span>Blog is coming soon! Stay tuned 🚀</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

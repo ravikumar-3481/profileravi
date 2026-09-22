@@ -19,6 +19,8 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
+.env
+.env.example
 *.sw?
 .vscode
 .agents/

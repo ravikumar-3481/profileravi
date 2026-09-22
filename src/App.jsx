@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import ProjectDetails from './pages/ProjectDetails';
+import Blog from './pages/Blog';
 import Preloader from './components/Preloader';
 
 // Helper component to handle legacy URL obfuscation redirects
@@ -45,6 +46,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
+        <Route path="/blog" element={<Blog />} />
         {/* Fallback route */}
         <Route path="*" element={<Home />} />
       </Routes>
