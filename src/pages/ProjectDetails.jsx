@@ -1,386 +1,67 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { slugify, updateProjectUrl } from '../utils/urlHelper';
+import { slugify } from '../utils/urlHelper';
 
-const sections = [
-  { id: 'brief', label: 'Brief' },
-  { id: 'artifact', label: 'Artifact' },
-  { id: 'metrics', label: 'Metrics' },
-  { id: 'log', label: 'Field Log' },
-  { id: 'stack', label: 'Stack' },
-  { id: 'next', label: 'Next' },
-];
+/* ── animation presets ── */
+const ease = [0.22, 1, 0.36, 1];
 
-const titleWords = {
-  hidden: { opacity: 0, y: '0.8em' },
+const reveal = {
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.72, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.55, ease },
   },
 };
 
-const heroSequence = {
+const stagger = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.065,
-      delayChildren: 0.1,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
 };
 
-const getCategoryLabel = (category) => {
-  if (category === 'ai') return 'AI / NLP SYSTEM';
-  if (category === 'web') return 'DATA APPLICATION';
-  return 'ANALYTICS ENGINEERING';
+const fade = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.5, ease } },
 };
 
-const getMetricValues = (project) => {
-  const metricMatch = project.result?.match(/\d+(\.\d+)?/);
-  const primaryValue = metricMatch ? Number(metricMatch[0]) : 100;
-  const primarySuffix = project.result?.includes('%') ? '%' : '';
-
-  return [
-    {
-      label: 'Primary lift',
-      value: primaryValue,
-      suffix: primarySuffix,
-      note: project.result,
-      spark: [18, 24, 21, 34, 37, 48, 52],
-    },
-    {
-      label: 'Artifacts fused',
-      value: (project.images?.length || 1) + (project.diagrams?.length || 1),
-      suffix: '',
-      note: 'screens + diagrams',
-      spark: [2, 3, 4, 4, 5, 6, 6],
-    },
-    {
-      label: 'Stack breadth',
-      value: project.technologies?.length || 0,
-      suffix: '',
-      note: 'production tools',
-      spark: [1, 2, 3, 4, 4, 5, project.technologies?.length || 0],
-    },
-  ];
+/* ── helpers ── */
+const categoryLabel = (cat) => {
+  if (cat === 'ai') return 'AI / NLP';
+  if (cat === 'web') return 'Web Application';
+  return 'Data Analytics';
 };
 
-const getToolRole = (tool) => {
-  const name = tool.toLowerCase();
-  if (name.includes('python')) return 'pipeline runtime';
-  if (name.includes('nlp') || name.includes('textblob')) return 'language signal extraction';
-  if (name.includes('beautiful')) return 'source acquisition';
-  if (name.includes('streamlit')) return 'analyst interface';
-  if (name.includes('plotly') || name.includes('power')) return 'metric visualization';
-  if (name.includes('pandas')) return 'data shaping layer';
-  if (name.includes('flask')) return 'service boundary';
-  if (name.includes('sql')) return 'persistence model';
-  if (name.includes('javascript') || name.includes('html')) return 'interaction surface';
-  if (name.includes('ai')) return 'decision support';
-  return 'delivery component';
+/** Build GitHub README URL from repo link */
+const getReadmeUrl = (project) => {
+  const base = project.reportLink || project.codeLink;
+  if (!base || base === '#') return null;
+  // already a github repo root → append README
+  const cleaned = base.replace(/\/$/, '');
+  if (cleaned.includes('github.com') && !cleaned.includes('/blob/')) {
+    return `${cleaned}/blob/main/README.md`;
+  }
+  return cleaned;
 };
 
-const parseLogEntry = (entry, index) => {
-  const normalized = entry.replaceAll('â€”', '-').replaceAll('—', '-');
-  const [head, ...rest] = normalized.split(' - ');
-  return {
-    time: `T+${String((index + 1) * 14).padStart(2, '0')}d`,
-    title: rest.length ? head : `Phase ${String(index + 1).padStart(2, '0')}`,
-    body: rest.length ? rest.join(' - ') : normalized,
-  };
-};
-
-const Sparkline = ({ values }) => {
-  const max = Math.max(...values, 1);
-  const points = values
-    .map((value, index) => {
-      const x = (index / Math.max(values.length - 1, 1)) * 100;
-      const y = 34 - (value / max) * 28;
-      return `${x},${y}`;
-    })
-    .join(' ');
-
+const Section = ({ children, className = '', id, delay = 0 }) => {
+  const reduce = useReducedMotion();
   return (
-    <svg className="pd-report-spark" viewBox="0 0 100 40" aria-hidden="true">
-      <polyline points={points} />
-    </svg>
+    <motion.section
+      id={id}
+      className={`pd-section ${className}`}
+      variants={reduce ? undefined : reveal}
+      initial={reduce ? false : 'hidden'}
+      whileInView={reduce ? undefined : 'visible'}
+      viewport={{ once: true, amount: 0.15, margin: '0px 0px -40px 0px' }}
+      transition={reduce ? undefined : { delay }}
+    >
+      {children}
+    </motion.section>
   );
 };
-
-const MetricNumber = ({ value, suffix }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.7 });
-  const reduceMotion = useReducedMotion();
-  const motionValue = useMotionValue(reduceMotion ? value : 0);
-  const springValue = useSpring(motionValue, { stiffness: 70, damping: 18 });
-  const [display, setDisplay] = useState(reduceMotion ? value : 0);
-
-  useEffect(() => {
-    if (isInView || reduceMotion) motionValue.set(value);
-  }, [isInView, motionValue, reduceMotion, value]);
-
-  useMotionValueEvent(springValue, 'change', (latest) => {
-    setDisplay(Math.round(latest * 10) / 10);
-  });
-
-  return (
-    <span ref={ref}>
-      {Number.isInteger(value) ? Math.round(display) : display.toFixed(1)}
-      {suffix}
-    </span>
-  );
-};
-
-function CaseStudyHero({ project }) {
-  const words = project.title.split(' ');
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <header className="pd-report-hero">
-      <motion.div
-        className="pd-report-hero-copy"
-        variants={reduceMotion ? undefined : heroSequence}
-        initial={reduceMotion ? false : 'hidden'}
-        animate={reduceMotion ? false : 'visible'}
-      >
-        <motion.p className="pd-report-kicker" variants={titleWords}>
-          {getCategoryLabel(project.category)} / FIELD REPORT {String(project.id).padStart(2, '0')}
-        </motion.p>
-        <h1 className="pd-report-title" aria-label={project.title}>
-          {words.map((word, index) => (
-            <motion.span
-              aria-hidden="true"
-              className="pd-report-title-word"
-              variants={reduceMotion ? undefined : titleWords}
-              key={`${word}-${index}`}
-            >
-              {word}
-            </motion.span>
-          ))}
-        </h1>
-        <motion.p className="pd-report-lede" variants={titleWords}>
-          {project.problem}
-        </motion.p>
-        <motion.div className="pd-report-actions" variants={titleWords}>
-          {project.liveLink && project.liveLink !== '#' && (
-            <a className="pd-report-action is-live" href={project.liveLink} target="_blank" rel="noreferrer">
-              Live System
-            </a>
-          )}
-          {project.codeLink && (
-            <a className="pd-report-action" href={project.codeLink} target="_blank" rel="noreferrer">
-              Source Log
-            </a>
-          )}
-          <a className="pd-report-action" href="#artifact">
-            Inspect Artifact
-          </a>
-        </motion.div>
-      </motion.div>
-
-      <motion.figure
-        className="pd-report-hero-media"
-        variants={reduceMotion ? undefined : titleWords}
-        initial={reduceMotion ? false : 'hidden'}
-        animate={reduceMotion ? false : 'visible'}
-      >
-        <img
-          src={`/assets/img/${project.thumbnail}`}
-          alt={`${project.title} primary interface`}
-          style={{ viewTransitionName: `project-artifact-${project.id}` }}
-        />
-        <figcaption>
-          <span>Primary artifact</span>
-          <span>{project.result}</span>
-        </figcaption>
-      </motion.figure>
-    </header>
-  );
-}
-
-function ScrollProgressRail({ sectionIds }) {
-  const [active, setActive] = useState(sectionIds[0].id);
-  const { scrollYProgress } = useScroll();
-  const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 24, restDelta: 0.001 });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActive(visible.target.id);
-      },
-      { rootMargin: '-30% 0px -55% 0px', threshold: [0.1, 0.35, 0.65] },
-    );
-
-    sectionIds.forEach(({ id }) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, [sectionIds]);
-
-  return (
-    <nav className="pd-report-rail" aria-label="Case study sections">
-      <motion.span className="pd-report-rail-progress" style={{ scaleY }} />
-      {sectionIds.map((section) => (
-        <a
-          key={section.id}
-          href={`#${section.id}`}
-          className={active === section.id ? 'active' : ''}
-          aria-current={active === section.id ? 'true' : undefined}
-        >
-          <span className="pd-report-rail-dot" />
-          <span>{section.label}</span>
-        </a>
-      ))}
-    </nav>
-  );
-}
-
-function AnnotatedArtifact({ project }) {
-  const ref = useRef(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start 0.78', 'end 0.32'],
-  });
-  const firstLine = useTransform(scrollYProgress, [0.05, 0.35], [0, 1]);
-  const secondLine = useTransform(scrollYProgress, [0.22, 0.58], [0, 1]);
-  const thirdLine = useTransform(scrollYProgress, [0.45, 0.82], [0, 1]);
-  const imageY = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [24, -18]);
-  const diagrams = project.diagrams?.length ? project.diagrams : [project.thumbnail];
-  const images = project.images?.length ? project.images : [project.thumbnail];
-
-  return (
-    <section className="pd-report-section pd-report-artifact" id="artifact" ref={ref}>
-      <div className="pd-report-section-label">Annotated artifact</div>
-      <div className="pd-report-artifact-grid">
-        <div>
-          <h2>System evidence, interface state, and architecture in one inspection frame.</h2>
-          <p>{project.solution}</p>
-        </div>
-        <motion.div className="pd-report-artifact-stage" style={{ y: imageY }}>
-          <img src={`/assets/img/${images[0]}`} alt={`${project.title} interface evidence`} />
-          <img className="pd-report-artifact-inset" src={`/assets/img/${diagrams[0]}`} alt={`${project.title} architecture diagram`} />
-          <svg className="pd-report-leaders" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <motion.path d="M18 24 C38 18, 50 18, 68 27" style={{ pathLength: reduceMotion ? 1 : firstLine }} />
-            <motion.path d="M72 36 C58 44, 50 54, 33 68" style={{ pathLength: reduceMotion ? 1 : secondLine }} />
-            <motion.path d="M82 72 C70 78, 56 82, 42 83" style={{ pathLength: reduceMotion ? 1 : thirdLine }} />
-          </svg>
-          <motion.p className="pd-report-callout callout-a" style={{ opacity: reduceMotion ? 1 : firstLine }}>
-            acquisition and cleaning boundary
-          </motion.p>
-          <motion.p className="pd-report-callout callout-b" style={{ opacity: reduceMotion ? 1 : secondLine }}>
-            model / metric transform layer
-          </motion.p>
-          <motion.p className="pd-report-callout callout-c" style={{ opacity: reduceMotion ? 1 : thirdLine }}>
-            analyst-facing decision surface
-          </motion.p>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function FieldLog({ milestones }) {
-  const entries = milestones?.length ? milestones : ['Build core pipeline', 'Validate outputs', 'Deploy reporting surface'];
-
-  return (
-    <section className="pd-report-section pd-report-log" id="log">
-      <div className="pd-report-section-label">Field log</div>
-      <h2>Build chronology</h2>
-      <ol>
-        {entries.map((entry, index) => {
-          const parsed = parseLogEntry(entry, index);
-          return (
-            <li key={`${parsed.time}-${parsed.title}`}>
-              <time>{parsed.time}</time>
-              <div>
-                <h3>{parsed.title}</h3>
-                <p>{parsed.body}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
-    </section>
-  );
-}
-
-function MetricReadout({ project }) {
-  const metrics = getMetricValues(project);
-
-  return (
-    <section className="pd-report-section pd-report-metrics" id="metrics">
-      <div className="pd-report-section-label">Metric readout</div>
-      <div className="pd-report-metric-table" role="table" aria-label={`${project.title} metrics`}>
-        {metrics.map((metric) => (
-          <div className="pd-report-metric-row" role="row" key={metric.label}>
-            <span role="cell">{metric.label}</span>
-            <strong role="cell">
-              <MetricNumber value={metric.value} suffix={metric.suffix} />
-            </strong>
-            <span role="cell">{metric.note}</span>
-            <Sparkline values={metric.spark} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function StackManifest({ technologies }) {
-  return (
-    <section className="pd-report-section pd-report-stack" id="stack">
-      <div className="pd-report-section-label">Stack manifest</div>
-      <h2>Tooling mapped to engineering responsibility.</h2>
-      <dl>
-        {technologies.map((tool) => (
-          <div key={tool}>
-            <dt>{tool}</dt>
-            <dd>{getToolRole(tool)}</dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-  );
-}
-
-function NextCaseStudy({ currentProject, projects }) {
-  const nextProject = useMemo(() => {
-    if (!projects.length) return null;
-    const currentIndex = projects.findIndex((item) => item.id === currentProject.id);
-    return projects[(currentIndex + 1) % projects.length] || projects[0];
-  }, [currentProject.id, projects]);
-
-  if (!nextProject) return null;
-
-  return (
-    <section className="pd-report-section pd-report-next" id="next">
-      <Link to={`/project/${nextProject.id}-${slugify(nextProject.title)}`} className="pd-report-next-link">
-        <span>Next field report</span>
-        <strong>{nextProject.title}</strong>
-        <img src={`/assets/img/${nextProject.thumbnail}`} alt="" loading="lazy" />
-      </Link>
-    </section>
-  );
-}
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -388,75 +69,300 @@ export default function ProjectDetails() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
     fetch('/assets/data/projects.json')
       .then((res) => {
-        if (!res.ok) throw new Error('Could not fetch project data');
+        if (!res.ok) throw new Error('Could not load projects');
         return res.json();
       })
       .then((data) => {
-        const numericId = parseInt(id, 10);
+        const numericId = parseInt(String(id).split('-')[0], 10);
         const found = data.find((item) => item.id === numericId);
         if (!found) throw new Error('Project not found');
         setProjects(data);
         setProject(found);
-        updateProjectUrl(found.id, found.title);
       })
       .catch((err) => {
-        console.error('Error loading project:', err);
-        setError(err.message || 'Error loading project details');
+        console.error(err);
+        setError(err.message || 'Failed to load project');
       })
       .finally(() => setLoading(false));
   }, [id]);
 
+  const nextProject = useMemo(() => {
+    if (!project || !projects.length) return null;
+    const idx = projects.findIndex((p) => p.id === project.id);
+    return projects[(idx + 1) % projects.length];
+  }, [project, projects]);
+
+  const media = useMemo(() => {
+    if (!project) return [];
+    const imgs = project.images?.length ? project.images : [project.thumbnail];
+    const diags = project.diagrams?.length ? project.diagrams : [];
+    const seen = new Set();
+    return [...imgs, ...diags].filter((src) => {
+      if (seen.has(src)) return false;
+      seen.add(src);
+      return true;
+    });
+  }, [project]);
+
+  const readmeUrl = project ? getReadmeUrl(project) : null;
+  const hasLive = project?.liveLink && project.liveLink !== '#';
+
+  /* derived stats for the strip */
+  const stats = useMemo(() => {
+    if (!project) return [];
+    return [
+      { label: 'Impact', value: project.result },
+      { label: 'Stack size', value: `${project.technologies?.length || 0} tools` },
+      {
+        label: 'Artifacts',
+        value: `${(project.images?.length || 0) + (project.diagrams?.length || 0)} files`,
+      },
+    ];
+  }, [project]);
+
   return (
-    <div className="project-detail-page-wrapper pd-report-page">
+    <div className="pd-page">
       <Navbar />
-      <main className="project-detail-page">
+
+      <main className="pd-main">
         {loading && (
-          <div className="pd-report-state" role="status">
-            <span>LOADING FIELD REPORT</span>
+          <div className="pd-state" role="status">
+            <div className="pd-loader" />
+            <span className="pd-state-label">Loading project</span>
           </div>
         )}
 
         {error && (
-          <div className="pd-report-state">
-            <h1>Report unavailable</h1>
+          <div className="pd-state">
+            <h1>Project unavailable</h1>
             <p>{error}</p>
-            <Link className="pd-report-action is-live" to="/#projects">
-              Return to project index
+            <Link to="/#projects" className="pd-btn pd-btn-solid">
+              Back to projects
             </Link>
           </div>
         )}
 
         {project && (
-          <>
-            <ScrollProgressRail sectionIds={sections} />
-            <CaseStudyHero project={project} />
+          <div className="pd-content">
+            {/* ════════ TOP BAR ════════ */}
+            <motion.div
+              className="pd-topbar"
+              variants={reduce ? undefined : fade}
+              initial={reduce ? false : 'hidden'}
+              animate={reduce ? false : 'visible'}
+            >
+              <Link to="/#projects" className="pd-back">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Projects
+              </Link>
+              <span className="pd-badge">{categoryLabel(project.category)}</span>
+            </motion.div>
 
-            <section className="pd-report-section pd-report-brief" id="brief">
-              <div className="pd-report-section-label">Case brief</div>
-              <div className="pd-report-brief-grid">
-                <p>{project.caseStudy || project.solution}</p>
-                <aside>
-                  <span>RESULT</span>
-                  <strong>{project.result}</strong>
-                  <span>CLASS</span>
-                  <strong>{getCategoryLabel(project.category)}</strong>
-                </aside>
+            {/* ════════ HERO ════════ */}
+            <motion.header
+              className="pd-hero"
+              variants={reduce ? undefined : stagger}
+              initial={reduce ? false : 'hidden'}
+              animate={reduce ? false : 'visible'}
+            >
+              <motion.p className="pd-kicker" variants={reveal}>
+                Case study · {String(project.id).padStart(2, '0')}
+              </motion.p>
+              <motion.h1 className="pd-title" variants={reveal}>
+                {project.title}
+              </motion.h1>
+              <motion.p className="pd-impact" variants={reveal}>
+                {project.result}
+              </motion.p>
+
+              <motion.div className="pd-actions" variants={reveal}>
+                {hasLive && (
+                  <a href={project.liveLink} target="_blank" rel="noreferrer" className="pd-btn pd-btn-solid">
+                    Live demo
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
+                )}
+                {project.codeLink && (
+                  <a href={project.codeLink} target="_blank" rel="noreferrer" className="pd-btn">
+                    Source
+                  </a>
+                )}
+                {readmeUrl && (
+                  <a href={readmeUrl} target="_blank" rel="noreferrer" className="pd-btn pd-btn-report">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3 2.5h7.5L14 6v7.5H3V2.5z" stroke="currentColor" strokeWidth="1.3" />
+                      <path d="M10.5 2.5V6H14" stroke="currentColor" strokeWidth="1.3" />
+                      <path d="M5.5 9h5M5.5 11.5h3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                    </svg>
+                    Report
+                  </a>
+                )}
+              </motion.div>
+            </motion.header>
+
+            {/* ════════ STATS STRIP ════════ */}
+            <Section className="pd-stats-wrap">
+              <div className="pd-stats">
+                {stats.map((s) => (
+                  <div className="pd-stat" key={s.label}>
+                    <span className="pd-stat-label">{s.label}</span>
+                    <span className="pd-stat-value">{s.value}</span>
+                  </div>
+                ))}
               </div>
-            </section>
+            </Section>
 
-            <AnnotatedArtifact project={project} />
-            <MetricReadout project={project} />
-            <FieldLog milestones={project.milestones} />
-            <StackManifest technologies={project.technologies} />
-            <NextCaseStudy currentProject={project} projects={projects} />
-          </>
+            {/* ════════ COVER ════════ */}
+            <Section className="pd-cover-wrap">
+              <figure className="pd-cover">
+                <img
+                  src={`/assets/img/${project.thumbnail}`}
+                  alt={`${project.title} overview`}
+                  style={{ viewTransitionName: `project-artifact-${project.id}` }}
+                />
+              </figure>
+            </Section>
+
+            {/* ════════ PROBLEM / SOLUTION ════════ */}
+            <Section id="brief" className="pd-split">
+              <div className="pd-split-col">
+                <h2 className="pd-label">Problem</h2>
+                <p className="pd-text">{project.problem}</p>
+              </div>
+              <div className="pd-split-col">
+                <h2 className="pd-label">Solution</h2>
+                <p className="pd-text">{project.solution}</p>
+              </div>
+            </Section>
+
+            {/* ════════ OUTCOME ════════ */}
+            {(project.result1 || project.caseStudy) && (
+              <Section id="outcome">
+                <h2 className="pd-label">Outcome</h2>
+                {project.result1 && <p className="pd-lede">{project.result1}</p>}
+                {project.caseStudy && <p className="pd-text pd-text-spaced">{project.caseStudy}</p>}
+              </Section>
+            )}
+
+            {/* ════════ TECH ════════ */}
+            {project.technologies?.length > 0 && (
+              <Section id="stack">
+                <h2 className="pd-label">Tech stack</h2>
+                <ul className="pd-tech">
+                  {project.technologies.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </Section>
+            )}
+
+            {/* ════════ TIMELINE ════════ */}
+            {project.milestones?.length > 0 && (
+              <Section id="timeline">
+                <h2 className="pd-label">Build timeline</h2>
+                <ol className="pd-timeline">
+                  {project.milestones.map((item, i) => (
+                    <li key={i}>
+                      <span className="pd-tl-num">{String(i + 1).padStart(2, '0')}</span>
+                      <div className="pd-tl-body">
+                        <span className="pd-tl-text">{item}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </Section>
+            )}
+
+            {/* ════════ CHALLENGES ════════ */}
+            {project.challenges?.length > 0 && (
+              <Section id="challenges">
+                <h2 className="pd-label">Challenges</h2>
+                <ul className="pd-challenges">
+                  {project.challenges.map((c, i) => (
+                    <li key={i}>
+                      <span className="pd-ch-idx">{String(i + 1).padStart(2, '0')}</span>
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+            )}
+
+            {/* ════════ GALLERY ════════ */}
+            {media.length > 0 && (
+              <Section id="gallery">
+                <h2 className="pd-label">Screens & diagrams</h2>
+                <div className="pd-gallery">
+                  {media.map((src, i) => (
+                    <figure key={`${src}-${i}`} className="pd-gallery-item">
+                      <img
+                        src={`/assets/img/${src}`}
+                        alt={`${project.title} — media ${i + 1}`}
+                        loading="lazy"
+                      />
+                    </figure>
+                  ))}
+                </div>
+              </Section>
+            )}
+
+            {/* ════════ RESOURCE LINKS ════════ */}
+            <Section id="resources" className="pd-resources">
+              <h2 className="pd-label">Resources</h2>
+              <div className="pd-resource-grid">
+                {hasLive && (
+                  <a href={project.liveLink} target="_blank" rel="noreferrer" className="pd-resource-card">
+                    <span className="pd-resource-title">Live demo</span>
+                    <span className="pd-resource-desc">Open the deployed application</span>
+                    <span className="pd-resource-arrow">→</span>
+                  </a>
+                )}
+                {project.codeLink && (
+                  <a href={project.codeLink} target="_blank" rel="noreferrer" className="pd-resource-card">
+                    <span className="pd-resource-title">Source code</span>
+                    <span className="pd-resource-desc">View repository on GitHub</span>
+                    <span className="pd-resource-arrow">→</span>
+                  </a>
+                )}
+                {readmeUrl && (
+                  <a href={readmeUrl} target="_blank" rel="noreferrer" className="pd-resource-card pd-resource-report">
+                    <span className="pd-resource-title">Full report</span>
+                    <span className="pd-resource-desc">Open README.md on GitHub</span>
+                    <span className="pd-resource-arrow">→</span>
+                  </a>
+                )}
+              </div>
+            </Section>
+
+            {/* ════════ NEXT ════════ */}
+            {nextProject && (
+              <Section className="pd-next">
+                <Link
+                  to={`/project/${nextProject.id}-${slugify(nextProject.title)}`}
+                  className="pd-next-link"
+                >
+                  <div className="pd-next-copy">
+                    <span className="pd-next-label">Next project</span>
+                    <span className="pd-next-title">{nextProject.title}</span>
+                  </div>
+                  <span className="pd-next-arrow" aria-hidden="true">→</span>
+                </Link>
+              </Section>
+            )}
+          </div>
         )}
       </main>
+
       <Footer />
     </div>
   );
