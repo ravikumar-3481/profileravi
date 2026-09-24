@@ -92,6 +92,15 @@ export default function ProjectDetails() {
       .finally(() => setLoading(false));
   }, [id]);
 
+  useEffect(() => {
+    if (project?.title) {
+      document.title = `${project.title} | Ravi Kumar Vishwakarma`;
+    }
+    return () => {
+      document.title = "Ravi Kumar Vishwakarma | AI & Data Science | Portfolio";
+    };
+  }, [project]);
+
   const nextProject = useMemo(() => {
     if (!project || !projects.length) return null;
     const idx = projects.findIndex((p) => p.id === project.id);

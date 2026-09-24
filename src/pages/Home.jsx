@@ -18,6 +18,7 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = "Ravi Kumar Vishwakarma | AI & Data Science | Portfolio";
     // Check if redirect scroll state exists
     if (location.state?.scrollToHash) {
       const hash = location.state.scrollToHash;
