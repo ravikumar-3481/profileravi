@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleBlogClick = () => {
     setMenuActive(false);
@@ -35,7 +45,7 @@ export default function Navbar() {
 
   return (
     <header className="main-header">
-      <div className="navlist">
+      <div className={`navlist ${scrolled ? 'scrolled' : ''}`}>
         <nav className="navbar" id="nav">
           <div className="logo" onClick={() => handleLinkClick('#')} style={{ cursor: 'pointer' }}>
             <b>{'{'}</b>Ravi<b>{'}'}</b>

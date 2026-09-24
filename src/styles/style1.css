@@ -67,8 +67,8 @@
     border: 1px solid rgba(145, 36, 255, 0.15);
     border-radius: 24px;
     padding: 2.5rem;
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
@@ -517,30 +517,36 @@
 
 .navlist {
     display: flex;
-    height: 3rem; 
-    width: 95%; 
+    height: 3.4rem; 
+    width: min(95%, 1240px); 
     align-items: center;
     border-radius: 50px; 
-    margin-top: 1rem;
-    justify-self: center;
     padding-inline: 2rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%); 
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(15px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.3);
+    background: transparent !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(145, 36, 255, 0.08);
 }
 
-.navlist:hover {
-    border-color: rgba(145, 36, 255, 0.5);
-    box-shadow: 0 10px 40px 0 rgba(145, 36, 255, 0.2), inset 0 0 10px rgba(145, 36, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05) !important;
+.navlist:hover,
+.navlist.scrolled {
+    border-color: rgba(145, 36, 255, 0.4);
+    box-shadow: 0 12px 35px 0 rgba(0, 0, 0, 0.6), 0 0 20px 0 rgba(145, 36, 255, 0.18);
+    background: rgba(0, 0, 0, 0.397) !important;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .navlist {
+        background: rgba(10, 8, 20, 0.95) !important;
+    }
 }
 
 
@@ -652,8 +658,8 @@
   height: 100vh;
   width: min(85vw, 340px);
   background: rgba(8, 12, 22, 0.95);
-  backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
   border-left: 1px solid rgba(145, 36, 255, 0.3);
   padding: 24px 20px;
   box-shadow: -15px 0 45px rgba(0, 0, 0, 0.8);
@@ -817,8 +823,8 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     z-index: 1004;
 }
 .header-btn {
@@ -956,8 +962,8 @@ section:not(.hero) {
     padding: 8px 18px;
     border-radius: 50px;
     margin-bottom: 2rem;
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(145, 36, 255, 0.1);
 }
 
@@ -1243,8 +1249,8 @@ section:not(.hero) {
     align-items: center;
     font-size: 1.8rem;
     color: #fff;
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     animation: floatAnim 6s ease-in-out infinite;
     z-index: 2;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
