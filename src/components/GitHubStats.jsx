@@ -25,7 +25,7 @@ export default function GitHubStats() {
         <h1>GitHub &amp; Activities</h1>
         <div className="tittle-under"></div>
         <p className="section-description">
-          Open-source contributions, engineering velocity, and personal milestones — side by side.
+          Open-source contributions and engineering velocity.
         </p>
       </motion.div>
 

@@ -55,7 +55,7 @@ export default function About() {
   // Marquee list contents
   const marqueeItems = [
     "Machine Learning", "User Research", "Data Pipelines", 
-    "Full-Stack Development", "Data Analytics", "Design System", 
+    "Full-Stack Development", "Data Analytics", "System Design", 
     "AI Models", "Branding", "Deployment", "Agentic AI"
   ];
 
@@ -103,7 +103,7 @@ export default function About() {
           </h2>
           <div className="about-location-badge">
             <i className="fas fa-map-marker-alt" style={{ color: '#9124ff' }}></i>
-            <span>Based in Satna · Working worldwide</span>
+            <span>Based in India · Working worldwide</span>
           </div>
         </motion.div>
 

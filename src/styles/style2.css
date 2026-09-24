@@ -846,9 +846,7 @@
 
 
 
-/* Experience Section Styling */
-.experience-section {
-}
+
 
 .experience-grid {
     display: grid;
@@ -1018,8 +1016,7 @@
     .experience-grid {
         grid-template-columns: 1fr;
     }
-    .experience-section {
-    }
+  
     .exp-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1034,8 +1031,7 @@
 
 
 /* Extra-Curricular Section */
-.activities-section {
-}
+
 
 .activities-grid {
     display: grid;
@@ -1298,9 +1294,6 @@
 
 
 
-.contact-section {
-}
-
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1351,7 +1344,6 @@
 .contact-form-wrapper {
     width: 100%;
     position: relative;
-    overflow: hidden;
     border: none;
     background: transparent;
     backdrop-filter: none;
@@ -1373,7 +1365,7 @@
 @media (max-width: 900px) {
     .contact-container {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
     }
 }
 

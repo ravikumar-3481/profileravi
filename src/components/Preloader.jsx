@@ -109,7 +109,6 @@ export default function Preloader({ onComplete }) {
         </div>
       </div>
       <div className="pl-footer">
-        <span className="pl-version">v2.0 // AI & DATA SCIENCE</span>
         <span className="pl-copyright">© 2026 RAVI VISHWAKARMA</span>
       </div>
     </motion.div>

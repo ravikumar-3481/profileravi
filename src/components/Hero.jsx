@@ -123,7 +123,7 @@ export default function Hero({ onResumeClick }) {
             <a href="https://github.com/ravikumar-3481" target="_blank" rel="noreferrer"><i className="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/ravi-vishwakarma67" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
             <a href="https://www.instagram.com/i_am_ravi.07" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
-            <a href="https://x.com/I_am_ravi09" target="_blank" rel="noreferrer"><i className="fa-brands fa-x-twitter"></i></a>
+            <a href="https://x.com/ravikumar3481" target="_blank" rel="noreferrer"><i className="fa-brands fa-x-twitter"></i></a>
           </div>
         </motion.div>
 

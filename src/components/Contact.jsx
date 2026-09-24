@@ -126,7 +126,7 @@ export default function Contact() {
             <a href="https://www.kaggle.com/ravivishwakarma0909" target="_blank" rel="noreferrer" className="social-link-item">
               <iconify-icon icon="simple-icons:kaggle"></iconify-icon><span>Kaggle</span>
             </a>
-            <a href="mailto:ravivish968@gmail.com" className="social-link-item">
+            <a href="mailto:ravivish968+portfolio@gmail.com" className="social-link-item">
               <iconify-icon icon="simple-icons:gmail"></iconify-icon><span>Email</span>
             </a>
             <a href="#" className="social-link-item" onClick={(e) => { e.preventDefault(); alert("Discord link coming soon!"); }}>
