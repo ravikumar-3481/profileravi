@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Flat Dark Squircle Background -->
+  <rect width="64" height="64" rx="14" fill="#0d041c"/>
+
+  <!-- Left Bracket { -->
+  <path d="M 18,17 C 13,17 12,20.5 12,24.5 L 12,28.5 C 12,31.5 9,32 8.5,32 C 9,32 12,32.5 12,35.5 L 12,39.5 C 12,43.5 13,47 18,47" 
+        fill="none" 
+        stroke="#9124ff" 
+        stroke-width="3.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <!-- Center Letter 'R' (Flat Orbitron Style) -->
+  <path d="M 25,19 L 25,45" 
+        stroke="#ffffff" 
+        stroke-width="3.8" 
+        stroke-linecap="round"/>
+  <path d="M 25,19 L 34,19 C 38.5,19 39.5,22 39.5,25.5 C 39.5,29 38.5,32 34,32 L 25,32" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="3.8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  <path d="M 32,32 L 39.5,45" 
+        stroke="#ffffff" 
+        stroke-width="3.8" 
+        stroke-linecap="round"/>
+
+  <!-- Right Bracket } -->
+  <path d="M 46,17 C 51,17 52,20.5 52,24.5 L 52,28.5 C 52,31.5 55,32 55.5,32 C 55,32 52,32.5 52,35.5 L 52,39.5 C 52,43.5 51,47 46,47" 
+        fill="none" 
+        stroke="#9124ff" 
+        stroke-width="3.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
