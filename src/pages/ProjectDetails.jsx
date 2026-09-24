@@ -247,7 +247,7 @@ export default function ProjectDetails() {
 
             {/* ════════ OUTCOME ════════ */}
             {(project.result1 || project.caseStudy) && (
-              <Section id="outcome">
+              <Section id="outcome" className="pd-outcome">
                 <h2 className="pd-label">Outcome</h2>
                 {project.result1 && <p className="pd-lede">{project.result1}</p>}
                 {project.caseStudy && <p className="pd-text pd-text-spaced">{project.caseStudy}</p>}
@@ -256,7 +256,7 @@ export default function ProjectDetails() {
 
             {/* ════════ TECH ════════ */}
             {project.technologies?.length > 0 && (
-              <Section id="stack">
+              <Section id="stack" className="pd-stack">
                 <h2 className="pd-label">Tech stack</h2>
                 <ul className="pd-tech">
                   {project.technologies.map((t) => (
@@ -268,7 +268,7 @@ export default function ProjectDetails() {
 
             {/* ════════ TIMELINE ════════ */}
             {project.milestones?.length > 0 && (
-              <Section id="timeline">
+              <Section id="timeline" className="pd-timeline-section">
                 <h2 className="pd-label">Build timeline</h2>
                 <ol className="pd-timeline">
                   {project.milestones.map((item, i) => (
@@ -285,7 +285,7 @@ export default function ProjectDetails() {
 
             {/* ════════ CHALLENGES ════════ */}
             {project.challenges?.length > 0 && (
-              <Section id="challenges">
+              <Section id="challenges" className="pd-challenges-section">
                 <h2 className="pd-label">Challenges</h2>
                 <ul className="pd-challenges">
                   {project.challenges.map((c, i) => (
@@ -300,7 +300,7 @@ export default function ProjectDetails() {
 
             {/* ════════ GALLERY ════════ */}
             {media.length > 0 && (
-              <Section id="gallery">
+              <Section id="gallery" className="pd-gallery-section">
                 <h2 className="pd-label">Screens & diagrams</h2>
                 <div className="pd-gallery">
                   {media.map((src, i) => (
