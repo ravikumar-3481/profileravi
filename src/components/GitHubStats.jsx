@@ -77,8 +77,7 @@ export default function GitHubStats() {
               </div>
               <div className="gh-img-container">
                 <img
-                  src="https://github-readme-activity-graph.vercel.app/graph?username=ravikumar-3481&theme=react-dark&bg_color=0D1117&color=17A8B8&line=0F7B8C&point=ffffff&area=true&hide_border=true"
-                  width="100%"
+                  src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ravikumar-3481&theme=github_dark"  width="100%"
                   alt="GitHub Stats"
                   loading="lazy"
                 />
