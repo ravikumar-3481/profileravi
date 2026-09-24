@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -65,9 +65,23 @@ const Section = ({ children, className = '', id, delay = 0 }) => {
 
 export default function ProjectDetails() {
   const { id } = useParams();
-  const [project, setProject] = useState(null);
+  const location = useLocation();
+
+  const parseId = (val) => {
+    if (!val) return null;
+    const clean = String(val).replace(/^proj_/, '');
+    const num = parseInt(clean.split('-')[0], 10);
+    return isNaN(num) ? null : num;
+  };
+
+  const targetId = parseId(id);
+  const initialProject = location.state?.project && location.state.project.id === targetId
+    ? location.state.project
+    : null;
+
+  const [project, setProject] = useState(initialProject);
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!initialProject);
   const [error, setError] = useState(null);
   const reduce = useReducedMotion();
 
@@ -79,27 +93,30 @@ export default function ProjectDetails() {
         return res.json();
       })
       .then((data) => {
-        const numericId = parseInt(String(id).split('-')[0], 10);
-        const found = data.find((item) => item.id === numericId);
+        const found = data.find((item) => item.id === targetId);
         if (!found) throw new Error('Project not found');
         setProjects(data);
         setProject(found);
+        document.title = found.title;
       })
       .catch((err) => {
         console.error(err);
         setError(err.message || 'Failed to load project');
       })
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, targetId]);
 
   useEffect(() => {
     if (project?.title) {
-      document.title = `${project.title} | Ravi Kumar Vishwakarma`;
+      document.title = project.title;
     }
+  }, [project?.title]);
+
+  useEffect(() => {
     return () => {
       document.title = "Ravi Kumar Vishwakarma | AI & Data Science | Portfolio";
     };
-  }, [project]);
+  }, []);
 
   const nextProject = useMemo(() => {
     if (!project || !projects.length) return null;

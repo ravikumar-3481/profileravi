@@ -33,7 +33,7 @@ export default function Projects() {
     }
 
     event.preventDefault();
-    document.startViewTransition(() => navigate(path));
+    document.startViewTransition(() => navigate(path, { state: { project } }));
   };
 
   return (
@@ -116,6 +116,7 @@ export default function Projects() {
                     </div>
                     <Link
                       to={`/project/${p.id}-${slugify(p.title)}`}
+                      state={{ project: p }}
                       className="view-more-modern"
                       onClick={(event) => openCaseStudy(event, p)}
                       style={{ textDecoration: 'none' }}
