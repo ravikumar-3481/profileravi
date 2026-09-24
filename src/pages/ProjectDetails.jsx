@@ -113,18 +113,7 @@ export default function ProjectDetails() {
   const readmeUrl = project ? getReadmeUrl(project) : null;
   const hasLive = project?.liveLink && project.liveLink !== '#';
 
-  /* derived stats for the strip */
-  const stats = useMemo(() => {
-    if (!project) return [];
-    return [
-      { label: 'Impact', value: project.result },
-      { label: 'Stack size', value: `${project.technologies?.length || 0} tools` },
-      {
-        label: 'Artifacts',
-        value: `${(project.images?.length || 0) + (project.diagrams?.length || 0)} files`,
-      },
-    ];
-  }, [project]);
+
 
   return (
     <div className="pd-page">
@@ -210,17 +199,7 @@ export default function ProjectDetails() {
               </motion.div>
             </motion.header>
 
-            {/* ════════ STATS STRIP ════════ */}
-            <Section className="pd-stats-wrap">
-              <div className="pd-stats">
-                {stats.map((s) => (
-                  <div className="pd-stat" key={s.label}>
-                    <span className="pd-stat-label">{s.label}</span>
-                    <span className="pd-stat-value">{s.value}</span>
-                  </div>
-                ))}
-              </div>
-            </Section>
+         
 
             {/* ════════ COVER ════════ */}
             <Section className="pd-cover-wrap">
