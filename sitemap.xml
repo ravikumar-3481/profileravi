@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Home Page -->
   <url>
-    <loc>https://profileravi.vercel.app/</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+       <loc>https://profileravi.vercel.app/</loc>
+       <lastmod>2026-09-24T19:51:15+00:00</lastmod>
+       <priority>1.0000</priority>
   </url>
 
-  <!-- Blog Page -->
   <url>
-    <loc>https://profileravi.vercel.app/blog</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+       <loc>https://profileravi.vercel.app/blog</loc>
+       <lastmod>2026-09-25</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.9</priority>
   </url>
 
-  <!-- Project Case Study: NewsPulse AI -->
   <url>
-    <loc>https://profileravi.vercel.app/project/1</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+       <loc>https://profileravi.vercel.app/project/1</loc>
+       <lastmod>2026-09-25</lastmod>
+       <changefreq>monthly</changefreq>
+       <priority>0.8</priority>
   </url>
 
-  <!-- Project Case Study: Alumni Data Management System -->
   <url>
-    <loc>https://profileravi.vercel.app/project/2</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+       <loc>https://profileravi.vercel.app/project/2</loc>
+       <lastmod>2026-09-25</lastmod>
+       <changefreq>monthly</changefreq>
+       <priority>0.8</priority>
   </url>
 
-  <!-- Project Case Study: E-Commerce Sales Analytics Dashboard -->
   <url>
-    <loc>https://profileravi.vercel.app/project/3</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+       <loc>https://profileravi.vercel.app/project/3</loc>
+       <lastmod>2026-09-25</lastmod>
+       <changefreq>monthly</changefreq>
+       <priority>0.8</priority>
   </url>
 
-  <!-- Project Case Study: Facebook Ads Campaign Performance Analysis -->
   <url>
-    <loc>https://profileravi.vercel.app/project/4</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+       <loc>https://profileravi.vercel.app/project/4</loc>
+       <lastmod>2026-09-25</lastmod>
+       <changefreq>monthly</changefreq>
+       <priority>0.8</priority>
   </url>
-
 </urlset>

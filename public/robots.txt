@@ -1,9 +1,0 @@
-# User-agent: * applies to all search engines (Google, Bing, etc.)
-User-agent: *
-
-# Allow all public content to be indexed
-Allow: /
-
-Host: https://profileravi.vercel.app/
-
-Sitemap: https://profileravi.vercel.app/sitemap.xml
