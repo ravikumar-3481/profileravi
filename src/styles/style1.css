@@ -582,37 +582,49 @@
     display: none;
 }
 
-.nav-links li a {
+.nav-links li,
+.nav-links li a,
+.nav-links li span {
     text-align: center;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     position: relative;
-    font-size: 1.5rem;   
-    transition: all 0.3s ease; 
+    font-size: 1.15rem;   
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     display: inline-block;
+    cursor: pointer;
 }
 
+.nav-links li span::after,
 .nav-links li a::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: -5px;     
   width: 0;         
-  height: 4px;         
+  height: 3px;         
   background-color: #9124ff;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
   border-radius: 2px;
   box-shadow: 0 0 10px #9124ff, 0 0 20px #9124ff;
 }
 
-.nav-links li a:hover {
+.nav-links li:hover,
+.nav-links li:hover span,
+.nav-links li:hover a,
+.nav-links li a:hover,
+.nav-links li span:hover {
   color: #c588ff;
-  text-shadow: 0 0 10px rgba(145, 36, 255, 0.8) !important;
+  text-shadow: 0 0 12px rgba(197, 136, 255, 0.9), 0 0 24px rgba(145, 36, 255, 0.6) !important;
   transform: translateY(-2px);
 }
 
-.nav-links li a:hover::after {
-  width: 100%;        
+.nav-links li:hover span::after,
+.nav-links li:hover a::after,
+.nav-links li a:hover::after,
+.nav-links li span:hover::after {
+  width: 100%;    
 }
 
 .menu-container {
@@ -649,7 +661,9 @@
   width: 30px;
 }
 
-.nav-links li a { font-size: 1.2rem; }
+.nav-links li,
+.nav-links li span,
+.nav-links li a { font-size: 1.15rem; }
 
 .menu-box {
   position: fixed;
