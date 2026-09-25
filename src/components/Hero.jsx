@@ -135,7 +135,7 @@ export default function Hero({ onResumeClick }) {
         >
           <div className="image-wrapper">
             <div className="img-glow"></div>
-            <img src="/og/img.webp" alt="Ravi kumar Vishwakarma | Profile" className="profile-img" />
+            <img src="/og/img1.webp" alt="Ravi kumar Vishwakarma | Profile" className="profile-img" />
             
             <motion.div className="floating-icon icon-1" {...getFloatAnimation(12, 3.2, 0)}><i className="devicon-python-plain"></i></motion.div>
             <motion.div className="floating-icon icon-4" {...getFloatAnimation(16, 4.2, 0.2)}><i className="devicon-java-plain"></i></motion.div>

@@ -27,7 +27,7 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, minmax(350px, 1fr));
     justify-content: center;  
     gap: 25px;
     margin: 3rem auto 0;
@@ -213,11 +213,18 @@
       padding-inline: 1rem;
     }
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(340px, 350px));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 370px));
         padding: 0;
     }
     .project-links {
         flex-direction: column;
+        padding: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 370px));
     }
 }
 
