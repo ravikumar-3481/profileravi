@@ -17,9 +17,25 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (menuActive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuActive]);
+
   const handleBlogClick = () => {
     setMenuActive(false);
     navigate('/blog');
+  };
+
+  const handleAboutClick = () => {
+    setMenuActive(false);
+    navigate('/about');
   };
 
   const toggleMenu = () => {
@@ -54,7 +70,7 @@ export default function Navbar() {
           <div className="links">
             <ul className="nav-links">
               <li><span onClick={() => handleLinkClick('#')} style={{ cursor: 'pointer' }}>Home</span></li>
-              <li><span onClick={() => handleLinkClick('#about')} style={{ cursor: 'pointer' }}>About</span></li>
+              <li><span onClick={handleAboutClick} style={{ cursor: 'pointer' }}>About</span></li>
               <li><span onClick={() => handleLinkClick('#projects')} style={{ cursor: 'pointer' }}>Projects</span></li>
               <li><span onClick={() => handleLinkClick('#journey')} style={{ cursor: 'pointer' }}>Journey</span></li>
               <li><span onClick={() => handleLinkClick('#toolbox')} style={{ cursor: 'pointer' }}>Skills</span></li>
@@ -80,38 +96,39 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Overlay Menu with Framer Motion animations */}
+          {/* Mobile Popup Modal with Framer Motion animations */}
           <AnimatePresence>
             {menuActive && (
-              <>
-                <motion.div
-                  id="overlay"
-                  className="overlay active"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={toggleMenu}
-                />
+              <motion.div
+                id="overlay"
+                className="mobile-popup-overlay"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                onClick={toggleMenu}
+              >
                 <motion.div
                   id="menuBox"
-                  className="menu-box active"
-                  initial={{ x: '100%' }}
-                  animate={{ x: 0 }}
-                  exit={{ x: '100%' }}
-                  transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+                  className="mobile-popup-modal"
+                  initial={{ opacity: 0, scale: 0.9, y: -20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                  transition={{ type: 'spring', damping: 25, stiffness: 280 }}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="mobile-menu-header">
-                    <div className="mobile-menu-logo" onClick={() => handleLinkClick('#')}>
+                  <div className="mobile-popup-header">
+                    <div className="mobile-popup-logo" onClick={() => handleLinkClick('#')}>
                       <b>{'{'}</b>Ravi<b>{'}'}</b>
                     </div>
-                    <button className="mobile-menu-close" onClick={toggleMenu} aria-label="Close menu">
+                    <button className="mobile-popup-close" onClick={toggleMenu} aria-label="Close menu">
                       <i className="fa-solid fa-xmark"></i>
                     </button>
                   </div>
 
-                  <div className="mobile-menu-links">
+                  <div className="mobile-popup-links">
                     <span onClick={() => handleLinkClick('#')}>Home</span>
-                    <span onClick={() => handleLinkClick('#about')}>About</span>
+                    <span onClick={handleAboutClick}>About</span>
                     <span onClick={() => handleLinkClick('#projects')}>Projects</span>
                     <span onClick={() => handleLinkClick('#journey')}>Journey</span>
                     <span onClick={() => handleLinkClick('#toolbox')}>Skills</span>
@@ -119,11 +136,8 @@ export default function Navbar() {
                     <span onClick={handleBlogClick}>Blog</span>
                   </div>
 
-                  <div className="mobile-menu-footer">
-                    <button onClick={() => handleLinkClick('#contact')} className="mobile-contact-btn">
-                      Contact Me
-                    </button>
-                    <div className="social-icons">
+                  <div className="mobile-popup-footer">
+                    <div className="mobile-popup-socials">
                       <a href="https://github.com/ravikumar-3481" target="_blank" rel="noreferrer" aria-label="GitHub">
                         <i className="fa-brands fa-github"></i>
                       </a>
@@ -139,7 +153,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 </motion.div>
-              </>
+              </motion.div>
             )}
           </AnimatePresence>
         </nav>

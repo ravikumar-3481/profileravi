@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useInView, animate } from 'framer-motion';
 
 function Counter({ target, duration = 1.5, suffix = "+" }) {

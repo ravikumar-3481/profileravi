@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
 import ProjectDetails from './pages/ProjectDetails';
 import Blog from './pages/Blog';
 import Preloader from './components/Preloader';
@@ -45,6 +46,7 @@ function AppContent() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
         <Route path="/blog" element={<Blog />} />
         {/* Fallback route */}

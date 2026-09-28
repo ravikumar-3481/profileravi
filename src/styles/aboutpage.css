@@ -1,0 +1,1417 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=UnifrakturMaguntia&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   ABOUT PAGE - EDITORIAL BROADSHEET (HOME PAGE BACKGROUND)
+   Uses the exact same pure black background, perspective animated
+   purple grid pattern, and radial glow as the main home page
+   ============================================================ */
+
+.editorial-about-page {
+  min-height: 100vh;
+  background-color: #000000;
+  background-attachment: fixed;
+  color: #e5e5e5;
+  font-family: 'Playfair Display', Georgia, serif;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 3.5rem;
+}
+
+/* Home Page Background: Grid Pattern with Perspective & Animation */
+.editorial-about-page .grid-pattern-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transform: perspective(500px) rotateX(5deg);
+  transform-origin: top;
+  opacity: 0.6;
+  animation: gridFade 8s ease-in-out infinite;
+}
+
+.editorial-about-page .grid-pattern-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 20%, #000000 95%);
+}
+
+/* Home Page Signature Ambient Glow Backdrops */
+.editorial-about-page .hero-glow-bg {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(circle, rgba(145, 36, 255, 0.16) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.editorial-about-page .hero-glow-bg-secondary {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(145, 36, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Broadsheet card updated with subtle glassmorphism to let the decent animated glow breathe through */
+.broadsheet-card {
+  background: rgba(8, 8, 10, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 30px 80px -15px rgba(0, 0, 0, 0.95),
+    0 0 50px -10px rgba(145, 36, 255, 0.16);
+  padding: 3rem 3.5rem 2.25rem 3.5rem;
+  position: relative;
+  margin-top: 6rem;
+}
+
+/* ============================================================
+   OPTIMIZED EDITORIAL NAVIGATION BAR
+   ============================================================ */
+.editorial-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.85rem 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.editorial-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Logo */
+.editorial-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.editorial-nav-logo b {
+  color: #9124ff;
+  font-weight: 800;
+}
+
+.editorial-nav-logo:hover {
+  transform: scale(1.04);
+}
+
+/* Center Navigation Links */
+.editorial-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.editorial-nav-link-item {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  padding: 0.3rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.editorial-nav-link-item:hover {
+  color: #ffffff;
+}
+
+.editorial-nav-link-item.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.editorial-nav-link-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #9124ff, #c084fc);
+  border-radius: 2px;
+}
+
+.nav-active-badge {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  background: rgba(145, 36, 255, 0.2);
+  color: #d8b4fe;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(145, 36, 255, 0.35);
+  font-weight: 600;
+}
+
+/* Right Navigation Action Buttons */
+.editorial-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Improved Button Styling */
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(145, 36, 255, 0.25) 0%, rgba(145, 36, 255, 0.1) 100%);
+  border: 1px solid rgba(145, 36, 255, 0.45);
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 1.15rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(145, 36, 255, 0.15);
+}
+
+.btn-editorial-primary:hover {
+  background: #9124ff;
+  border-color: #a855f7;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(145, 36, 255, 0.35);
+}
+
+.btn-editorial-primary:active {
+  transform: translateY(0);
+}
+
+.btn-editorial-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d4d4d8;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.btn-editorial-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-editorial-secondary:active {
+  transform: translateY(0);
+}
+
+/* Mobile Hamburger Button */
+.editorial-mobile-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.editorial-mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Mobile Navigation Drawer Overlay */
+.editorial-mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 320px;
+  background: #0c0c0e;
+  border-left: 1px solid #27272a;
+  z-index: 1000;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.85);
+}
+
+.editorial-mobile-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.75rem;
+}
+
+.mobile-drawer-item {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #e4e4e7;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+.mobile-drawer-item:hover {
+  color: #c084fc;
+}
+
+/* ============================================================
+   BROADSHEET NEWSPAPER CONTAINER & CARD
+   ============================================================ */
+.broadsheet-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1140px;
+  margin: 2.5rem auto 1.5rem auto;
+  padding: 0 1.25rem;
+}
+
+.broadsheet-card {
+  background: #070708;
+  border: 1px solid #27272a;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 30px 70px -15px rgba(0, 0, 0, 0.95),
+    0 0 45px -10px rgba(145, 36, 255, 0.12);
+  padding: 3rem 3.5rem 2.25rem 3.5rem;
+  position: relative;
+}
+
+/* Outer ornate decorative corner brackets */
+.broadsheet-card::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+/* ============================================================
+   1. BROADSHEET MASTHEAD (Special Edition - hello - 2026)
+   ============================================================ */
+.broadsheet-header {
+  margin-bottom: 2.25rem;
+}
+
+.broadsheet-top-line {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.35rem;
+}
+
+.top-edition-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #e5e5e5;
+}
+
+.top-edition-year {
+  text-align: right;
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #e5e5e5;
+}
+
+.top-hello-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.hello-rule {
+  flex: 1;
+  height: 2px;
+  background-color: #52525b;
+}
+
+.top-hello-script {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #f4f4f5;
+  padding: 0 0.5rem;
+  font-weight: 400;
+  transform: translateY(-2px);
+}
+
+/* Double horizontal rule: thick over thin */
+.broadsheet-double-rule {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 1.35rem;
+}
+
+.broadsheet-double-rule .rule-thick {
+  width: 100%;
+  height: 4px;
+  background: #ffffff;
+}
+
+.broadsheet-double-rule .rule-thin {
+  width: 100%;
+  height: 1px;
+  background: #71717a;
+}
+
+/* Giant Main Title: "about me" */
+.broadsheet-main-title {
+  text-align: center;
+  margin: 0.85rem 0 1.5rem 0;
+}
+
+.blackletter-title {
+  font-family: 'UnifrakturMaguntia', 'Cinzel Decorative', cursive, serif;
+  font-size: 7rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  line-height: 0.95;
+  text-transform: lowercase;
+  margin: 0;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+.broadsheet-divider-solid {
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  margin-bottom: 2.75rem;
+}
+
+/* ============================================================
+   2. MAIN BODY THREE-ZONE GRID (Left / Center / Far-Right Vertical)
+   ============================================================ */
+.broadsheet-main-grid {
+  display: grid;
+  grid-template-columns: 330px 1fr 90px;
+  gap: 2.75rem;
+  position: relative;
+  align-items: start;
+}
+
+/* ------------------------------------------------------------
+   LEFT COLUMN: Photo + Contact Me Card
+   ------------------------------------------------------------ */
+.broadsheet-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Portrait photo frame */
+.broadsheet-portrait-frame {
+  position: relative;
+  background: #111113;
+  border: 1px solid #3f3f46;
+  padding: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.portrait-photo-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  filter: grayscale(100%) contrast(115%) brightness(95%);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.broadsheet-portrait-frame:hover .portrait-photo-img {
+  filter: grayscale(35%) contrast(108%) brightness(102%);
+  transform: scale(1.025);
+}
+
+.portrait-status-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-dot-active {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.status-label-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e5e5e5;
+  font-weight: 500;
+}
+
+/* Contact Me Card (Ornate bracket box) */
+.broadsheet-contact-card {
+  position: relative;
+  background: #0b0b0d;
+  border: 1.5px solid #52525b;
+  border-radius: 4px;
+  padding: 1.65rem 1.35rem 1.4rem;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.65);
+}
+
+/* Ornate corner notch styling */
+.broadsheet-contact-card::before,
+.broadsheet-contact-card::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid #d4d4d8;
+}
+
+.broadsheet-contact-card::before {
+  top: -3px;
+  left: -3px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.broadsheet-contact-card::after {
+  bottom: -3px;
+  right: -3px;
+  border-left: none;
+  border-top: none;
+}
+
+.contact-card-title {
+  text-align: center;
+  font-family: 'UnifrakturMaguntia', 'Cinzel Decorative', cursive, serif;
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 0.85rem 0;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-dashed-divider {
+  width: 100%;
+  border-top: 1.5px dashed #71717a;
+  margin-bottom: 1.25rem;
+}
+
+.contact-items-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+/* Optimized interactive contact buttons */
+.contact-interactive-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  width: 100%;
+  color: #d4d4d8;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.contact-interactive-pill:hover {
+  color: #ffffff;
+  background: rgba(145, 36, 255, 0.12);
+  border-color: rgba(145, 36, 255, 0.35);
+  transform: translateY(-1.5px);
+}
+
+.contact-pill-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-pill-left i {
+  color: #c084fc;
+  font-size: 0.9rem;
+  width: 14px;
+}
+
+.contact-copy-indicator {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(145, 36, 255, 0.22);
+  color: #d8b4fe;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Social Icon Pills in Contact Card */
+.contact-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  width: 100%;
+}
+
+.contact-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4d4d8;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.92rem;
+}
+
+.contact-social-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.15);
+}
+
+/* Action buttons row directly below contact box */
+.broadsheet-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  width: 100%;
+  margin-top: -0.25rem;
+}
+
+.left-col-action {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: 6px;
+}
+
+.left-col-share {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  border-radius: 6px;
+}
+
+/* ------------------------------------------------------------
+   CENTER COLUMN: Editorial Biography & Academic Journey
+   ------------------------------------------------------------ */
+.broadsheet-col-center {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.editorial-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.3rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Editorial Newspaper Paragraphs */
+.editorial-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.editorial-body-p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.76;
+  color: #d1d5db;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Drop-cap for the first paragraph */
+.editorial-body-p.has-drop-cap::first-letter {
+  font-family: 'Cinzel', serif;
+  font-size: 3.8rem;
+  float: left;
+  line-height: 0.85;
+  margin: 0.15rem 0.65rem 0 0;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Editorial Pull Quote */
+.editorial-pull-quote {
+  position: relative;
+  margin: 1rem 0;
+  padding: 1.35rem 1.85rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid #9124ff;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.editorial-pull-quote p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.22rem;
+  line-height: 1.55;
+  color: #f3f4f6;
+  margin: 0;
+}
+
+.editorial-pull-quote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c084fc;
+}
+
+/* ============================================================
+   OPTIMIZED EDUCATION CREDENTIALS SECTION
+   (NO DESCRIPTION - ONLY INSTITUTE, GRADES, DURATION, COURSES, SKILLS)
+   ============================================================ */
+.academic-editorial-section {
+  margin-top: 1.25rem;
+  border-top: 1px solid #3f3f46;
+  padding-top: 2rem;
+}
+
+.academic-editorial-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.academic-title-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.academic-title-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+  border: 1px solid #3f3f46;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.education-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.edu-editorial-card {
+  background: #0b0b0e;
+  border: 1px solid #27272a;
+  padding: 1.4rem 1.65rem;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 4px;
+}
+
+.edu-editorial-card:hover {
+  border-color: #52525b;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+}
+
+.edu-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+  gap: 1rem;
+}
+
+.edu-degree-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.35rem 0;
+}
+
+.edu-institute-row {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  color: #c084fc;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edu-meta-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+}
+
+.edu-duration-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: #e4e4e7;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.edu-score-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Category rows for Courses and Skills */
+.edu-attribute-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.edu-attribute-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a1a1aa;
+  font-weight: 600;
+}
+
+.edu-attribute-header i {
+  color: #c084fc;
+  font-size: 0.8rem;
+}
+
+.edu-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.edu-chip-course {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.76rem;
+  color: #f4f4f5;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.edu-chip-course:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.edu-chip-skill {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.76rem;
+  color: #d8b4fe;
+  background: rgba(145, 36, 255, 0.08);
+  border: 1px solid rgba(145, 36, 255, 0.22);
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.edu-chip-skill:hover {
+  background: rgba(145, 36, 255, 0.18);
+  border-color: rgba(145, 36, 255, 0.45);
+}
+
+/* ============================================================
+   EXTRA UNIQUE COMPONENTS (Wax Seal, Recruiter Ledger)
+   ============================================================ */
+.editorial-extras-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.75rem;
+  align-items: center;
+  margin-top: 1.75rem;
+  padding: 1.35rem 1.75rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(145, 36, 255, 0.05) 100%);
+  border: 1px solid #27272a;
+  border-radius: 4px;
+}
+
+.extras-philosophy-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.extras-philosophy-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.extras-philosophy-p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+/* Interactive Wax Seal / Stamp Button */
+.editorial-wax-seal {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  background: radial-gradient(circle, rgba(145, 36, 255, 0.25) 0%, rgba(0, 0, 0, 0.7) 80%);
+  color: #e5e5e5;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.editorial-wax-seal:hover {
+  transform: rotate(15deg) scale(1.08);
+  border-color: #a855f7;
+  box-shadow: 0 0 25px rgba(145, 36, 255, 0.4);
+}
+
+.seal-icon {
+  font-size: 1.25rem;
+  color: #d8b4fe;
+  margin-bottom: 2px;
+}
+
+.seal-text-top {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.54rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.seal-text-bottom {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #c084fc;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Recruiter & AI Quick Facts Ledger */
+.recruiter-aeo-ledger {
+  margin-top: 1.75rem;
+  border: 1px solid #27272a;
+  background: #09090b;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.aeo-ledger-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.35rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid #27272a;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.aeo-ledger-header:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.aeo-ledger-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e4e4e7;
+  font-weight: 600;
+}
+
+.aeo-ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  padding: 1.35rem;
+}
+
+.aeo-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.aeo-fact-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #71717a;
+}
+
+.aeo-fact-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+/* ------------------------------------------------------------
+   FAR-RIGHT COLUMN: Giant Vertical Typography
+   Matches "OLIVIA WILSON" in the reference image
+   ------------------------------------------------------------ */
+.broadsheet-col-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-left: 1.35rem;
+}
+
+.broadsheet-vertical-rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5px;
+  height: 100%;
+  background-color: #3f3f46;
+}
+
+.vertical-name-container {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(0deg);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.vertical-name-text {
+  font-family: 'Playfair Display', 'Cinzel', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+  user-select: none;
+  opacity: 0.95;
+  transition: all 0.3s ease;
+}
+
+.vertical-name-text:hover {
+  letter-spacing: 0.32em;
+  color: #c084fc;
+}
+
+/* ============================================================
+   3. BOTTOM FOLIO / FOOTER
+   ============================================================ */
+.broadsheet-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  position: relative;
+}
+
+.broadsheet-footer-rule {
+  width: 100%;
+  height: 2px;
+  background-color: #3f3f46;
+  margin-bottom: 1.35rem;
+}
+
+.broadsheet-footer-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.92rem;
+  color: #a1a1aa;
+}
+
+.footer-site-link {
+  color: #d4d4d8;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-site-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-edition-badge {
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #71717a;
+}
+
+.footer-page-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+/* Toast feedback alert */
+.editorial-toast {
+  position: fixed;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #18181b;
+  border: 1px solid #9124ff;
+  color: #ffffff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(145, 36, 255, 0.4);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ============================================================ */
+@media (max-width: 1080px) {
+  .broadsheet-card {
+    padding: 2.25rem 2rem;
+  }
+
+  .blackletter-title {
+    font-size: 5.4rem;
+  }
+
+  .broadsheet-main-grid {
+    grid-template-columns: 290px 1fr 70px;
+    gap: 2rem;
+  }
+
+  .vertical-name-text {
+    font-size: 2.7rem;
+    letter-spacing: 0.2em;
+  }
+
+  .editorial-headline {
+    font-size: 2.7rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .editorial-nav-links {
+    display: none;
+  }
+
+  .editorial-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .broadsheet-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .blackletter-title {
+    font-size: 4rem;
+  }
+
+  .top-hello-script {
+    font-size: 2.3rem;
+  }
+
+  .broadsheet-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .broadsheet-col-right {
+    order: -1;
+    padding-left: 0;
+    align-items: center;
+    border-bottom: 1px solid #3f3f46;
+    padding-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .broadsheet-vertical-rule {
+    display: none;
+  }
+
+  .vertical-name-container {
+    writing-mode: horizontal-tb;
+    transform: none;
+    height: auto;
+    padding: 0;
+  }
+
+  .vertical-name-text {
+    font-size: 1.85rem;
+    letter-spacing: 0.25em;
+    text-align: center;
+  }
+
+  .broadsheet-portrait-frame {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .broadsheet-contact-card {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .aeo-ledger-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-card-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edu-meta-badges {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .editorial-navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .btn-editorial-primary span {
+    display: none;
+  }
+
+  .btn-editorial-primary {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .blackletter-title {
+    font-size: 2.85rem;
+  }
+
+  .top-edition-tag,
+  .top-edition-year {
+    font-size: 0.88rem;
+  }
+
+  .top-hello-script {
+    font-size: 1.8rem;
+  }
+
+  .editorial-headline {
+    font-size: 2.1rem;
+  }
+
+  .editorial-body-p {
+    font-size: 0.98rem;
+    text-align: left;
+  }
+
+  .broadsheet-footer-line {
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: center;
+  }
+}
