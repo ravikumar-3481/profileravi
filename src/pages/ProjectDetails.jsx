@@ -112,11 +112,7 @@ export default function ProjectDetails() {
     }
   }, [project?.title]);
 
-  useEffect(() => {
-    return () => {
-      document.title = "Ravi Kumar Vishwakarma | AI & Data Science | Portfolio";
-    };
-  }, []);
+  
 
   const nextProject = useMemo(() => {
     if (!project || !projects.length) return null;
@@ -255,6 +251,7 @@ export default function ProjectDetails() {
               <Section id="outcome" className="pd-outcome">
                 <h2 className="pd-label">Outcome</h2>
                 {project.result1 && <p className="pd-lede">{project.result1}</p>}
+                <h2 className="pd-label" style={{marginTop: '0.8rem'}}>Case Study</h2>
                 {project.caseStudy && <p className="pd-text pd-text-spaced">{project.caseStudy}</p>}
               </Section>
             )}
