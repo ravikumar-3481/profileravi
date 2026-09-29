@@ -716,3 +716,117 @@ section {
     margin-bottom: clamp(1.25rem, 1.1rem + 0.5vw, 1.6rem);
   }
 }
+
+/* ════════ IMAGE POPUP MODAL (BORDERLESS & AUTO-SCALING) ════════ */
+.pd-cover {
+  cursor: zoom-in;
+}
+
+.pd-cover img,
+.pd-gallery-item img {
+  cursor: zoom-in;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.pd-cover:hover img,
+.pd-gallery-item:hover img {
+  transform: scale(1.015);
+  filter: brightness(1.05);
+}
+
+.pd-img-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border: none;
+  outline: none;
+  cursor: zoom-out;
+}
+
+.pd-img-modal-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 100000;
+}
+
+.pd-img-modal-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: scale(1.08);
+}
+
+.pd-img-modal-content {
+  position: relative;
+  max-width: 92vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: default;
+}
+
+.pd-img-modal-img {
+  display: block;
+  max-width: 92vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+  user-select: none;
+}
+
+.pd-img-modal-caption {
+  margin: 0.85rem 0 0 0;
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  text-align: center;
+  max-width: 750px;
+  line-height: 1.45;
+  background: transparent;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .pd-img-modal-overlay {
+    padding: 1rem;
+  }
+
+  .pd-img-modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+  }
+
+  .pd-img-modal-img {
+    max-width: 96vw;
+    max-height: 80vh;
+  }
+}

@@ -1,93 +1,98 @@
 [
     {
-        "id": 1,
-        "category": "ai",
-        "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
-        "thumbnail": "project4.jpg",
-        "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
-        "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
-        "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
-        "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
-        "result": "100% Automated NLP Pipeline",
-        "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
-        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
-        "images": ["project4.jpg", "project1.jpg", "project2.jpg"],
-        "diagrams": ["nlp_pipeline_diagram.png", "project4.jpg", "project1.jpg"],
-        "milestones": [
-            "Phase 01 — Setup BeautifulSoup Web Scraping pipeline & URL parsers",
-            "Phase 02 — Train NLTK tokenizers and TextBlob classifiers",
-            "Phase 03 — Deploy Streamlit application with interactive Plotly visual charts"
-        ],
-        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
+    "id": 2,
+    "category": "ai",
+    "title": "Aura Health - AI-Powered Health Awareness Chatbot",
+    "thumbnail": "aura-ai-admin.webp",
+    "problem": "Finding reliable health information online can be difficult. Health websites often contain long and technical information, while generic AI chatbots may give incorrect answers. Language can also be a barrier for people who are more comfortable using Hindi or Hinglish.",
+    "solution": "Built Aura Health, a health awareness chatbot that uses trusted and admin-approved health sources to answer user questions. The system collects information from selected sources, cleans and stores it for search, then finds the most relevant content before generating an answer. It also supports English, Hindi, and Hinglish, detects urgent queries, shows the sources used for answers, and provides private counselor booking.",
+    "technologies": [
+    "Python",
+    "FastAPI",
+    "React 19",
+    "LangChain",
+    "Supabase",
+    "PostgreSQL",
+    "Sentence Transformers",
+    "BeautifulSoup",
+    "scikit-learn"
+    ],
+    "result1": "Created a single platform where users can ask health-related questions in simple language, get answers based on trusted sources, check where the information came from, and request confidential counseling when needed.",
+    "result": "Source-Based Multilingual Health Assistant",
+    "liveLink": "https://aura-health-ai-assistence.vercel.app/",
+    "codeLink": "https://github.com/ravikumar-3481/health-awareness-chatbot",
+    "caseStudy": "The main challenge was making a health chatbot useful without allowing it to freely guess medical information. To solve this, the project uses a source-based approach. Admins first add trusted health websites to the knowledge base. The system then extracts the content, removes unnecessary text, breaks it into smaller sections, creates searchable representations, and stores them for later use. When a user asks a question, the system first finds relevant information from this knowledge base and then uses that information to prepare the response. This makes the answers easier to trace back to their source. The project also adds multilingual replies in English, Hindi, and Hinglish, an emergency query detector, Google sign-in, and confidential counselor booking. The result is a practical health-awareness platform that focuses on clear information and knowing when to ask for human help.",
+    "images": [
+    "aura-ai-admin.webp",
+    "booking.webp"
+    ],
+    "diagrams": [
+    "architecture.webp",
+    "user-query-flow.webp",
+    "booking-flow.webp"
+    ],
+    "milestones": [
+    "Phase 01 — Built the React frontend and FastAPI backend with Supabase authentication and database integration",
+    "Phase 02 — Created the health knowledge pipeline for scraping, cleaning, chunking, embedding, and storing trusted source content",
+    "Phase 03 — Added RAG-based question answering with Mistral AI, multilingual responses, and source transparency",
+    "Phase 04 — Added emergency query detection, admin tools, analytics, and confidential counselor booking",
+    "Phase 05 — Deployed the frontend on Vercel and backend on Render"
+    ],
+    "challenges": [
+    "Making health answers depend on trusted source content instead of unsupported AI-generated information.",
+    "Cleaning and organizing health information collected from different websites.",
+    "Supporting English, Hindi, and Hinglish while keeping responses easy to understand.",
+    "Handling sensitive and urgent health questions safely.",
+    "Connecting authentication, database, AI processing, and the frontend into one working application."
+    ]
     },
     {
-        "id": 2,
-        "category": "web",
-        "title": "Alumni Data Management System",
-        "thumbnail": "project1.jpg",
-        "problem": "Manual tracking of alumni records led to data fragmentation and inefficient communication within the institution.",
-        "solution": "Engineered a centralized web application using a Flask API and JavaScript to automate database management and alumni networking.",
-        "technologies": ["Html", "flask api" , "Javascript", "sql"],
-        "result1": "Successfully streamlined data retrieval for 500+ records with a significant reduction in administrative manual entry time.",
-        "result": "95% Efficiency",
-        "liveLink": "https://cum-ruddy.vercel.app/",
-        "codeLink": "https://github.com/ravikumar-3481/CampusCircle",
-        "caseStudy": "Building the Alumni Data Management System required a focus on secure data handling and easy accessibility for administrators. We developed a centralized SQL database with a Flask REST API to handle CRUD operations seamlessly. The frontend interface was built to be intuitive, allowing quick searching and filtering of alumni records, thus resolving the previous data fragmentation issues.",
-        "images": ["project1.jpg", "project2.jpg"],
-        "diagrams": ["alumni_db_diagram.png", "project1.jpg", "project2.jpg"],
-        "milestones": [
-            "Phase 01 — Connect Flask REST API endpoints to relational SQL schemas",
-            "Phase 02 — Construct Bcrypt password encryption & JWT auth handlers",
-            "Phase 03 — Deploy CampusCircle alumni profiles events circle feed UI"
-        ],
-        "reportLink": "https://github.com/ravikumar-3481/CampusCircle",
-        "challenges": ["Designing a scalable relational database schema.", "Accommodating growing user data securely.", "Ensuring fast retrieval times for over 500 records."]
-    },
-    {
-        "id": 3,
-        "category": "data",
-        "title": "E-Commerce Sales Analitics Dashboard",
-        "thumbnail": "project2.jpg",
-        "problem": "The business struggled to track real-time profitability and sales trends across different regions, leading to delayed decision-making and inefficient inventory management",
-        "solution": "Developed an interactive Power BI dashboard using Star Schema and DAX to visualize KPIs like YoY Growth, Profit Margins, and Customer Segmentation with dynamic filtering",
-        "technologies": ["Power Bi", "Python", "AI", "Jupiter Notebook"],
-        "result1": "Reduced reporting time by 80% and identified high-loss product categories, enabling the management to optimize marketing spend and improve overall profit margins",
-        "result": "Reduced 80% time",
-        "liveLink": "#",
-        "codeLink": "https://github.com/ravikumar-3481/FUTURE_DS_01",
-        "caseStudy": "The e-commerce business lacked visibility into its daily operations and profitability metrics. By structuring the data using a Star Schema, the Power BI dashboard was able to provide high-performance querying and interactive visualizations. Key DAX measures were implemented to track YoY growth and profitability, fundamentally changing how the management team approached inventory and marketing decisions.",
-        "images": ["project2.jpg", "project3.jpg"],
-        "diagrams": ["analytics_star_schema.png", "project2.jpg", "project3.jpg"],
-        "milestones": [
-            "Phase 01 — Import unstructured CSV sources & execute cleaning filters",
-            "Phase 02 — Model Fact and Dimension links via Power BI Star Schema",
-            "Phase 03 — Formulate DAX metrics for YoY growth & profit margin dashboards"
-        ],
-        "reportLink": "https://github.com/ravikumar-3481/FUTURE_DS_01",
-        "challenges": ["Managing large datasets and complex relationships in Power BI.", "Writing advanced DAX to handle dynamic date filtering.", "Ensuring fast dashboard load times by optimizing the Star Schema."]
-    },
-    {
-        "id": 4,
-        "category": "data",
-        "title": "Facebook Ads Campaign Performance Analysis",
-        "thumbnail": "project3.jpg",
-        "problem": "The marketing team lacked a unified view to track Ad Spend efficiency (ROAS) and CPA across multiple campaigns, making it difficult to identify underperforming ads in real-time.",
-        "solution": "Built a Power BI dashboard integrating Facebook Ads data to track funnel metrics (Impressions to Conversions) using DAX for custom metrics and Trend Analysis for budget optimization.",
-        "technologies": ["Power Bi", "Python", "AI", "Jupiter Notebook"],
-        "result1": "Improved Ad Spend efficiency by 25% through better targeting insights and automated the reporting process, saving the team over 10 hours of manual data entry per week.",
-        "result": "Improved 25% efficiency",
-        "liveLink": "#",
-        "codeLink": "https://github.com/ravikumar-3481/FUTURE_DS_02",
-        "caseStudy": "Tracking ad performance across dozens of campaigns manually was error-prone. This Power BI solution consolidated Facebook Ads data, applying complex DAX formulas to calculate ROAS and CPA dynamically. The trend analysis capabilities allowed marketers to quickly pause underperforming ads and reallocate budget to high-converting segments, boosting overall efficiency.",
-        "images": ["project3.jpg", "project4.jpg"],
-        "diagrams": ["analytics_star_schema.png", "project3.jpg", "project4.jpg"],
-        "milestones": [
-            "Phase 01 — Connect to Facebook Ad metrics API endpoints securely",
-            "Phase 02 — Establish ROAS and CPA dynamic DAX formulations",
-            "Phase 03 — Segment customer impressions funnel and deploy chart views"
-        ],
-        "reportLink": "https://github.com/ravikumar-3481/FUTURE_DS_02",
-        "challenges": ["Integrating cross-platform ad metrics securely.", "Attributing conversions accurately across complex funnel stages.", "Handling discrepancies and missing values in API data exports."]
+    "id": 3,
+    "category": "ai",
+    "title": "MeetingSense AI - AI Meeting Assistant",
+    "thumbnail": "meetingsense.webp",
+    "problem": "Important decisions, tasks, and discussions often get buried inside long meeting recordings. Finding one specific detail later means searching through recordings or asking teammates. This becomes even harder when meetings contain mixed languages such as English and Hinglish.",
+    "solution": "Built an AI meeting assistant that turns YouTube recordings, audio files, and transcripts into searchable meeting knowledge. The system transcribes the meeting, breaks the content into smaller sections, stores it for fast search, and lets users ask questions about what was discussed. It can also find action items, create meeting minutes, identify open questions and disagreements, prepare follow-up emails, and trace how a topic changed across multiple meetings.",
+    "technologies": [
+    "Python",
+    "FastAPI",
+    "React 19",
+    "LangChain",
+    "Hugging Face",
+    "Supabase",
+    "pydub",
+    "Docker"
+    ],
+    "result1": "Turned long meeting recordings into searchable information, allowing users to quickly find decisions, tasks, discussions, and unresolved questions without replaying the entire meeting.",
+    "result": "Searchable AI Meeting Assistant",
+    "liveLink": "https://ai-meeting-assistence.vercel.app/",
+    "codeLink": "https://github.com/ravikumar-3481/ai_meeting_assistence",
+    "caseStudy": "The main problem was not just converting audio into text, but making that information useful after the meeting was over. A single meeting can contain decisions, action items, questions, disagreements, and important details spread across an hour-long conversation. The system first takes a YouTube link, audio file, or transcript and converts it into clean text. The text is then split into smaller sections and stored in Pinecone so the relevant part can be found quickly later. A LangGraph-based agent chooses the right tool depending on the user's question. For example, it can search the transcript for a specific discussion, extract action items, generate meeting minutes, find unanswered questions, or search across older meetings to understand how a decision changed over time. English and Hinglish meetings are handled through different speech-to-text services. The result is a practical workspace where past meetings become easy to search and understand instead of becoming forgotten recordings.",
+    "images": [
+    "meetingai.webp",
+    "meetingai2.webp",
+    "meetingsenseai.webp"
+    ],
+    "diagrams": [
+    "meetingai-flow.svg",
+    "pipeline.svg"
+    ],
+    "milestones": [
+    "Phase 01 — Built the FastAPI backend and React frontend with authentication and meeting management",
+    "Phase 02 — Added support for YouTube links, audio files, and text transcripts",
+    "Phase 03 — Built the transcription pipeline using Deepgram for English and Sarvam AI for Hinglish",
+    "Phase 04 — Added text cleaning, chunking, embeddings, Pinecone vector search, and meeting-level retrieval",
+    "Phase 05 — Built the LangGraph agent with tools for Q&A, summaries, action items, minutes, follow-up emails, open questions, and disagreements",
+    "Phase 06 — Added cross-meeting search, caching, audit logs, Supabase Row Level Security, Docker support, and deployment configuration"
+    ],
+    "challenges": [
+    "Handling English and Hinglish meetings with different speech-to-text systems.",
+    "Searching large meeting transcripts without sending the entire transcript to the AI model.",
+    "Preventing the AI from making up owners, deadlines, or decisions that were never mentioned.",
+    "Keeping user and meeting data separated when many users use the same backend service.",
+    "Managing slow or unreliable external services such as transcription, embeddings, and LLM APIs.",
+    "Keeping repeated queries fast with server-side and client-side caching."
+    ]
     }
+
 ]

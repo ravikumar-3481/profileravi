@@ -1,28 +1,6 @@
 [
     {
-        "id": 1,
-        "category": "ai",
-        "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
-        "thumbnail": "project4.jpg",
-        "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
-        "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
-        "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
-        "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
-        "result": "100% Automated NLP Pipeline",
-        "liveLink": "https://news-pulse-ai.streamlit.app/",
-        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
-        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
-        "images": ["project4.jpg", "project1.jpg", "project2.jpg"],
-        "diagrams": ["nlp_pipeline_diagram.png", "project4.jpg", "project1.jpg"],
-        "milestones": [
-            "Phase 01 — Setup BeautifulSoup Web Scraping pipeline & URL parsers",
-            "Phase 02 — Train NLTK tokenizers and TextBlob classifiers",
-            "Phase 03 — Deploy Streamlit application with interactive Plotly visual charts"
-        ],
-        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
-    },
-    {
-    "id": 2,
+    "id": 1,
     "category": "ai",
     "title": "Aura Health - AI-Powered Health Awareness Chatbot",
     "thumbnail": "aura-ai-admin.webp",
@@ -69,7 +47,7 @@
     ]
     },
     {
-    "id": 3,
+    "id": 2,
     "category": "ai",
     "title": "MeetingSense AI - AI Meeting Assistant",
     "thumbnail": "meetingsense.webp",
@@ -87,7 +65,7 @@
     ],
     "result1": "Turned long meeting recordings into searchable information, allowing users to quickly find decisions, tasks, discussions, and unresolved questions without replaying the entire meeting.",
     "result": "Searchable AI Meeting Assistant",
-    "liveLink": "",
+    "liveLink": "https://ai-meeting-assistence.vercel.app/",
     "codeLink": "https://github.com/ravikumar-3481/ai_meeting_assistence",
     "caseStudy": "The main problem was not just converting audio into text, but making that information useful after the meeting was over. A single meeting can contain decisions, action items, questions, disagreements, and important details spread across an hour-long conversation. The system first takes a YouTube link, audio file, or transcript and converts it into clean text. The text is then split into smaller sections and stored in Pinecone so the relevant part can be found quickly later. A LangGraph-based agent chooses the right tool depending on the user's question. For example, it can search the transcript for a specific discussion, extract action items, generate meeting minutes, find unanswered questions, or search across older meetings to understand how a decision changed over time. English and Hinglish meetings are handled through different speech-to-text services. The result is a practical workspace where past meetings become easy to search and understand instead of becoming forgotten recordings.",
     "images": [
@@ -115,6 +93,28 @@
     "Managing slow or unreliable external services such as transcription, embeddings, and LLM APIs.",
     "Keeping repeated queries fast with server-side and client-side caching."
     ]
+    },
+    {
+        "id": 3,
+        "category": "ai",
+        "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
+        "thumbnail": "project4.jpg",
+        "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
+        "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
+        "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
+        "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
+        "result": "100% Automated NLP Pipeline",
+        "liveLink": "https://news-pulse-ai.streamlit.app/",
+        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
+        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
+        "images": ["project4.jpg", "project1.jpg", "project2.jpg"],
+        "diagrams": ["nlp_pipeline_diagram.png", "project4.jpg", "project1.jpg"],
+        "milestones": [
+            "Phase 01 — Setup BeautifulSoup Web Scraping pipeline & URL parsers",
+            "Phase 02 — Train NLTK tokenizers and TextBlob classifiers",
+            "Phase 03 — Deploy Streamlit application with interactive Plotly visual charts"
+        ],
+        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
     }
 
 ]

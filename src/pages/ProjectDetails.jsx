@@ -1,9 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { slugify } from '../utils/urlHelper';
+
+const resolveImgSrc = (src) => {
+  if (!src) return '';
+  if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('/')) {
+    return src;
+  }
+  return `/assets/img/${src}`;
+};
 
 /* ── animation presets ── */
 const ease = [0.22, 1, 0.36, 1];
@@ -83,7 +91,35 @@ export default function ProjectDetails() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(!initialProject);
   const [error, setError] = useState(null);
+  const [activeModalImage, setActiveModalImage] = useState(null);
   const reduce = useReducedMotion();
+
+  const openImageModal = (src, alt = '') => {
+    setActiveModalImage({ src, alt });
+  };
+
+  const closeImageModal = () => {
+    setActiveModalImage(null);
+  };
+
+  useEffect(() => {
+    if (!activeModalImage) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [activeModalImage]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -225,9 +261,20 @@ export default function ProjectDetails() {
 
             {/* ════════ COVER ════════ */}
             <Section className="pd-cover-wrap">
-              <figure className="pd-cover">
+              <figure
+                className="pd-cover"
+                onClick={() => openImageModal(resolveImgSrc(project.thumbnail), `${project.title} overview`)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    openImageModal(resolveImgSrc(project.thumbnail), `${project.title} overview`);
+                  }
+                }}
+                aria-label="View enlarged cover image"
+              >
                 <img
-                  src={`/assets/img/${project.thumbnail}`}
+                  src={resolveImgSrc(project.thumbnail)}
                   alt={`${project.title} overview`}
                   style={{ viewTransitionName: `project-artifact-${project.id}` }}
                 />
@@ -305,15 +352,31 @@ export default function ProjectDetails() {
               <Section id="gallery" className="pd-gallery-section">
                 <h2 className="pd-label">Screens & diagrams</h2>
                 <div className="pd-gallery">
-                  {media.map((src, i) => (
-                    <figure key={`${src}-${i}`} className="pd-gallery-item">
-                      <img
-                        src={`/assets/img/${src}`}
-                        alt={`${project.title} — media ${i + 1}`}
-                        loading="lazy"
-                      />
-                    </figure>
-                  ))}
+                  {media.map((src, i) => {
+                    const fullSrc = resolveImgSrc(src);
+                    const altText = `${project.title} — media ${i + 1}`;
+                    return (
+                      <figure
+                        key={`${src}-${i}`}
+                        className="pd-gallery-item"
+                        onClick={() => openImageModal(fullSrc, altText)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            openImageModal(fullSrc, altText);
+                          }
+                        }}
+                        aria-label={`View enlarged ${altText}`}
+                      >
+                        <img
+                          src={fullSrc}
+                          alt={altText}
+                          loading="lazy"
+                        />
+                      </figure>
+                    );
+                  })}
                 </div>
               </Section>
             )}
@@ -364,6 +427,52 @@ export default function ProjectDetails() {
           </div>
         )}
       </main>
+
+      {/* ════════ IMAGE POPUP MODAL (BORDERLESS & AUTO-FIT) ════════ */}
+      <AnimatePresence>
+        {activeModalImage && (
+          <motion.div
+            className="pd-img-modal-overlay"
+            onClick={closeImageModal}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button
+              type="button"
+              className="pd-img-modal-close"
+              onClick={closeImageModal}
+              aria-label="Close image preview"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <motion.div
+              className="pd-img-modal-content"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <img
+                src={activeModalImage.src}
+                alt={activeModalImage.alt || 'Project media preview'}
+                className="pd-img-modal-img"
+              />
+              {activeModalImage.alt && (
+                <p className="pd-img-modal-caption">{activeModalImage.alt}</p>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </div>
