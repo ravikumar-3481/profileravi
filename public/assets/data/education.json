@@ -2,7 +2,7 @@
     {
         "id": 1,
         "institute": "AKS University",
-        "logo": "assets/img/aks.webp",
+        "logo": "aks.webp",
         "degree": "B.Tech in Computer Science & Engineering",
         "cgpa": "6.7",
         "duration": "2025 - 2029",
@@ -13,7 +13,7 @@
     {
         "id": 2,
         "institute": "PMS GHSS Karhi",
-        "logo": "assets/img/pm.webp",
+        "logo": "pm.webp",
         "degree": "Higher Secondary Education",
         "cgpa": "7.9/10",
         "duration": "2023 - 2025",

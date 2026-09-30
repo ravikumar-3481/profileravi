@@ -23,8 +23,8 @@ export default function ResumePopup({ onClose }) {
         <i className="fas fa-times close-popup" onClick={onClose}></i>
         <div className="resume-container">
           <img 
-            src="/assets/img/resume.jpg" 
-            alt="Ravi's Resume" 
+            src="https://ik.imagekit.io/ravivish3481/img/Ravi_Kumar_Vishwakarma_Resume_updated_page-0001.jpg" 
+            alt="Ravi Kumar Vishwakarma's Resume" 
             className={`resume-image ${zoomed ? 'zoomed' : ''}`}
             onClick={() => setZoomed(!zoomed)}
             style={{ cursor: 'zoom-in' }}
@@ -32,7 +32,7 @@ export default function ResumePopup({ onClose }) {
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
           <a 
-            href="https://drive.google.com/uc?export=download&id=1nYjnLfC79FwOmjDHmhM7n-ptuaWbhGVG" 
+            href="https://drive.google.com/file/d/1M8tIvQtegWqFx9_DKpJwxOFpfl0DQPfB/view" 
             target="_blank" 
             rel="noreferrer"
             className="download-icon" 

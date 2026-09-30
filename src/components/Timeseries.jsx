@@ -196,7 +196,7 @@ export default function Timeseries() {
                       <div className="timeseries-card-header">
                         <div className="timeseries-logo-wrapper">
                           <img
-                            src={`/${item.logo}`}
+                            src={`https://ik.imagekit.io/ravivish3481/img/${item.logo}`}
                             alt={item.subtitle}
                             className="timeseries-logo"
                             onError={(e) => {
