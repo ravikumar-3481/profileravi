@@ -108,10 +108,11 @@ export function EducationSection() {
 
 export function ResumeModal({ open, onClose }) {
   const src = imagekit('Ravi_Kumar_Vishwakarma_Resume_updated_page-0001.jpg');
+  const pdfsrc = 'https://drive.google.com/uc?export=download&id=1M8tIvQtegWqFx9_DKpJwxOFpfl0DQPfB';
   return <Dialog open={open} onOpenChange={v => !v && onClose()}><DialogContent className="resume-dialog [&>button:last-child]:hidden">
     <div className="resume-head"><DialogTitle>Ravi Vishwakarma — Resume</DialogTitle><DialogDescription className="sr-only">Resume preview</DialogDescription>
-      <div className="resume-actions"><Button asChild size="sm"><a href={src} download="Ravi_Vishwakarma_Resume.jpg" target="_blank" rel="noreferrer"><Download /> Download</a></Button><Button variant="outline" size="sm" onClick={onClose}><X /> Close</Button></div></div>
-    <div className="resume-body"><img src={src} alt="Ravi Vishwakarma Resume" /></div>
+      <div className="resume-actions"><Button asChild size="sm"><a href={pdfsrc} download="Ravi_Vishwakarma_Resume.pdf" target="_blank" rel="noreferrer"><Download /> Download</a></Button><Button variant="outline" size="sm" onClick={onClose}><X /> Close</Button></div></div>
+    <div className="resume-body"><img src={src} alt="Ravi Vishwakarma Resume" /></div> 
   </DialogContent></Dialog>;
 }
 
