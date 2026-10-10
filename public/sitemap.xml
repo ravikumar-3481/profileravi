@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/about</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/experience</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/skills</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/activities</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/projects</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/blog</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/faq</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/contact</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/projects/aura-health-chatbot</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/projects/meetingsense-ai</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/projects/pycli-project-structure-generator</loc></url>
-  <url><loc>https://dynamic-portfolios-plus.lovable.app/projects/newspulse-ai</loc></url>
+
+  <url>
+    <loc>https://profileravi.vercel.app/</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/about</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/experience</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/skills</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/activities</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/projects</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/blog</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/faq</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/contact</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/projects/aura-health-chatbot</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/projects/meetingsense-ai</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/projects/pycli-project-structure-generator</loc>
+  </url>
+  <url>
+    <loc>https://profileravi.vercel.app/projects/newspulse-ai</loc>
+  </url>
+
 </urlset>
