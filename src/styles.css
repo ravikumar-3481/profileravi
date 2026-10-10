@@ -136,7 +136,7 @@ html { scroll-behavior:smooth; }
 /* Portrait-led opening: typography, original cutout, and animated contour lines. */
 :root { --hero-name: color-mix(in oklab, var(--foreground) 28%, var(--background)); --hero-line: color-mix(in oklab, var(--accent-text) 18%, transparent); --hero-signal: color-mix(in oklab, var(--accent-text) 48%, transparent); --hero-portrait-shadow: drop-shadow(0 20px 28px color-mix(in oklab, var(--foreground) 12%, transparent)); }
 .dark { --hero-name: color-mix(in oklab, var(--foreground) 30%, var(--background)); --hero-portrait-shadow: drop-shadow(0 20px 28px color-mix(in oklab, var(--background) 65%, transparent)); }
-.portrait-hero { --cut:clamp(240px,min(68svh,52vw),700px); position:relative; isolation:isolate; height:min(80svh,900px); max-height:80svh; width:100%; overflow:hidden; background:var(--background); }
+.portrait-hero { --cut:clamp(240px,min(68svh,52vw),700px); position:relative; isolation:isolate; height:min(80vh,90vh); max-height:90vh; width:100%; overflow:hidden; background:var(--background); }
 .portrait-hero-top,.portrait-hero-bottom { position:absolute; left:48px; right:48px; display:flex; align-items:center; justify-content:space-between; gap:20px; z-index:5; font-size:max(8px,min(1.11svh,.85vw,10px)); color:var(--muted-foreground); }
 .portrait-hero-top { top:max(14px,2.2svh); }
 .hero-availability,.portrait-location { display:flex; align-items:center; gap:9px; }
