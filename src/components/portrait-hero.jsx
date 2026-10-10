@@ -37,7 +37,7 @@ export function PortraitHero() {
   }
   function reset() { pointerX.set(0); pointerY.set(0); cursorOpacity.set(0); }
   return <>
-    <section ref={ref} className={`portrait-hero ${visible ? 'is-visible' : ''}`} aria-label="Introducing Ravi Vishwakarma" onPointerMove={move} onPointerLeave={reset}>
+    <section ref={ref} className={`portrait-hero ${visible ? 'is-visible' : ''}`} aria-label="Introducing Ravi kumar Vishwakarma" onPointerMove={move} onPointerLeave={reset}>
       <motion.div className="hero-linework" style={{ x: linesX, y: linesY }} aria-hidden="true">
         <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" fill="none">
           <g className="hero-contours">
