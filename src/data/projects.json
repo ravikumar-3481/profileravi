@@ -1,0 +1,173 @@
+[
+    {
+    "id": 1,
+    "slug": "aura-health-chatbot",
+    "category": "ai",
+    "title": "Aura Health - AI-Powered Health Awareness Chatbot",
+    "thumbnail": "aura-ai-admin.webp",
+    "problem": "Finding reliable health information online can be difficult. Health websites often contain long and technical information, while generic AI chatbots may give incorrect answers. Language can also be a barrier for people who are more comfortable using Hindi or Hinglish.",
+    "solution": "Built Aura Health, a health awareness chatbot that uses trusted and admin-approved health sources to answer user questions. The system collects information from selected sources, cleans and stores it for search, then finds the most relevant content before generating an answer. It also supports English, Hindi, and Hinglish, detects urgent queries, shows the sources used for answers, and provides private counselor booking.",
+    "technologies": [
+    "Python",
+    "FastAPI",
+    "React 19",
+    "LangChain",
+    "Supabase",
+    "PostgreSQL",
+    "Sentence Transformers",
+    "BeautifulSoup",
+    "scikit-learn"
+    ],
+    "result1": "Created a single platform where users can ask health-related questions in simple language, get answers based on trusted sources, check where the information came from, and request confidential counseling when needed.",
+    "result": "Source-Based Multilingual Health Assistant",
+    "liveLink": "https://aura-health-ai-assistence.vercel.app/",
+    "codeLink": "https://github.com/ravikumar-3481/health-awareness-chatbot",
+    "caseStudy": "The main challenge was making a health chatbot useful without allowing it to freely guess medical information. To solve this, the project uses a source-based approach. Admins first add trusted health websites to the knowledge base. The system then extracts the content, removes unnecessary text, breaks it into smaller sections, creates searchable representations, and stores them for later use. When a user asks a question, the system first finds relevant information from this knowledge base and then uses that information to prepare the response. This makes the answers easier to trace back to their source. The project also adds multilingual replies in English, Hindi, and Hinglish, an emergency query detector, Google sign-in, and confidential counselor booking. The result is a practical health-awareness platform that focuses on clear information and knowing when to ask for human help.",
+    "images": [
+    "aura-ai-admin.webp",
+    "booking.webp"
+    ],
+    "diagrams": [
+    "architecture.webp",
+    "user-query-flow.webp",
+    "booking-flow.webp"
+    ],
+    "milestones": [
+    "Phase 01 — Built the React frontend and FastAPI backend with Supabase authentication and database integration",
+    "Phase 02 — Created the health knowledge pipeline for scraping, cleaning, chunking, embedding, and storing trusted source content",
+    "Phase 03 — Added RAG-based question answering with Mistral AI, multilingual responses, and source transparency",
+    "Phase 04 — Added emergency query detection, admin tools, analytics, and confidential counselor booking",
+    "Phase 05 — Deployed the frontend on Vercel and backend on Render"
+    ],
+    "challenges": [
+    "Making health answers depend on trusted source content instead of unsupported AI-generated information.",
+    "Cleaning and organizing health information collected from different websites.",
+    "Supporting English, Hindi, and Hinglish while keeping responses easy to understand.",
+    "Handling sensitive and urgent health questions safely.",
+    "Connecting authentication, database, AI processing, and the frontend into one working application."
+    ]
+    },
+    {
+    "id": 2,
+    "slug": "meetingsense-ai",
+    "category": "ai",
+    "title": "MeetingSense AI - AI Meeting Assistant",
+    "thumbnail": "meetingsense.webp",
+    "problem": "Important decisions, tasks, and discussions often get buried inside long meeting recordings. Finding one specific detail later means searching through recordings or asking teammates. This becomes even harder when meetings contain mixed languages such as English and Hinglish.",
+    "solution": "Built an AI meeting assistant that turns YouTube recordings, audio files, and transcripts into searchable meeting knowledge. The system transcribes the meeting, breaks the content into smaller sections, stores it for fast search, and lets users ask questions about what was discussed. It can also find action items, create meeting minutes, identify open questions and disagreements, prepare follow-up emails, and trace how a topic changed across multiple meetings.",
+    "technologies": [
+    "Python",
+    "FastAPI",
+    "React 19",
+    "LangChain",
+    "Hugging Face",
+    "Supabase",
+    "pydub",
+    "Docker"
+    ],
+    "result1": "Turned long meeting recordings into searchable information, allowing users to quickly find decisions, tasks, discussions, and unresolved questions without replaying the entire meeting.",
+    "result": "Searchable AI Meeting Assistant",
+    "liveLink": "https://ai-meeting-assistence.vercel.app/",
+    "codeLink": "https://github.com/ravikumar-3481/ai_meeting_assistence",
+    "caseStudy": "The main problem was not just converting audio into text, but making that information useful after the meeting was over. A single meeting can contain decisions, action items, questions, disagreements, and important details spread across an hour-long conversation. The system first takes a YouTube link, audio file, or transcript and converts it into clean text. The text is then split into smaller sections and stored in Pinecone so the relevant part can be found quickly later. A LangGraph-based agent chooses the right tool depending on the user's question. For example, it can search the transcript for a specific discussion, extract action items, generate meeting minutes, find unanswered questions, or search across older meetings to understand how a decision changed over time. English and Hinglish meetings are handled through different speech-to-text services. The result is a practical workspace where past meetings become easy to search and understand instead of becoming forgotten recordings.",
+    "images": [
+    "meetingai.webp",
+    "meetingai2.webp",
+    "meetingsenseai.webp"
+    ],
+    "diagrams": [
+    "meetingai-flow.svg",
+    "pipeline.svg"
+    ],
+    "milestones": [
+    "Phase 01 — Built the FastAPI backend and React frontend with authentication and meeting management",
+    "Phase 02 — Added support for YouTube links, audio files, and text transcripts",
+    "Phase 03 — Built the transcription pipeline using Deepgram for English and Sarvam AI for Hinglish",
+    "Phase 04 — Added text cleaning, chunking, embeddings, Pinecone vector search, and meeting-level retrieval",
+    "Phase 05 — Built the LangGraph agent with tools for Q&A, summaries, action items, minutes, follow-up emails, open questions, and disagreements",
+    "Phase 06 — Added cross-meeting search, caching, audit logs, Supabase Row Level Security, Docker support, and deployment configuration"
+    ],
+    "challenges": [
+    "Handling English and Hinglish meetings with different speech-to-text systems.",
+    "Searching large meeting transcripts without sending the entire transcript to the AI model.",
+    "Preventing the AI from making up owners, deadlines, or decisions that were never mentioned.",
+    "Keeping user and meeting data separated when many users use the same backend service.",
+    "Managing slow or unreliable external services such as transcription, embeddings, and LLM APIs.",
+    "Keeping repeated queries fast with server-side and client-side caching."
+    ]
+    },
+    {
+      "id": 3,
+      "slug": "pycli-project-structure-generator",
+      "category": "developer-tools",
+      "title": "PyCLI - Python Project Structure Generator",
+      "thumbnail": "pycli.webp",
+      "problem": "Developers often create the same folders and basic files again and again when starting a new Python, AI/ML, RAG, backend, or data science project. They also have to manually create a .gitignore and remember which files should not be added to Git. This makes project setup repetitive and can lead to inconsistent project structures.",
+      "solution": "Built PyCLI, a Python command-line tool that creates a ready-to-use project structure from a selected template. It supports default, AI/ML, RAG, backend, and data science projects. The CLI can work interactively or through command-line options, safely skips existing files that already contain data, and automatically creates a project-specific .gitignore. A separate generate-gitignore command can also create or update .gitignore files in existing projects.",
+      "technologies": [
+        "Python",
+        "argparse",
+        "Rich",
+        "setuptools",
+        "pathlib",
+        "Git",
+        "PowerShell"
+      ],
+      "result1": "Created a reusable CLI that turns repeated project setup into a single command and gives developers a consistent starting structure for different types of Python projects.",
+      "result": "Python Project Scaffolding CLI",
+      "liveLink": "",
+      "codeLink": "https://github.com/ravikumar-3481/pycli",
+      "caseStudy": "The main idea behind PyCLI was to remove repetitive setup work when starting a new project. Instead of manually creating folders such as src, data, docs, tests, notebooks, and configuration files, a developer can run a command such as `mkproject my_rag_app -t rag_based`. The CLI reads the selected template from a central registry, creates the required folders and files, and then generates a suitable .gitignore. The project uses a common base structure and extends it for AI/ML, RAG, backend, and data science work. A safety check prevents existing non-empty files from being replaced during scaffolding. The Gitignore module can also detect the likely project type and generate matching rules for environments, secrets, caches, model files, datasets, vector stores, databases, logs, and other generated files. The package exposes `mkproject`, `cpyps`, and `generate-gitignore` commands through pyproject.toml. The repository also includes documentation for installation, CLI usage, architecture, templates, and contribution guidelines.",
+      "images": [
+        "pycli.webp"
+      ],
+      "diagrams": [
+        "pycli-demo.webp",
+        "pycli-workflow.webp",
+        "pycli-structure.webp"
+      ],
+      "milestones": [
+        "Phase 01 — Built the first Python project scaffolding structure and command-line workflow",
+        "Phase 02 — Added separate templates for AI/ML, RAG, Backend, and Data Science projects",
+        "Phase 03 — Added interactive project type selection and command-line template options",
+        "Phase 04 — Added safe file creation so existing non-empty files are skipped instead of replaced",
+        "Phase 05 — Built an automatic Gitignore generator with project-type detection and rule merging",
+        "Phase 06 — Packaged the tool with pyproject.toml and exposed mkproject, cpyps, and generate-gitignore commands",
+        "Phase 07 — Added architecture, CLI reference, quickstart, template, and contribution documentation"
+      ],
+      "challenges": [
+        "Designing one CLI that can support different project types without putting all template logic inside the main command file.",
+        "Creating reusable templates by extending a shared common project structure.",
+        "Preventing existing project files from being accidentally overwritten.",
+        "Generating useful .gitignore rules for different project types while preserving existing rules.",
+        "Making the command usable both interactively and through normal command-line arguments.",
+        "Handling filesystem writes safely, including atomic file replacement.",
+        "Keeping the package easy to extend when a new project template is added."
+      ]
+    },
+
+    {
+        "id": 4,
+        "slug": "newspulse-ai",
+        "category": "ai",
+        "title": "NewsPulse AI - End-to-End NLP Sentiment Analysis Pipeline",
+        "thumbnail": "project4.jpg",
+        "problem": "Manual market research and media monitoring are highly inefficient, lacking scalable methods to quantify subjective bias and real-time sentiment from fragmented digital news sources.",
+        "solution": "Architected an automated ETL and NLP pipeline using Python and BeautifulSoup to extract unstructured web data, deploying NLTK to quantify emotional polarity and subjectivity within an interactive Streamlit dashboard.",
+        "technologies": ["Python", "NLP (NLTK/TextBlob)", "BeautifulSoup", "Streamlit", "Plotly", "Pandas"],
+        "result1": "Eliminated manual news monitoring by instantly processing dynamic URLs, delivering real-time sentiment metrics and interactive data visualizations that accelerate data-driven decision-making.",
+        "result": "100% Automated NLP Pipeline",
+        "liveLink": "https://news-pulse-ai.streamlit.app/",
+        "codeLink": "https://github.com/ravikumar-3481/news-sentiment-analyser-",
+        "caseStudy": "The primary challenge was handling diverse and unstructured news sources in real-time. By implementing a robust ETL pipeline, we were able to standardize text data before passing it to the NLTK models. The outcome significantly reduced manual effort and provided clear, visualized insights into sentiment trends across different media outlets over time.",
+        "images": ["project4.jpg", "project1.jpg", "project2.jpg"],
+        "diagrams": ["nlp_pipeline_diagram.png", "project4.jpg", "project1.jpg"],
+        "milestones": [
+            "Phase 01 — Setup BeautifulSoup Web Scraping pipeline & URL parsers",
+            "Phase 02 — Train NLTK tokenizers and TextBlob classifiers",
+            "Phase 03 — Deploy Streamlit application with interactive Plotly visual charts"
+        ],
+        "challenges": ["Handling diverse, unstructured news formats in real-time.", "Avoiding rate limits and ensuring high accuracy in sentiment models.", "Deploying the interactive pipeline efficiently using Streamlit."]
+    }
+
+]

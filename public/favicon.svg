@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Ravi — engineering with purpose</title>
+  <rect width="64" height="64" rx="16" fill="#252720"/>
+  <path d="M19 46V20h8v6c3-5 7-7 13-7v9c-9 0-13 4-13 12v6Z" fill="oklch(90% .205 123)"/>
+  <circle cx="45" cy="43" r="5" fill="oklch(90% .205 123)"/>
+</svg>

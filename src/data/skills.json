@@ -1,0 +1,18 @@
+[
+  { "name": "Python", "icon": "devicon-python-plain colored" },
+  { "name": "TensorFlow", "icon": "devicon-tensorflow-original colored" },
+  { "name": "MySQL", "icon": "devicon-mysql-plain colored" },
+  { "name": "React", "icon": "devicon-react-original colored" },
+  { "name": "Node.js", "icon": "devicon-nodejs-plain colored" },
+  { "name": "Pandas", "icon": "devicon-pandas-plain colored" },
+  { "name": "Numpy", "icon": "devicon-numpy-plain colored" },
+  { "name": "Java", "icon": "devicon-java-plain colored" },
+  { "name": "C++", "icon": "devicon-cplusplus-plain colored" },
+  { "name": "Scikit-Learn", "icon": "devicon-scikitlearn-plain colored" },
+  { "name": "HTML5", "icon": "devicon-html5-plain colored" },
+  { "name": "CSS3", "icon": "devicon-css3-plain colored" },
+  { "name": "JavaScript", "icon": "devicon-javascript-plain colored" },
+  { "name": "Vercel", "icon": "devicon-vercel-original colored"},
+  { "name": "Netlify", "icon": "devicon-netlify-plain colored" },
+  { "name": "Google Cloud", "icon": "devicon-googlecloud-plain colored" }
+]

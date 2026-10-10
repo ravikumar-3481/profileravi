@@ -1,0 +1,34 @@
+[
+{
+    "id": 1,
+    "company": "Future Interns",
+    "logo": "assets/img/future_interns_logo.png", 
+    "role": "Data Analyst Intern",
+    "type": "Internship",
+    "location": "Remote",
+    "duration": "2026",
+    "description": "Leveraging data analytics to uncover actionable insights and behavioral patterns, helping to drive informed decision-making through clear and intuitive data storytelling.",
+    "tasks": [
+      "Developed interactive Power BI dashboards to visualize complex datasets and key performance metrics.",
+      "Performed data modeling and cleaning to ensure high accuracy and reliability of analytical reports.",
+      "Communicated data-driven findings to stakeholders to support strategic planning and process optimization."
+    ],
+    "skills": ["Power BI", "Data Visualization", "Data Modeling", "Statistical Analysis", "SQL"]
+  },
+{
+    "id": 2,
+    "company": "Cognifyz Technologies",
+    "logo": "assets/img/cognifyz.png",
+    "role": "Data Analyst Intern",
+    "type": "Internship",
+    "location": "Remote",
+    "duration": "Nov 2025 - Jan 2026",
+    "description": "Utilized advanced analytical techniques to transform complex datasets into meaningful business insights, focusing on data integrity and predictive trends.",
+    "tasks": [
+      "Analyzed large-scale datasets to identify key operational trends and performance bottlenecks.",
+      "Developed automated reporting scripts to streamline data collection and validation processes.",
+      "Applied statistical modeling to predict user behavior and support data-driven strategy development."
+    ],
+    "skills": ["Python", "SQL", "Data Cleaning", "Statistical Analysis", "Predictive Modeling"]
+  }
+]
