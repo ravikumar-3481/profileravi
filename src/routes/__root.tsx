@@ -14,6 +14,7 @@ import { NotFoundPage } from "@/components/not-found";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+const imageUrl = "https://ik.imagekit.io/ravivish3481/img/banner.webp";
 
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
@@ -54,26 +55,27 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      
-      
-      
-      
-      
+      { name: "google-site-verification",content: "-sOsy35RE5Eohcey9SkspcE1dbRfmMPSNNCzQIxObA4" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { rel: "canonical", href: "https://profileravi.vercel.app/" },
+      { property: 'og:image', content: imageUrl },
+      { property: 'og:image:secure_url', content: imageUrl },
+      { property: 'og:image:type', content: 'image/webp' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
       
     ],
     links: [
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      
     ],
   }),
   shellComponent: RootShell,

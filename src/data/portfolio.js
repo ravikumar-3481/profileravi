@@ -1,8 +1,7 @@
 
 import projects from './projects.json';
-import media from './media.json';
 
-export { projects, media };
+export { projects };
 
 const SITE_URL = 'https://profileravi.vercel.app';
 const IMAGEKIT_BASE = 'https://ik.imagekit.io/ravivish3481/img/';
