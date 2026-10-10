@@ -1,14 +1,24 @@
-
 import projects from './projects.json';
 
 export { projects };
 
 const SITE_URL = 'https://profileravi.vercel.app';
 const IMAGEKIT_BASE = 'https://ik.imagekit.io/ravivish3481/img/';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/banner.png`;
+const DEFAULT_OG_IMAGE = `${IMAGEKIT_BASE}banner.webp`;
 
-export const imagekit = name =>
-  name ? `${IMAGEKIT_BASE}${name}` : name;
+export const imagekit = name => {
+  if (typeof name !== 'string' || !name.trim()) {
+    return name;
+  }
+
+  // Keep absolute URLs unchanged.
+  if (/^https?:\/\//i.test(name)) {
+    return name;
+  }
+
+  // Avoid accidental double slashes.
+  return `${IMAGEKIT_BASE}${name.replace(/^\/+/, '')}`;
+};
 
 export const profile = {
   name: 'Ravi Kumar Vishwakarma',
@@ -19,18 +29,21 @@ export const profile = {
     'https://drive.google.com/file/d/1M8tIvQtegWqFx9_DKpJwxOFpfl0DQPfB/view',
 };
 
-export const projectName = p => p.title.split(' - ')[0];
+export const projectName = p =>
+  typeof p?.title === 'string'
+    ? p.title.split(' - ')[0]
+    : '';
 
 export const categoryName = c =>
   c === 'ai' ? 'AI & Machine Learning' : 'Developer Tools';
 
 /**
- * SEO metadata helper for TanStack Start routes.
+ * Generate SEO metadata for TanStack Start routes.
  *
- * @param {string} title - Page title
- * @param {string} description - Page description
- * @param {string} path - Canonical page path
- * @param {string} image - Absolute image URL or root-relative image path
+ * @param {string} title - Page title.
+ * @param {string} description - Page description.
+ * @param {string} path - Canonical page path.
+ * @param {string} image - Absolute image URL or root-relative path.
  */
 export const seo = (
   title,
@@ -38,41 +51,97 @@ export const seo = (
   path = '/',
   image = DEFAULT_OG_IMAGE
 ) => {
-  const fullTitle = `${title} — ${profile.name}`;
+  const siteName = profile.name;
+  const safeTitle =
+    typeof title === 'string' && title.trim()
+      ? title.trim()
+      : siteName;
 
-  const normalizedPath = path.startsWith('/')
-    ? path
-    : `/${path}`;
+  const safeDescription =
+    typeof description === 'string'
+      ? description.trim()
+      : '';
 
-  const pageUrl = `${SITE_URL}${normalizedPath}`;
+  // Avoid duplicating the profile name in the title.
+  const fullTitle = safeTitle
+    .toLowerCase()
+    .includes(siteName.toLowerCase())
+    ? safeTitle
+    : `${safeTitle} | ${siteName}`;
 
-  const imageUrl = image.startsWith('http')
-    ? image
-    : `${SITE_URL}${image.startsWith('/') ? '' : '/'}${image}`;
+  // Normalize the canonical path and exclude query/hash parameters.
+  let normalizedPath =
+    typeof path === 'string' && path.trim()
+      ? path.trim()
+      : '/';
+
+  normalizedPath = normalizedPath.split(/[?#]/)[0];
+
+  if (!normalizedPath.startsWith('/')) {
+    normalizedPath = `/${normalizedPath}`;
+  }
+
+  // Keep one consistent canonical URL format.
+  if (normalizedPath.length > 1) {
+    normalizedPath = normalizedPath.replace(/\/+$/, '');
+  }
+
+  const pageUrl = `${SITE_URL.replace(/\/+$/, '')}${normalizedPath}`;
+
+  // Accept absolute HTTP(S) URLs or root-relative image paths.
+  let imageUrl = DEFAULT_OG_IMAGE;
+
+  if (typeof image === 'string' && image.trim()) {
+    const safeImage = image.trim();
+
+    if (/^https?:\/\//i.test(safeImage)) {
+      imageUrl = safeImage;
+    } else if (safeImage.startsWith('/')) {
+      imageUrl = `${SITE_URL.replace(/\/+$/, '')}${safeImage}`;
+    } else if (!safeImage.startsWith('//')) {
+      imageUrl = `${IMAGEKIT_BASE}${safeImage.replace(/^\/+/, '')}`;
+    }
+  }
 
   return {
     meta: [
       { title: fullTitle },
-      { name: 'description', content: description },
+      {
+        name: 'description',
+        content: safeDescription,
+      },
 
+      // Open Graph
       { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: profile.name },
+      { property: 'og:site_name', content: siteName },
       { property: 'og:title', content: fullTitle },
-      { property: 'og:description', content: description },
+      {
+        property: 'og:description',
+        content: safeDescription,
+      },
       { property: 'og:url', content: pageUrl },
       { property: 'og:image', content: imageUrl },
       { property: 'og:image:secure_url', content: imageUrl },
-      { property: 'og:image:type', content: 'image/png' },
-      { property: 'og:image:width', content: '1200' },
-      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: fullTitle },
 
-      { name: 'twitter:card', content: 'summary_large_image' },
+      // Twitter / X
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
       { name: 'twitter:title', content: fullTitle },
-      { name: 'twitter:description', content: description },
+      {
+        name: 'twitter:description',
+        content: safeDescription,
+      },
       { name: 'twitter:image', content: imageUrl },
+      { name: 'twitter:image:alt', content: fullTitle },
     ],
     links: [
-      { rel: 'canonical', href: pageUrl },
+      {
+        rel: 'canonical',
+        href: pageUrl,
+      },
     ],
   };
 };
