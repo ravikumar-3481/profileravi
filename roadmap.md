@@ -1,8 +1,0 @@
-- [x] Review existing portfolio content and project assets.
-- [x] Build refined portfolio with all original sections, FAQ, and contact.
-- [x] Add project directory, project detail galleries, and image modal.
-- [x] Add motion, SEO metadata, and verify navigation and layouts.
-- [x] Refine the constrained technology marquee, lime accents, borderless surfaces, viewport animations, and matching SVG favicon.
-- [x] Redesign the opening section for desktop and phones with the supplied portrait, reference-inspired layout, animated SVG background, and cursor movement.
-- [ ] Restore three unavailable NewsPulse images: project1.jpg, project2.jpg, nlp_pipeline_diagram.png. Blocked on replacement originals from the owner; source URLs return 404.
-- [x] Generate sitemap using the published portfolio domain.
