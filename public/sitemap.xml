@@ -1,44 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://profileravi.vercel.app/</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/about</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/experience</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/skills</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/activities</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/projects</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/blog</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/faq</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/contact</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/projects/aura-health-chatbot</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/projects/meetingsense-ai</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/projects/pycli-project-structure-generator</loc>
-  </url>
-  <url>
-    <loc>https://profileravi.vercel.app/projects/newspulse-ai</loc>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://profileravi.vercel.app/</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>1.0000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/about</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/projects</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/experience</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/skills</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/blog</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/contact</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/projects/aura-health-chatbot</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/projects/meetingsense-ai</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/projects/pycli-project-structure-generator</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/activities</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/faq</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.8000</priority>
+</url>
+<url>
+<loc>https://profileravi.vercel.app/projects/newspulse-ai</loc>
+<lastmod>2026-10-12T01:34:58+00:00</lastmod>
+<priority>0.6400</priority>
+</url>
 </urlset>
