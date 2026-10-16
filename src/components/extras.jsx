@@ -73,11 +73,50 @@ export function TestimonialSlider() {
   useEffect(() => { if (!visible || reduced) return; const t = setInterval(() => go(1), 6000); return () => clearInterval(t); }, [idx, visible, reduced]);
   const t = list[idx];
   return <section className="section container"><div className="section-heading"><div><div className="eyebrow"><span>08</span><span className="tiny-line" />KIND WORDS</div><h2>Good work starts with<br /><span className="serif-italic">good people.</span></h2></div><div className="slider-controls"><Button variant="outline" size="icon" aria-label="Previous review" onClick={() => go(-1)}><ChevronLeft /></Button><Button variant="outline" size="icon" aria-label="Next review" onClick={() => go(1)}><ChevronRight /></Button></div></div>
-    <div ref={ref} className="slider-window"><AnimatePresence mode="wait" custom={dir}><motion.figure key={idx} custom={dir} initial={{ x: reduced ? 0 : dir * 80, opacity: reduced ? 1 : 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: reduced ? 0 : -dir * 80, opacity: reduced ? 1 : 0 }} transition={{ duration: reduced ? 0 : .45 }} className="slide">
-      <div className="rating" aria-label={`${t.rating} out of 5 stars`}>{Array.from({ length: t.rating }, (_, i) => <Star key={i} size={15} fill="currentColor" />)}</div>
-      <blockquote>“{t.feedback}”</blockquote>
-      <figcaption className="testimonial-person"><span className="person-initial">{t.name.slice(0, 1).toUpperCase()}</span><div><strong>{t.name}</strong><span>{t.role} · {t.institute}</span></div></figcaption>
-    </motion.figure></AnimatePresence></div>
+    <div
+      ref={ref}
+      className="slider-window"
+      tabIndex={0}
+      role="region"
+      aria-label="Testimonial slider. Use Left and Right arrow keys to navigate."
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          go(-1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          go(1);
+        }
+      }}
+    >
+      <AnimatePresence mode="wait" custom={dir}>
+        <motion.figure
+          key={idx}
+          custom={dir}
+          initial={{ x: reduced ? 0 : dir * 80, opacity: reduced ? 1 : 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: reduced ? 0 : -dir * 80, opacity: reduced ? 1 : 0 }}
+          transition={{ duration: reduced ? 0 : 0.45 }}
+          className="slide"
+        >
+          <div className="rating" aria-label={`${t.rating} out of 5 stars`}>
+            {Array.from({ length: t.rating }, (_, i) => (
+              <Star key={i} size={15} fill="currentColor" />
+            ))}
+          </div>
+          <blockquote>“{t.feedback}”</blockquote>
+          <figcaption className="testimonial-person">
+            <span className="person-initial">{t.name.slice(0, 1).toUpperCase()}</span>
+            <div>
+              <strong>{t.name}</strong>
+              <span>
+                {t.role} · {t.institute}
+              </span>
+            </div>
+          </figcaption>
+        </motion.figure>
+      </AnimatePresence>
+    </div>
     <div className="slider-dots">{list.map((_, i) => <button key={i} aria-label={`Show review ${i + 1}`} className={i === idx ? 'active' : ''} onClick={() => { setDir(i > idx ? 1 : -1); setIdx(i); }} />)}</div>
   </section>;
 }
