@@ -386,11 +386,11 @@ AI Engineer &amp; Data Scientist
   <a href="https://www.linkedin.com/in/ravikumar3481/">
     <img src="https://img.shields.io/badge/LinkedIn-Ravi_Kumar_Vishwakarma-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="https://github.com/ravikumar3481">
-    <img src="https://img.shields.io/badge/GitHub-@ravikumar3481-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
+  <a href="https://github.com/ravikumar-3481">
+    <img src="https://img.shields.io/badge/GitHub-@ravikumar-3481-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
   </a>
-  <a href="mailto:ravikumar34810@gmail.com">
-    <img src="https://img.shields.io/badge/Email-ravikumar34810@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
+  <a href="mailto:ravivish968@gmail.com">
+    <img src="https://img.shields.io/badge/Email-ravivish968@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
   </a>
 </p>
 
