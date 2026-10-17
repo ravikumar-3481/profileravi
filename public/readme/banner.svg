@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="auto">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c09" />
+      <stop offset="50%" stop-color="#12160f" />
+      <stop offset="100%" stop-color="#070806" />
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a3e635" />
+      <stop offset="100%" stop-color="#4ade80" />
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b2116" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#12160f" stop-opacity="0.5" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="400" rx="16" fill="url(#bg-grad)" stroke="#252c1e" stroke-width="1.5" />
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="950" cy="120" r="140" fill="#a3e635" opacity="0.08" filter="url(#glow)" />
+  <circle cx="200" cy="320" r="160" fill="#22c55e" opacity="0.05" filter="url(#glow)" />
+
+  <!-- Grid Matrix Pattern -->
+  <g opacity="0.12" stroke="#a3e635" stroke-width="0.7" stroke-dasharray="2 6">
+    <line x1="60" y1="0" x2="60" y2="400" />
+    <line x1="180" y1="0" x2="180" y2="400" />
+    <line x1="300" y1="0" x2="300" y2="400" />
+    <line x1="420" y1="0" x2="420" y2="400" />
+    <line x1="540" y1="0" x2="540" y2="400" />
+    <line x1="660" y1="0" x2="660" y2="400" />
+    <line x1="780" y1="0" x2="780" y2="400" />
+    <line x1="900" y1="0" x2="900" y2="400" />
+    <line x1="1020" y1="0" x2="1020" y2="400" />
+    <line x1="1140" y1="0" x2="1140" y2="400" />
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="160" x2="1200" y2="160" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="320" x2="1200" y2="320" />
+  </g>
+
+  <!-- Editorial Topographic Contour Flow -->
+  <g stroke="#a3e635" fill="none" opacity="0.22">
+    <path d="M 0,220 C 300,140 500,320 800,240 C 1000,190 1100,280 1200,250" stroke-width="1.2" stroke-dasharray="6 8" />
+    <path d="M 0,260 C 250,180 550,360 850,280 C 1050,230 1150,320 1200,300" stroke-width="1.6" />
+    <path d="M 0,310 C 280,240 520,400 820,330 C 1020,280 1120,370 1200,340" stroke-width="1.0" stroke-dasharray="4 6" />
+  </g>
+
+  <!-- Top Status Bar -->
+  <g transform="translate(60, 48)">
+    <!-- Availability Pill -->
+    <rect width="260" height="32" rx="16" fill="#1b2215" stroke="#364329" stroke-width="1" />
+    <circle cx="20" cy="16" r="4.5" fill="#a3e635" />
+    <circle cx="20" cy="16" r="8" fill="#a3e635" opacity="0.3" />
+    <text x="36" y="20.5" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" letter-spacing="0.5">
+      AVAILABLE FOR COLLABORATION
+    </text>
+
+    <!-- Version / Architecture Pill -->
+    <rect x="940" y="0" width="140" height="32" rx="16" fill="#1b2215" stroke="#364329" stroke-width="1" />
+    <text x="1010" y="20.5" fill="#94a3b8" font-family="ui-monospace, monospace" font-size="11" font-weight="600" text-anchor="middle">
+      v2.4 · 2026 EDITION
+    </text>
+  </g>
+
+  <!-- Hero Content Center -->
+  <g transform="translate(60, 155)">
+    <!-- Eyebrow Subtitle -->
+    <text x="0" y="0" fill="#a3e635" font-family="ui-monospace, SFMono-Regular, monospace" font-size="14" font-weight="600" letter-spacing="2.5">
+      // SYSTEM ARCHITECTURE &amp; PORTFOLIO ENGINE
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="55" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-size="52" font-weight="800" letter-spacing="-1">
+      Ravi Kumar Vishwakarma<tspan fill="#a3e635">.</tspan>
+    </text>
+
+    <!-- Discipline Line -->
+    <text x="0" y="98" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="400">
+      AI Engineer &amp; Data Scientist <tspan fill="#64748b">—</tspan> <tspan fill="#94a3b8">Bespoke Editorial Experience</tspan>
+    </text>
+
+    <!-- Badges Row -->
+    <g transform="translate(0, 130)">
+      <!-- Tech Badge 1 -->
+      <rect x="0" y="0" width="105" height="28" rx="6" fill="#182014" stroke="#2e3a24" stroke-width="1" />
+      <text x="52.5" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">React 19</text>
+
+      <!-- Tech Badge 2 -->
+      <rect x="115" y="0" width="125" height="28" rx="6" fill="#182014" stroke="#2e3a24" stroke-width="1" />
+      <text x="177.5" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">TanStack Start</text>
+
+      <!-- Tech Badge 3 -->
+      <rect x="250" y="0" width="125" height="28" rx="6" fill="#182014" stroke="#2e3a24" stroke-width="1" />
+      <text x="312.5" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Framer Motion</text>
+
+      <!-- Tech Badge 4 -->
+      <rect x="385" y="0" width="125" height="28" rx="6" fill="#182014" stroke="#2e3a24" stroke-width="1" />
+      <text x="447.5" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Tailwind v4</text>
+
+      <!-- Tech Badge 5 -->
+      <rect x="520" y="0" width="135" height="28" rx="6" fill="#182014" stroke="#2e3a24" stroke-width="1" />
+      <text x="587.5" y="18" fill="#a3e635" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Keyboard Nav</text>
+
+      <!-- Tech Badge 6 -->
+      <rect x="665" y="0" width="135" height="28" rx="6" fill="#182014" stroke="#2e3a24" stroke-width="1" />
+      <text x="732.5" y="18" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">TypeScript 5</text>
+    </g>
+  </g>
+
+  <!-- Right Side Interactive Graphic / Compass Symbol -->
+  <g transform="translate(1000, 230)">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#2e3b23" stroke-width="1" />
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#a3e635" stroke-width="1.2" stroke-dasharray="4 8" />
+    <circle cx="0" cy="0" r="30" fill="#1b2416" stroke="#485c36" stroke-width="1" />
+    <path d="M 0,-20 L 6,-6 L 20,0 L 6,6 L 0,20 L -6,6 L -20,0 L -6,-6 Z" fill="#a3e635" />
+    <circle cx="0" cy="0" r="3" fill="#0d1109" />
+  </g>
+</svg>

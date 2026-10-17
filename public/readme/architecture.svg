@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" height="auto">
+  <defs>
+    <linearGradient id="layer-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#192015" />
+      <stop offset="100%" stop-color="#0f140d" />
+    </linearGradient>
+    <linearGradient id="layer-card-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24301d" />
+      <stop offset="100%" stop-color="#151e12" />
+    </linearGradient>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="480" rx="14" fill="#0c0f0a" stroke="#222b1c" stroke-width="1.5" />
+
+  <!-- Section Title -->
+  <g transform="translate(40, 42)">
+    <text x="0" y="0" fill="#a3e635" font-family="ui-monospace, monospace" font-size="11" font-weight="700" letter-spacing="2">
+      ARCHITECTURE TOPOLOGY // LAYERED STACK
+    </text>
+    <text x="0" y="24" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">
+      How the Portfolio Engine Runs
+    </text>
+  </g>
+
+  <!-- 4 Architecture Cards Column Layout -->
+  
+  <!-- Layer 1: Presentation & Layout Shell -->
+  <g transform="translate(40, 100)" filter="url(#card-shadow)">
+    <rect width="210" height="330" rx="10" fill="url(#layer-card)" stroke="#2f3d26" stroke-width="1.2" />
+    <!-- Header -->
+    <rect width="210" height="44" rx="10" fill="#202a1b" />
+    <path d="M 0,34 L 0,44 L 210,44 L 210,34 Z" fill="#202a1b" />
+    <circle cx="24" cy="22" r="5" fill="#a3e635" />
+    <text x="38" y="26" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">1. UI &amp; Shell Layer</text>
+
+    <!-- Content Items -->
+    <g transform="translate(18, 65)">
+      <text x="0" y="15" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• SiteShell &amp; Navigation</text>
+      <text x="0" y="32" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Pill nav with dynamic indicator</text>
+
+      <text x="0" y="65" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Editorial Layout</text>
+      <text x="0" y="82" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Borderless surfaces, OKLCH theme</text>
+
+      <text x="0" y="115" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Interactive Modals</text>
+      <text x="0" y="132" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Resume preview &amp; image zoom</text>
+
+      <text x="0" y="165" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Global Theme Toggle</text>
+      <text x="0" y="182" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Flicker-free dark/light context</text>
+
+      <text x="0" y="215" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Hidden Scrollbars</text>
+      <text x="0" y="232" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Native physics, zero scrollbars</text>
+    </g>
+  </g>
+
+  <!-- Layer 2: Routing & SSR Core -->
+  <g transform="translate(275, 100)" filter="url(#card-shadow)">
+    <rect width="210" height="330" rx="10" fill="url(#layer-card)" stroke="#2f3d26" stroke-width="1.2" />
+    <!-- Header -->
+    <rect width="210" height="44" rx="10" fill="#202a1b" />
+    <path d="M 0,34 L 0,44 L 210,44 L 210,34 Z" fill="#202a1b" />
+    <circle cx="24" cy="22" r="5" fill="#38bdf8" />
+    <text x="38" y="26" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">2. Routing &amp; Data</text>
+
+    <!-- Content Items -->
+    <g transform="translate(18, 65)">
+      <text x="0" y="15" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• TanStack Router</text>
+      <text x="0" y="32" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">File-based 100% type safety</text>
+
+      <text x="0" y="65" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Route Parameters</text>
+      <text x="0" y="82" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Dynamic slugs &amp; static archives</text>
+
+      <text x="0" y="115" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• JSON-LD Injection</text>
+      <text x="0" y="132" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Schema.org Person &amp; WebSite</text>
+
+      <text x="0" y="165" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Meta &amp; Canonical</text>
+      <text x="0" y="182" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Clean OG/Twitter card generation</text>
+
+      <text x="0" y="215" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• W3C Sitemap Generator</text>
+      <text x="0" y="232" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Automated indexing with lastmod</text>
+    </g>
+  </g>
+
+  <!-- Layer 3: Motion & Micro-UX -->
+  <g transform="translate(510, 100)" filter="url(#card-shadow)">
+    <rect width="210" height="330" rx="10" fill="url(#layer-card)" stroke="#2f3d26" stroke-width="1.2" />
+    <!-- Header -->
+    <rect width="210" height="44" rx="10" fill="#202a1b" />
+    <path d="M 0,34 L 0,44 L 210,44 L 210,34 Z" fill="#202a1b" />
+    <circle cx="24" cy="22" r="5" fill="#a855f7" />
+    <text x="38" y="26" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">3. Motion &amp; UX</text>
+
+    <!-- Content Items -->
+    <g transform="translate(18, 65)">
+      <text x="0" y="15" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Framer Motion Pipeline</text>
+      <text x="0" y="32" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Page mount &amp; exit transitions</text>
+
+      <text x="0" y="65" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Viewport Reveals</text>
+      <text x="0" y="82" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Re-triggering scroll animations</text>
+
+      <text x="0" y="115" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Animated Counters</text>
+      <text x="0" y="132" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Tabular-nums metric counters</text>
+
+      <text x="0" y="165" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Hero Linework &amp; Cutout</text>
+      <text x="0" y="182" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Dynamic contour SVG physics</text>
+
+      <text x="0" y="215" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Testimonial Carousel</text>
+      <text x="0" y="232" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Directional spring gestures</text>
+    </g>
+  </g>
+
+  <!-- Layer 4: Accessibility & Security -->
+  <g transform="translate(745, 100)" filter="url(#card-shadow)">
+    <rect width="215" height="330" rx="10" fill="url(#layer-card-accent)" stroke="#445834" stroke-width="1.4" />
+    <!-- Header -->
+    <rect width="215" height="44" rx="10" fill="#2d3b24" />
+    <path d="M 0,34 L 0,44 L 215,44 L 215,34 Z" fill="#2d3b24" />
+    <circle cx="24" cy="22" r="5" fill="#4ade80" />
+    <text x="38" y="26" fill="#f1f5f9" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">4. A11y &amp; Security</text>
+
+    <!-- Content Items -->
+    <g transform="translate(18, 65)">
+      <text x="0" y="15" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Global Keyboard Engine</text>
+      <text x="0" y="32" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">H, A, P, J, S, W, C, T, R, ? keys</text>
+
+      <text x="0" y="65" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Skip Link Accessibility</text>
+      <text x="0" y="82" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Bypasses nav directly to main</text>
+
+      <text x="0" y="115" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Rate Limit Cooldown</text>
+      <text x="0" y="132" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">60s cooldown &amp; max-per-window</text>
+
+      <text x="0" y="165" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Honeypot Bot Shield</text>
+      <text x="0" y="182" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">Catches spam scrapers silently</text>
+
+      <text x="0" y="215" fill="#cbd5e1" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">• Granular Cookie Consent</text>
+      <text x="0" y="232" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="10">GDPR-ready customizable storage</text>
+    </g>
+  </g>
+</svg>
