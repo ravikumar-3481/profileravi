@@ -1,38 +1,43 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { PageIntro, FaqSection, ContactTeaser } from '@/components/portfolio';
-import { seo, faqs } from '@/data/portfolio';
+import { createFileRoute } from "@tanstack/react-router";
+import { PageIntro, FaqSection, ContactTeaser } from "@/components/portfolio";
+import { seo, faqs } from "@/data/portfolio";
 
 const faqLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      '@type': 'FAQPage',
+      "@type": "FAQPage",
       mainEntity: faqs.map(([q, a]) => ({
-        '@type': 'Question',
+        "@type": "Question",
         name: q,
-        acceptedAnswer: { '@type': 'Answer', text: a },
+        acceptedAnswer: { "@type": "Answer", text: a },
       })),
     },
     {
-      '@type': 'BreadcrumbList',
+      "@type": "BreadcrumbList",
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://profileravi.vercel.app/' },
-        { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://profileravi.vercel.app/faq' },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "FAQ",
+          item: "https://profileravi.vercel.app/faq",
+        },
       ],
     },
   ],
 };
 
-export const Route = createFileRoute('/faq')({
+export const Route = createFileRoute("/faq")({
   head: () => ({
     ...seo(
-      'Frequently Asked Questions | Ravi Kumar Vishwakarma',
-      'Find answers to common questions about Ravi Kumar Vishwakarma’s AI and data science expertise, technology stack, project availability, and collaborations.',
-      '/faq',
+      "Frequently Asked Questions | Ravi Kumar Vishwakarma",
+      "Find answers to common questions about Ravi Kumar Vishwakarma’s AI and data science expertise, technology stack, project availability, and collaborations.",
+      "/faq",
       undefined,
-      'FAQ, Ravi Vishwakarma FAQ, AI Engineer FAQ, Data Scientist Questions, Hiring AI Developer, Technology Stack Questions'
+      "FAQ, Ravi Vishwakarma FAQ, AI Engineer FAQ, Data Scientist Questions, Hiring AI Developer, Technology Stack Questions",
     ),
-    scripts: [{ type: 'application/ld+json', children: JSON.stringify(faqLd) }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqLd) }],
   }),
   component: Page,
 });

@@ -1,8 +1,8 @@
-import { createFileRoute, notFound } from '@tanstack/react-router';
-import { ProjectDetails } from '@/components/portfolio';
-import { projects, projectName, seo, imagekit } from '@/data/portfolio';
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { ProjectDetails } from "@/components/portfolio";
+import { projects, projectName, seo, imagekit } from "@/data/portfolio";
 
-export const Route = createFileRoute('/projects/$slug')({
+export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
     const project = projects.find((p) => p.slug === params.slug);
     if (!project) throw notFound();
@@ -12,8 +12,8 @@ export const Route = createFileRoute('/projects/$slug')({
     if (!loaderData) {
       return {
         meta: [
-          { title: 'Project Not Found | Ravi Kumar Vishwakarma' },
-          { name: 'robots', content: 'noindex, nofollow' },
+          { title: "Project Not Found | Ravi Kumar Vishwakarma" },
+          { name: "robots", content: "noindex, nofollow" },
         ],
       };
     }
@@ -22,28 +22,38 @@ export const Route = createFileRoute('/projects/$slug')({
     const desc = `${project.title}. ${project.problem} ${project.solution}`.slice(0, 160);
     const slugUrl = `https://profileravi.vercel.app/projects/${project.slug}`;
     const projectLd = {
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
       name: projectName(project),
       headline: project.title,
       description: project.result1,
-      applicationCategory: project.category === 'ai' ? 'HealthApplication' : 'DeveloperApplication',
-      operatingSystem: 'Web Browser / Cross-platform',
+      applicationCategory: project.category === "ai" ? "HealthApplication" : "DeveloperApplication",
+      operatingSystem: "Web Browser / Cross-platform",
       url: slugUrl,
       image: imagekit(project.thumbnail),
       author: {
-        '@type': 'Person',
-        name: 'Ravi Kumar Vishwakarma',
-        url: 'https://profileravi.vercel.app/',
+        "@type": "Person",
+        name: "Ravi Kumar Vishwakarma",
+        url: "https://profileravi.vercel.app/",
       },
       codeRepository: project.codeLink,
       ...(project.liveLink ? { sameAs: project.liveLink } : {}),
       breadcrumb: {
-        '@type': 'BreadcrumbList',
+        "@type": "BreadcrumbList",
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://profileravi.vercel.app/' },
-          { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://profileravi.vercel.app/projects' },
-          { '@type': 'ListItem', position: 3, name: projectName(project), item: slugUrl },
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://profileravi.vercel.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Projects",
+            item: "https://profileravi.vercel.app/projects",
+          },
+          { "@type": "ListItem", position: 3, name: projectName(project), item: slugUrl },
         ],
       },
     };
@@ -54,9 +64,9 @@ export const Route = createFileRoute('/projects/$slug')({
         desc,
         `/projects/${project.slug}`,
         project.thumbnail,
-        `${projectName(project)}, ${project.technologies.join(', ')}, Ravi Kumar Vishwakarma, AI Case Study`
+        `${projectName(project)}, ${project.technologies.join(", ")}, Ravi Kumar Vishwakarma, AI Case Study`,
       ),
-      scripts: [{ type: 'application/ld+json', children: JSON.stringify(projectLd) }],
+      scripts: [{ type: "application/ld+json", children: JSON.stringify(projectLd) }],
     };
   },
   component: Page,

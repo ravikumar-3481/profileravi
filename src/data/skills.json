@@ -12,7 +12,7 @@
   { "name": "HTML5", "icon": "devicon-html5-plain colored" },
   { "name": "CSS3", "icon": "devicon-css3-plain colored" },
   { "name": "JavaScript", "icon": "devicon-javascript-plain colored" },
-  { "name": "Vercel", "icon": "devicon-vercel-original colored"},
+  { "name": "Vercel", "icon": "devicon-vercel-original colored" },
   { "name": "Netlify", "icon": "devicon-netlify-plain colored" },
   { "name": "Google Cloud", "icon": "devicon-googlecloud-plain colored" }
 ]

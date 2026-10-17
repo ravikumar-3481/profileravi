@@ -1,38 +1,49 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { PageIntro, AboutSection, JourneySection, ActivitiesSection, ContactTeaser } from '@/components/portfolio';
-import { seo } from '@/data/portfolio';
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  PageIntro,
+  AboutSection,
+  JourneySection,
+  ActivitiesSection,
+  ContactTeaser,
+} from "@/components/portfolio";
+import { seo } from "@/data/portfolio";
 
 const aboutLd = {
-  '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  name: 'About Ravi Kumar Vishwakarma',
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Ravi Kumar Vishwakarma",
   description:
-    'Learn about Ravi Kumar Vishwakarma, an AI Engineer and Data Scientist specializing in machine learning, RAG systems, and data pipelines.',
+    "Learn about Ravi Kumar Vishwakarma, an AI Engineer and Data Scientist specializing in machine learning, RAG systems, and data pipelines.",
   mainEntity: {
-    '@type': 'Person',
-    name: 'Ravi Kumar Vishwakarma',
-    jobTitle: 'AI Engineer & Data Scientist',
-    alumniOf: 'AKS University Satna',
+    "@type": "Person",
+    name: "Ravi Kumar Vishwakarma",
+    jobTitle: "AI Engineer & Data Scientist",
+    alumniOf: "AKS University Satna",
   },
   breadcrumb: {
-    '@type': 'BreadcrumbList',
+    "@type": "BreadcrumbList",
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://profileravi.vercel.app/' },
-      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://profileravi.vercel.app/about' },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About",
+        item: "https://profileravi.vercel.app/about",
+      },
     ],
   },
 };
 
-export const Route = createFileRoute('/about')({
+export const Route = createFileRoute("/about")({
   head: () => ({
     ...seo(
-      'About Ravi Kumar Vishwakarma | AI Engineer & Data Scientist',
-      'Get to know Ravi Kumar Vishwakarma — B.Tech Computer Science student specializing in AI & Data Science, ethical AI, RAG systems, and intelligent applications.',
-      '/about',
+      "About Ravi Kumar Vishwakarma | AI Engineer & Data Scientist",
+      "Get to know Ravi Kumar Vishwakarma — B.Tech Computer Science student specializing in AI & Data Science, ethical AI, RAG systems, and intelligent applications.",
+      "/about",
       undefined,
-      'Ravi Kumar Vishwakarma, About Ravi Vishwakarma, AI Engineer India, Data Scientist Satna, Machine Learning Engineer, AKS University'
+      "Ravi Kumar Vishwakarma, About Ravi Vishwakarma, AI Engineer India, Data Scientist Satna, Machine Learning Engineer, AKS University",
     ),
-    scripts: [{ type: 'application/ld+json', children: JSON.stringify(aboutLd) }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(aboutLd) }],
   }),
   component: Page,
 });

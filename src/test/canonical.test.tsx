@@ -33,8 +33,7 @@ describe("Canonical URLs and SEO tags across all pages", () => {
   it("ensures the root route does NOT contain a hardcoded rel=canonical", () => {
     const rootRoute = router.routesById["__root__"];
     const headFn = rootRoute.options.head as
-      | ((ctx: unknown) => { links?: Array<{ rel?: string }> })
-      | undefined;
+      ((ctx: unknown) => { links?: Array<{ rel?: string }> }) | undefined;
     const rootHead = typeof headFn === "function" ? headFn({}) : {};
     const rootLinks = rootHead?.links ?? [];
     const rootCanonical = rootLinks.filter((l) => l.rel === "canonical");
@@ -52,7 +51,9 @@ describe("Canonical URLs and SEO tags across all pages", () => {
       for (const match of matches) {
         const route = router.routesById[match.routeId];
         const headFn = route.options.head as
-          | ((ctx: unknown) => { links?: Array<{ rel?: string; href?: string; hrefLang?: string }> })
+          | ((ctx: unknown) => {
+              links?: Array<{ rel?: string; href?: string; hrefLang?: string }>;
+            })
           | undefined;
         if (typeof headFn === "function") {
           const headResult = headFn({

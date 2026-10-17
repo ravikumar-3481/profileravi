@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Cookie, X, Check, ShieldCheck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Cookie, X, Check, ShieldCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function CookieConsent() {
   const [open, setOpen] = useState(false);
@@ -10,7 +10,7 @@ export function CookieConsent() {
   useEffect(() => {
     // Check if consent has already been given or declined
     try {
-      const consent = localStorage.getItem('portfolio_cookie_consent');
+      const consent = localStorage.getItem("portfolio_cookie_consent");
       if (!consent) {
         // Show after a short delay for smooth arrival
         const timer = setTimeout(() => setOpen(true), 1200);
@@ -27,14 +27,14 @@ export function CookieConsent() {
       setOpen(true);
       setPreferencesOpen(true);
     };
-    window.addEventListener('open-cookie-settings', handleOpenSettings);
-    return () => window.removeEventListener('open-cookie-settings', handleOpenSettings);
+    window.addEventListener("open-cookie-settings", handleOpenSettings);
+    return () => window.removeEventListener("open-cookie-settings", handleOpenSettings);
   }, []);
 
   const saveConsent = (type) => {
     try {
-      localStorage.setItem('portfolio_cookie_consent', type);
-      localStorage.setItem('portfolio_cookie_consent_date', new Date().toISOString());
+      localStorage.setItem("portfolio_cookie_consent", type);
+      localStorage.setItem("portfolio_cookie_consent_date", new Date().toISOString());
     } catch {}
     setOpen(false);
     setPreferencesOpen(false);
@@ -50,7 +50,7 @@ export function CookieConsent() {
           initial={{ opacity: 0, y: 50, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.96 }}
-          transition={{ type: 'spring', stiffness: 260, damping: 25 }}
+          transition={{ type: "spring", stiffness: 260, damping: 25 }}
         >
           <div className="cookie-banner-inner">
             <div className="cookie-header">
@@ -72,15 +72,15 @@ export function CookieConsent() {
             </div>
 
             <p className="cookie-text">
-              We use necessary local storage and cookies to remember your theme preference,
-              protect our public contact form with rate-limiting, and analyze anonymous site performance.
-              No advertising or third-party tracking cookies are used.
+              We use necessary local storage and cookies to remember your theme preference, protect
+              our public contact form with rate-limiting, and analyze anonymous site performance. No
+              advertising or third-party tracking cookies are used.
             </p>
 
             {preferencesOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+                animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 className="cookie-details"
               >
@@ -111,7 +111,7 @@ export function CookieConsent() {
               <Button
                 size="sm"
                 className="cookie-accept-btn"
-                onClick={() => saveConsent('accepted')}
+                onClick={() => saveConsent("accepted")}
               >
                 <Check size={14} className="mr-1.5" /> Accept All
               </Button>
@@ -119,7 +119,7 @@ export function CookieConsent() {
                 variant="outline"
                 size="sm"
                 className="cookie-decline-btn"
-                onClick={() => saveConsent('necessary-only')}
+                onClick={() => saveConsent("necessary-only")}
               >
                 Essential Only
               </Button>
@@ -129,7 +129,7 @@ export function CookieConsent() {
                 className="cookie-pref-btn"
                 onClick={() => setPreferencesOpen(!preferencesOpen)}
               >
-                {preferencesOpen ? 'Less info' : 'Customize'}
+                {preferencesOpen ? "Less info" : "Customize"}
               </Button>
             </div>
           </div>

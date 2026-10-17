@@ -1,12 +1,12 @@
-import { useEffect, useState, useRef } from 'react';
-import { useInView, useReducedMotion } from 'framer-motion';
+import { useEffect, useState, useRef } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 
 export function AnimatedCounter({ value, duration = 1.8 }) {
   const ref = useRef(null);
   // once: false ensures the animation triggers always when scrolled into viewport
   const isInView = useInView(ref, { amount: 0.2, once: false });
   const reduced = useReducedMotion();
-  const [displayValue, setDisplayValue] = useState(reduced ? value : '0');
+  const [displayValue, setDisplayValue] = useState(reduced ? value : "0");
 
   useEffect(() => {
     if (reduced) {
@@ -16,7 +16,7 @@ export function AnimatedCounter({ value, duration = 1.8 }) {
 
     if (!isInView) {
       // Reset back to initial state when out of view so re-entry counts up
-      setDisplayValue('0');
+      setDisplayValue("0");
       return;
     }
 
@@ -28,9 +28,9 @@ export function AnimatedCounter({ value, duration = 1.8 }) {
     }
 
     const targetNum = parseFloat(match[1]);
-    const suffix = match[2] || '';
-    const hasDecimals = match[1].includes('.');
-    const decimalPlaces = hasDecimals ? match[1].split('.')[1].length : 0;
+    const suffix = match[2] || "";
+    const hasDecimals = match[1].includes(".");
+    const decimalPlaces = hasDecimals ? match[1].split(".")[1].length : 0;
 
     let startTime = null;
     let animationFrame;
@@ -61,5 +61,9 @@ export function AnimatedCounter({ value, duration = 1.8 }) {
     return () => cancelAnimationFrame(animationFrame);
   }, [isInView, value, duration, reduced]);
 
-  return <span ref={ref} className="animated-counter-num">{displayValue}</span>;
+  return (
+    <span ref={ref} className="animated-counter-num">
+      {displayValue}
+    </span>
+  );
 }

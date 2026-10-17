@@ -1,0 +1,21 @@
+*** Update File: package.json scripts
+*** Add these entries to the existing "scripts" object. Keep the existing scripts and valid JSON commas.
+
+"format:check": "prettier --check .",
+"typecheck": "tsc --noEmit",
+"test:smoke": "node scripts/smoke-test.mjs"
+
+*** Example resulting scripts section (merge with the repository's current scripts):
+"scripts": {
+  "dev": "vite dev",
+  "build": "vite build",
+  "build:dev": "vite build --mode development",
+  "preview": "vite preview",
+  "lint": "eslint .",
+  "format": "prettier --write .",
+  "format:check": "prettier --check .",
+  "typecheck": "tsc --noEmit",
+  "test": "vitest run",
+  "test:watch": "vitest",
+  "test:smoke": "node scripts/smoke-test.mjs"
+}

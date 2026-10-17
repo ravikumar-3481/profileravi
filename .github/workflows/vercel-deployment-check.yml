@@ -1,0 +1,59 @@
+name: Vercel production smoke test
+
+on:
+  repository_dispatch:
+    types: [vercel.deployment.ready]
+  workflow_dispatch:
+    inputs:
+      deployment_url:
+        description: URL to smoke-test (manual runs only)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+concurrency:
+  group: vercel-production-smoke-${{ github.event.client_payload.id || github.event.inputs.deployment_url || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  smoke-test:
+    name: Production smoke test
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.client_payload.environment == 'production' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      statuses: write
+
+    env:
+      BASE_URL: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.url || inputs.deployment_url }}
+
+    steps:
+      - name: Check out the deployment's commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.git.sha || github.sha }}
+
+      - name: Mark Vercel deployment check as pending
+        if: ${{ github.event_name == 'repository_dispatch' }}
+        uses: vercel/repository-dispatch/actions/status@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: "Vercel - profileravi: production smoke test"
+          stage: pre
+
+      - name: Verify production routes respond with HTML
+        run: node scripts/smoke-test.mjs
+
+      - name: Report result to Vercel
+        if: ${{ always() && github.event_name == 'repository_dispatch' }}
+        uses: vercel/repository-dispatch/actions/status@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: "Vercel - profileravi: production smoke test"
+          stage: post

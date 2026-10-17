@@ -103,11 +103,11 @@ flowchart TD
     A([User Presses Key]) --> B{Is Target Element an Input?}
     B -- Yes: input, textarea, select, contenteditable --> C[Ignore &amp; Allow Normal Typing]
     B -- No --> D{Modifier Keys Pressed?}
-    
+
     D -- Ctrl / Cmd + K --> E[Open Keyboard Shortcuts Dialog]
     D -- Other Modifier: Alt / Shift combos --> F[Default Browser Action]
     D -- No Modifiers --> G{Match Single-Key Shortcut}
-    
+
     G -- H or 1 --> H1[Navigate / Home]
     G -- A or 2 --> H2[Navigate /about]
     G -- P or 3 --> H3[Navigate /projects Archive]
@@ -131,11 +131,11 @@ flowchart TD
     S([User Submits Contact Form]) --> H{Honeypot Field Filled?}
     H -- Yes: Bot Detected --> H_Silent[Fake Success Feedback &amp; Reset Form]
     H -- No: Legitimate Human --> R{Check Rate Limit State}
-    
+
     R -- Blocked Until > Now --> BL[Trigger Rate Limit Error Banner &amp; Start Timer]
     R -- Recent Submissions >= 3 in 10m --> BL2[Set 10m Cooldown &amp; Block Further Submissions]
     R -- Allowed Within Limit --> SEND[Set Status: Sending]
-    
+
     SEND --> POST[Fetch Formspree POST JSON Payload]
     POST --> RES{HTTP 200 OK?}
     RES -- Yes --> SC[Record Timestamp &amp; Set 60s Local Cooldown]
@@ -240,30 +240,30 @@ The application features a dedicated, modular React SVG component suite located 
 
 ```javascript
 // Clean barrel import example
-import { ReactIcon, LivePulseBadge, ContourGraphic } from '@/components/svg';
+import { ReactIcon, LivePulseBadge, ContourGraphic } from "@/components/svg";
 ```
 
 ---
 
 ## ✦ Complete Keyboard Shortcuts Matrix
 
-| Key / Combination | Scope | Description |
-|---|---|---|
-| <kbd>H</kbd> / <kbd>1</kbd> | Global | Navigate to Home (`/`) |
-| <kbd>A</kbd> / <kbd>2</kbd> | Global | Navigate to About (`/about`) |
-| <kbd>P</kbd> / <kbd>3</kbd> | Global | Navigate to Projects Archive (`/projects`) |
-| <kbd>J</kbd> / <kbd>4</kbd> | Global | Navigate to Journey &amp; Education (`/experience`) |
-| <kbd>S</kbd> / <kbd>5</kbd> | Global | Navigate to Skills &amp; Toolbox (`/skills`) |
-| <kbd>W</kbd> / <kbd>6</kbd> | Global | Navigate to Writing &amp; Blog (`/blog`) |
-| <kbd>C</kbd> / <kbd>7</kbd> | Global | Navigate to Contact (`/contact`) |
-| <kbd>T</kbd> | Global | Toggle Dark / Light Theme |
-| <kbd>R</kbd> | Global | Open Interactive Resume Modal |
-| <kbd>?</kbd> or <kbd>Ctrl</kbd> + <kbd>K</kbd> | Global | Open Keyboard Navigation Guide dialog |
-| <kbd>←</kbd> / <kbd>→</kbd> | Navigation &amp; Tabs | Cycle header navigation links, filter tabs, or gallery slides |
-| <kbd>Z</kbd> | Image Viewer | Toggle high-resolution zoom |
-| <kbd>Home</kbd> / <kbd>End</kbd> | Image Viewer | Jump to the first or last gallery screenshot |
-| <kbd>Esc</kbd> | Modals | Close active dialog, image viewer, or mobile navigation drawer |
-| <kbd>Tab</kbd> | Accessibility | Move focus to next element (Triggers Skip Link on first press) |
+| Key / Combination                              | Scope                 | Description                                                    |
+| ---------------------------------------------- | --------------------- | -------------------------------------------------------------- |
+| <kbd>H</kbd> / <kbd>1</kbd>                    | Global                | Navigate to Home (`/`)                                         |
+| <kbd>A</kbd> / <kbd>2</kbd>                    | Global                | Navigate to About (`/about`)                                   |
+| <kbd>P</kbd> / <kbd>3</kbd>                    | Global                | Navigate to Projects Archive (`/projects`)                     |
+| <kbd>J</kbd> / <kbd>4</kbd>                    | Global                | Navigate to Journey &amp; Education (`/experience`)            |
+| <kbd>S</kbd> / <kbd>5</kbd>                    | Global                | Navigate to Skills &amp; Toolbox (`/skills`)                   |
+| <kbd>W</kbd> / <kbd>6</kbd>                    | Global                | Navigate to Writing &amp; Blog (`/blog`)                       |
+| <kbd>C</kbd> / <kbd>7</kbd>                    | Global                | Navigate to Contact (`/contact`)                               |
+| <kbd>T</kbd>                                   | Global                | Toggle Dark / Light Theme                                      |
+| <kbd>R</kbd>                                   | Global                | Open Interactive Resume Modal                                  |
+| <kbd>?</kbd> or <kbd>Ctrl</kbd> + <kbd>K</kbd> | Global                | Open Keyboard Navigation Guide dialog                          |
+| <kbd>←</kbd> / <kbd>→</kbd>                    | Navigation &amp; Tabs | Cycle header navigation links, filter tabs, or gallery slides  |
+| <kbd>Z</kbd>                                   | Image Viewer          | Toggle high-resolution zoom                                    |
+| <kbd>Home</kbd> / <kbd>End</kbd>               | Image Viewer          | Jump to the first or last gallery screenshot                   |
+| <kbd>Esc</kbd>                                 | Modals                | Close active dialog, image viewer, or mobile navigation drawer |
+| <kbd>Tab</kbd>                                 | Accessibility         | Move focus to next element (Triggers Skip Link on first press) |
 
 ---
 
@@ -318,18 +318,21 @@ import { ReactIcon, LivePulseBadge, ContourGraphic } from '@/components/svg';
 ## ✦ Getting Started Locally
 
 ### Prerequisites
+
 - **Node.js**: `v18.0.0` or higher
 - **Package Manager**: `npm`, `pnpm`, or `yarn`
 
 ### Setup Instructions
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/ravikumar3481/profileravi.git
    cd profileravi
    ```
 
 2. **Install project dependencies:**
+
    ```bash
    npm install
    ```
@@ -344,15 +347,15 @@ import { ReactIcon, LivePulseBadge, ContourGraphic } from '@/components/svg';
 
 ## ✦ Development Scripts
 
-| Command | Purpose |
-|---|---|
-| `npm run dev` | Starts the Vite development server on `localhost:8080`. |
-| `npm run build` | Compiles TypeScript and creates optimized production bundle in `dist/`. |
-| `npm run preview` | Serves the production build locally for verification. |
-| `npm run test` | Executes the Vitest test suite once. |
-| `npm run test:watch` | Runs Vitest in interactive watch mode for TDD. |
-| `npm run lint` | Runs ESLint across all TypeScript and React files. |
-| `npm run format` | Enforces code formatting via Prettier. |
+| Command              | Purpose                                                                 |
+| -------------------- | ----------------------------------------------------------------------- |
+| `npm run dev`        | Starts the Vite development server on `localhost:8080`.                 |
+| `npm run build`      | Compiles TypeScript and creates optimized production bundle in `dist/`. |
+| `npm run preview`    | Serves the production build locally for verification.                   |
+| `npm run test`       | Executes the Vitest test suite once.                                    |
+| `npm run test:watch` | Runs Vitest in interactive watch mode for TDD.                          |
+| `npm run lint`       | Runs ESLint across all TypeScript and React files.                      |
+| `npm run format`     | Enforces code formatting via Prettier.                                  |
 
 ---
 
@@ -374,7 +377,7 @@ git push origin main ──> Vercel CI ──> Vite Production Build ──> Edg
 ## ✦ Author & Connect
 
 **Ravi Kumar Vishwakarma**  
-AI Engineer &amp; Data Scientist  
+AI Engineer &amp; Data Scientist
 
 <p>
   <a href="https://profileravi.vercel.app">
