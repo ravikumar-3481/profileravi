@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export function ContourGraphic({ className = '', opacity = 0.4 }) {
+export function ContourGraphic({ className = "", opacity = 0.4 }) {
   return (
     <svg
       viewBox="0 0 800 400"
@@ -33,7 +33,7 @@ export function ContourGraphic({ className = '', opacity = 0.4 }) {
   );
 }
 
-export function SignalWaveform({ className = '', bars = 24 }) {
+export function SignalWaveform({ className = "", bars = 24 }) {
   return (
     <svg
       viewBox="0 0 200 40"
@@ -62,7 +62,7 @@ export function SignalWaveform({ className = '', bars = 24 }) {
   );
 }
 
-export function GeometricMatrix({ className = '', rows = 4, cols = 8 }) {
+export function GeometricMatrix({ className = "", rows = 4, cols = 8 }) {
   return (
     <svg
       viewBox={`0 0 ${cols * 24} ${rows * 24}`}
@@ -80,13 +80,13 @@ export function GeometricMatrix({ className = '', rows = 4, cols = 8 }) {
             fill="currentColor"
             opacity={(r + c) % 3 === 0 ? 0.6 : 0.2}
           />
-        ))
+        )),
       )}
     </svg>
   );
 }
 
-export function AbstractSparkle({ size = 18, className = '' }) {
+export function AbstractSparkle({ size = 18, className = "" }) {
   return (
     <svg
       width={size}

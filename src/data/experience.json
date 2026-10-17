@@ -1,8 +1,8 @@
 [
-{
+  {
     "id": 1,
     "company": "Future Interns",
-    "logo": "assets/img/future_interns_logo.png", 
+    "logo": "assets/img/future_interns_logo.png",
     "role": "Data Analyst Intern",
     "type": "Internship",
     "location": "Remote",
@@ -15,7 +15,7 @@
     ],
     "skills": ["Power BI", "Data Visualization", "Data Modeling", "Statistical Analysis", "SQL"]
   },
-{
+  {
     "id": 2,
     "company": "Cognifyz Technologies",
     "logo": "assets/img/cognifyz.png",

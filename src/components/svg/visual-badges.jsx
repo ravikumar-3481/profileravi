@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export function LivePulseBadge({ label = 'Available for work', className = '' }) {
+export function LivePulseBadge({ label = "Available for work", className = "" }) {
   return (
     <span
       className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border border-border bg-secondary/80 text-foreground backdrop-blur-sm ${className}`}
@@ -14,7 +14,7 @@ export function LivePulseBadge({ label = 'Available for work', className = '' })
   );
 }
 
-export function VerifiedBadge({ size = 16, className = '' }) {
+export function VerifiedBadge({ size = 16, className = "" }) {
   return (
     <svg
       width={size}
@@ -35,7 +35,7 @@ export function VerifiedBadge({ size = 16, className = '' }) {
   );
 }
 
-export function EditorialPillBadge({ icon: Icon, text, count, className = '' }) {
+export function EditorialPillBadge({ icon: Icon, text, count, className = "" }) {
   return (
     <span
       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium border border-border bg-secondary text-secondary-foreground transition-colors hover:border-primary/50 ${className}`}
@@ -51,7 +51,7 @@ export function EditorialPillBadge({ icon: Icon, text, count, className = '' }) 
   );
 }
 
-export function CodeMetricBadge({ number, label, className = '' }) {
+export function CodeMetricBadge({ number, label, className = "" }) {
   return (
     <div
       className={`flex flex-col p-3 rounded-lg border border-border bg-card/60 backdrop-blur-sm ${className}`}
@@ -66,7 +66,7 @@ export function CodeMetricBadge({ number, label, className = '' }) {
   );
 }
 
-export function KeyboardKeyBadge({ keyLabel, description, className = '' }) {
+export function KeyboardKeyBadge({ keyLabel, description, className = "" }) {
   return (
     <span
       className={`inline-flex items-center gap-2 px-2.5 py-1 rounded border border-border bg-card text-xs font-mono text-foreground shadow-sm ${className}`}

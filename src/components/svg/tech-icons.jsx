@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export function ReactIcon({ size = 20, className = '', ...props }) {
+export function ReactIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -21,7 +21,7 @@ export function ReactIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function TypeScriptIcon({ size = 20, className = '', ...props }) {
+export function TypeScriptIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -41,7 +41,7 @@ export function TypeScriptIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function PythonIcon({ size = 20, className = '', ...props }) {
+export function PythonIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -63,7 +63,7 @@ export function PythonIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function PyTorchIcon({ size = 20, className = '', ...props }) {
+export function PyTorchIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -82,7 +82,7 @@ export function PyTorchIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function TanStackIcon({ size = 20, className = '', ...props }) {
+export function TanStackIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -94,12 +94,16 @@ export function TanStackIcon({ size = 20, className = '', ...props }) {
     >
       <circle cx="64" cy="64" r="60" fill="#000000" />
       <circle cx="64" cy="64" r="56" fill="url(#tanstack-grad)" />
-      <path
-        d="M34 46h60v12H69v36H53V58H34V46z"
-        fill="#FFFFFF"
-      />
+      <path d="M34 46h60v12H69v36H53V58H34V46z" fill="#FFFFFF" />
       <defs>
-        <linearGradient id="tanstack-grad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="tanstack-grad"
+          x1="0"
+          y1="0"
+          x2="128"
+          y2="128"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#FF4154" />
           <stop offset="0.5" stopColor="#FFB340" />
           <stop offset="1" stopColor="#3B82F6" />
@@ -109,7 +113,7 @@ export function TanStackIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function TailwindIcon({ size = 20, className = '', ...props }) {
+export function TailwindIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -127,7 +131,7 @@ export function TailwindIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function ViteIcon({ size = 20, className = '', ...props }) {
+export function ViteIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -146,11 +150,25 @@ export function ViteIcon({ size = 20, className = '', ...props }) {
         fill="url(#vite-grad-2)"
       />
       <defs>
-        <linearGradient id="vite-grad-1" x1="16.5" y1="12" x2="89.5" y2="105" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="vite-grad-1"
+          x1="16.5"
+          y1="12"
+          x2="89.5"
+          y2="105"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#41D1FF" />
           <stop offset="1" stopColor="#BD34FE" />
         </linearGradient>
-        <linearGradient id="vite-grad-2" x1="57" y1="18.5" x2="90" y2="92" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="vite-grad-2"
+          x1="57"
+          y1="18.5"
+          x2="90"
+          y2="92"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#FFEA83" />
           <stop offset="0.08" stopColor="#FFDD35" />
           <stop offset="1" stopColor="#FFA800" />
@@ -160,7 +178,7 @@ export function ViteIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function FramerMotionIcon({ size = 20, className = '', ...props }) {
+export function FramerMotionIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -175,7 +193,7 @@ export function FramerMotionIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function DockerIcon({ size = 20, className = '', ...props }) {
+export function DockerIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -197,7 +215,7 @@ export function DockerIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function FastApiIcon({ size = 20, className = '', ...props }) {
+export function FastApiIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -208,15 +226,12 @@ export function FastApiIcon({ size = 20, className = '', ...props }) {
       {...props}
     >
       <circle cx="64" cy="64" r="60" fill="#009688" />
-      <path
-        d="M66.5 24 37 71.5h23.5L54 104l37-47.5H67.5L74 24h-7.5z"
-        fill="#FFFFFF"
-      />
+      <path d="M66.5 24 37 71.5h23.5L54 104l37-47.5H67.5L74 24h-7.5z" fill="#FFFFFF" />
     </svg>
   );
 }
 
-export function PostgreSQLIcon({ size = 20, className = '', ...props }) {
+export function PostgreSQLIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -234,7 +249,7 @@ export function PostgreSQLIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function NodeJsIcon({ size = 20, className = '', ...props }) {
+export function NodeJsIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -252,7 +267,7 @@ export function NodeJsIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function GraphQLIcon({ size = 20, className = '', ...props }) {
+export function GraphQLIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}
@@ -276,7 +291,7 @@ export function GraphQLIcon({ size = 20, className = '', ...props }) {
   );
 }
 
-export function GitIcon({ size = 20, className = '', ...props }) {
+export function GitIcon({ size = 20, className = "", ...props }) {
   return (
     <svg
       width={size}

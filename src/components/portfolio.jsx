@@ -1,5 +1,5 @@
-import { PortraitHero } from '@/components/portrait-hero';
-import { useState, useEffect } from 'react';
+import { PortraitHero } from "@/components/portrait-hero";
+import { useState, useEffect } from "react";
 import {
   Preloader,
   ThemeToggle,
@@ -12,13 +12,13 @@ import {
   EducationSection,
   ResumeModal,
   BackToTop,
-} from '@/components/extras';
-import { Link, useRouterState } from '@tanstack/react-router';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ViewportReveal } from '@/components/viewport-reveal';
-import { AnimatedCounter } from '@/components/animated-counter';
-import { CookieConsent } from '@/components/cookie-consent';
-import { useKeyboardNavigation, KeyboardShortcutsModal } from '@/components/keyboard-shortcuts';
+} from "@/components/extras";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { motion, AnimatePresence } from "framer-motion";
+import { ViewportReveal } from "@/components/viewport-reveal";
+import { AnimatedCounter } from "@/components/animated-counter";
+import { CookieConsent } from "@/components/cookie-consent";
+import { useKeyboardNavigation, KeyboardShortcutsModal } from "@/components/keyboard-shortcuts";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -48,20 +48,25 @@ import {
   ShieldAlert,
   Clock,
   Keyboard,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
-import { projects, profile, projectName, categoryName, faqs, imagekit } from '@/data/portfolio';
-import education from '@/data/education.json';
-import experience from '@/data/experience.json';
-import skills from '@/data/skills.json';
-import tools from '@/data/tools.json';
-import soft from '@/data/soft.json';
-import other from '@/data/other.json';
-import activities from '@/data/activities.json';
-import testimonials from '@/data/testimonials.json';
-import articles from '@/data/blog_articles.json';
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import { projects, profile, projectName, categoryName, faqs, imagekit } from "@/data/portfolio";
+import education from "@/data/education.json";
+import experience from "@/data/experience.json";
+import skills from "@/data/skills.json";
+import tools from "@/data/tools.json";
+import soft from "@/data/soft.json";
+import other from "@/data/other.json";
+import activities from "@/data/activities.json";
+import testimonials from "@/data/testimonials.json";
+import articles from "@/data/blog_articles.json";
 
 export const Reveal = ViewportReveal;
 
@@ -76,7 +81,7 @@ export function SiteShell({ children }) {
     onOpenResume: () => setResume(true),
     onToggleHelp: () => setShortcutsHelp((v) => !v),
     onToggleTheme: () => {
-      const btn = document.querySelector('.theme-toggle');
+      const btn = document.querySelector(".theme-toggle");
       if (btn) btn.click();
     },
   });
@@ -84,8 +89,8 @@ export function SiteShell({ children }) {
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 20);
     f();
-    window.addEventListener('scroll', f, { passive: true });
-    return () => window.removeEventListener('scroll', f);
+    window.addEventListener("scroll", f, { passive: true });
+    return () => window.removeEventListener("scroll", f);
   }, []);
 
   useEffect(() => {
@@ -94,25 +99,25 @@ export function SiteShell({ children }) {
 
   useEffect(() => {
     const o = () => setResume(true);
-    window.addEventListener('open-resume', o);
-    return () => window.removeEventListener('open-resume', o);
+    window.addEventListener("open-resume", o);
+    return () => window.removeEventListener("open-resume", o);
   }, []);
 
   useEffect(() => {
     const h = () => setShortcutsHelp(true);
-    window.addEventListener('open-shortcuts-help', h);
-    return () => window.removeEventListener('open-shortcuts-help', h);
+    window.addEventListener("open-shortcuts-help", h);
+    return () => window.removeEventListener("open-shortcuts-help", h);
   }, []);
 
   const links = [
-    ['/', 'Home'],
-    ['/about', 'About'],
-    ['/projects', 'Projects'],
-    ['/experience', 'Journey'],
-    ['/skills', 'Skills'],
-    ['/blog', 'Writing'],
+    ["/", "Home"],
+    ["/about", "About"],
+    ["/projects", "Projects"],
+    ["/experience", "Journey"],
+    ["/skills", "Skills"],
+    ["/blog", "Writing"],
   ];
-  const all = [...links, ['/activities', 'Activities'], ['/faq', 'FAQ'], ['/contact', 'Contact']];
+  const all = [...links, ["/activities", "Activities"], ["/faq", "FAQ"], ["/contact", "Contact"]];
 
   return (
     <>
@@ -120,7 +125,7 @@ export function SiteShell({ children }) {
         Skip to main content
       </a>
       <Preloader />
-      <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner">
           <Link to="/" className="wordmark" aria-label="Ravi home">
             ravi<span className="text-primary">.</span>
@@ -129,13 +134,13 @@ export function SiteShell({ children }) {
             className="desktop-nav pill-nav"
             aria-label="Main navigation"
             onKeyDown={(e) => {
-              if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                const navLinks = Array.from(e.currentTarget.querySelectorAll('.nav-link'));
+              if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                const navLinks = Array.from(e.currentTarget.querySelectorAll(".nav-link"));
                 const curIndex = navLinks.indexOf(document.activeElement);
                 if (curIndex !== -1) {
                   e.preventDefault();
                   const nextIndex =
-                    e.key === 'ArrowRight'
+                    e.key === "ArrowRight"
                       ? (curIndex + 1) % navLinks.length
                       : (curIndex - 1 + navLinks.length) % navLinks.length;
                   navLinks[nextIndex]?.focus();
@@ -144,16 +149,12 @@ export function SiteShell({ children }) {
             }}
           >
             {links.map(([url, label]) => (
-              <Link
-                key={url}
-                to={url}
-                className={path === url ? 'nav-link active' : 'nav-link'}
-              >
+              <Link key={url} to={url} className={path === url ? "nav-link active" : "nav-link"}>
                 {path === url && (
                   <motion.span
                     layoutId="nav-pill"
                     className="nav-pill"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
                 <span className="nav-label">{label}</span>
@@ -181,7 +182,7 @@ export function SiteShell({ children }) {
               variant="ghost"
               size="icon"
               className="mobile-menu"
-              aria-label={menu ? 'Close menu' : 'Open menu'}
+              aria-label={menu ? "Close menu" : "Open menu"}
               aria-expanded={menu}
               onClick={() => setMenu(!menu)}
             >
@@ -204,19 +205,24 @@ export function SiteShell({ children }) {
             <motion.nav
               className="mobile-drawer"
               aria-label="Mobile navigation"
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 280 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 280 }}
               onKeyDown={(e) => {
-                if (e.key === 'Escape') setMenu(false);
+                if (e.key === "Escape") setMenu(false);
               }}
             >
               <div className="drawer-head">
                 <span className="wordmark">
                   ravi<span className="text-primary">.</span>
                 </span>
-                <Button variant="ghost" size="icon" aria-label="Close menu" onClick={() => setMenu(false)}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Close menu"
+                  onClick={() => setMenu(false)}
+                >
                   <X />
                 </Button>
               </div>
@@ -227,8 +233,8 @@ export function SiteShell({ children }) {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i + 0.1 }}
                 >
-                  <Link to={url} className={path === url ? 'active' : ''}>
-                    <span>{String(i + 1).padStart(2, '0')}</span>
+                  <Link to={url} className={path === url ? "active" : ""}>
+                    <span>{String(i + 1).padStart(2, "0")}</span>
                     {label}
                     <ArrowUpRight size={16} />
                   </Link>
@@ -258,7 +264,7 @@ export function SiteShell({ children }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          style={{ outline: 'none' }}
+          style={{ outline: "none" }}
         >
           {children}
         </motion.main>
@@ -270,7 +276,9 @@ export function SiteShell({ children }) {
             <Link to="/" className="wordmark">
               ravi<span className="text-primary">.</span>
             </Link>
-            <p>AI Engineer & Data Scientist building thoughtful, human-centered intelligent systems.</p>
+            <p>
+              AI Engineer & Data Scientist building thoughtful, human-centered intelligent systems.
+            </p>
             <span className="footer-status">
               <i className="status-dot" /> Available for new opportunities
             </span>
@@ -302,7 +310,12 @@ export function SiteShell({ children }) {
               <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noreferrer">
                 <Linkedin size={17} />
               </a>
-              <a href="https://www.instagram.com/i_am_ravi.07" aria-label="Instagram" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.instagram.com/i_am_ravi.07"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Instagram size={17} />
               </a>
               <a href="https://x.com/ravikumar3481" aria-label="X" target="_blank" rel="noreferrer">
@@ -329,7 +342,7 @@ export function SiteShell({ children }) {
             <span>·</span>
             <button
               type="button"
-              onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
+              onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
               className="cookie-pref-link"
             >
               Cookie Preferences
@@ -347,7 +360,7 @@ export function SiteShell({ children }) {
   );
 }
 
-export function SectionHeading({ number, eyebrow, title, link, label = 'Explore more' }) {
+export function SectionHeading({ number, eyebrow, title, link, label = "Explore more" }) {
   return (
     <div className="section-heading">
       <div>
@@ -358,8 +371,8 @@ export function SectionHeading({ number, eyebrow, title, link, label = 'Explore 
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            style={{ transformOrigin: 'left' }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            style={{ transformOrigin: "left" }}
           />
           {eyebrow}
         </div>
@@ -413,7 +426,7 @@ export function AboutSection({ full = false }) {
             <span className="serif-italic">An engineer by choice.</span>
           </>
         }
-        link={full ? undefined : '/about'}
+        link={full ? undefined : "/about"}
         label="The full story"
       />
       <div className="about-grid">
@@ -429,15 +442,15 @@ export function AboutSection({ full = false }) {
           <p className="body-copy">
             From training machine learning models to designing full-stack interfaces, I care about
             the small decisions that make software clear, reliable, and genuinely helpful. I’ve
-            developed analytics dashboards that accelerate decision-making by 40% and data
-            pipelines supporting 50,000+ records.
+            developed analytics dashboards that accelerate decision-making by 40% and data pipelines
+            supporting 50,000+ records.
           </p>
           <div className="stats-row">
             {[
-              ['1.5+', 'Years of experience'],
-              ['63+', 'Projects completed'],
-              ['124+', 'LeetCode problems'],
-              ['50K+', 'Data records managed'],
+              ["1.5+", "Years of experience"],
+              ["63+", "Projects completed"],
+              ["124+", "LeetCode problems"],
+              ["50K+", "Data records managed"],
             ].map(([value, label], idx) => (
               <motion.div
                 key={label}
@@ -460,10 +473,10 @@ export function AboutSection({ full = false }) {
         <div className="about-extra">
           <h3>Building with intention.</h3>
           <p className="body-copy">
-            I’m currently pursuing my B.Tech at AKS University. My interests span ethical AI, agentic
-            systems, data storytelling, and software that prioritizes people alongside technical
-            performance. Away from project work, I contribute to open source, create technical
-            content, and take part in hackathons.
+            I’m currently pursuing my B.Tech at AKS University. My interests span ethical AI,
+            agentic systems, data storytelling, and software that prioritizes people alongside
+            technical performance. Away from project work, I contribute to open source, create
+            technical content, and take part in hackathons.
           </p>
         </div>
       )}
@@ -476,7 +489,7 @@ export function ProjectCard({ project, index }) {
     <Reveal pop delay={(index % 3) * 0.07} className="project-card">
       <motion.div
         whileHover={{ y: -6 }}
-        transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+        transition={{ type: "spring", stiffness: 280, damping: 20 }}
         className="project-card-inner"
       >
         <Link
@@ -485,7 +498,7 @@ export function ProjectCard({ project, index }) {
           className={`project-image project-tone-${index % 3}`}
         >
           <div className="project-image-top">
-            <span>{String(index + 1).padStart(2, '0')} / PROJECT</span>
+            <span>{String(index + 1).padStart(2, "0")} / PROJECT</span>
             <ArrowUpRight size={20} />
           </div>
           <img
@@ -502,7 +515,7 @@ export function ProjectCard({ project, index }) {
               {projectName(project)} <ArrowUpRight size={21} />
             </h3>
           </Link>
-          <p>{project.title.split(' - ').slice(1).join(' - ')}</p>
+          <p>{project.title.split(" - ").slice(1).join(" - ")}</p>
           <div className="tech-tags">
             {project.technologies.slice(0, 3).map((t) => (
               <span key={t}>{t}</span>
@@ -540,8 +553,8 @@ export function FeaturedProjects() {
 }
 
 export function ProjectsPage() {
-  const [filter, setFilter] = useState('all');
-  const filtered = projects.filter((p) => filter === 'all' || p.category === filter);
+  const [filter, setFilter] = useState("all");
+  const filtered = projects.filter((p) => filter === "all" || p.category === filter);
   return (
     <>
       <PageIntro
@@ -561,13 +574,13 @@ export function ProjectsPage() {
           role="tablist"
           aria-label="Filter projects by category"
           onKeyDown={(e) => {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
               const buttons = Array.from(e.currentTarget.querySelectorAll('button[role="tab"]'));
               const curIndex = buttons.indexOf(document.activeElement);
               if (curIndex !== -1) {
                 e.preventDefault();
                 const nextIndex =
-                  e.key === 'ArrowRight'
+                  e.key === "ArrowRight"
                     ? (curIndex + 1) % buttons.length
                     : (curIndex - 1 + buttons.length) % buttons.length;
                 buttons[nextIndex]?.focus();
@@ -577,21 +590,21 @@ export function ProjectsPage() {
           }}
         >
           {[
-            ['all', 'All projects'],
-            ['ai', 'AI & Machine Learning'],
-            ['developer-tools', 'Developer Tools'],
+            ["all", "All projects"],
+            ["ai", "AI & Machine Learning"],
+            ["developer-tools", "Developer Tools"],
           ].map(([value, label]) => (
             <Button
               key={value}
               role="tab"
-              variant={filter === value ? 'default' : 'ghost'}
+              variant={filter === value ? "default" : "ghost"}
               onClick={() => setFilter(value)}
               aria-selected={filter === value}
               tabIndex={filter === value ? 0 : -1}
             >
               {label}
               <span className="filter-count">
-                {projects.filter((p) => value === 'all' || p.category === value).length}
+                {projects.filter((p) => value === "all" || p.category === value).length}
               </span>
             </Button>
           ))}
@@ -620,7 +633,7 @@ export function JourneySection({ full = false }) {
             <span className="serif-italic">Getting better.</span>
           </>
         }
-        link={full ? undefined : '/experience'}
+        link={full ? undefined : "/experience"}
         label="Explore my journey"
       />
       <div className="journey-grid">
@@ -639,7 +652,7 @@ export function JourneySection({ full = false }) {
               <p className="body-copy">• {e.description}</p>
               {full && (
                 <ul className="task-list">
-                  •{' '}
+                  •{" "}
                   {e.tasks.map((t) => (
                     <li key={t}>{t}</li>
                   ))}
@@ -682,9 +695,9 @@ export function JourneySection({ full = false }) {
 }
 
 const skillGroups = [
-  ['Development & data', Code2, skills],
-  ['My everyday tools', Terminal, tools],
-  ['Beyond the code', BrainCircuit, [...soft, ...other]],
+  ["Development & data", Code2, skills],
+  ["My everyday tools", Terminal, tools],
+  ["Beyond the code", BrainCircuit, [...soft, ...other]],
 ];
 
 export function SkillsSection({ full = false }) {
@@ -701,7 +714,7 @@ export function SkillsSection({ full = false }) {
               <span className="serif-italic">The right mindset.</span>
             </>
           }
-          link={full ? undefined : '/skills'}
+          link={full ? undefined : "/skills"}
           label="Inside my toolbox"
         />
         <div className="skills-grid">
@@ -714,7 +727,7 @@ export function SkillsSection({ full = false }) {
                   <motion.span
                     key={item.name}
                     whileHover={{ scale: 1.05 }}
-                    transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 20 }}
                   >
                     <span className="skill-mark">{item.name.slice(0, 2)}</span>
                     {item.name}
@@ -751,7 +764,7 @@ export function ActivitiesSection() {
             <Reveal className="activity-item" key={a.title}>
               <Icon size={23} />
               <h3>{a.title}</h3>
-              <span>{String(i + 1).padStart(2, '0')}</span>
+              <span>{String(i + 1).padStart(2, "0")}</span>
             </Reveal>
           );
         })}
@@ -793,9 +806,9 @@ export function GithubSection() {
 
 export function TestimonialsSection() {
   const list = [
-    testimonials.find((t) => t.name === 'uday raj'),
-    testimonials.find((t) => t.name === 'Priya Sharma'),
-    testimonials.find((t) => t.name === 'Anika chaube'),
+    testimonials.find((t) => t.name === "uday raj"),
+    testimonials.find((t) => t.name === "Priya Sharma"),
+    testimonials.find((t) => t.name === "Anika chaube"),
   ].filter(Boolean);
   return (
     <section className="section container">
@@ -856,7 +869,7 @@ export function BlogSection({ full = false }) {
               <span className="serif-italic">One idea at a time.</span>
             </>
           }
-          link={full ? undefined : '/blog'}
+          link={full ? undefined : "/blog"}
           label="All writing"
         />
         <div className="articles-list">
@@ -868,17 +881,17 @@ export function BlogSection({ full = false }) {
               rel="noreferrer"
               className="article-row"
               whileHover={{ x: 6 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
             >
               <span className="article-date">
-                {new Date(a.published_at).toLocaleDateString('en-US', {
-                  month: 'short',
-                  day: '2-digit',
-                  year: 'numeric',
+                {new Date(a.published_at).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "2-digit",
+                  year: "numeric",
                 })}
               </span>
               <div>
-                <span className="eyebrow">{a.tag_list.slice(0, 2).join(' / ')}</span>
+                <span className="eyebrow">{a.tag_list.slice(0, 2).join(" / ")}</span>
                 <h3>{a.title}</h3>
               </div>
               <span className="reading-time">{a.reading_time_minutes} min read</span>
@@ -913,7 +926,7 @@ export function FaqSection() {
           {faqs.map(([question, answer], i) => (
             <AccordionItem key={question} value={`faq-${i}`}>
               <AccordionTrigger>
-                <span className="faq-number">{String(i + 1).padStart(2, '0')}</span>
+                <span className="faq-number">{String(i + 1).padStart(2, "0")}</span>
                 <span>{question}</span>
               </AccordionTrigger>
               <AccordionContent>{answer}</AccordionContent>
@@ -925,14 +938,14 @@ export function FaqSection() {
   );
 }
 
-const RATE_LIMIT_KEY = 'portfolio_contact_rate_limit';
+const RATE_LIMIT_KEY = "portfolio_contact_rate_limit";
 const COOLDOWN_SECONDS = 60;
 const MAX_PER_WINDOW = 3;
 const WINDOW_MS = 10 * 60 * 1000;
 
 export function ContactSection() {
-  const [status, setStatus] = useState('idle');
-  const [error, setError] = useState('');
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
   const [remainingCooldown, setRemainingCooldown] = useState(0);
 
   // Check rate limit status on mount and when returning to view
@@ -974,7 +987,7 @@ export function ContactSection() {
 
     // Bot detection via invisible honeypot field
     if (data._gotcha) {
-      setStatus('success');
+      setStatus("success");
       form.reset();
       return;
     }
@@ -989,7 +1002,9 @@ export function ContactSection() {
       if (history.blockedUntil && history.blockedUntil > now) {
         const seconds = Math.ceil((history.blockedUntil - now) / 1000);
         setRemainingCooldown(seconds);
-        setError(`Rate limit active. Please wait ${seconds}s before submitting again, or email me directly.`);
+        setError(
+          `Rate limit active. Please wait ${seconds}s before submitting again, or email me directly.`,
+        );
         return;
       }
 
@@ -997,23 +1012,25 @@ export function ContactSection() {
         const blockedUntil = now + WINDOW_MS;
         localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify({ timestamps: recent, blockedUntil }));
         setRemainingCooldown(Math.ceil(WINDOW_MS / 1000));
-        setError('Too many submissions in a short period. Please wait 10 minutes or email me directly.');
+        setError(
+          "Too many submissions in a short period. Please wait 10 minutes or email me directly.",
+        );
         return;
       }
     } catch {}
 
-    setStatus('sending');
-    setError('');
+    setStatus("sending");
+    setError("");
 
     try {
-      const response = await fetch('https://formspree.io/f/xvgqzalg', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      const response = await fetch("https://formspree.io/f/xvgqzalg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
 
       if (!response.ok) {
-        throw new Error('Your message could not be sent. Please try again or email me directly.');
+        throw new Error("Your message could not be sent. Please try again or email me directly.");
       }
 
       // Record successful submission into rate limit history
@@ -1028,22 +1045,22 @@ export function ContactSection() {
         setRemainingCooldown(COOLDOWN_SECONDS);
       } catch {}
 
-      setStatus('success');
+      setStatus("success");
       form.reset();
     } catch (err) {
-      setError(err.message || 'Connection problem. Please try again.');
-      setStatus('idle');
+      setError(err.message || "Connection problem. Please try again.");
+      setStatus("idle");
     }
   }
 
   const socials = [
-    [Github, 'GitHub', profile.github],
-    [Linkedin, 'LinkedIn', profile.linkedin],
-    [Code2, 'LeetCode', 'https://leetcode.com/u/ravivish3481/'],
-    [Database, 'Kaggle', 'https://www.kaggle.com/ravivishwakarma0909'],
-    [Globe, 'Topmate', 'https://topmate.io/ravi_vishwakarma0'],
-    [Instagram, 'Instagram', 'https://www.instagram.com/i_am_ravi.07'],
-    [ExternalLink, 'X', 'https://x.com/ravikumar3481'],
+    [Github, "GitHub", profile.github],
+    [Linkedin, "LinkedIn", profile.linkedin],
+    [Code2, "LeetCode", "https://leetcode.com/u/ravivish3481/"],
+    [Database, "Kaggle", "https://www.kaggle.com/ravivishwakarma0909"],
+    [Globe, "Topmate", "https://topmate.io/ravi_vishwakarma0"],
+    [Instagram, "Instagram", "https://www.instagram.com/i_am_ravi.07"],
+    [ExternalLink, "X", "https://x.com/ravikumar3481"],
   ];
 
   return (
@@ -1085,7 +1102,7 @@ export function ContactSection() {
             name="_gotcha"
             tabIndex={-1}
             autoComplete="off"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             aria-hidden="true"
           />
 
@@ -1132,13 +1149,9 @@ export function ContactSection() {
             />
           </label>
 
-          <Button
-            size="lg"
-            type="submit"
-            disabled={status === 'sending' || remainingCooldown > 0}
-          >
-            {status === 'sending' ? (
-              'Sending…'
+          <Button size="lg" type="submit" disabled={status === "sending" || remainingCooldown > 0}>
+            {status === "sending" ? (
+              "Sending…"
             ) : remainingCooldown > 0 ? (
               <>
                 <Clock size={16} className="mr-2" /> Please wait ({remainingCooldown}s)
@@ -1156,13 +1169,13 @@ export function ContactSection() {
               <div>
                 <strong>Rate limit active</strong> ({remainingCooldown}s remaining).
                 <br />
-                To prevent spam, submissions are temporarily throttled. You can also email directly at{' '}
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>.
+                To prevent spam, submissions are temporarily throttled. You can also email directly
+                at <a href={`mailto:${profile.email}`}>{profile.email}</a>.
               </div>
             </div>
           )}
 
-          {status === 'success' && (
+          {status === "success" && (
             <motion.p
               role="status"
               className="form-success"
@@ -1252,17 +1265,17 @@ export function ImageViewer({ images, index, onClose, download }) {
           setZoom(false);
         }}
         onKeyDown={(e) => {
-          if (e.key === 'ArrowRight') setPosition((p) => (p + 1) % images.length);
-          if (e.key === 'ArrowLeft') setPosition((p) => (p - 1 + images.length) % images.length);
-          if (e.key === 'Home') setPosition(0);
-          if (e.key === 'End') setPosition(images.length - 1);
-          if (e.key.toLowerCase() === 'z') setZoom((z) => !z);
+          if (e.key === "ArrowRight") setPosition((p) => (p + 1) % images.length);
+          if (e.key === "ArrowLeft") setPosition((p) => (p - 1 + images.length) % images.length);
+          if (e.key === "Home") setPosition(0);
+          if (e.key === "End") setPosition(images.length - 1);
+          if (e.key.toLowerCase() === "z") setZoom((z) => !z);
         }}
       >
-        <DialogTitle>{active?.label || 'Project image'}</DialogTitle>
+        <DialogTitle>{active?.label || "Project image"}</DialogTitle>
         <DialogDescription className="sr-only">Project image gallery</DialogDescription>
-        <div className={`viewer-image ${zoom ? 'zoomed' : ''}`}>
-          <img src={active?.src} alt={active?.label || 'Project screenshot'} />
+        <div className={`viewer-image ${zoom ? "zoomed" : ""}`}>
+          <img src={active?.src} alt={active?.label || "Project screenshot"} />
         </div>
         <div className="viewer-controls">
           <span>
@@ -1292,7 +1305,7 @@ export function ImageViewer({ images, index, onClose, download }) {
             <Button
               variant="outline"
               size="icon"
-              aria-label={zoom ? 'Zoom out' : 'Zoom in'}
+              aria-label={zoom ? "Zoom out" : "Zoom in"}
               onClick={() => setZoom(!zoom)}
             >
               <Maximize2 />
@@ -1316,7 +1329,7 @@ export function ProjectDetails({ project }) {
   const images = [...new Set([...project.images, ...project.diagrams])].map((name) => ({
     name,
     src: imagekit(name),
-    label: `${projectName(project)} — ${name.replace(/\.(webp|jpg|png|svg)$/, '').replace(/-/g, ' ')}`,
+    label: `${projectName(project)} — ${name.replace(/\.(webp|jpg|png|svg)$/, "").replace(/-/g, " ")}`,
   }));
   return (
     <>
@@ -1329,7 +1342,7 @@ export function ProjectDetails({ project }) {
           {projectName(project)}
           <span className="text-primary">.</span>
         </h1>
-        <p className="intro-description">{project.title.split(' - ').slice(1).join(' - ')}</p>
+        <p className="intro-description">{project.title.split(" - ").slice(1).join(" - ")}</p>
         <div className="detail-actions">
           {project.liveLink && (
             <Button asChild size="lg">
@@ -1348,7 +1361,14 @@ export function ProjectDetails({ project }) {
           variant="ghost"
           className="detail-cover"
           aria-label={`Enlarge ${projectName(project)} screenshot`}
-          onClick={() => setIndex(Math.max(0, images.findIndex((i) => i.name === project.thumbnail)))}
+          onClick={() =>
+            setIndex(
+              Math.max(
+                0,
+                images.findIndex((i) => i.name === project.thumbnail),
+              ),
+            )
+          }
         >
           <img
             src={imagekit(project.thumbnail)}
@@ -1435,7 +1455,7 @@ export function ProjectDetails({ project }) {
               >
                 <img src={image.src} alt={image.label} loading="lazy" />
                 <span>
-                  {image.label.split(' — ')[1]}
+                  {image.label.split(" — ")[1]}
                   <Maximize2 size={17} />
                 </span>
               </Button>
@@ -1451,8 +1471,8 @@ export function ProjectDetails({ project }) {
             <ol className="milestone-list">
               {project.milestones.map((m, i) => (
                 <li key={m}>
-                  <span>{String(i + 1).padStart(2, '0')}</span>
-                  <p>{m.replace(/^Phase \d+ — /, '')}</p>
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <p>{m.replace(/^Phase \d+ — /, "")}</p>
                 </li>
               ))}
             </ol>
