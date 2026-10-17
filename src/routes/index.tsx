@@ -210,7 +210,8 @@ export const Route = createFileRoute('/')({
   head: () => ({
     ...seo(
       'Ravi Kumar Vishwakarma | AI Engineer & Data Scientist',
-      "Explore Ravi Kumar Vishwakarma's AI and data science portfolio, including machine learning projects, RAG applications, Python tools, and data analytics."
+      "Explore Ravi Kumar Vishwakarma's AI and data science portfolio, including machine learning projects, RAG applications, Python tools, and data analytics.",
+      '/'
     ),
     scripts: [
       {
