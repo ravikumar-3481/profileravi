@@ -45,11 +45,24 @@ export const categoryName = c =>
  * @param {string} path - Canonical page path.
  * @param {string} image - Absolute image URL or root-relative path.
  */
+export const DEFAULT_KEYWORDS =
+  'Ravi Kumar Vishwakarma, AI Engineer, Data Scientist, Machine Learning Engineer, RAG, LangChain, Python, FastAPI, React, Full-Stack Developer, NLP, Sentiment Analysis, Satna India, AI Portfolio';
+
+/**
+ * Generate comprehensive SEO metadata for TanStack Start routes to maximize search ranking.
+ *
+ * @param {string} title - Page title.
+ * @param {string} description - Page description.
+ * @param {string} path - Canonical page path.
+ * @param {string} image - Absolute image URL or root-relative path.
+ * @param {string} customKeywords - Optional custom keywords for this specific route.
+ */
 export const seo = (
   title,
   description,
   path = '/',
-  image = DEFAULT_OG_IMAGE
+  image = DEFAULT_OG_IMAGE,
+  customKeywords = DEFAULT_KEYWORDS
 ) => {
   const siteName = profile.name;
   const safeTitle =
@@ -110,10 +123,42 @@ export const seo = (
         name: 'description',
         content: safeDescription,
       },
+      {
+        name: 'keywords',
+        content: customKeywords,
+      },
+      {
+        name: 'author',
+        content: 'Ravi Kumar Vishwakarma',
+      },
+      {
+        name: 'creator',
+        content: 'Ravi Kumar Vishwakarma',
+      },
+      {
+        name: 'publisher',
+        content: 'Ravi Kumar Vishwakarma',
+      },
+      {
+        name: 'robots',
+        content:
+          'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+      },
+      {
+        name: 'googlebot',
+        content:
+          'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+      },
 
-      // Open Graph
+      // Geographic tags for local & global ranking
+      { name: 'geo.region', content: 'IN-MP' },
+      { name: 'geo.placename', content: 'Satna, Madhya Pradesh, India' },
+      { name: 'geo.position', content: '24.5822;80.8299' },
+      { name: 'ICBM', content: '24.5822, 80.8299' },
+
+      // Open Graph / Facebook / LinkedIn
       { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: siteName },
+      { property: 'og:site_name', content: 'Ravi Kumar Vishwakarma Portfolio' },
       { property: 'og:title', content: fullTitle },
       {
         property: 'og:description',
@@ -123,6 +168,10 @@ export const seo = (
       { property: 'og:image', content: imageUrl },
       { property: 'og:image:secure_url', content: imageUrl },
       { property: 'og:image:alt', content: fullTitle },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:type', content: 'image/webp' },
+      { property: 'og:locale', content: 'en_US' },
 
       // Twitter / X
       {
@@ -136,6 +185,8 @@ export const seo = (
       },
       { name: 'twitter:image', content: imageUrl },
       { name: 'twitter:image:alt', content: fullTitle },
+      { name: 'twitter:site', content: '@ravikumar3481' },
+      { name: 'twitter:creator', content: '@ravikumar3481' },
     ],
     links: [
       {

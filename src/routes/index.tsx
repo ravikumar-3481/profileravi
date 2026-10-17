@@ -9,13 +9,41 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: 'Ravi Kumar Vishwakarma | AI Engineer & Data Scientist Portfolio',
+      description:
+        "Portfolio of Ravi Kumar Vishwakarma — B.Tech CSE (AI & Data Science) student, AI engineer, and data scientist building intelligent systems, RAG applications, and data pipelines.",
+      publisher: { '@id': `${SITE_URL}/#person` },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${SITE_URL}/#profilepage`,
+      url: `${SITE_URL}/`,
+      name: 'Ravi Kumar Vishwakarma Portfolio',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#person` },
+      mainEntity: { '@id': `${SITE_URL}/#person` },
+    },
+    {
       '@type': 'Person',
       '@id': `${SITE_URL}/#person`,
       name: profile.name,
-      jobTitle: 'B.Tech CSE (AI & Data Science) Student',
+      jobTitle: 'AI Engineer & Data Scientist',
       url: `${SITE_URL}/`,
       image: `${SITE_URL}/og/img.webp`,
-      sameAs: [profile.github, profile.linkedin],
+      sameAs: [
+        profile.github,
+        profile.linkedin,
+        'https://leetcode.com/u/ravivish3481/',
+        'https://www.kaggle.com/ravivishwakarma0909',
+        'https://topmate.io/ravi_vishwakarma0',
+        'https://dev.to/ravi_kumar3481',
+        'https://x.com/ravikumar3481',
+        'https://www.instagram.com/i_am_ravi.07',
+      ],
       alumniOf: {
         '@type': 'EducationalOrganization',
         name: 'AKS University Satna',
@@ -36,7 +64,9 @@ const structuredData = {
         'Figma',
         'Retrieval-Augmented Generation (RAG)',
         'Natural Language Processing',
-        'Research',
+        'FastAPI',
+        'React',
+        'LangChain',
       ],
       address: {
         '@type': 'PostalAddress',
@@ -48,11 +78,11 @@ const structuredData = {
     {
       '@type': 'ItemList',
       '@id': `${SITE_URL}/#projects`,
-      name: 'Featured AI, Data Science & Full-Stack Projects by Ravi Kumar Vishwakarma',
+      name: 'Featured AI, Data Science & Developer Projects by Ravi Kumar Vishwakarma',
       description:
-        'AI applications, RAG systems, NLP pipelines, and data projects built by Ravi Kumar Vishwakarma.',
+        'AI applications, RAG systems, NLP pipelines, and developer tooling built by Ravi Kumar Vishwakarma.',
       url: `${SITE_URL}/#projects`,
-      numberOfItems: 3,
+      numberOfItems: 4,
       itemListElement: [
         {
           '@type': 'ListItem',
@@ -63,7 +93,7 @@ const structuredData = {
             headline: 'Source-Based Multilingual Health Awareness Chatbot',
             description:
               'A multilingual AI health awareness assistant using trusted health sources, RAG architecture, Mistral AI, and emergency symptom detection.',
-            url: `${SITE_URL}/project/aura-health-chatbot`,
+            url: `${SITE_URL}/projects/aura-health-chatbot`,
             applicationCategory: 'HealthApplication',
             operatingSystem: 'Web Browser',
             inLanguage: ['en', 'hi'],
@@ -93,7 +123,7 @@ const structuredData = {
             headline: 'Searchable AI Meeting Knowledge Assistant',
             description:
               'An AI meeting assistant that turns recordings, audio files, and transcripts into searchable knowledge using agent workflows, vector search, and multilingual transcription.',
-            url: `${SITE_URL}/project/meetingsense-ai`,
+            url: `${SITE_URL}/projects/meetingsense-ai`,
             applicationCategory: 'BusinessApplication',
             operatingSystem: 'Web Browser',
             inLanguage: ['en', 'hi'],
@@ -120,11 +150,36 @@ const structuredData = {
           position: 3,
           item: {
             '@type': 'SoftwareApplication',
+            name: 'PyCLI - Python Project Structure Generator',
+            headline: 'Reusable Python Scaffolding CLI for AI, RAG & Backend',
+            description:
+              'A Python command-line tool that creates clean, ready-to-use project structures for AI/ML, RAG, backend, and data science projects with auto .gitignore.',
+            url: `${SITE_URL}/projects/pycli-project-structure-generator`,
+            applicationCategory: 'DeveloperApplication',
+            operatingSystem: 'Cross-platform',
+            inLanguage: 'en',
+            keywords: [
+              'CLI',
+              'Python CLI',
+              'Developer Tools',
+              'Scaffolding',
+              'RAG Template',
+              'Data Science Template',
+            ],
+            author: { '@id': `${SITE_URL}/#person` },
+            codeRepository: 'https://github.com/ravikumar-3481/pycli',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          position: 4,
+          item: {
+            '@type': 'SoftwareApplication',
             name: 'NewsPulse AI - NLP Sentiment Analysis Pipeline',
             headline: 'Automated NLP Sentiment Analysis Pipeline',
             description:
               'An automated web-scraping ETL and NLP pipeline that analyzes news sentiment and presents insights through interactive Streamlit and Plotly dashboards.',
-            url: `${SITE_URL}/project/newspulse-ai`,
+            url: `${SITE_URL}/projects/newspulse-ai`,
             applicationCategory: 'DataAnalyticsApplication',
             operatingSystem: 'Web Browser',
             inLanguage: 'en',
