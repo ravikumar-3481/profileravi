@@ -88,6 +88,15 @@ export const seo = (
       ? path.trim()
       : '/';
 
+  // If a full URL is passed, safely extract the pathname.
+  if (/^https?:\/\//i.test(normalizedPath)) {
+    try {
+      normalizedPath = new URL(normalizedPath).pathname;
+    } catch {
+      normalizedPath = normalizedPath.replace(/^https?:\/\/[^/]+/i, '') || '/';
+    }
+  }
+
   normalizedPath = normalizedPath.split(/[?#]/)[0];
 
   if (!normalizedPath.startsWith('/')) {
@@ -191,6 +200,16 @@ export const seo = (
     links: [
       {
         rel: 'canonical',
+        href: pageUrl,
+      },
+      {
+        rel: 'alternate',
+        hrefLang: 'x-default',
+        href: pageUrl,
+      },
+      {
+        rel: 'alternate',
+        hrefLang: 'en',
         href: pageUrl,
       },
     ],

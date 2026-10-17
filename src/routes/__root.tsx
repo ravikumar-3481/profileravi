@@ -78,9 +78,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:creator", content: "@ravikumar3481" },
     ],
     links: [
-      { rel: "canonical", href: "https://profileravi.vercel.app/" },
-      { rel: "alternate", hrefLang: "x-default", href: "https://profileravi.vercel.app/" },
-      { rel: "alternate", hrefLang: "en", href: "https://profileravi.vercel.app/" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
