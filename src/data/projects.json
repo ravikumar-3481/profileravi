@@ -38,7 +38,10 @@
       "Supporting English, Hindi, and Hinglish while keeping responses easy to understand.",
       "Handling sensitive and urgent health questions safely.",
       "Connecting authentication, database, AI processing, and the frontend into one working application."
-    ]
+    ],
+    "seoTitle": "Aura Health – Multilingual RAG Health Chatbot (Case Study)",
+    "seoDescription": "Discover Aura Health, a multilingual RAG chatbot by Ravi Vishwakarma that delivers verified health advice in English and Hindi to stop misinformation.",
+    "applicationCategory": "HealthApplication"
   },
   {
     "id": 2,
@@ -80,7 +83,10 @@
       "Keeping user and meeting data separated when many users use the same backend service.",
       "Managing slow or unreliable external services such as transcription, embeddings, and LLM APIs.",
       "Keeping repeated queries fast with server-side and client-side caching."
-    ]
+    ],
+    "seoTitle": "MeetingSense AI – English & Hinglish Meeting Assistant",
+    "seoDescription": "Explore MeetingSense AI by Ravi Vishwakarma, an intelligent meeting assistant converting English and Hinglish audio into searchable summaries and tasks.",
+    "applicationCategory": "BusinessApplication"
   },
   {
     "id": 3,
@@ -115,9 +121,11 @@
       "Making the command usable both interactively and through normal command-line arguments.",
       "Handling filesystem writes safely, including atomic file replacement.",
       "Keeping the package easy to extend when a new project template is added."
-    ]
+    ],
+    "seoTitle": "PyCLI – Python Project Scaffolding CLI",
+    "seoDescription": "Scaffold production-ready Python, ML, and RAG projects in seconds with PyCLI by Ravi Vishwakarma, featuring automated templates and gitignore setup.",
+    "applicationCategory": "DeveloperApplication"
   },
-
   {
     "id": 4,
     "slug": "newspulse-ai",
@@ -150,6 +158,9 @@
       "Handling diverse, unstructured news formats in real-time.",
       "Avoiding rate limits and ensuring high accuracy in sentiment models.",
       "Deploying the interactive pipeline efficiently using Streamlit."
-    ]
+    ],
+    "seoTitle": "NewsPulse AI – News Sentiment Analysis with Streamlit",
+    "seoDescription": "Analyze real-time news sentiment and emotional polarity using NewsPulse AI by Ravi Vishwakarma, an end-to-end NLP pipeline with interactive dashboards.",
+    "applicationCategory": "BusinessApplication"
   }
 ]

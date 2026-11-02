@@ -14,7 +14,7 @@ import { Typewriter, SkillMarquee } from "@/components/extras";
 import { profile } from "@/data/portfolio";
 import { imagekit } from "@/data/portfolio";
 
-const roles = ["AI Engineer", "Data Scientist", "ML Practitioner", "Full-Stack Builder"];
+const roles = ["AI Engineer", "Data Scientist", "ML Engineer", "Full-Stack Developer"];
 
 export function PortraitHero() {
   const ref = useRef(null);
@@ -92,6 +92,9 @@ export function PortraitHero() {
           <span className="surname">
             VISHWAKARMA<span className="portrait-title-dot">.</span>
           </span>
+          <span className="portrait-subtitle">
+            AI Engineer &amp; Data Scientist · RAG · NLP · Python
+          </span>
         </motion.h1>
         <motion.div
           className="portrait-cutout"
@@ -101,7 +104,7 @@ export function PortraitHero() {
           transition={{ duration: 1, delay: 0.3 }}
         >
           <img
-            src={imagekit("profileimage.png")}
+            src={imagekit("profileimage.png", "w-500,f-auto")}
             alt="Ravi Vishwakarma, AI engineer and data scientist"
             width="500"
             height="500"
@@ -162,7 +165,7 @@ export function PortraitHero() {
           <Link to="/about">
             Meet the person behind the code <ArrowDown size={15} />
           </Link>
-          <span>PORTFOLIO / {new Date().getFullYear()}</span>
+          <span>RAVI VISHWAKARMA {new Date().getFullYear()}</span>
         </div>
         <motion.div
           className="hero-cursor-ring"

@@ -30,11 +30,24 @@ import tools from "@/data/tools.json";
 const GH = "ravikumar-3481";
 
 export function Preloader() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
-    const t = setTimeout(() => setShow(false), 1600);
-    return () => clearTimeout(t);
+    try {
+      if (sessionStorage.getItem("portfolio_preloader_seen")) {
+        return;
+      }
+      sessionStorage.setItem("portfolio_preloader_seen", "1");
+      setShow(true);
+      const t = setTimeout(() => setShow(false), 1400);
+      return () => clearTimeout(t);
+    } catch {
+      // Ignore storage errors (e.g. private browsing)
+    }
   }, []);
+
+  if (!show) return null;
+
   return (
     <AnimatePresence>
       {show && (
@@ -43,7 +56,8 @@ export function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ y: "-100%" }}
           transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-          aria-hidden="true"
+          role="status"
+          aria-label="Loading portfolio"
         >
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -106,7 +120,7 @@ export function ThemeToggle() {
 
 export function Typewriter({ words }) {
   const [i, setI] = useState(0);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(words?.[0] || "");
   const [del, setDel] = useState(false);
   useEffect(() => {
     const word = words[i % words.length];
@@ -301,15 +315,23 @@ export function TestimonialSlider() {
 }
 
 export function GithubActivity() {
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, rootMargin: "250px" });
   const [stats, setStats] = useState(null);
+  const [calendarError, setCalendarError] = useState(false);
+  const [streakError, setStreakError] = useState(false);
+  const [graphError, setGraphError] = useState(false);
+
   useEffect(() => {
+    if (!inView) return;
     fetch(`https://api.github.com/users/${GH}`)
       .then((r) => (r.ok ? r.json() : null))
       .then(setStats)
       .catch(() => {});
-  }, []);
+  }, [inView]);
+
   return (
-    <section className="section github-activity">
+    <section ref={sectionRef} className="section github-activity" style={{ minHeight: "480px" }}>
       <div className="container">
         <div className="section-heading">
           <div>
@@ -340,39 +362,90 @@ export function GithubActivity() {
             </div>
           ))}
         </div>
-        <div className="gh-card">
-          <p className="eyebrow">
-            <GitBranch size={14} /> CONTRIBUTION CALENDAR
-          </p>
-          <img
-            className="gh-calendar"
-            src={`https://ghchart.rshah.org/6b7f3a/${GH}`}
-            alt="GitHub contribution calendar for the last year"
-            loading="lazy"
-          />
-        </div>
-        <div className="gh-grid">
-          <div className="gh-card">
-            <p className="eyebrow">
-              <Flame size={14} /> COMMIT STREAK
-            </p>
-            <img
-              src={`https://streak-stats.demolab.com?user=${GH}&hide_border=true&background=00000000&ring=7c8f45&fire=7c8f45&currStreakLabel=7c8f45&sideLabels=8a8a80&currStreakNum=8a8a80&sideNums=8a8a80&dates=8a8a80&stroke=8a8a8044`}
-              alt="GitHub commit streak statistics"
-              loading="lazy"
-            />
-          </div>
-          <div className="gh-card">
-            <p className="eyebrow">
-              <Layers size={14} /> COMMIT HISTORY
-            </p>
-            <img
-              src={`https://github-readme-activity-graph.vercel.app/graph?username=${GH}&bg_color=00000000&color=8a8a80&line=7c8f45&point=7c8f45&area=true&area_color=7c8f45&hide_border=true&title_color=8a8a80`}
-              alt="GitHub commit activity graph"
-              loading="lazy"
-            />
-          </div>
-        </div>
+        {inView ? (
+          <>
+            <div className="gh-card">
+              <p className="eyebrow">
+                <GitBranch size={14} /> CONTRIBUTION CALENDAR
+              </p>
+              {calendarError ? (
+                <div className="gh-fallback">
+                  <p>Contribution calendar temporarily unavailable from external service.</p>
+                  <Button variant="ghost" size="sm" asChild>
+                    <a href={`https://github.com/${GH}`} target="_blank" rel="noreferrer">
+                      View contributions on GitHub <ArrowUpRight size={14} />
+                    </a>
+                  </Button>
+                </div>
+              ) : (
+                <img
+                  className="gh-calendar"
+                  src={`https://ghchart.rshah.org/6b7f3a/${GH}`}
+                  alt="GitHub contribution calendar for the last year"
+                  width={660}
+                  height={112}
+                  style={{ aspectRatio: "660 / 112", width: "100%", height: "auto" }}
+                  loading="lazy"
+                  onError={() => setCalendarError(true)}
+                />
+              )}
+            </div>
+            <div className="gh-grid">
+              <div className="gh-card">
+                <p className="eyebrow">
+                  <Flame size={14} /> COMMIT STREAK
+                </p>
+                {streakError ? (
+                  <div className="gh-fallback">
+                    <p>Streak statistics temporarily unavailable.</p>
+                    <Button variant="ghost" size="sm" asChild>
+                      <a href={`https://github.com/${GH}`} target="_blank" rel="noreferrer">
+                        View profile on GitHub <ArrowUpRight size={14} />
+                      </a>
+                    </Button>
+                  </div>
+                ) : (
+                  <img
+                    src={`https://streak-stats.demolab.com?user=${GH}&hide_border=true&background=00000000&ring=7c8f45&fire=7c8f45&currStreakLabel=7c8f45&sideLabels=8a8a80&currStreakNum=8a8a80&sideNums=8a8a80&dates=8a8a80&stroke=8a8a8044`}
+                    alt="GitHub commit streak statistics"
+                    width={495}
+                    height={195}
+                    style={{ aspectRatio: "495 / 195", width: "100%", height: "auto" }}
+                    loading="lazy"
+                    onError={() => setStreakError(true)}
+                  />
+                )}
+              </div>
+              <div className="gh-card">
+                <p className="eyebrow">
+                  <Layers size={14} /> COMMIT HISTORY
+                </p>
+                {graphError ? (
+                  <div className="gh-fallback">
+                    <p>Activity graph temporarily unavailable.</p>
+                    <Button variant="ghost" size="sm" asChild>
+                      <a href={`https://github.com/${GH}`} target="_blank" rel="noreferrer">
+                        View activity on GitHub <ArrowUpRight size={14} />
+                      </a>
+                    </Button>
+                  </div>
+                ) : (
+                  <img
+                    src={`https://github-readme-activity-graph.vercel.app/graph?username=${GH}&bg_color=00000000&color=8a8a80&line=7c8f45&point=7c8f45&area=true&area_color=7c8f45&hide_border=true&title_color=8a8a80`}
+                    alt="GitHub commit activity graph"
+                    width={800}
+                    height={300}
+                    style={{ aspectRatio: "800 / 300", width: "100%", height: "auto" }}
+                    loading="lazy"
+                    onError={() => setGraphError(true)}
+                  />
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div style={{ height: "300px" }} />
+        )}
       </div>
     </section>
   );

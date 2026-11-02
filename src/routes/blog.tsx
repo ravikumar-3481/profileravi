@@ -5,17 +5,20 @@ import { seo } from "@/data/portfolio";
 const blogLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Technical Blog & Writing | Ravi Kumar Vishwakarma",
+  "@id": "https://profileravi.vercel.app/blog#webpage",
+  name: "AI & ML Articles | Ravi Kumar Vishwakarma",
   description:
-    "Read articles by Ravi Kumar Vishwakarma on Autonomous AI Agents, Agentic Workflows, Jev AI, LLMs, and Machine Learning Systems.",
+    "Read insightful technical guides by Ravi Kumar Vishwakarma covering machine learning algorithms, RAG pipelines, and modern Python software engineering.",
   url: "https://profileravi.vercel.app/blog",
   author: {
     "@type": "Person",
     name: "Ravi Kumar Vishwakarma",
+    alternateName: ["Ravi Vishwakarma"],
     url: "https://profileravi.vercel.app/",
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
+    "@id": "https://profileravi.vercel.app/blog#breadcrumb",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
       {
@@ -31,11 +34,9 @@ const blogLd = {
 export const Route = createFileRoute("/blog")({
   head: () => ({
     ...seo(
-      "AI & Tech Blog | Ravi Kumar Vishwakarma",
-      "Read in-depth technical articles by Ravi Kumar Vishwakarma on Autonomous AI Agents, Agentic Workflows, Movie Recommendation Systems, Gemini vs Copilot, and LLMs.",
+      "AI & ML Articles | Ravi Kumar Vishwakarma",
+      "Read insightful technical guides by Ravi Kumar Vishwakarma covering machine learning algorithms, RAG pipelines, and modern Python software engineering.",
       "/blog",
-      undefined,
-      "AI Blog, Autonomous AI Agents, Agentic Workflows, LLM Tutorial, Movie Recommendation Machine Learning, Ravi Vishwakarma Dev.to, Tech Articles",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(blogLd) }],
   }),

@@ -5,12 +5,14 @@ import { seo } from "@/data/portfolio";
 const skillsLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Technical Skills & Tools | Ravi Kumar Vishwakarma",
+  "@id": "https://profileravi.vercel.app/skills#webpage",
+  name: "Skills: Python, SQL, React, ML | Ravi Kumar Vishwakarma",
   description:
-    "Comprehensive overview of programming languages, AI frameworks, data science libraries, and development tools mastered by Ravi Kumar Vishwakarma.",
+    "Explore the technical skill set of Ravi Kumar Vishwakarma across Python, SQL, machine learning, React, LangChain, and analytics tools for AI engineering.",
   url: "https://profileravi.vercel.app/skills",
   breadcrumb: {
     "@type": "BreadcrumbList",
+    "@id": "https://profileravi.vercel.app/skills#breadcrumb",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
       {
@@ -26,11 +28,9 @@ const skillsLd = {
 export const Route = createFileRoute("/skills")({
   head: () => ({
     ...seo(
-      "Skills & Technical Stack | Ravi Kumar Vishwakarma",
-      "Explore Ravi Kumar Vishwakarma’s technical skillset: Python, TensorFlow, scikit-learn, LangChain, React, FastAPI, SQL, Power BI, Docker, and Git.",
+      "Skills: Python, SQL, React, ML | Ravi Kumar Vishwakarma",
+      "Explore the technical skill set of Ravi Kumar Vishwakarma across Python, SQL, machine learning, React, LangChain, and analytics tools for AI engineering.",
       "/skills",
-      undefined,
-      "Python, TensorFlow, React, FastAPI, SQL, Power BI, LangChain, RAG, Machine Learning, Data Science Tools, Git, Docker, Ravi Vishwakarma Skills",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(skillsLd) }],
   }),

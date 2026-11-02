@@ -6,12 +6,25 @@ import { seo } from "@/data/portfolio";
 const experienceLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
+  "@id": "https://profileravi.vercel.app/experience#webpage",
   name: "Experience & Education | Ravi Kumar Vishwakarma",
   description:
-    "Professional journey and education of Ravi Kumar Vishwakarma: Data Analyst Intern at Future Interns and Cognifyz Technologies, B.Tech CSE (AI & Data Science) at AKS University.",
+    "Review the work experience, academic education, and practical project milestones of Ravi Kumar Vishwakarma in artificial intelligence and data science.",
   url: "https://profileravi.vercel.app/experience",
+  about: {
+    "@type": "Person",
+    name: "Ravi Kumar Vishwakarma",
+    alternateName: ["Ravi Vishwakarma"],
+    jobTitle: "AI Engineer & Data Scientist",
+    affiliation: {
+      "@type": "EducationalOrganization",
+      name: "AKS University Satna",
+      sameAs: "https://www.aksuniversity.ac.in",
+    },
+  },
   breadcrumb: {
     "@type": "BreadcrumbList",
+    "@id": "https://profileravi.vercel.app/experience#breadcrumb",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
       {
@@ -27,11 +40,9 @@ const experienceLd = {
 export const Route = createFileRoute("/experience")({
   head: () => ({
     ...seo(
-      "Work Experience & Education | Ravi Kumar Vishwakarma",
-      "Explore Ravi Kumar Vishwakarma’s professional journey: Data Analyst internships at Future Interns and Cognifyz Technologies, B.Tech in CSE (AI & Data Science) at AKS University.",
+      "Experience & Education | Ravi Kumar Vishwakarma",
+      "Review the work experience, academic education, and practical project milestones of Ravi Kumar Vishwakarma in artificial intelligence and data science.",
       "/experience",
-      undefined,
-      "Ravi Kumar Vishwakarma Experience, Data Analyst Intern, Future Interns, Cognifyz Technologies, AKS University Satna, AI Education, Data Science Journey",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(experienceLd) }],
   }),

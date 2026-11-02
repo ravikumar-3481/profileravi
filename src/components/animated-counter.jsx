@@ -15,12 +15,10 @@ export function AnimatedCounter({ value, duration = 1.8 }) {
     }
 
     if (!isInView) {
-      // Reset back to initial state when out of view so re-entry counts up
       setDisplayValue("0");
       return;
     }
 
-    // Parse the number and any suffix (e.g., '1.5+', '63+', '124+', '50K+')
     const match = String(value).match(/^([\d.]+)(.*)$/);
     if (!match) {
       setDisplayValue(value);

@@ -2,11 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageIntro, FaqSection, ContactTeaser } from "@/components/portfolio";
 import { seo, faqs } from "@/data/portfolio";
 
+// NOTE(SEO): Google rarely shows FAQ rich results for non-authority/non-government sites
+// following their August 2023 update, but we retain FAQPage schema for structured entity clarity.
 const faqLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "FAQPage",
+      "@id": "https://profileravi.vercel.app/faq#webpage",
       mainEntity: faqs.map(([q, a]) => ({
         "@type": "Question",
         name: q,
@@ -15,6 +18,7 @@ const faqLd = {
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://profileravi.vercel.app/faq#breadcrumb",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
         {
@@ -31,11 +35,9 @@ const faqLd = {
 export const Route = createFileRoute("/faq")({
   head: () => ({
     ...seo(
-      "Frequently Asked Questions | Ravi Kumar Vishwakarma",
-      "Find answers to common questions about Ravi Kumar Vishwakarma’s AI and data science expertise, technology stack, project availability, and collaborations.",
+      "FAQ | Ravi Kumar Vishwakarma",
+      "Find answers to frequently asked questions about Ravi Kumar Vishwakarma, including AI and machine learning experience, tech stacks, and project workflows.",
       "/faq",
-      undefined,
-      "FAQ, Ravi Vishwakarma FAQ, AI Engineer FAQ, Data Scientist Questions, Hiring AI Developer, Technology Stack Questions",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(faqLd) }],
   }),

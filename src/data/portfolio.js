@@ -4,28 +4,50 @@ export { projects };
 
 const SITE_URL = "https://profileravi.vercel.app";
 const IMAGEKIT_BASE = "https://ik.imagekit.io/ravivish3481/img/";
-const DEFAULT_OG_IMAGE = `${IMAGEKIT_BASE}banner.webp`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/banner.png`;
 
-export const imagekit = (name) => {
+export const getImageType = (url) => {
+  if (typeof url !== "string") return undefined;
+  const pathPart = url.split(/[?#]/)[0].toLowerCase();
+  if (pathPart.endsWith(".png")) return "image/png";
+  if (pathPart.endsWith(".jpg") || pathPart.endsWith(".jpeg")) return "image/jpeg";
+  if (pathPart.endsWith(".webp")) return "image/webp";
+  if (pathPart.endsWith(".gif")) return "image/gif";
+  if (pathPart.endsWith(".svg")) return "image/svg+xml";
+  return undefined;
+};
+
+export const imagekit = (name, transform) => {
   if (typeof name !== "string" || !name.trim()) {
     return name;
   }
 
   // Keep absolute URLs unchanged.
-  if (/^https?:\/\//i.test(name)) {
-    return name;
+  let url = name;
+  if (!/^https?:\/\//i.test(name)) {
+    url = `${IMAGEKIT_BASE}${name.replace(/^\/+/, "")}`;
   }
 
-  // Avoid accidental double slashes.
-  return `${IMAGEKIT_BASE}${name.replace(/^\/+/, "")}`;
-};
+  if (transform) {
+    const sep = url.includes("?") ? "&" : "?";
+    return `${url}${sep}tr=${transform}`;
+  }
 
+  return url;
+};
+const resumeID = "1M8tIvQtegWqFx9_DKpJwxOFpfl0DQPfB";
 export const profile = {
   name: "Ravi Kumar Vishwakarma",
   email: "ravivish968@gmail.com",
   github: "https://github.com/ravikumar-3481",
   linkedin: "https://www.linkedin.com/in/ravi-vishwakarma67",
-  resume: "https://drive.google.com/file/d/1M8tIvQtegWqFx9_DKpJwxOFpfl0DQPfB/view",
+  leetcode: "https://leetcode.com/u/ravivish3481/",
+  kaggle: "https://www.kaggle.com/ravivishwakarma0909",
+  topmate: "https://topmate.io/ravi_vishwakarma0",
+  x: "https://x.com/ravikumar3481",
+  instagram: "https://www.instagram.com/i_am_ravi.07",
+  medium: "https://medium.com/@ravivish968",
+  resume: `https://drive.google.com/file/d/${resumeID}/view`,
 };
 
 export const projectName = (p) => (typeof p?.title === "string" ? p.title.split(" - ")[0] : "");
@@ -40,34 +62,10 @@ export const categoryName = (c) => (c === "ai" ? "AI & Machine Learning" : "Deve
  * @param {string} path - Canonical page path.
  * @param {string} image - Absolute image URL or root-relative path.
  */
-export const DEFAULT_KEYWORDS =
-  "Ravi Kumar Vishwakarma, AI Engineer, Data Scientist, Machine Learning Engineer, RAG, LangChain, Python, FastAPI, React, Full-Stack Developer, NLP, Sentiment Analysis, Satna India, AI Portfolio";
-
-/**
- * Generate comprehensive SEO metadata for TanStack Start routes to maximize search ranking.
- *
- * @param {string} title - Page title.
- * @param {string} description - Page description.
- * @param {string} path - Canonical page path.
- * @param {string} image - Absolute image URL or root-relative path.
- * @param {string} customKeywords - Optional custom keywords for this specific route.
- */
-export const seo = (
-  title,
-  description,
-  path = "/",
-  image = DEFAULT_OG_IMAGE,
-  customKeywords = DEFAULT_KEYWORDS,
-) => {
-  const siteName = profile.name;
-  const safeTitle = typeof title === "string" && title.trim() ? title.trim() : siteName;
-
+export const seo = (title, description, path = "/", image = DEFAULT_OG_IMAGE) => {
+  const safeTitle = typeof title === "string" && title.trim() ? title.trim() : profile.name;
+  const fullTitle = safeTitle;
   const safeDescription = typeof description === "string" ? description.trim() : "";
-
-  // Avoid duplicating the profile name in the title.
-  const fullTitle = safeTitle.toLowerCase().includes(siteName.toLowerCase())
-    ? safeTitle
-    : `${safeTitle} | ${siteName}`;
 
   // Normalize the canonical path and exclude query/hash parameters.
   let normalizedPath = typeof path === "string" && path.trim() ? path.trim() : "/";
@@ -109,76 +107,68 @@ export const seo = (
     }
   }
 
-  return {
-    meta: [
-      { title: fullTitle },
-      {
-        name: "description",
-        content: safeDescription,
-      },
-      {
-        name: "keywords",
-        content: customKeywords,
-      },
-      {
-        name: "author",
-        content: "Ravi Kumar Vishwakarma",
-      },
-      {
-        name: "creator",
-        content: "Ravi Kumar Vishwakarma",
-      },
-      {
-        name: "publisher",
-        content: "Ravi Kumar Vishwakarma",
-      },
-      {
-        name: "robots",
-        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      },
-      {
-        name: "googlebot",
-        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      },
+  const isDefaultBanner = imageUrl === DEFAULT_OG_IMAGE;
+  const imageType = getImageType(imageUrl);
 
-      // Geographic tags for local & global ranking
-      { name: "geo.region", content: "IN-MP" },
-      { name: "geo.placename", content: "Satna, Madhya Pradesh, India" },
-      { name: "geo.position", content: "24.5822;80.8299" },
-      { name: "ICBM", content: "24.5822, 80.8299" },
+  const meta = [
+    { title: fullTitle },
+    {
+      name: "description",
+      content: safeDescription,
+    },
+    {
+      name: "author",
+      content: profile.name,
+    },
+    {
+      name: "robots",
+      content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    },
 
-      // Open Graph / Facebook / LinkedIn
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Ravi Kumar Vishwakarma Portfolio" },
-      { property: "og:title", content: fullTitle },
-      {
-        property: "og:description",
-        content: safeDescription,
-      },
-      { property: "og:url", content: pageUrl },
-      { property: "og:image", content: imageUrl },
-      { property: "og:image:secure_url", content: imageUrl },
-      { property: "og:image:alt", content: fullTitle },
+    // Open Graph / Facebook / LinkedIn
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Ravi Kumar Vishwakarma Portfolio" },
+    { property: "og:title", content: fullTitle },
+    {
+      property: "og:description",
+      content: safeDescription,
+    },
+    { property: "og:url", content: pageUrl },
+    { property: "og:image", content: imageUrl },
+    { property: "og:image:alt", content: fullTitle },
+    { property: "og:locale", content: "en_US" },
+  ];
+
+  if (isDefaultBanner) {
+    meta.push(
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:type", content: "image/webp" },
-      { property: "og:locale", content: "en_US" },
+    );
+  }
 
-      // Twitter / X
-      {
-        name: "twitter:card",
-        content: "summary_large_image",
-      },
-      { name: "twitter:title", content: fullTitle },
-      {
-        name: "twitter:description",
-        content: safeDescription,
-      },
-      { name: "twitter:image", content: imageUrl },
-      { name: "twitter:image:alt", content: fullTitle },
-      { name: "twitter:site", content: "@ravikumar3481" },
-      { name: "twitter:creator", content: "@ravikumar3481" },
-    ],
+  if (imageType) {
+    meta.push({ property: "og:image:type", content: imageType });
+  }
+
+  meta.push(
+    // Twitter / X
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    { name: "twitter:title", content: fullTitle },
+    {
+      name: "twitter:description",
+      content: safeDescription,
+    },
+    { name: "twitter:image", content: imageUrl },
+    { name: "twitter:image:alt", content: fullTitle },
+    { name: "twitter:site", content: "@ravikumar3481" },
+    { name: "twitter:creator", content: "@ravikumar3481" },
+  );
+
+  return {
+    meta,
     links: [
       {
         rel: "canonical",

@@ -160,7 +160,7 @@ export function NotFoundPage() {
         </motion.div>
       </div>
       <motion.div className="nf-footer" {...stagger(4)}>
-        <span>PORTFOLIO / RAVI VISHWAKARMA</span>
+        <span>RAVI VISHWAKARMA</span>
         <span>STATUS: EXPLORING</span>
       </motion.div>
     </section>

@@ -35,6 +35,9 @@ export function CookieConsent() {
     try {
       localStorage.setItem("portfolio_cookie_consent", type);
       localStorage.setItem("portfolio_cookie_consent_date", new Date().toISOString());
+      if (typeof window !== "undefined" && type === "accepted") {
+        window.dispatchEvent(new CustomEvent("cookie-consent-accepted"));
+      }
     } catch {}
     setOpen(false);
     setPreferencesOpen(false);
@@ -98,8 +101,8 @@ export function CookieConsent() {
                   <div className="cookie-item-info">
                     <Cookie size={16} className="text-muted-foreground" />
                     <div>
-                      <strong>Analytics (Anonymous)</strong>
-                      <span>Google Analytics (G-M60Q87NFF8) to track page visits anonymously.</span>
+                      <strong>Analytics</strong>
+                      <span>Google Analytics to track page visits anonymously.</span>
                     </div>
                   </div>
                   <span className="cookie-status-badge optional">Optional</span>

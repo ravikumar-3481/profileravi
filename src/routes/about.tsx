@@ -11,17 +11,24 @@ import { seo } from "@/data/portfolio";
 const aboutLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  name: "About Ravi Kumar Vishwakarma",
+  "@id": "https://profileravi.vercel.app/about#webpage",
+  name: "About Ravi Vishwakarma | AI & Data Science Student, India",
   description:
-    "Learn about Ravi Kumar Vishwakarma, an AI Engineer and Data Scientist specializing in machine learning, RAG systems, and data pipelines.",
+    "Learn about Ravi Vishwakarma, an AI and data science student in India building intelligent RAG systems, machine learning models, and modern web apps.",
   mainEntity: {
     "@type": "Person",
-    name: "Ravi Kumar Vishwakarma",
+    name: "Ravi Vishwakarma",
+    alternateName: ["Ravi Kumar Vishwakarma"],
     jobTitle: "AI Engineer & Data Scientist",
-    alumniOf: "AKS University Satna",
+    affiliation: {
+      "@type": "EducationalOrganization",
+      name: "AKS University Satna",
+      sameAs: "https://www.aksuniversity.ac.in",
+    },
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
+    "@id": "https://profileravi.vercel.app/about#breadcrumb",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
       {
@@ -37,11 +44,9 @@ const aboutLd = {
 export const Route = createFileRoute("/about")({
   head: () => ({
     ...seo(
-      "About Ravi Kumar Vishwakarma | AI Engineer & Data Scientist",
-      "Get to know Ravi Kumar Vishwakarma — B.Tech Computer Science student specializing in AI & Data Science, ethical AI, RAG systems, and intelligent applications.",
+      "About Ravi Vishwakarma | AI & Data Science Student, India",
+      "Learn about Ravi Vishwakarma, an AI and data science student in India building intelligent RAG systems, machine learning models, and modern web apps.",
       "/about",
-      undefined,
-      "Ravi Kumar Vishwakarma, About Ravi Vishwakarma, AI Engineer India, Data Scientist Satna, Machine Learning Engineer, AKS University",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(aboutLd) }],
   }),

@@ -502,8 +502,10 @@ export function ProjectCard({ project, index }) {
             <ArrowUpRight size={20} />
           </div>
           <img
-            src={imagekit(project.thumbnail)}
+            src={imagekit(project.thumbnail, "w-800,f-auto")}
             alt={`${projectName(project)} application screenshot`}
+            width={800}
+            height={450}
             loading="lazy"
           />
           <span className="project-image-bottom">{project.result}</span>
@@ -1056,11 +1058,12 @@ export function ContactSection() {
   const socials = [
     [Github, "GitHub", profile.github],
     [Linkedin, "LinkedIn", profile.linkedin],
-    [Code2, "LeetCode", "https://leetcode.com/u/ravivish3481/"],
-    [Database, "Kaggle", "https://www.kaggle.com/ravivishwakarma0909"],
-    [Globe, "Topmate", "https://topmate.io/ravi_vishwakarma0"],
-    [Instagram, "Instagram", "https://www.instagram.com/i_am_ravi.07"],
-    [ExternalLink, "X", "https://x.com/ravikumar3481"],
+    [Code2, "LeetCode", profile.leetcode],
+    [Database, "Kaggle", profile.kaggle],
+    [Globe, "Topmate", profile.topmate],
+    [Instagram, "Instagram", profile.instagram],
+    [ExternalLink, "X", profile.x],
+    [Globe, "Medium", profile.medium],
   ];
 
   return (
@@ -1109,7 +1112,13 @@ export function ContactSection() {
           <div className="form-two">
             <label>
               Your name
-              <input name="name" placeholder="Ravi" required autoComplete="name" maxLength={120} />
+              <input
+                name="name"
+                placeholder="Your Name"
+                required
+                autoComplete="name"
+                maxLength={120}
+              />
             </label>
             <label>
               Email address
@@ -1275,7 +1284,12 @@ export function ImageViewer({ images, index, onClose, download }) {
         <DialogTitle>{active?.label || "Project image"}</DialogTitle>
         <DialogDescription className="sr-only">Project image gallery</DialogDescription>
         <div className={`viewer-image ${zoom ? "zoomed" : ""}`}>
-          <img src={active?.src} alt={active?.label || "Project screenshot"} />
+          <img
+            src={active?.src}
+            alt={active?.label || "Project screenshot"}
+            width={1200}
+            height={675}
+          />
         </div>
         <div className="viewer-controls">
           <span>
@@ -1328,7 +1342,7 @@ export function ProjectDetails({ project }) {
   const [index, setIndex] = useState(null);
   const images = [...new Set([...project.images, ...project.diagrams])].map((name) => ({
     name,
-    src: imagekit(name),
+    src: imagekit(name, "w-1200,f-auto"),
     label: `${projectName(project)} — ${name.replace(/\.(webp|jpg|png|svg)$/, "").replace(/-/g, " ")}`,
   }));
   return (
@@ -1371,8 +1385,11 @@ export function ProjectDetails({ project }) {
           }
         >
           <img
-            src={imagekit(project.thumbnail)}
+            src={imagekit(project.thumbnail, "w-1200,f-auto")}
             alt={`${projectName(project)} application overview`}
+            width={1200}
+            height={675}
+            loading="lazy"
           />
           <span>
             <Maximize2 size={18} />
@@ -1453,7 +1470,7 @@ export function ProjectDetails({ project }) {
                 aria-label={`Enlarge ${image.label}`}
                 onClick={() => setIndex(images.findIndex((i) => i.name === image.name))}
               >
-                <img src={image.src} alt={image.label} loading="lazy" />
+                <img src={image.src} alt={image.label} width={800} height={450} loading="lazy" />
                 <span>
                   {image.label.split(" — ")[1]}
                   <Maximize2 size={17} />

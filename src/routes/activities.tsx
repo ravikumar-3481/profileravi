@@ -11,12 +11,14 @@ import { seo } from "@/data/portfolio";
 const activitiesLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Activities & Open Source | Ravi Kumar Vishwakarma",
+  "@id": "https://profileravi.vercel.app/activities#webpage",
+  name: "Hackathons & Open Source | Ravi Kumar Vishwakarma",
   description:
-    "Open source contributions, hackathons, technical content creation, GitHub statistics, and recommendations for Ravi Kumar Vishwakarma.",
+    "Discover hackathons, open-source projects, and technical workshops completed by Ravi Kumar Vishwakarma, including AI competitions and developer tools.",
   url: "https://profileravi.vercel.app/activities",
   breadcrumb: {
     "@type": "BreadcrumbList",
+    "@id": "https://profileravi.vercel.app/activities#breadcrumb",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://profileravi.vercel.app/" },
       {
@@ -32,11 +34,9 @@ const activitiesLd = {
 export const Route = createFileRoute("/activities")({
   head: () => ({
     ...seo(
-      "Activities & Open Source Contributions | Ravi Kumar Vishwakarma",
-      "Discover Ravi Kumar Vishwakarma’s open source contributions, GitHub activity, hackathon projects, and community recommendations.",
+      "Hackathons & Open Source | Ravi Kumar Vishwakarma",
+      "Discover hackathons, open-source projects, and technical workshops completed by Ravi Kumar Vishwakarma, including AI competitions and developer tools.",
       "/activities",
-      undefined,
-      "Open Source Contributions, GitHub Activity, Hackathons, Technical Writing, Ravi Vishwakarma Community, AI Developer India",
     ),
     scripts: [{ type: "application/ld+json", children: JSON.stringify(activitiesLd) }],
   }),
