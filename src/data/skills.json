@@ -1,18 +1,82 @@
 [
-  { "name": "Python", "icon": "devicon-python-plain colored" },
-  { "name": "TensorFlow", "icon": "devicon-tensorflow-original colored" },
-  { "name": "MySQL", "icon": "devicon-mysql-plain colored" },
-  { "name": "React", "icon": "devicon-react-original colored" },
-  { "name": "Node.js", "icon": "devicon-nodejs-plain colored" },
-  { "name": "Pandas", "icon": "devicon-pandas-plain colored" },
-  { "name": "Numpy", "icon": "devicon-numpy-plain colored" },
-  { "name": "Java", "icon": "devicon-java-plain colored" },
-  { "name": "C++", "icon": "devicon-cplusplus-plain colored" },
-  { "name": "Scikit-Learn", "icon": "devicon-scikitlearn-plain colored" },
-  { "name": "HTML5", "icon": "devicon-html5-plain colored" },
-  { "name": "CSS3", "icon": "devicon-css3-plain colored" },
-  { "name": "JavaScript", "icon": "devicon-javascript-plain colored" },
-  { "name": "Vercel", "icon": "devicon-vercel-original colored" },
-  { "name": "Netlify", "icon": "devicon-netlify-plain colored" },
-  { "name": "Google Cloud", "icon": "devicon-googlecloud-plain colored" }
+  {
+    "name": "Python",
+    "icon": "devicon-python-plain colored",
+    "description": "Primary language for developing AI applications, LLM pipelines, data analysis, and CLI developer tools across Aura Health, NewsPulse AI, and PyCLI."
+  },
+  {
+    "name": "TensorFlow",
+    "icon": "devicon-tensorflow-original colored",
+    "description": "Deep learning framework leveraged for architecting neural network models, sequence modeling, and image classification experiments."
+  },
+  {
+    "name": "MySQL",
+    "icon": "devicon-mysql-plain colored",
+    "description": "Relational database used for structured data persistence, relational query optimization, and schema design across data applications."
+  },
+  {
+    "name": "React",
+    "icon": "devicon-react-original colored",
+    "description": "Component-based UI library utilized with modern tooling (TanStack Router, Vite, Tailwind) to engineer responsive web applications and dashboards."
+  },
+  {
+    "name": "Node.js",
+    "icon": "devicon-nodejs-plain colored",
+    "description": "JavaScript runtime utilized for building server-side endpoints, automation scripts, and full-stack web architectures."
+  },
+  {
+    "name": "Pandas",
+    "icon": "devicon-pandas-plain colored",
+    "description": "High-performance data manipulation library used for data cleaning, aggregation, exploratory data analysis, and pipeline preprocessing."
+  },
+  {
+    "name": "Numpy",
+    "icon": "devicon-numpy-plain colored",
+    "description": "Numerical computation foundation applied for matrix operations, vector math, and optimized array processing in ML algorithms."
+  },
+  {
+    "name": "Java",
+    "icon": "devicon-java-plain colored",
+    "description": "Object-oriented language studied for enterprise architecture, multithreading, and algorithmic data structures during computer science degree coursework."
+  },
+  {
+    "name": "C++",
+    "icon": "devicon-cplusplus-plain colored",
+    "description": "High-efficiency systems language used for algorithmic challenge solving, LeetCode competitive programming, and memory-conscious logic."
+  },
+  {
+    "name": "Scikit-Learn",
+    "icon": "devicon-scikitlearn-plain colored",
+    "description": "Essential machine learning library used for supervised/unsupervised algorithms, evaluation metrics, dimensionality reduction, and model pipelines."
+  },
+  {
+    "name": "HTML5",
+    "icon": "devicon-html5-plain colored",
+    "description": "Semantic web markup standard implemented to guarantee strict web accessibility, responsive document outlines, and Core Web Vitals compliance."
+  },
+  {
+    "name": "CSS3",
+    "icon": "devicon-css3-plain colored",
+    "description": "Modern styling language used alongside Tailwind CSS v4, CSS custom properties, and responsive grid/flexbox layouts for bespoke portfolio themes."
+  },
+  {
+    "name": "JavaScript",
+    "icon": "devicon-javascript-plain colored",
+    "description": "Core language for interactive browser functionality, asynchronous API communication, and frontend dynamic state management."
+  },
+  {
+    "name": "Vercel",
+    "icon": "devicon-vercel-original colored",
+    "description": "Serverless edge cloud deployment platform hosting production web apps with continuous deployment and automated CDN caching."
+  },
+  {
+    "name": "Netlify",
+    "icon": "devicon-netlify-plain colored",
+    "description": "Hosting and continuous deployment service utilized for rapid frontend prototyping, preview branches, and testing environments."
+  },
+  {
+    "name": "Google Cloud",
+    "icon": "devicon-googlecloud-plain colored",
+    "description": "Cloud ecosystem utilized for object storage, cloud compute, API integrations, and scalable AI infrastructure experimentation."
+  }
 ]
