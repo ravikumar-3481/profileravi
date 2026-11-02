@@ -1,17 +1,22 @@
 [
   {
-    "title": "Open Source Contributor"
+    "title": "Open Source Contributor",
+    "description": "Contributes to open-source developer tooling, AI utilities, and Python packages on GitHub, including PyCLI and community repositories."
   },
   {
-    "title": "Participant in Smart India Hackathon"
+    "title": "Participant in Smart India Hackathon",
+    "description": "Collaborated with multidisciplinary engineering teams to build practical prototypes addressing real-world technical problem statements."
   },
   {
-    "title": "Tech Content Creator"
+    "title": "Tech Content Creator",
+    "description": "Publishes detailed technical guides and architectural breakdowns on dev.to and developer blogs covering autonomous AI agents, RAG, and machine learning."
   },
   {
-    "title": "Participant in University Hackthone"
+    "title": "Participant in University Hackathon",
+    "description": "Built and pitched rapid machine learning and data science prototypes under competitive timed constraints at AKS University."
   },
   {
-    "title": "Participate In hacker Rank Orchestrate sep26"
+    "title": "Participant in HackerRank Orchestrate Sep 2024",
+    "description": "Engaged in competitive algorithmic problem solving, core computer science puzzles, and structured coding evaluations."
   }
 ]

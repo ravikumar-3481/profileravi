@@ -153,7 +153,7 @@ export function PortraitHero() {
           </p>
           <Button asChild size="lg">
             <Link to="/projects">
-              Explore my work <ArrowUpRight size={18} />
+              Explore AI & Data Science Projects <ArrowUpRight size={18} />
             </Link>
           </Button>
           <Button variant="ghost" onClick={() => window.dispatchEvent(new Event("open-resume"))}>
