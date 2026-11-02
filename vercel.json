@@ -1,0 +1,39 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://ik.imagekit.io https://ghchart.rshah.org https://streak-stats.demolab.com https://github-readme-activity-graph.vercel.app https://avatars.githubusercontent.com https://*.githubusercontent.com https://dev.to https://media2.dev.to https://res.cloudinary.com https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.github.com https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://dev.to; frame-ancestors 'none';"
+        }
+      ]
+    }
+  ]
+}

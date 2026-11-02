@@ -18,28 +18,31 @@ export const Route = createFileRoute("/projects/$slug")({
       };
     }
     const { project } = loaderData;
-    const title = `${projectName(project)} — ${project.result} | Ravi Kumar Vishwakarma`;
-    const desc = `${project.title}. ${project.problem} ${project.solution}`.slice(0, 160);
+    const title = project.seoTitle || `${projectName(project)} — ${project.result}`;
+    const desc = project.seoDescription || project.result1;
     const slugUrl = `https://profileravi.vercel.app/projects/${project.slug}`;
     const projectLd = {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
+      "@id": `${slugUrl}#software`,
       name: projectName(project),
       headline: project.title,
       description: project.result1,
-      applicationCategory: project.category === "ai" ? "HealthApplication" : "DeveloperApplication",
+      applicationCategory: project.applicationCategory || "SoftwareApplication",
       operatingSystem: "Web Browser / Cross-platform",
       url: slugUrl,
       image: imagekit(project.thumbnail),
       author: {
         "@type": "Person",
         name: "Ravi Kumar Vishwakarma",
+        alternateName: ["Ravi Vishwakarma"],
         url: "https://profileravi.vercel.app/",
       },
       codeRepository: project.codeLink,
       ...(project.liveLink ? { sameAs: project.liveLink } : {}),
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": `${slugUrl}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
@@ -59,13 +62,7 @@ export const Route = createFileRoute("/projects/$slug")({
     };
 
     return {
-      ...seo(
-        title,
-        desc,
-        `/projects/${project.slug}`,
-        project.thumbnail,
-        `${projectName(project)}, ${project.technologies.join(", ")}, Ravi Kumar Vishwakarma, AI Case Study`,
-      ),
+      ...seo(title, desc, `/projects/${project.slug}`, project.thumbnail),
       scripts: [{ type: "application/ld+json", children: JSON.stringify(projectLd) }],
     };
   },

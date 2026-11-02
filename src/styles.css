@@ -2176,6 +2176,16 @@ body {
 .gh-grid .gh-card {
   margin: 0;
 }
+.gh-fallback {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
 .resume-dialog {
   max-width: 820px;
   width: calc(100% - 24px);
@@ -2564,6 +2574,17 @@ body {
 .portrait-title-dot {
   color: var(--accent-text);
 }
+.portrait-subtitle {
+  font-family: var(--font-sans);
+  font-size: max(11px, min(1.8svh, 1.25vw, 15px));
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-top: max(8px, 1.2svh);
+  line-height: 1.4;
+  text-align: center;
+}
 .portrait-cutout {
   position: absolute;
   left: calc(50% - var(--cut) / 2);
@@ -2748,6 +2769,12 @@ body {
   }
   .portrait-title > span:first-child {
     font-size: max(40px, min(6.8svh, 17vw, 68px));
+  }
+  .portrait-subtitle {
+    font-size: max(10px, min(1.6svh, 3vw, 12px));
+    letter-spacing: 0.12em;
+    margin-top: 6px;
+    padding-inline: 12px;
   }
   .portrait-cutout {
     position: relative;
