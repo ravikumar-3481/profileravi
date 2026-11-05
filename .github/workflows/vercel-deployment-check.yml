@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Check out the deployment's commit
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.git.sha || github.sha }}
 
