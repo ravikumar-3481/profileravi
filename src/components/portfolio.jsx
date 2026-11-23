@@ -418,7 +418,7 @@ export function AboutSection({ full = false }) {
     <section className="section container">
       <SectionHeading
         number="01"
-        eyebrow="A LITTLE ABOUT ME"
+        eyebrow="ABOUT ME"
         title={
           <>
             Curious by nature.
@@ -535,7 +535,7 @@ export function FeaturedProjects() {
       <div className="container">
         <SectionHeading
           number="02"
-          eyebrow="SELECTED WORK"
+          eyebrow="FEATURED PROJECTS"
           title={
             <>
               Ideas, made <span className="serif-italic">real.</span>
@@ -750,7 +750,7 @@ export function ActivitiesSection() {
     <section className="section container">
       <SectionHeading
         number="05"
-        eyebrow="BEYOND THE PROJECTS"
+        eyebrow="OTHER ACTIVITY"
         title={
           <>
             A little more <span className="serif-italic">in the making.</span>
@@ -780,7 +780,7 @@ export function GithubSection() {
     <section className="github-section container">
       <div>
         <p className="eyebrow">
-          <Github size={16} /> BUILDING IN THE OPEN
+          <Github size={16} /> GITHUB
         </p>
         <h2>
           Code is better <span className="serif-italic">shared.</span>
@@ -816,7 +816,7 @@ export function TestimonialsSection() {
     <section className="section container">
       <SectionHeading
         number="06"
-        eyebrow="KIND WORDS"
+        eyebrow="TESTIMONIAL"
         title={
           <>
             Good work starts with
@@ -863,7 +863,7 @@ export function BlogSection({ full = false }) {
       <div className="container">
         <SectionHeading
           number="07"
-          eyebrow="NOTES & PERSPECTIVES"
+          eyebrow="FEATURED BLOGS"
           title={
             <>
               Learning out loud.
@@ -911,7 +911,7 @@ export function FaqSection() {
     <section className="section container">
       <div className="faq-grid">
         <div>
-          <p className="eyebrow">08 — A FEW ANSWERS</p>
+          <p className="eyebrow">08 — FAQs</p>
           <h2>
             Good questions.
             <br />
